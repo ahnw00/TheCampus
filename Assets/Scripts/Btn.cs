@@ -20,6 +20,7 @@ public class Btn : MonoBehaviour
         cam = FindFirstObjectByType<Camera>();
         cur_room = "room1";
         rooms = new List<GameObject>(){room1, room2, room3, room4};
+        //
     }
 
     public void GoLeft()
