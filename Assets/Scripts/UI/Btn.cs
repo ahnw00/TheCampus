@@ -20,7 +20,6 @@ public class Btn : MonoBehaviour
         cam = FindFirstObjectByType<Camera>();
         cur_room = "room1";
         rooms = new List<GameObject>(){room1, room2, room3, room4};
-        //
     }
 
     public void GoLeft()
@@ -40,7 +39,7 @@ public class Btn : MonoBehaviour
             {
                 cur_room = rooms[idx - 1].name;
             }
-            Debug.Log(cur_room);
+            //Debug.Log(cur_room);
             if(idx == 0) StartCoroutine(CamCoroutine(rooms[0]));
             else StartCoroutine(CamCoroutine(rooms[idx - 1]));
         }
@@ -63,7 +62,7 @@ public class Btn : MonoBehaviour
             {
                 cur_room = rooms[idx + 1].name;
             }
-            Debug.Log(cur_room);
+            //Debug.Log(cur_room);
             if(idx == 3) StartCoroutine(CamCoroutine(rooms[3]));
             else StartCoroutine(CamCoroutine(rooms[idx + 1]));
         }
