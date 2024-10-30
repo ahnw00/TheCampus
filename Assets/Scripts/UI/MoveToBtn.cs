@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class MoveToBtn : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private MapManager mapManager;
+    [SerializeField] private string targetPlace;
+    
     void Start()
     {
-        
+        mapManager = FindAnyObjectByType<MapManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void MoveTo()
     {
-        
+        NodeClass targetNode = mapManager.nodeMap[targetPlace];
+        mapManager.cur_node.gameObject.SetActive(false);
+        mapManager.cur_node = targetNode;
+        targetNode.gameObject.SetActive(true);
     }
 }

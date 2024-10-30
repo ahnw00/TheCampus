@@ -5,34 +5,40 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    private GraphClass graph = new GraphClass();
-    [SerializeField] private List<NodeClass> nodes = new List<NodeClass>();
-    //{a1, a2, a3, b1, b2, b3, c1, c2, c3}
-    //이렇게 선언해주면 GraphClass의 nodeList는 의미가 없어지는거 아닌가?
-    //그럼 캡슐화는...?
+    [SerializeField] private List<NodeClass> nodes;
+    public Dictionary<string, NodeClass> nodeMap = new Dictionary<string, NodeClass>();
     [HideInInspector] public NodeClass cur_node;
+    [HideInInspector] public List<List<string>> edges = new List<List<string>>(){
+        new List<string> {"A1", "A2"}, new List<string> {"A2", "A3"},
+        new List<string> {"A3", "A1"}, new List<string> {"A1", "B1"},
+        new List<string> {"B1", "B3"}, new List<string> {"B3", "B2"},
+        new List<string> {"B2", "C1"}, new List<string> {"C1", "C2"},
+        new List<string> {"C2", "C3"}
+    };
+
+    public void AddEdge(NodeClass from, NodeClass to)
+    {
+        from.neighbors.Add(to);
+        to.neighbors.Add(from);
+    }
     
     void Awake() 
     {
         foreach(var node in nodes)
-            graph.AddNode(node);
+            nodeMap.Add(node.node_name, node);
 
-        //edge는 노가다로 해줘야하나...?
-        //더 좋은 방법 없을까...
-        graph.AddEdge(nodes[0], nodes[1]);
-        graph.AddEdge(nodes[1], nodes[2]);
-        graph.AddEdge(nodes[2], nodes[0]);
-        graph.AddEdge(nodes[0], nodes[3]);
-        graph.AddEdge(nodes[3], nodes[4]);
-        graph.AddEdge(nodes[4], nodes[5]);
-        graph.AddEdge(nodes[5], nodes[6]);
-        graph.AddEdge(nodes[6], nodes[7]);
-        graph.AddEdge(nodes[7], nodes[8]);
+        NodeClass from, to;
+        foreach(var edge in edges)
+        {
+            from = nodeMap[edge[0]];
+            to = nodeMap[edge[1]];
+            AddEdge(from, to);
+        }
     }
 
     void Start()
     {
-        
+        cur_node = nodeMap["A1"];
     }
 
     // Update is called once per frame
