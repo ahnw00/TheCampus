@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public static MapManager MapManager_Instance { get; private set; }
+
     [SerializeField] private List<NodeClass> nodes;
     public Dictionary<string, NodeClass> nodeMap = new Dictionary<string, NodeClass>();
     [HideInInspector] public NodeClass cur_node;
@@ -46,4 +48,5 @@ public class MapManager : MonoBehaviour
     {
         
     }
+
 }
