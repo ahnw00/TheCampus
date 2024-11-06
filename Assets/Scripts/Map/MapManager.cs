@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public static MapManager MapManager_Instance { get; private set; }
+    private static MapManager instance = null;
 
     [SerializeField] private List<NodeClass> nodes;
     public Dictionary<string, NodeClass> nodeMap = new Dictionary<string, NodeClass>();
@@ -26,7 +26,20 @@ public class MapManager : MonoBehaviour
     
     void Awake() 
     {
-        foreach(var node in nodes)
+        if (instance == null)
+        {
+            instance = this;
+            //DontDestroyOnLoad(this.gameObject); // 씬 전환 시 파괴되지 않도록 설정
+        }
+        else
+        {
+            Debug.Log("MapManager duplicate error, destroying duplicate instance.");
+            //Destroy(this.gameObject); // 중복된 인스턴스를 파괴
+            return;
+        }
+
+
+        foreach (var node in nodes)
             nodeMap.Add(node.node_name, node);
 
         NodeClass from, to;
@@ -47,6 +60,19 @@ public class MapManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public static MapManager MapManager_Instance
+    {
+        get
+        {
+            if (null== instance)
+            {
+                Debug.Log("MapManager is null");
+                return null;
+            }
+            return instance;
+        }
     }
 
 }
