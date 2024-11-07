@@ -13,6 +13,7 @@ public class Monster : MonoBehaviour
     Å»Ãâ Äù½ºÆ® ¶Ç´Â ¼û±â µ¿ÀÛÀ» ÇßÀ» ¶§ ±«¹°Àº »ç¶óÁü Ã³¸®
     */
     string current_monster_node;
+    bool isAcitive = true;
 
     private void Start()
     {
@@ -21,27 +22,32 @@ public class Monster : MonoBehaviour
     }
     public void MonsterActive()
     {
+        isAcitive = true;
         Debug.Log("monster active");
         string current_player_node = getPlayerNode();
-        dijkstra(current_monster_node, current_player_node);
-        /*
-        while(current_monster_node == current_player_node)
+        //dijkstra(current_monster_node, current_player_node);
+        
+        while(current_monster_node != current_player_node && isAcitive)
         {
-            dijkstra(current_monster_node, current_player_node);
+            string monster_next_node = dijkstra(current_monster_node, current_player_node);
+            current_monster_node = monster_next_node;
 
+            if (current_monster_node == current_player_node)
+                Debug.Log("game over");
         }
-        */
+        
     }
 
     public void MonsterDeactive()
     {
-
+        isAcitive = false;
+        Debug.Log("MonsterDeactive");
     }
 
-    void dijkstra(string from, string to)
+    string dijkstra(string from, string to)
     {
         List<string> shortest_path = CalculateShortestPath(from, to);
-        
+        return shortest_path[1];
         
     }
 
