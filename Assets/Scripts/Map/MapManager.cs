@@ -10,18 +10,36 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<NodeClass> nodes;
     public Dictionary<string, NodeClass> nodeMap = new Dictionary<string, NodeClass>();
     [HideInInspector] public NodeClass cur_node;
+    //ì¶”ê°€ëœ ê±° edgeMap
+    [HideInInspector] public Dictionary<string, List<string>> edgeMap = new Dictionary<string, List<string>>();
     [HideInInspector] public List<List<string>> edges = new List<List<string>>(){
-        new List<string> {"A1", "A2"}, new List<string> {"A2", "A3"},
-        new List<string> {"A3", "A1"}, new List<string> {"A1", "B1"},
-        new List<string> {"B1", "B3"}, new List<string> {"B3", "B2"},
-        new List<string> {"B2", "C1"}, new List<string> {"C1", "C2"},
-        new List<string> {"C2", "C3"}
+        new List<string> {"R_Lobby", "LawClassroom"}, new List<string> {"R_Lobby", "ExhibitionHall"},
+        new List<string> {"R_Lobby", "CafeNamu"}, new List<string> {"LawClassroom", "ExhibitionHall"},
+        new List<string> {"R_Lobby", "Playground"}, new List<string> {"R_Lobby", "H_Lobby"},
+        new List<string> {"Playground", "H_Lobby"}, new List<string> {"Playground", "T_Hallway"},
+        new List<string> {"H_Lobby", "Healthroom"}, new List<string> {"H_Lobby", "Clubroom"},
+        new List<string> {"Clubroom", "CentralLibrary"}, new List<string> {"CentralLibrary", "C_Classroom"},
+        new List<string> {"Classroom", "CafeForest"}, new List<string> {"C_Classroom", "C_Hallway"}, 
+        new List<string> {"C_Hallway", "CafeForest"}, new List<string> {"C_Hallway", "T_Hallway"}, 
+        new List<string> {"T_Hallway", "ReadingRoom"}, new List<string> {"T_Hallway", "EngineeringLab"}, 
+        new List<string> {"ReadingRoom", "EngineeringLab"}, new List<string> {"C_Hallway", "OldDormitory"},
     };
 
+    
     public void AddEdge(NodeClass from, NodeClass to)
     {
         from.neighbors.Add(to);
         to.neighbors.Add(from);
+    }
+    public void AddEdges(string from, string to)
+    {
+        edgeMap[from].Add(to);
+        edgeMap[to].Add(from);
+    }
+    public void RemoveEdges(string from, string to)
+    {
+        edgeMap[from].Remove(to);
+        edgeMap[to].Remove(from);
     }
     
     void Awake() 
@@ -29,12 +47,12 @@ public class MapManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            //DontDestroyOnLoad(this.gameObject); // ¾À ÀüÈ¯ ½Ã ÆÄ±«µÇÁö ¾Êµµ·Ï ¼³Á¤
+            //DontDestroyOnLoad(this.gameObject); // ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
         else
         {
             Debug.Log("MapManager duplicate error, destroying duplicate instance.");
-            //Destroy(this.gameObject); // Áßº¹µÈ ÀÎ½ºÅÏ½º¸¦ ÆÄ±«
+            //Destroy(this.gameObject); // ï¿½ßºï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½
             return;
         }
 
@@ -42,12 +60,20 @@ public class MapManager : MonoBehaviour
         foreach (var node in nodes)
             nodeMap.Add(node.node_name, node);
 
-        NodeClass from, to;
-        foreach(var edge in edges)
+        // NodeClass from, to;
+        // foreach(var edge in edges)
+        // {
+        //     from = nodeMap[edge[0]];
+        //     to = nodeMap[edge[1]];
+        //     AddEdge(from, to);
+        // }
+
+        string from, to;
+        foreach(var node in edges)
         {
-            from = nodeMap[edge[0]];
-            to = nodeMap[edge[1]];
-            AddEdge(from, to);
+            from = node[0];
+            to = node[1];
+            AddEdges(from, to);
         }
     }
 
