@@ -9,15 +9,15 @@ using UnityEngine;
 public class Monster : MonoBehaviour 
 {
     /* 
-    ±«¹°Àº Æ¯Á¤ Äù½ºÆ®¸¦ Å¬¸®¾î ÇßÀ» ¶§ µîÀåÇØ ÇÃ·¹ÀÌ¾î¸¦ ÂÑ¾Æ¿Â´Ù.
-    Å»Ãâ Äù½ºÆ® ¶Ç´Â ¼û±â µ¿ÀÛÀ» ÇßÀ» ¶§ ±«¹°Àº »ç¶óÁü Ã³¸®
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½Ñ¾Æ¿Â´ï¿½.
+    Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
     */
     string current_monster_node;
     bool isAcitive = true;
 
     private void Start()
     {
-        current_monster_node = "C3";
+        current_monster_node = "T_Hallway";
         MonsterActive();
     }
     public void MonsterActive()
@@ -51,66 +51,66 @@ public class Monster : MonoBehaviour
         
     }
 
-    //ÃÖ´Ü°Å¸® ¹ÝÈ¯
+    //ï¿½Ö´Ü°Å¸ï¿½ ï¿½ï¿½È¯
     public List<string> CalculateShortestPath(string start_node_name, string end_node_name)
     {
-        var from_start_distance = new Dictionary<string, int>(); //start·ÎºÎÅÍ ¸ðµç ³ëµå »çÀÌ ÃÖ´Ü °Å¸®
-        var previousNode = new Dictionary<string, string>(); // °¢ ³ëµå·ÎÀÇ ÀÌÀü ³ëµå¸¦ ÀúÀå
+        var from_start_distance = new Dictionary<string, int>(); //startï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Å¸ï¿½
+        var previousNode = new Dictionary<string, string>(); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
         var priority_queue = new SortedSet<(int distance, string node)>();
-        List<string> nodes = MapManager.MapManager_Instance.nodeMap.Keys.ToList(); //graphÀÇ ³ëµå ¸®½ºÆ®
+        List<string> nodes = MapManager.MapManager_Instance.nodeMap.Keys.ToList(); //graphï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 
-        //½ÃÀÛ ³ëµå¸¦ Á¦¿ÜÇÑ ¸ðµç ³ëµå ÃÖ´ë°ª ÀÔ·Â
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ë°ª ï¿½Ô·ï¿½
         foreach (var node in nodes)
         {
             from_start_distance.Add(node, int.MaxValue);
-            previousNode[node] = null; // ÀÌÀü ³ëµå¸¦ null·Î ÃÊ±âÈ­
+            previousNode[node] = null; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ nullï¿½ï¿½ ï¿½Ê±ï¿½È­
         }
         from_start_distance[start_node_name] = 0;
 
         priority_queue.Add((0, start_node_name));
 
 
-        //priority_queue°¡ ¸ðµÎ ºñ¿öÁö¸é Á¾·á
+        //priority_queueï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         while (priority_queue.Count > 0)
         {
             var (currentDistance, currentNode) = priority_queue.Min;
             priority_queue.Remove(priority_queue.Min);
 
-            //ÇöÀç ³ëµåÀÇ °Å¸®°¡ ÀÌ¹Ì ÃÖ´Ü °Å¸®º¸´Ù Å« °æ¿ì ¹Ýº¹¹® ¹«½Ã
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ö´ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (currentDistance > from_start_distance[currentNode])
                 continue;
 
-            //ÇöÀç ³ëµåÀÇ ÀÎÁ¢³ëµå ¸ðµÎ ¹æ¹®
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½æ¹®
             foreach (var edge in MapManager.MapManager_Instance.nodeMap[currentNode].neighbors)
             {
-                string neighborNode = edge.node_name;  // ÀÌ¿ô ³ëµåÀÇ ÀÌ¸§
-                int new_distance = currentDistance + 1;  // °¡ÁßÄ¡ 1 (ÇÊ¿ä¿¡ µû¶ó edgeÀÇ °¡ÁßÄ¡¸¦ »ç¿ëÇÒ ¼ö ÀÖÀ½)
+                string neighborNode = edge.node_name;  // ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+                int new_distance = currentDistance + 1;  // ï¿½ï¿½ï¿½ï¿½Ä¡ 1 (ï¿½Ê¿ä¿¡ ï¿½ï¿½ï¿½ï¿½ edgeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-                // »õ·Î¿î °æ·Î°¡ ´õ ÂªÀ¸¸é °Å¸® °»½Å
+                // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ Âªï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if (new_distance < from_start_distance[neighborNode])
                 {
-                    // ±âÁ¸ ¿ì¼±¼øÀ§ Å¥ÀÇ °ªÀ» °»½ÅÇÏ±â À§ÇØ Á¦°Å ÈÄ Ãß°¡
+                    // ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß°ï¿½
                     priority_queue.Remove((from_start_distance[neighborNode], neighborNode));
                     from_start_distance[neighborNode] = new_distance;
                     priority_queue.Add((new_distance, neighborNode));
 
-                    previousNode[neighborNode] = currentNode;  // ÃÖ´Ü °Å¸®·Î °»½Å, ³ëµå¸¦ ±â·Ï
+                    previousNode[neighborNode] = currentNode;  // ï¿½Ö´ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½
                 }
             }
         }
 
-        // ÃÖ´Ü °æ·Î Àç±¸¼º
+        // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ç±¸ï¿½ï¿½
         List <string> path = new List<string>();
         string step = end_node_name;
 
-        // ½ÃÀÛ ³ëµå¿¡¼­ Å¸°Ù ³ëµå±îÁö °Å²Ù·Î °æ·Î¸¦ ÃßÀû
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å²Ù·ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         while (step != null)
         {
-            path.Insert(0, step); // °æ·ÎÀÇ ¾ÕºÎºÐ¿¡ Ãß°¡
+            path.Insert(0, step); // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÕºÎºÐ¿ï¿½ ï¿½ß°ï¿½
             step = previousNode[step];
         }
 
-        // ½ÃÀÛ ³ëµå¿Í Å¸°Ù ³ëµå°¡ ¿¬°áµÇÁö ¾ÊÀº °æ¿ì ºó ¸®½ºÆ® ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
         if (path[0] != start_node_name)
             path.Clear();
 
@@ -119,9 +119,9 @@ public class Monster : MonoBehaviour
         return path;
     }
 
-    string getPlayerNode() //ÀÓ½Ã
+    string getPlayerNode() //ï¿½Ó½ï¿½
     {
-        return "A1";
+        return "R_Lobby";
     }
 
     void printDijkstra(Dictionary<string, int> dijkstra, List<string> path)

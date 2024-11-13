@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private Camera cam;
+    public Camera cam;
     private RaycastHit2D hit;
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             Debug.DrawRay(mousePos, rayDir * 10, Color.red, 0.5f);
             hit = Physics2D.Raycast(mousePos, rayDir, 10f);
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
             DetectedFunction();
         }
     }
