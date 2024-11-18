@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MoveToBtn : MonoBehaviour
+public class MoveToBtn : Clickable
 {
     private MapManager mapManager;
     [SerializeField] private string targetPlace;
@@ -11,7 +11,7 @@ public class MoveToBtn : MonoBehaviour
     {
         mapManager = MapManager.MapManager_Instance;
     }
-    public void MoveTo()
+    public override void Clicked()
     {
         NodeClass targetNode = mapManager.nodeMap[targetPlace];
         //Debug.Log(targetNode.node_name);

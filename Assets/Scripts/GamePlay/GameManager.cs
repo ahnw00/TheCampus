@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private InventoryManager invenMng;
     public Camera cam;
     private RaycastHit2D hit;
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        cam = FindAnyObjectByType<Camera>();
+        //cam = FindAnyObjectByType<Camera>();
+        invenMng = InventoryManager.InvenManager_Instance;
     }
 
     // Update is called once per frame
@@ -29,10 +32,10 @@ public class GameManager : MonoBehaviour
 
     void DetectedFunction()
     {
-        if(hit && hit.collider.GetComponent<MoveToBtn>())
+        if(hit && hit.collider.GetComponent<Clickable>() && !invenMng.isInvenOpened)
         {
-            MoveToBtn btn = hit.collider.GetComponent<MoveToBtn>();
-            btn.MoveTo();
+            Clickable obj = hit.collider.GetComponent<Clickable>();
+            obj.Clicked();
         }
     }
 }
