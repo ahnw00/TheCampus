@@ -105,4 +105,9 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public List<NodeClass> returnNodes()
+    {
+        return nodes;
+    }
+
 }

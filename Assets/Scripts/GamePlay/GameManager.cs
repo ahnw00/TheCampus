@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
 
+    //관리할 퀘스트와 아이템들
+    public List<Quest> Quests = new List<Quest>();
+    public List<Item> Items = new List<Item>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
