@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7514777095970433622}
+  - component: {fileID: 3658025496689917612}
   m_Layer: 5
   m_Name: CraftSlot
   m_TagString: Untagged
@@ -112,6 +113,18 @@ RectTransform:
   m_AnchoredPosition: {x: -350, y: -220}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3658025496689917612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065838126514379979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681be8b57d0d39942877728aca3fef9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8399368614212368660
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +136,8 @@ GameObject:
   - component: {fileID: 8178697240416450053}
   - component: {fileID: 5509897165394067204}
   - component: {fileID: 704074112823188943}
+  - component: {fileID: 8095137237789606349}
+  - component: {fileID: 3249853622040942541}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -187,3 +202,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8095137237789606349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399368614212368660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520698df2bb457f4e90d0b2a9b29ad69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  originalParent: {fileID: 0}
+--- !u!225 &3249853622040942541
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399368614212368660}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
