@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
 public enum QuestStatus
@@ -10,37 +11,32 @@ public enum QuestStatus
     Completed
 }
 
-public abstract class Quest : MonoBehaviour
+public abstract class Quest
 {
     protected string questName; //퀘스트 이름
     protected int questNumber; //퀘스트 구별을 위한 넘버링
     public QuestStatus questStatus = QuestStatus.NotStarted; //모든 퀘스트는 시작 
     protected List<Item> requiredItems; //퀘스트 클리어시 필요한 아이템이 있다면 사용
+    
     public Quest(string questName, int questNumber, List<Item> requiredItems)
     {//퀘스트 생성자
         this.questName = questName;
+        this.questNumber = questNumber;
         this.requiredItems = requiredItems;
         questStatus = QuestStatus.NotStarted;
+        InitializeQuest();//퀘스트 생성시 필요한 것들 초기화
     }
-    
     public virtual void StartQuest()
-    {
+    {//퀘스트가 시작할때 실행
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            Debug.Log($"{questName} 퀘스트 시작");
+            Debug.Log(this.questName + "start");
             OnQuestStarted(); //개별 퀘스트 내용
         }
     }
     protected abstract void OnQuestStarted();
-    public virtual void InitializeQuest()
-    {
-        if (questStatus == QuestStatus.InProgress)
-        {
-            questStatus = QuestStatus.NotStarted;
-            Debug.Log($"{questName} 퀘스트 초기화");
-        }
-    }
+    public virtual void InitializeQuest() { }
 
     public virtual void CheckCompletion()
     {//퀘스트 클리어 조건, 필요시 overriding 가능
@@ -67,16 +63,3 @@ public abstract class Quest : MonoBehaviour
     }
 }
 
-public class CafeNamu : Quest
-{//퀘스트 예시
-    public CafeNamu() : base("CafeNamu_SubQuest", 0, null) { }
-    protected override void OnQuestStarted()
-    {
-        Debug.Log($"{questName} start");
-    }
-
-    protected override void OnQuestCompleted()
-    {
-        Debug.Log($"{questName} clear");
-    }
-}

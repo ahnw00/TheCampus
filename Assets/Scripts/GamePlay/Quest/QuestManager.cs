@@ -6,6 +6,7 @@ public class QuestManager : MonoBehaviour
 {
     private static QuestManager instance = null;
     [SerializeField] Button[] buttons;
+    [SerializeField] GameObject[] questPanels;
     private Dictionary<Button, Quest> buttonQuestMap = new Dictionary<Button, Quest>(); // 버튼-퀘스트 매핑
 
 
@@ -38,9 +39,9 @@ public class QuestManager : MonoBehaviour
         }
     }
     private void InitializeQuests()
-    {//여기서 모든 퀘스트를 초기화하고 등록한다
+    {//여기서 모든 퀘스트를 초기화하고 퀘스트 매니저에 등록한다
         CafeNamu cafeNamu = new CafeNamu();
-        buttonQuestMap.Add(buttons[cafeNamu.QuestNumber()], cafeNamu);
+        buttonQuestMap.Add(buttons[cafeNamu.QuestNumber()], cafeNamu); //buttonQuestMap[0, cafeNamu]
     }
     private void InitializeButtons()
     {
@@ -57,11 +58,24 @@ public class QuestManager : MonoBehaviour
         if (buttonQuestMap.ContainsKey(clickedButton))
         {//버튼-퀘스트 매핑이 올바르다면
             Quest quest = buttonQuestMap[clickedButton];
-            quest.StartQuest();
+            if (quest != null && quest.questStatus == QuestStatus.NotStarted) 
+            {//퀘스트가 존재하고 처음 실행했을때만 한번 실행
+                Debug.Log("퀘스트처음실행");
+                quest.StartQuest();
+            }
         }
         else
         {
             Debug.LogError("null quest mapped");
         }
+    }
+
+    public Button GetQuestPanelButton(int num)
+    {
+        return buttons[num];
+    }
+    public GameObject GetQuestPanelObject(int num)
+    {
+        return questPanels[num];
     }
 }
