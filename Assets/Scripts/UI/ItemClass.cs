@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ItemClass : MonoBehaviour
 {
@@ -32,5 +33,11 @@ public class ItemClass : MonoBehaviour
         {
             this.GetComponent<RectTransform>().position = originPos;
         }
+    }
+
+    public void OnPointerClick()
+    {
+        Debug.Log($"{gameObject.name} item clicked");
+        InventoryManager.InvenManager_Instance.SetLastClickedItem(this);
     }
 }

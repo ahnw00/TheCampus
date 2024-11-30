@@ -5,6 +5,7 @@ public class InventoryManager : MonoBehaviour
     private static InventoryManager instance = null;
     [SerializeField] private GameObject inventory;
     public bool isInvenOpened;
+    public ItemClass LastClickedItem {  get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,5 +46,12 @@ public class InventoryManager : MonoBehaviour
             }
             return instance;
         }
+    }
+
+    public void SetLastClickedItem(ItemClass item)
+    {
+        if (item == null) return;
+        LastClickedItem = item;
+        Debug.Log($"last clicked item updated : {item.name}");
     }
 }
