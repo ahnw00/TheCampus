@@ -25,15 +25,15 @@ public class Monster : MonoBehaviour
         MonsterActive();
         FloydWarshallAlgorithm();
         shortest_path = GetPath(current_monster_node, current_player_node, next);
-        foreach(var i in shortest_path)
-        {
-            Debug.Log(i);
-        }
+        //foreach(var i in shortest_path)
+        //{
+        //    Debug.Log(i);
+        //}
     }
     public void MonsterActive()
     {
         isAcitive = true;
-        Debug.Log("monster active");
+        //Debug.Log("monster active");
         
 
         /* 폐기한 다익스트라
@@ -54,7 +54,7 @@ public class Monster : MonoBehaviour
     public void MonsterDeactive()
     {
         isAcitive = false;
-        Debug.Log("MonsterDeactive");
+        //Debug.Log("MonsterDeactive");
     }
     
     public static void FloydWarshallAlgorithm()
