@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-    public ItemClass curItem = null;
+    public ItemClass curItem = null; //현재 슬롯 위에 있는 아이템
 
     private void Start()
     {

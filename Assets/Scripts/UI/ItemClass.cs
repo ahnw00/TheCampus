@@ -46,7 +46,7 @@ public class ItemClass : MonoBehaviour
 
     public void OnPointerClick()
     {
-        Debug.Log($"{gameObject.name} item clicked");
+        //Debug.Log($"{gameObject.name} item clicked");
         InventoryManager.InvenManager_Instance.SetLastClickedItem(this);
     }
 }

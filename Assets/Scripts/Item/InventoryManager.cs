@@ -1,10 +1,11 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    private DataManager dataManager;
     private SaveDataClass saveData;
     private static InventoryManager instance = null;
     [SerializeField] private GameObject inventory;
@@ -28,38 +29,51 @@ public class InventoryManager : MonoBehaviour
             //Destroy(this.gameObject);
         }
         isInvenOpened = inventory.activeSelf;
-        saveData = DataManager.Instance.saveData;
+
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
         itemList = saveData.itemList;
 
+        SetItemsOnInven();
+    }
+
+    public void SetItemsOnInven()
+    {
         GameObject prefab;
         string path;
         int slotIdx = 0;
-        foreach(var item in itemList)
+        foreach (var item in itemList)
         {
             path = "Prefabs/Item/" + item;
             prefab = Resources.Load<GameObject>(path);
-            prefab = Instantiate(prefab, slotList[slotIdx].transform) as GameObject;
+            prefab = Instantiate(prefab, slotList[slotIdx].transform);
             slotList[slotIdx].curItem = prefab.GetComponent<ItemClass>();
             slotIdx++;
         }
     }
 
-    public void CheckInvenOpened()
+    //인벤토리를 닫을 때 실행되는 함수
+    public void SaveItems() //아이템 리스트를 초기화하면서 저장 후 인벤에 올려놓음
     {
-        if(!isInvenOpened) isInvenOpened = true;
-        else isInvenOpened = false;
-    }
-
-    public void CloseInventory()
-    {
-
+        saveData.itemList.Clear();
+        foreach(var slot in slotList)
+        {
+            if(slot.curItem)
+            {
+                string temp = slot.curItem.name.Replace("(Clone)", "");
+                saveData.itemList.Add(temp);
+                Destroy(slot.curItem.gameObject);
+            }
+        }
+        dataManager.Save();
+        SetItemsOnInven();
     }
 
     public void SetLastClickedItem(ItemClass item)
     {
         if (item == null) return;
         LastClickedItem = item;
-        Debug.Log($"last clicked item updated : {item.name}");
+        //Debug.Log($"last clicked item updated : {item.name}");
     }
 
     public static InventoryManager InvenManager_Instance
