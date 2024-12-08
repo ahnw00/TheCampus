@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private InventoryManager invenMng;
+    private static GameManager instance;
     public Camera cam;
     private RaycastHit2D hit;
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
+    public bool isUiOpened = false;
 
     //관리할 퀘스트와 아이템들
     public List<Quest> Quests = new List<Quest>();
@@ -17,8 +18,16 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            //Destroy(this.gameObject);
+        }
         //cam = FindAnyObjectByType<Camera>();
-        invenMng = InventoryManager.InvenManager_Instance;
     }
 
     // Update is called once per frame
@@ -36,10 +45,19 @@ public class GameManager : MonoBehaviour
 
     void DetectedFunction()
     {
-        if(hit && hit.collider.GetComponent<Clickable>() && !invenMng.isInvenOpened)
+        if(hit && hit.collider.GetComponent<Clickable>() && !isUiOpened)
         {
             Clickable obj = hit.collider.GetComponent<Clickable>();
             obj.Clicked();
+        }
+    }
+
+    public static GameManager GameManager_Instance
+    {
+        get
+        {
+            if (!instance) return null;
+            return instance;
         }
     }
 }

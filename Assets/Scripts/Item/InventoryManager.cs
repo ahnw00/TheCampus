@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     private SaveDataClass saveData;
     private static InventoryManager instance = null;
     [SerializeField] private GameObject inventory;
-    public bool isInvenOpened;
+    //public bool isInvenOpened;
     public ItemClass LastClickedItem {  get; private set; }
 
     [SerializeField] private List<ItemSlot> slotList = new List<ItemSlot>();
@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("MapManager duplicate error, destroying duplicate instance.");
             //Destroy(this.gameObject);
         }
-        isInvenOpened = inventory.activeSelf;
+        //isInvenOpened = inventory.activeSelf;
 
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
@@ -67,6 +67,7 @@ public class InventoryManager : MonoBehaviour
         }
         dataManager.Save();
         SetItemsOnInven();
+        GameManager.GameManager_Instance.isUiOpened = false;
     }
 
     public void SetLastClickedItem(ItemClass item)

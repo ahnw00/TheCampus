@@ -35,13 +35,13 @@ public class QuestManager : MonoBehaviour
     }
 
 
-    //Å¬¸¯µÈ Äù½ºÆ® ÃÖÃÊ ½ÇÇà
+    //Ã…Â¬Â¸Â¯ÂµÃˆ Ã„Ã¹Â½ÂºÃ†Â® ÃƒÃ–ÃƒÃŠ Â½Ã‡Ã‡Ã 
     public void OnQuestPanelClicked(GameObject questObject)
     {
         Quest quest = questObject.GetComponent<Quest>();
         if (quest != null && quest.questStatus == QuestStatus.NotStarted)
-        {//Äù½ºÆ®°¡ Á¸ÀçÇÏ°í Ã³À½ ½ÃÀÛÇßÀ»¶§¸¸ ÇÑ¹ø ½ÇÇà
-            Debug.Log(quest.QuestName() + " ÃÖÃÊ½ÇÇà");
+        {//Ã„Ã¹Â½ÂºÃ†Â®Â°Â¡ ÃÂ¸Ã€Ã§Ã‡ÃÂ°Ã­ ÃƒÂ³Ã€Â½ Â½ÃƒÃ€Ã›Ã‡ÃŸÃ€Â»Â¶Â§Â¸Â¸ Ã‡Ã‘Â¹Ã¸ Â½Ã‡Ã‡Ã 
+            Debug.Log(quest.QuestName() + " ÃƒÃ–ÃƒÃŠÂ½Ã‡Ã‡Ã ");
             quest.StartQuest();
         }
     }

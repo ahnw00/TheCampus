@@ -4,19 +4,16 @@ using UnityEngine.UI;
 
 public class CafeNamu : Quest
 {//퀘스트 예시
-    [SerializeField] private GameObject cafeNamu_SubQuest;
-    [SerializeField] private GameObject quit;
     [SerializeField] private GameObject water;
-    private int waterClicked = 3;
+    private int waterClicked = 0;
 
     public override void Start()
     {
+        inventoryManager = InventoryManager.InvenManager_Instance;
+
         questName = "CafeNamu_SubQuest";
         questNumber = 0;
         requiredItems = null;
-        cafeNamu_SubQuest.SetActive(false);
-        quit.SetActive(true);
-        water.SetActive(true);
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
@@ -32,16 +29,22 @@ public class CafeNamu : Quest
         Debug.Log($"item picture 3 get");
     }
 
-    public override void Clicked()
+    //public override void Clicked()
+    //{
+    //    //Debug.Log("clicked");
+    //}
+
+    public void OnClose()
     {
-        //Debug.Log("clicked");
+        GameManager.GameManager_Instance.isUiOpened = false;
     }
 
-    private void OnWaterClicked()
+    public void OnWaterClicked()
     {//물이 클릭되었을때
-        if(waterClicked > 0)
+        //if(inventoryManager.LastClickedItem)
+        if(waterClicked < 2)
         {
-            waterClicked--;
+            waterClicked++;
             Debug.Log(waterClicked);
         }
         else

@@ -12,12 +12,13 @@ public enum QuestStatus
     Completed
 }
 
-public abstract class Quest : Clickable
+public abstract class Quest : MonoBehaviour
 {
     protected string questName; //퀘스트 이름
     protected int questNumber; //퀘스트 구별을 위한 넘버링
     public QuestStatus questStatus = QuestStatus.NotStarted; //모든 퀘스트는 시작 
     protected List<Item> requiredItems; //퀘스트 클리어시 필요한 아이템이 있다면 사용
+    protected InventoryManager inventoryManager;
 
     /*
     public Quest(string questName, int questNumber, List<Item> requiredItems)
