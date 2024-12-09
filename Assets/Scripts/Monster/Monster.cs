@@ -21,7 +21,7 @@ public class Monster : MonoBehaviour
     private void Start()
     {
         current_monster_node = MapManager.MapManager_Instance.nodeMap["EngineeringLab"];
-        current_player_node = MapManager.MapManager_Instance.nodeMap["R_Lobby"];
+        current_player_node = MapManager.MapManager_Instance.nodeMap["R_Lobby_1F"];
         MonsterActive();
         FloydWarshallAlgorithm();
         shortest_path = GetPath(current_monster_node, current_player_node, next);

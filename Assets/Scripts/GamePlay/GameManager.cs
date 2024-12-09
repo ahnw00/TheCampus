@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void TurnOffUI()
+    {
+        isUiOpened = false;
+    }
+
     void DetectedFunction()
     {
         if(hit && hit.collider.GetComponent<Clickable>() && !isUiOpened)

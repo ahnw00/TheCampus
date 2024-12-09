@@ -15,9 +15,10 @@ public class MapManager : MonoBehaviour
     //추가된 거 edgeMap
     [HideInInspector] public Dictionary<string, List<string>> edgeMap = new Dictionary<string, List<string>>();
     [HideInInspector] public List<List<string>> edges = new List<List<string>>(){
-        new List<string> {"R_Lobby", "LawClassroom"}, new List<string> {"R_Lobby", "ExhibitionHall"},
-        new List<string> {"R_Lobby", "CafeNamu"}, new List<string> {"LawClassroom", "ExhibitionHall"},
-        new List<string> {"R_Lobby", "Playground"}, new List<string> {"R_Lobby", "H_Lobby"},
+        new List<string> {"R_Lobby_1F", "LawClassroom"}, new List<string> {"R_Lobby_2F", "ExhibitionHall"},
+        new List<string> {"R_Lobby_1F", "CafeNamu"}, new List<string> {"LawClassroom", "ExhibitionHall"},
+        new List<string> {"R_Lobby_1F", "Playground"}, new List<string> {"R_Lobby_2F", "H_Lobby"},
+        new List<string> {"R_Lobby_1F", "R_Lobby_2F"},
         new List<string> {"Playground", "H_Lobby"}, new List<string> {"Playground", "T_Hallway"},
         new List<string> {"H_Lobby", "Healthroom"}, new List<string> {"H_Lobby", "Clubroom"},
         new List<string> {"Clubroom", "CentralLibrary"}, new List<string> {"CentralLibrary", "C_Classroom"},
@@ -82,7 +83,7 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        cur_node = nodeMap["R_Lobby"];
+        cur_node = nodeMap["R_Lobby_1F"];
         playerOnMinimap.transform.position = cur_node.posOnMap.position;
     }
 

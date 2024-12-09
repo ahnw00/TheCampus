@@ -34,11 +34,6 @@ public class CafeNamu : Quest
     //    //Debug.Log("clicked");
     //}
 
-    public void OnClose()
-    {
-        GameManager.GameManager_Instance.isUiOpened = false;
-    }
-
     public void OnWaterClicked()
     {//물이 클릭되었을때
         //if(inventoryManager.LastClickedItem)

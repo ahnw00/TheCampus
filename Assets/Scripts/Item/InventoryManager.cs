@@ -9,7 +9,6 @@ public class InventoryManager : MonoBehaviour
     private SaveDataClass saveData;
     private static InventoryManager instance = null;
     [SerializeField] private GameObject inventory;
-    //public bool isInvenOpened;
     public ItemClass LastClickedItem {  get; private set; }
 
     [SerializeField] private List<ItemSlot> slotList = new List<ItemSlot>();
@@ -52,8 +51,8 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //인벤토리를 닫을 때 실행되는 함수
-    public void SaveItems() //아이템 리스트를 초기화하면서 저장 후 인벤에 올려놓음
+    //function that called when inven closed
+    public void SaveItems() //reset item list and save, then set items on inven
     {
         saveData.itemList.Clear();
         foreach(var slot in slotList)
@@ -83,7 +82,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (null == instance)
             {
-                Debug.Log("MapManager is null");
+                Debug.Log("InvenManager is null");
                 return null;
             }
             return instance;

@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
 {
     private static QuestManager instance = null;
     [SerializeField] private List<GameObject> questPanels;
+    [SerializeField] private GameObject inventoryBtn;
     void Start()
     {
         if (instance == null)
@@ -36,12 +37,14 @@ public class QuestManager : MonoBehaviour
 
 
     //Å¬¸¯µÈ Äù½ºÆ® ÃÖÃÊ ½ÇÇà
-    public void OnQuestPanelClicked(GameObject questObject)
+    public void OnQuestBtnClicked(GameObject questObject)
     {
         Quest quest = questObject.GetComponent<Quest>();
         if (quest != null && quest.questStatus == QuestStatus.NotStarted)
         {//Äù½ºÆ®°¡ Á¸ÀçÇÏ°í Ã³À½ ½ÃÀÛÇßÀ»¶§¸¸ ÇÑ¹ø ½ÇÇà
             Debug.Log(quest.QuestName() + " ÃÖÃÊ½ÇÇà");
+            if(quest.QuestName() == "LawClassroom_SubQuest")
+                inventoryBtn.SetActive(false);
             quest.StartQuest();
         }
     }
