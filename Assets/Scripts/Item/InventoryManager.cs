@@ -33,10 +33,10 @@ public class InventoryManager : MonoBehaviour
         saveData = dataManager.saveData;
         itemList = saveData.itemList;
 
-        SetItemsOnInven();
+        SetItemsOnInven(slotList);
     }
 
-    public void SetItemsOnInven()
+    public void SetItemsOnInven(List<ItemSlot> slotList)
     {
         GameObject prefab;
         string path;
@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
         dataManager.Save();
-        SetItemsOnInven();
+        SetItemsOnInven(slotList);
         GameManager.GameManager_Instance.isUiOpened = false;
     }
 
