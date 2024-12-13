@@ -12,12 +12,12 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         col.GetComponent<ItemClass>().detectedSlot = this;
     }
 
-    private void OnTriggerExit2D(Collider2D col)
+    protected virtual void OnTriggerExit2D(Collider2D col)
     {
         if(curItem == col.GetComponent<ItemClass>() || !curItem)
         {

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
     private RaycastHit2D hit;
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
-    public bool isUiOpened = false;
+    public bool isUiOpened = false; //***** uiê»ë‹¤ í‚¬ë•Œ ë°”ê¿”ì£¼ì–´ì•¼í•¨
 
-    //°ü¸®ÇÒ Äù½ºÆ®¿Í ¾ÆÀÌÅÛµé
+    //Â°Ã¼Â¸Â®Ã‡Ã’ Ã„Ã¹Â½ÂºÃ†Â®Â¿Ã Â¾Ã†Ã€ÃŒÃ…Ã›ÂµÃ©
     public List<Quest> Quests = new List<Quest>();
     public List<Item> Items = new List<Item>();
+    [SerializeField] private GameObject map;
+    [SerializeField] private GameObject miniMap;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,6 +57,20 @@ public class GameManager : MonoBehaviour
             Clickable obj = hit.collider.GetComponent<Clickable>();
             obj.Clicked();
         }
+    }
+
+    public void PopUpMiniMap()
+    {
+        miniMap.SetActive(false);
+        Vector3 temp = map.transform.position;
+        cam.transform.position = new Vector3(temp.x, temp.y, -10f);
+        cam.orthographicSize = 42f;
+    }
+    public void PopOutMiniMap()
+    {
+        miniMap.SetActive(true);
+        cam.transform.position = new Vector3(0, 0, -10f);
+        cam.orthographicSize = 5.4f;
     }
 
     public static GameManager GameManager_Instance

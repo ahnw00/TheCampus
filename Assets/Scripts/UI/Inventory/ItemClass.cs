@@ -6,6 +6,12 @@ public class ItemClass : MonoBehaviour
     public ItemSlot detectedSlot; //감지된 슬롯(감지될 때마다 바뀜)
     public ItemSlot originSlot; //이동하기 전에 있었던 슬롯을 저장
     private Vector2 originPos = new Vector2(0, 0);
+    public int weight;
+
+    private void Start()
+    {
+        weight = 1;
+    }
 
     public void OnPointerDown()
     {
@@ -29,6 +35,11 @@ public class ItemClass : MonoBehaviour
                 detectedItem.transform.SetParent(originSlot.transform);
                 detectedItem.GetComponent<RectTransform>().anchoredPosition = originPos;
                 originSlot.curItem = detectedItem;
+            }
+
+            if(detectedSlot.GetComponent<ScaleSlot>())
+            {
+                detectedSlot.GetComponent<ScaleSlot>().StartScaleCoroutine();
             }
 
             //감지된 슬롯 위로 아이템을 이동시켜줘.

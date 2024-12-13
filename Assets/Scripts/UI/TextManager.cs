@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
     private static TextManager instance = null;
-    [SerializeField] private GameObject textObj;
+    [SerializeField] private TextMeshProUGUI inputField;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,23 +25,24 @@ public class TextManager : MonoBehaviour
 
     public void EnterTexts(string text)
     {
-        textObj.GetComponent<TextMeshPro>().text = text;
+        inputField.SetText(text);
     }
 
     IEnumerator PopUpCoroutine()
     {
-        textObj.gameObject.SetActive(true);
+        inputField.gameObject.SetActive(true);
 
-        var a = textObj.GetComponent<TextMeshPro>().alpha;
+        var alpha = inputField.color;
         var t = 0f;
         while (t < 1f)
         {
             t += Time.deltaTime;
-            a = Mathf.Lerp(0, 1, t);
+            alpha.a = Mathf.Lerp(0, 1, t);
+            inputField.color = alpha;
             yield return null;
         }
 
-        textObj.gameObject.SetActive(false);
+        inputField.gameObject.SetActive(false);
         EnterTexts("");
     }
 

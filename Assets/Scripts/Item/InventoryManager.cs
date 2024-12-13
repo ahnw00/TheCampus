@@ -11,8 +11,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventory;
     public ItemClass LastClickedItem {  get; private set; }
 
-    [SerializeField] private List<ItemSlot> slotList = new List<ItemSlot>();
-    private List<string> itemList { get; set; }
+    public List<ItemSlot> slotList = new List<ItemSlot>();
+    public List<string> itemList;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,11 +33,13 @@ public class InventoryManager : MonoBehaviour
         saveData = dataManager.saveData;
         itemList = saveData.itemList;
 
-        SetItemsOnInven(slotList);
+        SetItemsOnInven();
     }
 
-    public void SetItemsOnInven(List<ItemSlot> slotList)
+    public void SetItemsOnInven(List<ItemSlot> _slotList = null)
     {
+        if (_slotList == null)
+            _slotList = slotList;
         GameObject prefab;
         string path;
         int slotIdx = 0;
@@ -45,10 +47,15 @@ public class InventoryManager : MonoBehaviour
         {
             path = "Prefabs/Item/" + item;
             prefab = Resources.Load<GameObject>(path);
-            prefab = Instantiate(prefab, slotList[slotIdx].transform);
-            slotList[slotIdx].curItem = prefab.GetComponent<ItemClass>();
+            prefab = Instantiate(prefab, _slotList[slotIdx].transform);
+            _slotList[slotIdx].curItem = prefab.GetComponent<ItemClass>();
             slotIdx++;
         }
+    }
+
+    public void InvenBtnFunction()
+    {
+        //SetItemsOnInven();
     }
 
     //function that called when inven closed
@@ -65,7 +72,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
         dataManager.Save();
-        SetItemsOnInven(slotList);
+        SetItemsOnInven();
         GameManager.GameManager_Instance.isUiOpened = false;
     }
 
