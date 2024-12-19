@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
     public bool isUiOpened = false; //***** ui껐다 킬때 바꿔주어야함
+    public Image gauge;
 
     //°ü¸®ÇÒ Äù½ºÆ®¿Í ¾ÆÀÌÅÛµé
     public List<Quest> Quests = new List<Quest>();

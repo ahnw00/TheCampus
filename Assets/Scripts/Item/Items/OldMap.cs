@@ -22,7 +22,24 @@ public class OldMap : Clickable
     public override void Clicked()
     {
         Debug.Log("Clicked");
+        base.Clicked();
+        if (flag == 1)
+        {
+            MapClicked();
+        }
+        else Invoke("Delayed", 3.05f);
+    }
 
+    void Delayed()
+    {
+        if(flag == 1)
+        {
+            MapClicked();
+        }
+    }
+
+    void MapClicked()
+    {
         MiniMap.SetActive(true);
         data.isMapObtained = true;
         dataManager.Save();

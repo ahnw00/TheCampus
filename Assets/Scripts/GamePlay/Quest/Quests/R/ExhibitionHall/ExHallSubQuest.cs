@@ -8,7 +8,23 @@ public class ExHallSubQuest : Clickable
 
     public override void Clicked()
     {
-        if (invenManager.LastClickedItem != null) 
+        base.Clicked();
+        if (flag == 1)
+            ExHallQuestFunc();
+        else Invoke("Delayed", 3.05f);
+    }
+
+    void Delayed()
+    {
+        if (flag == 1)
+        {
+            ExHallQuestFunc();
+        }
+    }
+
+    void ExHallQuestFunc()
+    {
+        if (invenManager.LastClickedItem != null)
         {
             //Debug.Log($"LastClickedItem: {invenManager.LastClickedItem.name}, NewImage Active: {NewImage.activeSelf}");
 
@@ -23,5 +39,5 @@ public class ExHallSubQuest : Clickable
                 Debug.Log("New item found! Quest completed.");
             }
         }
-    }
+    }    
 }

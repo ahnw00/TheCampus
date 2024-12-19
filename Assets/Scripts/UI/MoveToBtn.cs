@@ -13,12 +13,12 @@ public class MoveToBtn : Clickable
     }
     public override void Clicked()
     {
-        NodeClass targetNode = mapManager.nodeMap[targetPlace];
-        //Debug.Log(targetNode.node_name);
-        mapManager.cur_node.gameObject.SetActive(false);
-        mapManager.cur_node = targetNode;
-        targetNode.gameObject.SetActive(true);
-        mapManager.StartCoroutine(CameraMove());
+        base.Clicked();
+        if (flag == 1)
+        {
+            MoveFunc();
+        }
+        else Invoke("Delayed", 3.05f);
     }
 
     IEnumerator CameraMove()
@@ -31,5 +31,23 @@ public class MoveToBtn : Clickable
             cur_pos.position = Vector3.Lerp(cur_pos.position, mapManager.cur_node.posOnMap.position, time);
             yield return null;
         }
+    }
+
+    void Delayed()
+    {
+        if(flag == 1)
+        {
+            MoveFunc();
+        }
+    }
+
+    void MoveFunc()
+    {
+        NodeClass targetNode = mapManager.nodeMap[targetPlace];
+        //Debug.Log(targetNode.node_name);
+        mapManager.cur_node.gameObject.SetActive(false);
+        mapManager.cur_node = targetNode;
+        targetNode.gameObject.SetActive(true);
+        mapManager.StartCoroutine(CameraMove());
     }
 }

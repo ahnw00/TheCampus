@@ -39,10 +39,28 @@ public class ObtainableItem : Clickable
 
     public override void Clicked()
     {
-        bool flag = false;
-        foreach(var slot in inventoryManager.slotList)
+        base.Clicked();
+        if (flag == 1)
         {
-            if(slot.curItem == null)
+            ObtainableFunc();
+        }
+        else Invoke("Delayed", 3.05f);
+    }
+
+    void Delayed()
+    {
+        if(flag == 1)
+        {
+            ObtainableFunc();
+        }
+    }    
+
+    void ObtainableFunc()
+    {
+        bool _flag = false;
+        foreach (var slot in inventoryManager.slotList)
+        {
+            if (slot.curItem == null)
             {
                 data.itemList.Add(this.name);
                 string path = "Prefabs/Item/" + this.name;
@@ -50,11 +68,11 @@ public class ObtainableItem : Clickable
                 prefab = Instantiate(prefab, slot.transform);
                 slot.curItem = prefab.GetComponent<ItemClass>();
                 this.gameObject.SetActive(false);
-                flag = true;
+                _flag = true;
                 break;
             }
         }
-        if(!flag)
+        if (!_flag)
         {
             textManager.PopUpText("Inventory is full");
         }
