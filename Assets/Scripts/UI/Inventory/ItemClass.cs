@@ -28,13 +28,15 @@ public class ItemClass : MonoBehaviour
         if(detectedSlot) //감지된 슬롯이 있다면
         {
             //감지된 슬롯 위에 아이템이 있고 그 아이템이 본인이 아니라면
-            if (detectedSlot.curItem && detectedSlot.curItem != this)
+            if (detectedSlot.curItem && detectedSlot.curItem != this && originSlot)
             {
                 //감지된 슬롯 위의 아이템을 현재의 아이템이 있던 슬롯으로 옮겨주는 과정
                 ItemClass detectedItem = detectedSlot.curItem; //감지된 슬롯 위의 아이템
                 detectedItem.transform.SetParent(originSlot.transform);
                 detectedItem.GetComponent<RectTransform>().anchoredPosition = originPos;
                 originSlot.curItem = detectedItem;
+
+                
             }
 
             if(detectedSlot.GetComponent<ScaleSlot>())
@@ -46,6 +48,23 @@ public class ItemClass : MonoBehaviour
             this.transform.SetParent(detectedSlot.transform);
             this.GetComponent<RectTransform>().anchoredPosition = originPos;
             detectedSlot.curItem = this;
+
+            if (originSlot)
+            {//resultSlot이 아닌 나머지
+                if (detectedSlot.GetComponent<CraftSlot>() && !originSlot.GetComponent<CraftSlot>())
+                {//inventorySlot -> CraftSlot
+                    InventoryManager.InvenManager_Instance.CraftItem();
+                }
+                else if (originSlot.GetComponent<CraftSlot>() && !detectedSlot.GetComponent<CraftSlot>())
+                {//craftSlot -> inventorySlot
+                    InventoryManager.InvenManager_Instance.CraftItem();
+                }
+            }
+            else
+            {//resultSlot -> inventorySlot
+                InventoryManager.InvenManager_Instance.DestoryIngredients();
+            }
+
             originSlot = detectedSlot;
         }
         else //감지된 슬롯이 없다면

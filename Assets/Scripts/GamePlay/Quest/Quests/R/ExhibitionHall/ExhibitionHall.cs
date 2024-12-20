@@ -8,7 +8,6 @@ public class ExhibitionHall : Quest
         inventoryManager = InventoryManager.InvenManager_Instance;
 
         questName = "ExhibitionHall_SubQuest";
-        questNumber = 0;
         requiredItems = null;
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2432900085006020779}
   - component: {fileID: 3286262735834270387}
   m_Layer: 6
-  m_Name: WoodStick
+  m_Name: FixedPaperCup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 297710685239361122, guid: bda034f550b9d4542bf8449667557247, type: 3}
+  m_Sprite: {fileID: 639149730841047030, guid: 5360e101504cfcd449bbb0953aebd095, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9798f50efade7ac4fbb358db6b7717ea
+guid: c5a32eb81792c9441916523170a789c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1592259870316606895
-    second: IvenWithClickedItem_0
+      213: -473418781721634542
+    second: tearedPapercuptemp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IvenWithClickedItem_0
+      name: tearedPapercuptemp_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 100
-        height: 89
+        x: 0
+        y: 0
+        width: 189
+        height: 267
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15a4ba7851827e9e0800000000000000
-      internalID: -1592259870316606895
+      spriteID: 219db7550241e69f0800000000000000
+      internalID: -473418781721634542
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      IvenWithClickedItem_0: -1592259870316606895
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

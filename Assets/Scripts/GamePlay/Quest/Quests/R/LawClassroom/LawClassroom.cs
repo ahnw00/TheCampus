@@ -17,7 +17,6 @@ public class LawClassroom : Quest
         inventoryManager.SetItemsOnInven(slotList);
 
         questName = "LawClassroom_SubQuest";
-        questNumber = 0;
         requiredItems = null;
         leftAnchorY = leftScale.GetComponent<RectTransform>().anchoredPosition.y;
         rightAnchorY = rightScale.GetComponent<RectTransform>().anchoredPosition.y;

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2432900085006020779}
   - component: {fileID: 3286262735834270387}
   m_Layer: 6
-  m_Name: WoodStick
+  m_Name: HandyLadle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 297710685239361122, guid: bda034f550b9d4542bf8449667557247, type: 3}
+  m_Sprite: {fileID: -350594453336697401, guid: 940a158d247a2964e8ceab09ca8e6d42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
