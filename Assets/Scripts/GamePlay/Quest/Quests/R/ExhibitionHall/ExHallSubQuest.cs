@@ -10,8 +10,10 @@ public class ExHallSubQuest : Clickable
     {
         base.Clicked();
         if (flag == 1)
+        {
             ExHallQuestFunc();
-        else Invoke("Delayed", 3.05f);
+        }
+        else Invoke("Delayed", searchingTime + 0.05f);
     }
 
     void Delayed()

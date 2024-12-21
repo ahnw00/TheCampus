@@ -21,13 +21,12 @@ public class OldMap : Clickable
 
     public override void Clicked()
     {
-        Debug.Log("Clicked");
         base.Clicked();
         if (flag == 1)
         {
             MapClicked();
         }
-        else Invoke("Delayed", 3.05f);
+        else Invoke("Delayed", searchingTime + 0.05f);
     }
 
     void Delayed()

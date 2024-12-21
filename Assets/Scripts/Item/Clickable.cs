@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public abstract class Clickable : MonoBehaviour
 {
     protected int flag = 0;
+    protected float searchingTime = 2.5f; //게이지 차는데 걸리는 시간
     private Image gauge;
 
     private void Start()
@@ -39,14 +40,14 @@ public abstract class Clickable : MonoBehaviour
     IEnumerator SearchingCoroutine()
     {
         float time = 0;
-        while(time < 3f && Input.GetMouseButton(0))
+        while(time < searchingTime && Input.GetMouseButton(0))
         {
             time += Time.deltaTime;
-            gauge.fillAmount = time / 3f;
+            gauge.fillAmount = time / searchingTime;
             yield return null;
         }
 
-        if(time > 2.95f)
+        if(time > searchingTime - 0.05f)
         {
             PlayerPrefs.SetInt(this.gameObject.name, 1);
             flag = 1;

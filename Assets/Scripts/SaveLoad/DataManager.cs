@@ -19,6 +19,7 @@ public class DataManager : MonoBehaviour
     JsonManager jsonManager;
     public SaveDataClass saveData;
     public static DataManager Instance;
+    [SerializeField] GameManager gameManager;
 
 //nalsdkfjasd
     void Awake()
@@ -39,7 +40,8 @@ public class DataManager : MonoBehaviour
         //load는 세이브데이터 로드다.
         saveData = new SaveDataClass();
     
-        Load();
+        if(gameManager.Reset) DataInitialize();
+        else Load();
     }
 
     //세이브데이터 세이브
@@ -60,6 +62,7 @@ public class DataManager : MonoBehaviour
 
     public void DataInitialize()
     {
+        PlayerPrefs.DeleteAll();
         jsonManager.DataInitialize();
     }
 }

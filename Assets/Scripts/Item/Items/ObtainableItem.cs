@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 using System.IO;
+using UnityEngine.UI;
 
 public class ObtainableItem : Clickable
 {
@@ -42,20 +43,31 @@ public class ObtainableItem : Clickable
         base.Clicked();
         if (flag == 1)
         {
-            ObtainableFunc();
+            PopUpObtainPanel();
         }
-        else Invoke("Delayed", 3.05f);
+        else Invoke("Delayed", searchingTime + 0.05f);
     }
 
     void Delayed()
     {
         if(flag == 1)
         {
-            ObtainableFunc();
+            PopUpObtainPanel();
         }
     }    
 
-    void ObtainableFunc()
+    void PopUpObtainPanel()
+    {
+        inventoryManager.itemObtainPanel.SetActive(true);
+        GameManager.GameManager_Instance.isUiOpened = true;
+        inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
+        inventoryManager.itemObtainBtn.onClick.AddListener(ObtainItem);
+        //아이템 획득 패널에서의 아이템 이미지랑 텍스트 세팅해줘야해
+        //
+        //
+    }
+
+    void ObtainItem()
     {
         bool _flag = false;
         foreach (var slot in inventoryManager.slotList)
@@ -75,6 +87,11 @@ public class ObtainableItem : Clickable
         if (!_flag)
         {
             textManager.PopUpText("Inventory is full");
+        }
+        else
+        {
+            GameManager.GameManager_Instance.isUiOpened = false;
+            inventoryManager.itemObtainPanel.SetActive(false);
         }
     }
 }

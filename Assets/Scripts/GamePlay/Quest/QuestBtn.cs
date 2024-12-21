@@ -11,7 +11,7 @@ public class QuestBtn : Clickable
         {
             QuestBtnFunc();
         }
-        else Invoke("Delayed", 3.05f);
+        else Invoke("Delayed", searchingTime + 0.05f);
     }
 
     void Delayed()

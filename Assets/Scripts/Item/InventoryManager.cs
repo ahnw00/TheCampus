@@ -7,6 +7,7 @@ using System.Linq;
 using static UnityEditor.Progress;
 using System;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] List<ItemSlot> craftSlotList = new List<ItemSlot>();
     [SerializeField] GameObject resultSlot;
     private Dictionary<Tuple<string, string>, string> craftRecipe = new Dictionary<Tuple<string, string>, string>();
+
+    public GameObject itemObtainPanel;
+    public Image itemObtainImage;
+    public TextMeshProUGUI itemObtainInputField;
+    public Button itemObtainBtn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,12 +67,6 @@ public class InventoryManager : MonoBehaviour
             _slotList[slotIdx].curItem = prefab.GetComponent<ItemClass>();
             slotIdx++;
         }
-    }
-
-    public void InvenBtnFunction()
-    {
-        //SetItemsOnInven();
-        //SaveItems();
     }
 
     //function that called when inven closed

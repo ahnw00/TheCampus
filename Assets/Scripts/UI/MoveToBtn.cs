@@ -18,7 +18,7 @@ public class MoveToBtn : Clickable
         {
             MoveFunc();
         }
-        else Invoke("Delayed", 3.05f);
+        else Invoke("Delayed", searchingTime + 0.05f);
     }
 
     IEnumerator CameraMove()

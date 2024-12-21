@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private GameObject miniMap;
 
+    public bool Reset;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

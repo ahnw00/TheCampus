@@ -1,12 +1,10 @@
 {
     "itemList": [
-        "RustedSword",
-        "HandyLadle",
-        "Tape"
+        "RustedSword"
     ],
     "isMapObtained": true,
     "questList": [
-        "Completed",
+        "NotStarted",
         "NotStarted",
         "NotStarted"
     ]
