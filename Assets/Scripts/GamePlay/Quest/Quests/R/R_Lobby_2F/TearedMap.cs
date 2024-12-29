@@ -19,6 +19,7 @@ public class TearedMap : Quest
             PlayerPrefs.SetInt("Piece5", 1);
         if (!PlayerPrefs.HasKey("Piece6"))
             PlayerPrefs.SetInt("Piece6", 1);
+        PlayerPrefs.Save();
     }
 
     public void CheckPos()

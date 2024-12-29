@@ -13,7 +13,7 @@ public class LawClassroom : Quest
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
-        inventoryManager = InventoryManager.InvenManager_Instance;
+        //inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
 
         questName = "LawClassroom_SubQuest";
@@ -41,6 +41,7 @@ public class LawClassroom : Quest
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
+        inventoryManager = InventoryManager.InvenManager_Instance;
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;

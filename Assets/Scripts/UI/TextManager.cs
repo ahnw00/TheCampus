@@ -37,7 +37,7 @@ public class TextManager : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime;
-            alpha.a = Mathf.Lerp(0, 1, t);
+            alpha.a = Mathf.Lerp(1, 0, t);
             inputField.color = alpha;
             yield return null;
         }
