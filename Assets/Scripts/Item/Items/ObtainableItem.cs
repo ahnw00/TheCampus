@@ -28,14 +28,14 @@ public class ObtainableItem : Clickable
         textManager = TextManager.TextManager_Instance;
 
         //인벤토리의 itemList에 이 아이템이 있다면 월드맵 위에 있는건 setActive(false) 해줘.
-        string itemName = this.name;
+        //string itemName = this.name;
         //if (multipleItems.ContainsKey(itemName))
         //{
         //    if (data.itemList.Where(item => item == itemName).Count() == multipleItems[itemName])
         //        this.gameObject.SetActive(false);
         //}
-        if (data.itemList.Find(item => item == this.name) != null)
-            this.gameObject.SetActive(false);
+        //if (data.itemList.Find(item => item == this.name) != null)
+        //    this.gameObject.SetActive(false);
     }
 
     public override void Clicked()

@@ -64,6 +64,7 @@ public abstract class Quest : MonoBehaviour
         }
     }
 
+    public virtual void ifQuestBtnClicked() { }
     protected abstract void OnQuestCompleted();
     public virtual string QuestName()
     {

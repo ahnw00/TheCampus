@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -5913738696227704600, guid: 360dc493efa488e429c4d56a2562bbef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectedSlot: {fileID: 0}
   originSlot: {fileID: 0}
+  weight: 0
 --- !u!61 &4739155171390916876
 BoxCollider2D:
   m_ObjectHideFlags: 0

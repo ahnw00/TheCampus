@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5360e101504cfcd449bbb0953aebd095
+guid: 244d05f5df937664b8f4adfceb6b0083
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 639149730841047030
-    second: fixedPapercuptemp_0
+      213: -7058987237187365598
+    second: oldflashlight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,40 +109,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fixedPapercuptemp_0
+      name: oldflashlight_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 19
-        width: 225
-        height: 206
+        y: 0
+        width: 299
+        height: 168
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 54, y: 0, z: 55, w: 34}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ff21193b47bed800800000000000000
-      internalID: 639149730841047030
+      spriteID: 2255e650280790e90800000000000000
+      internalID: -7058987237187365598
       vertices: []
       indices: 
       edges: []
@@ -151,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 697f8e2d4c74f144a8f40d0177b5fca9
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      fixedPapercuptemp_0: 639149730841047030
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
