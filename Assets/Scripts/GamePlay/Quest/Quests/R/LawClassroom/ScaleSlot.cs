@@ -19,6 +19,7 @@ public class ScaleSlot : ItemSlot
 
     public void StartScaleCoroutine()
     {
+        parentScale.lawClassroom.StopAllCoroutines();
         StartCoroutine(parentScale.lawClassroom.ScaleCoroutine());
     }    
 }
