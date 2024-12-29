@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public bool isUiOpened = false; //***** ui껐다 킬때 바꿔주어야함
     public Image gauge;
 
+    //°ü¸®ÇÒ Äù½ºÆ®¿Í ¾ÆÀÌÅÛµé
+    public List<Quest> Quests = new List<Quest>();
+    public List<Item> Items = new List<Item>();
     [SerializeField] private GameObject map;
     [SerializeField] private GameObject miniMap;
 

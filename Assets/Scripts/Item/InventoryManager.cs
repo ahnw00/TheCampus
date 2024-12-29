@@ -173,8 +173,6 @@ public class InventoryManager : MonoBehaviour
     {//여기에 조합법 작성
         craftRecipe.Add(new Tuple<string, string>("TearedPaperCup", "Tape"), "FixedPaperCup");
         craftRecipe.Add(new Tuple<string, string>("FixedPaperCup", "WoodStick" ), "HandyLadle");
-        craftRecipe.Add(new Tuple<string, string>("OldFlashlight", "2Vbattery"), "LowBatteryFlashlight");
-        craftRecipe.Add(new Tuple<string, string>("LowBatteryFlashlight", "2Vbattery"), "Flashlight");
     }
 
     public void DestoryIngredients()

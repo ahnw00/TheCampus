@@ -100,6 +100,4 @@ public class LawClassroom : Quest
         if (target == 0) OnQuestCompleted();
         //Debug.Log("changed : " + topScale.rotation.eulerAngles.z);
     }
-
-    public override void ifQuestBtnClicked() { } //퀘스트 버튼이 클릭될때마다 호출, 인벤리스트를 갱신한다던가..
 }
