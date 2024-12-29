@@ -14,7 +14,7 @@ public class LawClassroom : Quest
     public override void Start()
     {
         inventoryManager = InventoryManager.InvenManager_Instance;
-        inventoryManager.SetItemsOnInven(slotList);
+        //inventoryManager.SetItemsOnInven(slotList);
 
         questName = "LawClassroom_SubQuest";
         requiredItems = null;
@@ -44,9 +44,33 @@ public class LawClassroom : Quest
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
+            foreach (var slot in slotList)
+            {
+                if (slot.transform.childCount == 1)
+                    Destroy(slot.transform.GetChild(0).gameObject);
+            }
+            inventoryManager.SetItemsOnInven(slotList);
             Debug.Log(questName + " Ω√¿€");
         }
     }
+
+    public override void QuitQuest()
+    {
+        base.QuitQuest();
+        foreach (Transform child in leftScale.transform)
+        {
+            if(child.childCount == 1)
+                Destroy(child.GetChild(0).gameObject);
+        }
+        foreach (Transform child in rightScale.transform)
+        {
+            if (child.childCount == 1)
+                Destroy(child.GetChild(0).gameObject);
+        }
+
+        topScale.rotation = Quaternion.Euler(0, 0, 4f);
+    }
+
     protected override void OnQuestCompleted()
     {
         Debug.Log(questName + "clear");
@@ -55,14 +79,17 @@ public class LawClassroom : Quest
     public IEnumerator ScaleCoroutine()
     {
         float angle = 4;
-        float target = (leftScale.sum - rightScale.sum) * angle;
+        float target = 4 + (leftScale.sum - rightScale.sum) * angle;
+        if (target < -16) target = -16;
+        else if (target > 16) target = 16;
+
         float time = 0;
         Quaternion origin = topScale.rotation;
         //Debug.Log(origin.eulerAngles.z + " -> " + target);
 
         while (time < 1f)
         {
-            if (target != 0)
+            if ((leftScale.sum - rightScale.sum) != 0)
                 time += Time.deltaTime / Mathf.Abs(leftScale.sum - rightScale.sum);
             else time += Time.deltaTime;
 

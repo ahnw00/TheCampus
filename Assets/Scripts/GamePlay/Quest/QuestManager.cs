@@ -80,8 +80,6 @@ public class QuestManager : MonoBehaviour
         if (quest != null && quest.questStatus == QuestStatus.NotStarted)
         {//Äù½ºÆ®°¡ Á¸ÀçÇÏ°í Ã³À½ ½ÃÀÛÇßÀ»¶§¸¸ ÇÑ¹ø ½ÇÇà
             Debug.Log(quest.QuestName() + " Start");
-            if(quest.QuestName() == "LawClassroom_SubQuest")
-                inventoryBtn.SetActive(false);
             quest.StartQuest();
         }
     }

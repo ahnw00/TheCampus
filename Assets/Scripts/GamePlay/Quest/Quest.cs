@@ -38,6 +38,14 @@ public abstract class Quest : MonoBehaviour
         }
     }
 
+    public virtual void QuitQuest()
+    {
+        if(questStatus != QuestStatus.Completed)
+        {
+            questStatus = QuestStatus.NotStarted ;
+        }
+    }
+
     protected virtual void CheckCompletion()
     {//퀘스트 클리어 조건, 필요시 overriding 가능
         if (questStatus == QuestStatus.InProgress)

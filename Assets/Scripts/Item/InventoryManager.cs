@@ -70,6 +70,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     //function that called when inven closed
+    //매개변수가 있으면 button에 함수가 안떠
     public void SaveItems() //reset item list and save, then set items on inven
     {
         saveData.itemList.Clear();

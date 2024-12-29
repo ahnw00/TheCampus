@@ -35,8 +35,6 @@ public class ItemClass : MonoBehaviour
                 detectedItem.transform.SetParent(originSlot.transform);
                 detectedItem.GetComponent<RectTransform>().anchoredPosition = originPos;
                 originSlot.curItem = detectedItem;
-
-                
             }
 
             if(detectedSlot.GetComponent<ScaleSlot>())
@@ -58,6 +56,10 @@ public class ItemClass : MonoBehaviour
                 else if (originSlot.GetComponent<CraftSlot>() && !detectedSlot.GetComponent<CraftSlot>())
                 {//craftSlot -> inventorySlot
                     InventoryManager.InvenManager_Instance.CraftItem();
+                }
+                else if(originSlot.GetComponent<ScaleSlot>() && !detectedSlot.GetComponent<ScaleSlot>())
+                {//scaleSlot -> scaleInventorySlot
+                    originSlot.GetComponent<ScaleSlot>().StartScaleCoroutine();
                 }
             }
             else
