@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,21 +9,25 @@ public class CafeNamu : Quest
     private ItemClass item;
     private int waterClicked = 0;
     private QuestManager questManager;
+    [SerializeField] List<ItemSlot> slotList;
+    [SerializeField] private GameObject questInven;
 
     public override void Start()
     {
-        inventoryManager = InventoryManager.InvenManager_Instance;
-        questManager = QuestManager.QuestManager_instance;
         questName = "CafeNamu_SubQuest";
         requiredItems.Add("HandyLadle");
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
+        inventoryManager = InventoryManager.InvenManager_Instance;
+        questManager = QuestManager.QuestManager_instance;
+        questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
             Debug.Log(questName + " 시작");
         }
+        inventoryManager.SetItemsOnInven(slotList);
     }
     protected override void OnQuestCompleted()
     {
@@ -54,5 +59,17 @@ public class CafeNamu : Quest
                 OnQuestCompleted();
             }
         }
+    }
+    public override void ifQuestBtnClicked()
+    {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
+        questInven.SetActive(true);
+        foreach (var slot in slotList)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+        }
+        inventoryManager.SetItemsOnInven(slotList);
     }
 }

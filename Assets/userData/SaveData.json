@@ -1,7 +1,10 @@
 {
     "itemList": [
         "RustedSword",
-        "Flashlight"
+        "Flashlight",
+        "2Vbattery",
+        "OldBook",
+        "2Vbattery"
     ],
     "isMapObtained": true,
     "questList": [

@@ -11,6 +11,7 @@ public class ExhibitionHall : Quest
     [SerializeField] GameObject picture;
     [SerializeField] GameObject hiddenPicture;
     [SerializeField] List<ItemSlot> slotList;
+    [SerializeField] private GameObject questInven;
     bool pictureFlag = true;
     bool hiddenPictureFlag = true;
     bool isGetPicture = false;
@@ -22,16 +23,18 @@ public class ExhibitionHall : Quest
 
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
+        questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
             inventoryManager = InventoryManager.InvenManager_Instance;
         }
-        SetItemsOnInven();
+        inventoryManager.SetItemsOnInven(slotList);
     }
 
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
+        questInven.SetActive(true);
         foreach (var slot in slotList)
         {
             if(slot.transform.childCount > 0)
@@ -39,7 +42,7 @@ public class ExhibitionHall : Quest
                 Destroy(slot.transform.GetChild(0).gameObject);
             }
         }
-        SetItemsOnInven();
+        inventoryManager.SetItemsOnInven(slotList);
     }
     protected override void OnQuestCompleted()
     {
@@ -76,22 +79,5 @@ public class ExhibitionHall : Quest
     void TurnOffLight()
     {
         flashLight.SetActive(false);
-    }
-
-    private void SetItemsOnInven(List<ItemSlot> _slotList = null)
-    {
-        if (_slotList == null)
-            _slotList = slotList;
-        GameObject prefab;
-        string path;
-        int slotIdx = 0;
-        foreach (var item in inventoryManager.itemList)
-        {
-            path = "Prefabs/Item/" + item;
-            prefab = Resources.Load<GameObject>(path);
-            prefab = Instantiate(prefab, _slotList[slotIdx].transform);
-            _slotList[slotIdx].curItem = prefab.GetComponent<ItemClass>();
-            slotIdx++;
-        }
     }
 }

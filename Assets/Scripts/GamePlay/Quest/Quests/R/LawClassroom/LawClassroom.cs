@@ -5,6 +5,7 @@ using UnityEngine;
 public class LawClassroom : Quest
 {
     [SerializeField] private List<ItemSlot> slotList = new List<ItemSlot>();
+    [SerializeField] private GameObject questInven;
     [SerializeField] public Scale leftScale, rightScale;
     [SerializeField] private RectTransform leftAnchor, rightAnchor;
     [SerializeField] private RectTransform topScale;
@@ -13,7 +14,7 @@ public class LawClassroom : Quest
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
-        inventoryManager = InventoryManager.InvenManager_Instance;
+        //inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
 
         questName = "LawClassroom_SubQuest";
@@ -41,6 +42,7 @@ public class LawClassroom : Quest
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
+        inventoryManager = InventoryManager.InvenManager_Instance;
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
@@ -49,6 +51,7 @@ public class LawClassroom : Quest
                 if (slot.transform.childCount == 1)
                     Destroy(slot.transform.GetChild(0).gameObject);
             }
+            questInven.SetActive(true);
             inventoryManager.SetItemsOnInven(slotList);
             Debug.Log(questName + " 시작");
         }
@@ -56,7 +59,6 @@ public class LawClassroom : Quest
 
     public override void QuitQuest()
     {
-        base.QuitQuest();
         foreach (Transform child in leftScale.transform)
         {
             if(child.childCount == 1)
@@ -99,5 +101,17 @@ public class LawClassroom : Quest
 
         if (target == 0) OnQuestCompleted();
         //Debug.Log("changed : " + topScale.rotation.eulerAngles.z);
+    }
+    public override void ifQuestBtnClicked()
+    {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
+        questInven.SetActive(true);
+        foreach (var slot in slotList)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+        }
+        inventoryManager.SetItemsOnInven(slotList);
     }
 }
