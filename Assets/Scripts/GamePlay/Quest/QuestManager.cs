@@ -79,8 +79,18 @@ public class QuestManager : MonoBehaviour
         Quest quest = questObject.GetComponent<Quest>();
         if (quest != null && quest.questStatus == QuestStatus.NotStarted)
         {//Äù½ºÆ®°¡ Á¸ÀçÇÏ°í Ã³À½ ½ÃÀÛÇßÀ»¶§¸¸ ÇÑ¹ø ½ÇÇà
+        {//퀘스트 처음 시작시 실행
             Debug.Log(quest.QuestName() + " Start");
+<<<<<<< Updated upstream
+=======
+            if (quest.QuestName() == "LawClassroom_SubQuest")
+                inventoryBtn.SetActive(false);
+>>>>>>> Stashed changes
             quest.StartQuest();
+        }
+        else if (quest != null && quest.questStatus == QuestStatus.InProgress)
+        {//퀘스트 버튼이 클릭될 때마다
+            quest.ifQuestBtnClicked();
         }
     }
 

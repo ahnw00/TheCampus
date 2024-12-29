@@ -1,8 +1,12 @@
 {
     "itemList": [
         "RustedSword",
+<<<<<<< Updated upstream
         "TearedPaperCup",
         "MarblePart"
+=======
+        "OldFlashlight"
+>>>>>>> Stashed changes
     ],
     "isMapObtained": true,
     "questList": [

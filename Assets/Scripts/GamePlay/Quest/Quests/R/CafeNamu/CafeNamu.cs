@@ -55,4 +55,6 @@ public class CafeNamu : Quest
             }
         }
     }
+
+    public override void ifQuestBtnClicked() { }
 }
