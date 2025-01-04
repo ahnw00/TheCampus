@@ -10,6 +10,7 @@ public class LawClassroom : Quest
     [SerializeField] private RectTransform leftAnchor, rightAnchor;
     [SerializeField] private RectTransform topScale;
     private float leftAnchorY, rightAnchorY;
+    private float target;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -46,13 +47,7 @@ public class LawClassroom : Quest
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            foreach (var slot in slotList)
-            {
-                if (slot.transform.childCount == 1)
-                    Destroy(slot.transform.GetChild(0).gameObject);
-            }
-            questInven.SetActive(true);
-            inventoryManager.SetItemsOnInven(slotList);
+            ifQuestBtnClicked();
             Debug.Log(questName + " 시작");
         }
     }
@@ -76,12 +71,27 @@ public class LawClassroom : Quest
     protected override void OnQuestCompleted()
     {
         Debug.Log(questName + "clear");
+        inventoryManager.ObtainItem("RustedSword");
+    }
+
+    protected override bool CheckCompletion()
+    {
+        if(questStatus == QuestStatus.InProgress)
+        {
+            if(target == 0)
+            {
+                questStatus = QuestStatus.Completed;
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 
     public IEnumerator ScaleCoroutine()
     {
         float angle = 4;
-        float target = 4 + (leftScale.sum - rightScale.sum) * angle;
+        target = 4 + (leftScale.sum - rightScale.sum) * angle;
         if (target < -16) target = -16;
         else if (target > 16) target = 16;
 
@@ -99,12 +109,11 @@ public class LawClassroom : Quest
             yield return null;
         }
 
-        if (target == 0) OnQuestCompleted();
+        if (CheckCompletion()) OnQuestCompleted();
         //Debug.Log("changed : " + topScale.rotation.eulerAngles.z);
     }
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
-        questInven.SetActive(true);
         foreach (var slot in slotList)
         {
             if (slot.transform.childCount > 0)
@@ -113,5 +122,6 @@ public class LawClassroom : Quest
             }
         }
         inventoryManager.SetItemsOnInven(slotList);
+        questInven.SetActive(true);
     }
 }

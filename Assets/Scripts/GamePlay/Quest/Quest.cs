@@ -46,7 +46,7 @@ public abstract class Quest : MonoBehaviour
         }
     }
 
-    protected virtual void CheckCompletion()
+    protected virtual bool CheckCompletion()
     {//퀘스트 클리어 조건, 필요시 overriding 가능
         if (questStatus == QuestStatus.InProgress)
         {
@@ -56,12 +56,15 @@ public abstract class Quest : MonoBehaviour
             {
                 questStatus = QuestStatus.Completed;
                 OnQuestCompleted(); //개별 퀘스트 클리어시 실행
+                return true;
             }
             else
             {
                 Debug.Log($"{questName} not clear");
+                return false;
             }
         }
+        return false;
     }
 
     public virtual void ifQuestBtnClicked() { }

@@ -10,6 +10,13 @@ public class MoveToBtn : Clickable
     void Start()
     {
         mapManager = MapManager.MapManager_Instance;
+        if(this.name == "ToH_Lobby")
+        {
+            if(PlayerPrefs.HasKey(this.name))
+            {
+                this.gameObject.SetActive(true);
+            }
+        }
     }
     public override void Clicked()
     {

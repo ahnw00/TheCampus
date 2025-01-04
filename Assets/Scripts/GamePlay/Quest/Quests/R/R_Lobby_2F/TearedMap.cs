@@ -5,6 +5,7 @@ using UnityEngine;
 public class TearedMap : Quest
 {
     [SerializeField] private List<TearedPiece> pieceList = new List<TearedPiece>();
+    [SerializeField] private GameObject moveToH;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -22,21 +23,6 @@ public class TearedMap : Quest
         PlayerPrefs.Save();
     }
 
-    public void CheckPos()
-    {
-        bool flag = true;
-        foreach (var piece in pieceList)
-        {
-            if(!piece.foundCorrectPos)
-            {
-                flag = false;
-                break;
-            }
-        }
-
-        if(flag) OnQuestCompleted();
-    }
-
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
         if (questStatus == QuestStatus.NotStarted)
@@ -51,8 +37,38 @@ public class TearedMap : Quest
         base.QuitQuest();
     }
 
+    protected override bool CheckCompletion()
+    {
+        if (questStatus == QuestStatus.InProgress)
+        {
+            bool flag = true;
+            foreach (var piece in pieceList)
+            {
+                if (!piece.foundCorrectPos)
+                {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag)
+            {
+                questStatus = QuestStatus.Completed;
+                OnQuestCompleted(); //개별 퀘스트 클리어시 실행
+                return true;
+            }
+            else
+            {
+                Debug.Log($"{questName} not clear");
+                return false;
+            }
+        }
+        return false;
+    }
+
     protected override void OnQuestCompleted()
     {
         Debug.Log(questName + "clear");
+        moveToH.SetActive(true);
     }
 }

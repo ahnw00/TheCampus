@@ -6,11 +6,11 @@ public class ItemClass : MonoBehaviour
     public ItemSlot detectedSlot; //감지된 슬롯(감지될 때마다 바뀜)
     public ItemSlot originSlot; //이동하기 전에 있었던 슬롯을 저장
     private Vector2 originPos = new Vector2(0, 0);
-    public int weight;
+    [SerializeField] private int weight;
 
-    private void Start()
+    public int ItemWeight()
     {
-        weight = 1;
+        return weight;
     }
 
     public void OnPointerDown()

@@ -17,7 +17,6 @@ public class SaveDataClass
         //cur_position = "T_Lobby";
         isMapObtained = false;
         itemList = new List<string>();
-        itemList.Add("RustedSword");
         questList = new List<string>();
     }
 }

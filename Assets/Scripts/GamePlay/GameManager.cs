@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private RaycastHit2D hit;
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
-    public bool isUiOpened = false; //***** ui껐다 킬때 바꿔주어야함
+    public int isUiOpened = 0; //***** ui껐다 킬때 바꿔주어야함
     public Image gauge;
 
     [SerializeField] private GameObject map;
@@ -46,14 +46,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void TurnOnUI()
+    {
+        isUiOpened++;
+    }
+
     public void TurnOffUI()
     {
-        isUiOpened = false;
+        if(isUiOpened > 0)
+            isUiOpened--;
     }
 
     void DetectedFunction()
     {
-        if(hit && hit.collider.GetComponent<Clickable>() && !isUiOpened)
+        if(hit && hit.collider.GetComponent<Clickable>() && isUiOpened == 0)
         {
             Clickable obj = hit.collider.GetComponent<Clickable>();
             obj.Clicked();

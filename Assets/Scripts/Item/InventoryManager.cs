@@ -13,7 +13,9 @@ public class InventoryManager : MonoBehaviour
 {
     private DataManager dataManager;
     private SaveDataClass saveData;
+    private TextManager textManager;
     private static InventoryManager instance = null;
+    
     [SerializeField] private GameObject inventory;
     public ItemClass LastClickedItem { get; private set; }
     [SerializeField] GameObject LastClickedItemObj;
@@ -48,8 +50,38 @@ public class InventoryManager : MonoBehaviour
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
         itemList = saveData.itemList;
+        textManager = TextManager.TextManager_Instance;
         CraftRecipeSet();//조합법등록
         SetItemsOnInven();
+    }
+
+    public void ObtainItem(string itemName)
+    {
+        bool _flag = false;
+        foreach (var slot in slotList)
+        {
+            if (slot.curItem == null)
+            {
+                saveData.itemList.Add(itemName);
+                string path = "Prefabs/Item/" + itemName;
+                GameObject prefab = Resources.Load<GameObject>(path);
+                prefab = Instantiate(prefab, slot.transform);
+                slot.curItem = prefab.GetComponent<ItemClass>();
+                this.gameObject.SetActive(false);
+                dataManager.Save();
+                _flag = true;
+                break;
+            }
+        }
+        if (!_flag)
+        {
+            textManager.PopUpText("Inventory is full");
+        }
+        else
+        {
+            if(itemObtainPanel.activeSelf == true)
+                itemObtainPanel.SetActive(false);
+        }
     }
 
     public void SetItemsOnInven(List<ItemSlot> _slotList = null)
@@ -95,7 +127,7 @@ public class InventoryManager : MonoBehaviour
         }
         dataManager.Save();
         SetItemsOnInven();
-        GameManager.GameManager_Instance.isUiOpened = false;
+        GameManager.GameManager_Instance.isUiOpened--;
     }
 
     public void SetLastClickedItem(ItemClass item)

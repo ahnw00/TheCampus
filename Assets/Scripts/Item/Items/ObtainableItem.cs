@@ -52,14 +52,21 @@ public class ObtainableItem : Clickable
     {
         if(flag == 1)
         {
-            PopUpObtainPanel();
+            if (this.name.Length == 6 && this.name.Substring(0, 5) == "Piece")
+            {
+                PlayerPrefs.SetInt(this.name, 1);
+                PlayerPrefs.Save();
+                this.gameObject.SetActive(false);
+            }
+            else
+                PopUpObtainPanel();
         }
     }    
 
     void PopUpObtainPanel()
     {
         inventoryManager.itemObtainPanel.SetActive(true);
-        GameManager.GameManager_Instance.isUiOpened = true;
+        GameManager.GameManager_Instance.isUiOpened++;
         inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
         inventoryManager.itemObtainBtn.onClick.AddListener(ObtainItem);
         //아이템 획득 패널에서의 아이템 이미지랑 텍스트 세팅해줘야해
@@ -91,7 +98,6 @@ public class ObtainableItem : Clickable
         }
         else
         {
-            GameManager.GameManager_Instance.isUiOpened = false;
             inventoryManager.itemObtainPanel.SetActive(false);
         }
     }
