@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LawClassroom : Quest
 {
-    [SerializeField] private List<ItemSlot> slotList = new List<ItemSlot>();
-    [SerializeField] private GameObject questInven;
     [SerializeField] public Scale leftScale, rightScale;
     [SerializeField] private RectTransform leftAnchor, rightAnchor;
     [SerializeField] private RectTransform topScale;
@@ -114,14 +112,6 @@ public class LawClassroom : Quest
     }
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
-        foreach (var slot in slotList)
-        {
-            if (slot.transform.childCount > 0)
-            {
-                Destroy(slot.transform.GetChild(0).gameObject);
-            }
-        }
-        inventoryManager.SetItemsOnInven(slotList);
-        questInven.SetActive(true);
+        base.ifQuestBtnClicked();
     }
 }

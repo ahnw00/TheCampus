@@ -80,10 +80,12 @@ public class QuestManager : MonoBehaviour
         if (quest != null && quest.questStatus == QuestStatus.NotStarted)
         {//퀘스트 처음 시작시 실행
             Debug.Log(quest.QuestName() + " Start");
+            GameManager.GameManager_Instance.isUiOpened = true;
             quest.StartQuest();
         }
         else if (quest != null && quest.questStatus == QuestStatus.InProgress)
         {//퀘스트 버튼이 클릭될 때마다 실행시 작성
+            GameManager.GameManager_Instance.isUiOpened = true;
             quest.ifQuestBtnClicked();
         }
     }

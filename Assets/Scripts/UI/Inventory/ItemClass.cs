@@ -72,7 +72,10 @@ public class ItemClass : MonoBehaviour
         else //감지된 슬롯이 없다면
         {
             this.GetComponent<RectTransform>().anchoredPosition = originPos;
-            originSlot.curItem = this;
+            if (originSlot)
+            {
+                originSlot.curItem = this;
+            }
         }
     }
 

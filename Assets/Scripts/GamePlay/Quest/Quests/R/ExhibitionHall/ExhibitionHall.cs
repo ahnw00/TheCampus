@@ -10,8 +10,6 @@ public class ExhibitionHall : Quest
     [SerializeField] GameObject flashLight;
     [SerializeField] GameObject picture;
     [SerializeField] GameObject hiddenPicture;
-    [SerializeField] List<ItemSlot> slotList;
-    [SerializeField] private GameObject questInven;
     bool pictureFlag = true;
     bool hiddenPictureFlag = true;
     bool isGetPicture = false;
@@ -34,15 +32,7 @@ public class ExhibitionHall : Quest
 
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
-        questInven.SetActive(true);
-        foreach (var slot in slotList)
-        {
-            if(slot.transform.childCount > 0)
-            {
-                Destroy(slot.transform.GetChild(0).gameObject);
-            }
-        }
-        inventoryManager.SetItemsOnInven(slotList);
+        base.ifQuestBtnClicked();
     }
     protected override void OnQuestCompleted()
     {
