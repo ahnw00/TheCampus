@@ -66,7 +66,7 @@ public class ObtainableItem : Clickable
     void PopUpObtainPanel()
     {
         inventoryManager.itemObtainPanel.SetActive(true);
-        GameManager.GameManager_Instance.isUiOpened++;
+        GameManager.GameManager_Instance.TurnOnUI();
         inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
         inventoryManager.itemObtainBtn.onClick.AddListener(ObtainItem);
         //아이템 획득 패널에서의 아이템 이미지랑 텍스트 세팅해줘야해

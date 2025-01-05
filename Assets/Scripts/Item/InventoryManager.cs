@@ -70,7 +70,7 @@ public class InventoryManager : MonoBehaviour
                 GameObject prefab = Resources.Load<GameObject>(path);
                 prefab = Instantiate(prefab, slot.transform);
                 slot.curItem = prefab.GetComponent<ItemClass>();
-                this.gameObject.SetActive(false);
+                //this.gameObject.SetActive(false);
                 dataManager.Save();
                 _flag = true;
                 break;
@@ -268,6 +268,6 @@ public class InventoryManager : MonoBehaviour
 
     public void SetUiOpened()
     {
-        GameManager.GameManager_Instance.isUiOpened = true;
+        GameManager.GameManager_Instance.TurnOnUI();
     }
 }
