@@ -15,15 +15,18 @@ public class InventoryManager : MonoBehaviour
     private SaveDataClass saveData;
     private static InventoryManager instance = null;
     [SerializeField] private GameObject inventory;
-    public ItemClass LastClickedItem { get; private set; }
-    [SerializeField] GameObject LastClickedItemObj;
-    private string selectedItemName;
 
-    public List<ItemSlot> slotList = new List<ItemSlot>();
-    public List<string> itemList;
-    [SerializeField] List<ItemSlot> craftSlotList = new List<ItemSlot>();
-    [SerializeField] GameObject resultSlot;
-    private Dictionary<Tuple<string, string>, string> craftRecipe = new Dictionary<Tuple<string, string>, string>();
+    [SerializeField] GameObject LastClickedItemObj; //인벤토리 버튼 옆 이미지 오브젝트
+    [SerializeField] GameObject selectedItemHighlight; // 실제로 클릭된 아이템 오브젝트
+    [SerializeField] List<GameObject> questInvenSlotImageList; // quest에서 사용하는 인벤토리의 슬롯 이미지 리스트, 하이라이트 표시용
+    [SerializeField] List<GameObject> questInvenSlotList; // 퀘스트창의 인벤토리
+    private string selectedItemName; // 선택된 아이템의 이름을 저장
+
+    public List<ItemSlot> slotList = new List<ItemSlot>(); // 인벤토리 버튼을 눌렀을 때 나오는 인벤토리 슬롯들
+    public List<string> itemList; // savedata에 저장되어있는 아이템 리스트들
+    [SerializeField] List<ItemSlot> craftSlotList = new List<ItemSlot>(); // 제작대 슬롯 리스트
+    [SerializeField] GameObject resultSlot; // 아이템 합성 결과물 슬롯
+    private Dictionary<Tuple<string, string>, string> craftRecipe = new Dictionary<Tuple<string, string>, string>(); // 조합법 사전
 
     public GameObject itemObtainPanel;
     public Image itemObtainImage;
@@ -93,6 +96,11 @@ public class InventoryManager : MonoBehaviour
                 Destroy(slot.curItem.gameObject);
             }
         }
+
+        if (resultSlot.GetComponent<ResultSlot>().curItem != null)
+        {
+            Destroy(resultSlot.GetComponent<ResultSlot>().curItem.gameObject);
+        }
         dataManager.Save();
         SetItemsOnInven();
         GameManager.GameManager_Instance.isUiOpened = false;
@@ -100,10 +108,42 @@ public class InventoryManager : MonoBehaviour
 
     public void SetLastClickedItem(ItemClass item)
     {
-        if (item == null) return;
-        LastClickedItem = item; //이거 destroyed되어서 다른 스크립트에서 가져올수없음 이유가뭔지모름;
+        if (item == null) return; //클릭한 아이템이 없으면 return
+
+        //클릭한 이미지와 아이템의 이름을 인벤토리 옆에 표시
         LastClickedItemObj.GetComponent<Image>().sprite = item.gameObject.GetComponent<Image>().sprite;
         selectedItemName = item.name.Replace("(Clone)", "");
+
+        //선택한 아이템의 슬롯 하이라이트 활성화
+        if (selectedItemName == null)
+        {//선택된 아이템이 없다면 하이라이트 비활성화
+            selectedItemHighlight.SetActive(false);
+            return;
+        }
+        selectedItemHighlight.SetActive(true);
+
+        // 인벤토리에서 클릭했을때 하이라이트 || 퀘스트인벤에서 클릭했을 때 하이라이트
+        for (int i = 0; i < slotList.Count; i++) 
+        {
+            if (slotList[i] == item.originSlot || questInvenSlotList[i] == item.originSlot)
+            {
+                selectedItemHighlight.transform.SetParent(questInvenSlotImageList[i].transform, false);
+                selectedItemHighlight.transform.localPosition = Vector3.zero;
+                break;
+            }
+        }
+
+        /*
+        int i = 0;
+        foreach (var slot in slotList)
+        {
+            if (slot == item.originSlot || )
+            {
+                
+            }
+            i++;
+        }
+        */
         //Debug.Log($"last clicked item updated : {item.name}");
     }
 
@@ -145,7 +185,7 @@ public class InventoryManager : MonoBehaviour
         }
         else 
         {//craftSlot의 item 제거 등으로 recipe가 없는경우 resultSlot에 있던 아이템 파괴
-            if (resultSlot.GetComponent<ResultSlot>().curItem)
+            if (resultSlot.GetComponent<ResultSlot>().curItem && resultSlot.transform.childCount > 0)
             {
                 resultSlot.GetComponent<ResultSlot>().curItem = null;
                 Destroy(resultSlot.transform.GetChild(0).gameObject);
@@ -192,5 +232,10 @@ public class InventoryManager : MonoBehaviour
             return "null";
         }
         return selectedItemName;
+    }
+
+    public void SetUiOpened()
+    {
+        GameManager.GameManager_Instance.isUiOpened = true;
     }
 }

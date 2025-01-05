@@ -1,14 +1,11 @@
 {
     "itemList": [
         "RustedSword",
-        "Flashlight",
-        "2Vbattery",
-        "OldBook",
-        "2Vbattery"
+        "TearedPaperCup"
     ],
-    "isMapObtained": true,
+    "isMapObtained": false,
     "questList": [
-        "Completed",
+        "NotStarted",
         "NotStarted",
         "NotStarted"
     ]

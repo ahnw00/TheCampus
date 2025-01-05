@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -18,6 +19,8 @@ public abstract class Quest : MonoBehaviour
     public QuestStatus questStatus = QuestStatus.NotStarted; //모든 퀘스트는 시작 
     protected List<string> requiredItems = new List<string>(); //퀘스트 클리어시 필요한 아이템이 있다면 사용
     protected InventoryManager inventoryManager;
+    [SerializeField] protected List<ItemSlot> slotList;
+    [SerializeField] public GameObject questInven;
 
     /*
     public Quest(string questName, int questNumber, List<Item> requiredItems)
@@ -64,7 +67,18 @@ public abstract class Quest : MonoBehaviour
         }
     }
 
-    public virtual void ifQuestBtnClicked() { }
+    public virtual void ifQuestBtnClicked()
+    {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
+        questInven.SetActive(true);
+        foreach (var slot in slotList)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+        }
+        inventoryManager.SetItemsOnInven(slotList);
+    }
     protected abstract void OnQuestCompleted();
     public virtual string QuestName()
     {

@@ -9,8 +9,7 @@ public class CafeNamu : Quest
     private ItemClass item;
     private int waterClicked = 0;
     private QuestManager questManager;
-    [SerializeField] List<ItemSlot> slotList;
-    [SerializeField] private GameObject questInven;
+    [SerializeField] FadeEffect fadeEffect;
 
     public override void Start()
     {
@@ -25,13 +24,15 @@ public class CafeNamu : Quest
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            Debug.Log(questName + " 시작");
+            Debug.Log(this.questName + " 시작");
         }
         inventoryManager.SetItemsOnInven(slotList);
     }
     protected override void OnQuestCompleted()
     {
-        Debug.Log(questName + "clear");
+        Debug.Log(this.questName + " clear");
+        PlayerPrefs.SetInt("Piece3", 1);
+        PlayerPrefs.Save();
         Debug.Log($"item picture 3 get");
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();
@@ -51,6 +52,7 @@ public class CafeNamu : Quest
             {
                 waterClicked++;
                 Debug.Log(waterClicked);
+                fadeEffect.FadeOutIn(1.5f, 1.5f);
             }
             else
             {
@@ -61,15 +63,7 @@ public class CafeNamu : Quest
         }
     }
     public override void ifQuestBtnClicked()
-    {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
-        questInven.SetActive(true);
-        foreach (var slot in slotList)
-        {
-            if (slot.transform.childCount > 0)
-            {
-                Destroy(slot.transform.GetChild(0).gameObject);
-            }
-        }
-        inventoryManager.SetItemsOnInven(slotList);
+    {
+        base.ifQuestBtnClicked();
     }
 }
