@@ -232,32 +232,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1198,49 +1172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Item_Info_0: -8859020156332864614
-      Item_Info_1: 2788197672226158737
-      Item_Info_10: 6878014725469335896
-      Item_Info_11: -2191038731884158803
-      Item_Info_12: 2142184374322455310
-      Item_Info_13: -1944051445937527421
-      Item_Info_14: -8091396852340703572
-      Item_Info_15: 2308508761751987563
-      Item_Info_16: -7650230971638900504
-      Item_Info_17: -8158853921022183181
-      Item_Info_18: 3425532712954383749
-      Item_Info_19: -4595183242080692436
-      Item_Info_2: -8756066098152436251
-      Item_Info_20: -8965806896078387201
-      Item_Info_21: -4742361942009409789
-      Item_Info_22: 4376532597676472937
-      Item_Info_23: 7691186145106324469
-      Item_Info_24: 295088058665080783
-      Item_Info_25: 5424476958753622269
-      Item_Info_26: -1222467991645599132
-      Item_Info_27: 2370872698598729447
-      Item_Info_28: -484764279418463102
-      Item_Info_29: 6701188721662999145
-      Item_Info_3: 8055419591074723055
-      Item_Info_30: 8880768699213704369
-      Item_Info_31: 386019358324875562
-      Item_Info_32: -4531325041982772874
-      Item_Info_33: -5609343214963974121
-      Item_Info_34: 5260971792232838526
-      Item_Info_35: -6138418764981264885
-      Item_Info_36: -3796538485288857580
-      Item_Info_37: 3370354139067863209
-      Item_Info_38: -5648577760544079033
-      Item_Info_39: 6570764685885576221
-      Item_Info_4: -8178722422222734879
-      Item_Info_40: 8277800028526959858
-      Item_Info_41: 1137448393494722806
-      Item_Info_5: -8196078389249627610
-      Item_Info_6: -8854650753127357698
-      Item_Info_7: 1617741405406250224
-      Item_Info_8: 9092260430435935167
-      Item_Info_9: 2052564537154372663
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
