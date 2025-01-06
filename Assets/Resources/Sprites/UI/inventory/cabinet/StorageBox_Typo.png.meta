@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 61eb268a616dee7468a4a679cd8e845d
+guid: 4fb894e2179f25a45997be55196abef1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -35367521923240964
-    second: R_CafeNamu_Draft_0
+      213: 4949923202668676175
+    second: StorageBox_Typo_0
+  - first:
+      213: 5768162131847683596
+    second: StorageBox_Typo_1
+  - first:
+      213: 5092687722919674405
+    second: StorageBox_Typo_2
+  - first:
+      213: 1985057631055074229
+    second: StorageBox_Typo_3
+  - first:
+      213: -8904484278991323699
+    second: StorageBox_Typo_4
+  - first:
+      213: 7848321538968690097
+    second: StorageBox_Typo_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +124,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R_CafeNamu_Draft_0
+      name: StorageBox_Typo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        y: 4
+        width: 41
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +143,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfbed2b1d69528ff0800000000000000
-      internalID: -35367521923240964
+      spriteID: f44c7805de8a1b440800000000000000
+      internalID: 4949923202668676175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StorageBox_Typo_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 9
+        width: 42
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e14abd5e0ac0050800000000000000
+      internalID: 5768162131847683596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StorageBox_Typo_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 31
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522ce94708cdca640800000000000000
+      internalID: 5092687722919674405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StorageBox_Typo_3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 16
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b357bde5675c8b10800000000000000
+      internalID: 1985057631055074229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StorageBox_Typo_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcdfbaae9baec6480800000000000000
+      internalID: -8904484278991323699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StorageBox_Typo_5
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 31
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd96458bd6daec60800000000000000
+      internalID: 7848321538968690097
       vertices: []
       indices: 
       edges: []
@@ -160,8 +272,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      R_CafeNamu_Draft_0: -35367521923240964
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

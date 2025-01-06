@@ -1,12 +1,8 @@
 {
-    "itemList": [
-        "MarblePart",
-        "HandyLadle",
-        "Flashlight"
-    ],
+    "itemList": [],
     "isMapObtained": false,
     "questList": [
-        "Completed",
+        "NotStarted",
         "NotStarted",
         "NotStarted"
     ]
