@@ -139,6 +139,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -397,7 +423,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Item_MarbleSculpture_Name_0: 8351558314304709066
+      Item_MarbleSculpture_Name_1: 357502641506750585
+      Item_MarbleSculpture_Name_10: -1655312013063045170
+      Item_MarbleSculpture_Name_2: -5958432590321107752
+      Item_MarbleSculpture_Name_3: 1880220577215503310
+      Item_MarbleSculpture_Name_4: -5650043236589154264
+      Item_MarbleSculpture_Name_5: -706565392389090416
+      Item_MarbleSculpture_Name_6: -2763512065888499506
+      Item_MarbleSculpture_Name_7: 8326044179249066170
+      Item_MarbleSculpture_Name_8: -3617785966535682627
+      Item_MarbleSculpture_Name_9: -3620836504426499807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
