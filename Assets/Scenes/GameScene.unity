@@ -479,7 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: H_Lobby
 --- !u!61 &24251416
 BoxCollider2D:
@@ -1125,7 +1124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Classroom
 --- !u!61 &70102578
 BoxCollider2D:
@@ -1408,7 +1406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: H_Lobby
 --- !u!61 &100061794
 BoxCollider2D:
@@ -1786,7 +1783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8bd8b8810396e43804531f4d65e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   quest: {fileID: 400781046}
 --- !u!61 &118041630
 BoxCollider2D:
@@ -2036,7 +2032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208e8f9af40e6144ebf0c836708f13de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: LawClassroom
   connectedDoor: {fileID: 1829986458}
   requiredItem: RustedSword
@@ -2240,7 +2235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_1F
 --- !u!61 &155279200
 BoxCollider2D:
@@ -2896,7 +2890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Classroom
 --- !u!61 &202829662
 BoxCollider2D:
@@ -3184,7 +3177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: OldDormitory
 --- !u!61 &211894466
 BoxCollider2D:
@@ -3333,7 +3325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Hallway
 --- !u!61 &214648375
 BoxCollider2D:
@@ -3489,7 +3480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPos: {fileID: 0}
+  targetPos: {fileID: 30247697}
   foundCorrectPos: 0
 --- !u!61 &224043724
 BoxCollider2D:
@@ -3693,7 +3684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: CafeNamu
 --- !u!61 &237521094
 BoxCollider2D:
@@ -3964,7 +3954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!61 &267134500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4194,7 +4183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8bd8b8810396e43804531f4d65e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   quest: {fileID: 400781046}
 --- !u!61 &298876151
 BoxCollider2D:
@@ -4848,7 +4836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!212 &412526884
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5066,7 +5053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: CentralLibrary
 --- !u!61 &441332669
 BoxCollider2D:
@@ -5290,7 +5276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Classroom
 --- !u!61 &476783874
 BoxCollider2D:
@@ -5650,7 +5635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: EngineeringLab
 --- !u!61 &507081589
 BoxCollider2D:
@@ -5959,7 +5943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!61 &518466782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6054,6 +6037,7 @@ MonoBehaviour:
   - {fileID: 180557915}
   - {fileID: 400781046}
   - {fileID: 849280976}
+  - {fileID: 876491989}
   inventoryBtn: {fileID: 1197407080}
 --- !u!1 &565463155
 GameObject:
@@ -6312,7 +6296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_2F
 --- !u!61 &568771612
 BoxCollider2D:
@@ -6567,7 +6550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: CentralLibrary
 --- !u!61 &581386841
 BoxCollider2D:
@@ -7399,7 +7381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8bd8b8810396e43804531f4d65e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   quest: {fileID: 849280976}
 --- !u!1 &685717227
 GameObject:
@@ -7454,7 +7435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPos: {fileID: 0}
+  targetPos: {fileID: 1137016231}
   foundCorrectPos: 0
 --- !u!61 &685717230
 BoxCollider2D:
@@ -7919,7 +7900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: EngineeringLab
 --- !u!61 &784194094
 BoxCollider2D:
@@ -8865,7 +8845,7 @@ MonoBehaviour:
   - {fileID: 1209708412}
   - {fileID: 485216081}
   - {fileID: 1177313690}
-  moveToH: {fileID: 0}
+  moveToH: {fileID: 1126377081}
 --- !u!1 &916165536
 GameObject:
   m_ObjectHideFlags: 0
@@ -9044,7 +9024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2b88d77e88c734ba9704ad29689d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   MiniMap: {fileID: 195162792}
 --- !u!1 &936137402
 GameObject:
@@ -9092,7 +9071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: ExhibitionHall
 --- !u!61 &936137405
 BoxCollider2D:
@@ -9443,7 +9421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: Playground
 --- !u!61 &985137978
 BoxCollider2D:
@@ -10237,7 +10214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8bd8b8810396e43804531f4d65e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   quest: {fileID: 180557915}
 --- !u!1 &1085010346
 GameObject:
@@ -10706,7 +10682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!61 &1106387932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10854,7 +10829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!212 &1114087792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11033,7 +11007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_1F
 --- !u!61 &1124860736
 BoxCollider2D:
@@ -11154,7 +11127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1126377082
 Transform:
   m_ObjectHideFlags: 0
@@ -11182,7 +11155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: H_Lobby
 --- !u!61 &1126377084
 BoxCollider2D:
@@ -11413,7 +11385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: Healthroom
 --- !u!61 &1141939241
 BoxCollider2D:
@@ -11924,7 +11895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: ReadingRoom
 --- !u!61 &1184127925
 BoxCollider2D:
@@ -12464,7 +12434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPos: {fileID: 0}
+  targetPos: {fileID: 2042532955}
   foundCorrectPos: 0
 --- !u!61 &1209708413
 BoxCollider2D:
@@ -12774,7 +12744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: H_Lobby
 --- !u!61 &1226798686
 BoxCollider2D:
@@ -12998,7 +12967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!212 &1234860073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13319,7 +13287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_1F
 --- !u!61 &1274694821
 BoxCollider2D:
@@ -14250,7 +14217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: LawClassroom
 --- !u!1 &1327374191
 GameObject:
@@ -14478,7 +14444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Hallway
 --- !u!61 &1339800115
 BoxCollider2D:
@@ -14732,7 +14697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: CafeForest
 --- !u!61 &1364913982
 BoxCollider2D:
@@ -14881,7 +14845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: ReadingRoom
 --- !u!61 &1368785473
 BoxCollider2D:
@@ -15138,7 +15101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!61 &1442074266
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15365,7 +15327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: T_Hallway
 --- !u!61 &1448889250
 BoxCollider2D:
@@ -15664,7 +15625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: CafeForest
 --- !u!61 &1467541786
 BoxCollider2D:
@@ -16206,7 +16166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!212 &1496496205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16385,7 +16344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: Clubroom
 --- !u!61 &1513812494
 BoxCollider2D:
@@ -16643,7 +16601,7 @@ MonoBehaviour:
   gauge: {fileID: 1466814903}
   map: {fileID: 1633943888}
   miniMap: {fileID: 195162792}
-  Reset: 1
+  Reset: 0
 --- !u!1 &1560461726
 GameObject:
   m_ObjectHideFlags: 0
@@ -16872,7 +16830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: T_Hallway
 --- !u!61 &1578472988
 BoxCollider2D:
@@ -17506,7 +17463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPos: {fileID: 0}
+  targetPos: {fileID: 284253097}
   foundCorrectPos: 0
 --- !u!50 &1629079329
 Rigidbody2D:
@@ -17581,7 +17538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: Playground
 --- !u!61 &1629256665
 BoxCollider2D:
@@ -17803,7 +17759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86521aa61ae548b4abb2ad53691e2271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!61 &1633943892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17896,7 +17851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_1F
 --- !u!61 &1641520562
 BoxCollider2D:
@@ -18138,7 +18092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Hallway
 --- !u!61 &1648447494
 BoxCollider2D:
@@ -18437,7 +18390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_2F
 --- !u!61 &1690108591
 BoxCollider2D:
@@ -18898,7 +18850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!1 &1712538797
 GameObject:
   m_ObjectHideFlags: 0
@@ -19299,7 +19250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8bd8b8810396e43804531f4d65e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   quest: {fileID: 876491989}
 --- !u!61 &1791175522
 BoxCollider2D:
@@ -19576,7 +19526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: Clubroom
 --- !u!61 &1802984448
 BoxCollider2D:
@@ -19810,14 +19759,14 @@ GameObject:
   - component: {fileID: 1829986459}
   - component: {fileID: 1829986462}
   - component: {fileID: 1829986461}
-  - component: {fileID: 1829986460}
+  - component: {fileID: 1829986463}
   m_Layer: 0
   m_Name: ToExhibitionHall(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1829986459
 Transform:
   m_ObjectHideFlags: 0
@@ -19833,20 +19782,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1288168096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1829986460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829986458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flag: 0
-  targetPlace: ExhibitionHall
 --- !u!61 &1829986461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19948,6 +19883,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1829986463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829986458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208e8f9af40e6144ebf0c836708f13de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPlace: ExhibitionHall
+  connectedDoor: {fileID: 123088913}
+  requiredItem: RustedSword
 --- !u!1 &1856410993
 GameObject:
   m_ObjectHideFlags: 0
@@ -20224,7 +20174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: R_Lobby_2F
 --- !u!61 &1889517895
 BoxCollider2D:
@@ -20722,7 +20671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: T_Hallway
 --- !u!61 &1914762973
 BoxCollider2D:
@@ -21008,7 +20956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: C_Hallway
 --- !u!61 &1937487663
 BoxCollider2D:
@@ -21188,7 +21135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!212 &1958777149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21587,7 +21533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: T_Hallway
 --- !u!61 &1987726250
 BoxCollider2D:
@@ -21781,7 +21726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca375b13cfe66634b9ad8ede37815220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
   targetPlace: Playground
 --- !u!61 &2018107619
 BoxCollider2D:
@@ -22352,7 +22296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!1 &2063143862
 GameObject:
   m_ObjectHideFlags: 0
@@ -22957,7 +22900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a9895453117046abb2200ba53f32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: 0
 --- !u!61 &2132651029
 BoxCollider2D:
   m_ObjectHideFlags: 0

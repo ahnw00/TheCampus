@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public abstract class Clickable : MonoBehaviour
 {
-    [SerializeField] protected int flag = 0;
+    protected int flag = 0;
     protected float searchingTime = 1f; //게이지 차는데 걸리는 시간
     private Image gauge;
 

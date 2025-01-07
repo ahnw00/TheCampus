@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LawClassroom : Quest
 {
+    private QuestManager questManager;
     [SerializeField] public Scale leftScale, rightScale;
     [SerializeField] private RectTransform leftAnchor, rightAnchor;
     [SerializeField] private RectTransform topScale;
@@ -13,6 +14,7 @@ public class LawClassroom : Quest
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
+        questManager = QuestManager.QuestManager_instance;
         //inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
 
@@ -70,6 +72,8 @@ public class LawClassroom : Quest
     {
         Debug.Log(questName + "clear");
         inventoryManager.ObtainItem("RustedSword");
+        questStatus = QuestStatus.Completed;
+        questManager.SaveQuestStatus();
     }
 
     protected override bool CheckCompletion()

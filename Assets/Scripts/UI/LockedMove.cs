@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class LockedMove : Clickable
@@ -14,13 +15,11 @@ public class LockedMove : Clickable
     void Start()
     {
         mapManager = MapManager.MapManager_Instance;
-        if (this.name == "ToH_Lobby")
+        if (PlayerPrefs.HasKey(this.name + "isOpened"))
         {
-            if (PlayerPrefs.HasKey(this.name))
-            {
-                this.gameObject.SetActive(true);
-                isOpened = true;
-            }
+            isOpened = Convert.ToBoolean(PlayerPrefs.GetInt(this.name + "isOpened"));
+            PlayerPrefs.SetInt(this.name, 1);
+            flag = 1;
         }
     }
 
@@ -42,6 +41,9 @@ public class LockedMove : Clickable
         {
             isOpened = true;
             connectedDoor.SetActive(true);
+            PlayerPrefs.SetInt(this.name + "isOpened", 1);
+            PlayerPrefs.SetInt(connectedDoor.name + "isOpened", 1);
+            PlayerPrefs.Save();
             temp = "Door opened";
             TextManager.TextManager_Instance.PopUpText(temp);
         }
