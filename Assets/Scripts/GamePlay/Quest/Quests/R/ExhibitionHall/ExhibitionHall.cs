@@ -79,7 +79,7 @@ public class ExhibitionHall : Quest
 
     public void GetPiece4()
     {
-        PlayerPrefs.SetInt(this.name, 4);
+        PlayerPrefs.SetInt("Piece4", 1);
         PlayerPrefs.Save();
         piece4.SetActive(false);
     }
