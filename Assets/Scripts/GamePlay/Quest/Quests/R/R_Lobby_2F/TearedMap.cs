@@ -31,7 +31,6 @@ public class TearedMap : Quest
         //inventoryManager.SetItemsOnInven(slotList);
 
         questName = "TearedMap_MainQuest";
-        requiredItems = null;
     }
 
     public override void StartQuest()

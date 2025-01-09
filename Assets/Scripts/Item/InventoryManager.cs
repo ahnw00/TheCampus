@@ -19,9 +19,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventory;
 
     [SerializeField] GameObject LastClickedItemObj; //인벤토리 버튼 옆 이미지 오브젝트
-    [SerializeField] GameObject selectedItemHighlight; // 실제로 클릭된 아이템 오브젝트
+    [SerializeField] GameObject selectedItemHighlight; // 실제로 클릭된 아이템 오브젝트 하이라이트
     [SerializeField] List<GameObject> questInvenSlotImageList; // quest에서 사용하는 인벤토리의 슬롯 이미지 리스트, 하이라이트 표시용
-    [SerializeField] List<GameObject> questInvenSlotList; // 퀘스트창의 인벤토리
+    [SerializeField] List<ItemSlot> questInvenSlotList; // 퀘스트창의 인벤토리
     private string selectedItemName; // 선택된 아이템의 이름을 저장
 
     public List<ItemSlot> slotList = new List<ItemSlot>(); // 인벤토리 버튼을 눌렀을 때 나오는 인벤토리 슬롯들
@@ -157,6 +157,7 @@ public class InventoryManager : MonoBehaviour
         // 인벤토리에서 클릭했을때 하이라이트 || 퀘스트인벤에서 클릭했을 때 하이라이트
         for (int i = 0; i < slotList.Count; i++) 
         {
+
             if (slotList[i] == item.originSlot || questInvenSlotList[i] == item.originSlot)
             {
                 selectedItemHighlight.transform.SetParent(questInvenSlotImageList[i].transform, false);

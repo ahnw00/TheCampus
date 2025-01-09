@@ -1,5 +1,9 @@
 {
-    "itemList": [],
+    "itemList": [
+        "TearedPaperCup",
+        "WoodStick",
+        "OldCan"
+    ],
     "isMapObtained": false,
     "questList": [
         "NotStarted",

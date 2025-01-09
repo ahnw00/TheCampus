@@ -14,7 +14,6 @@ public class CafeNamu : Quest
     public override void Start()
     {
         questName = "CafeNamu_SubQuest";
-        requiredItems.Add("HandyLadle");
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
@@ -45,7 +44,7 @@ public class CafeNamu : Quest
 
     public void OnWaterClicked()
     {//물이 클릭되었을때
-        if (InventoryManager.InvenManager_Instance.GetSelectedItemName() == requiredItems[0])
+        if (InventoryManager.InvenManager_Instance.GetSelectedItemName() == "HandyLadle")
         {
             //lastClickedItem이 HandyLadle일때만
             if (waterClicked < 2)

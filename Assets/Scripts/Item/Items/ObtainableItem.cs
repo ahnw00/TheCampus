@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class ObtainableItem : Clickable
 {
-    DataManager dataManager;
-    SaveDataClass data;
-    InventoryManager inventoryManager;
-    TextManager textManager;
+    protected DataManager dataManager;
+    protected SaveDataClass data;
+    protected InventoryManager inventoryManager;
+    protected TextManager textManager;
     //{item, 최대 소유 가능 개수}, 2개 이상인 것들만 이 리스트에 넣은거
     //private Dictionary<string, int> multipleItems = new Dictionary<string, int>()
     //{
@@ -20,7 +20,7 @@ public class ObtainableItem : Clickable
     //};
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected void Start()
     {
         dataManager = DataManager.Instance;
         data = dataManager.saveData;
@@ -48,7 +48,7 @@ public class ObtainableItem : Clickable
         else Invoke("Delayed", searchingTime + 0.05f);
     }
 
-    void Delayed()
+    protected void Delayed()
     {
         if(flag == 1)
         {
@@ -63,7 +63,7 @@ public class ObtainableItem : Clickable
         }
     }    
 
-    void PopUpObtainPanel()
+    public virtual void PopUpObtainPanel()
     {
         inventoryManager.itemObtainPanel.SetActive(true);
         GameManager.GameManager_Instance.TurnOnUI();
@@ -74,7 +74,7 @@ public class ObtainableItem : Clickable
         //
     }
 
-    void ObtainItem()
+    protected void ObtainItem()
     {
         bool _flag = false;
         foreach (var slot in inventoryManager.slotList)

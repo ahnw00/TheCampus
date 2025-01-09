@@ -17,7 +17,6 @@ public abstract class Quest : MonoBehaviour
 {
     protected string questName; //퀘스트 이름
     public QuestStatus questStatus = QuestStatus.NotStarted; //모든 퀘스트는 시작 
-    protected List<string> requiredItems = new List<string>(); //퀘스트 클리어시 필요한 아이템이 있다면 사용
     protected InventoryManager inventoryManager;
     [SerializeField] protected List<ItemSlot> slotList;
     [SerializeField] public GameObject questInven;
