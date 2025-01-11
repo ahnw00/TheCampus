@@ -135,6 +135,12 @@ public class InventoryManager : MonoBehaviour
         }
         dataManager.Save();
         SetItemsOnInven();
+
+        if (!itemList.Contains(selectedItemName))
+        {//inventory의 itemlist를 순환해 selectlastitem이 존재하지않는 경우
+            LastClickedItemObj.GetComponent<Image>().sprite = null;
+            selectedItemName = null;
+        }
         GameManager.GameManager_Instance.isUiOpened--;
     }
 

@@ -12,6 +12,7 @@ public class ObtainableItem : Clickable
     protected SaveDataClass data;
     protected InventoryManager inventoryManager;
     protected TextManager textManager;
+    private string itemKey;
     //{item, 최대 소유 가능 개수}, 2개 이상인 것들만 이 리스트에 넣은거
     //private Dictionary<string, int> multipleItems = new Dictionary<string, int>()
     //{
@@ -27,6 +28,12 @@ public class ObtainableItem : Clickable
         inventoryManager = InventoryManager.InvenManager_Instance;
         textManager = TextManager.TextManager_Instance;
 
+        itemKey = $"{this.gameObject.name}_{this.GetInstanceID()}"; //고유 ID생성
+
+        if (PlayerPrefs.HasKey(itemKey))
+        {
+            this.gameObject.SetActive(false);
+        }
         //인벤토리의 itemList에 이 아이템이 있다면 월드맵 위에 있는건 setActive(false) 해줘.
         //string itemName = this.name;
         //if (multipleItems.ContainsKey(itemName))
@@ -74,7 +81,7 @@ public class ObtainableItem : Clickable
         //
     }
 
-    protected void ObtainItem()
+    protected virtual void ObtainItem()
     {
         bool _flag = false;
         foreach (var slot in inventoryManager.slotList)
@@ -89,6 +96,8 @@ public class ObtainableItem : Clickable
                 this.gameObject.SetActive(false);
                 dataManager.Save();
                 _flag = true;
+                PlayerPrefs.SetInt(itemKey, 1); 
+                PlayerPrefs.Save();
                 break;
             }
         }

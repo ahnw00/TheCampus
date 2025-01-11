@@ -59,6 +59,7 @@ public class ExhibitionHall : Quest
         if (inventoryManager.GetSelectedItemName() == "Flashlight" && hiddenPictureFlag)
         {//손전등을 들고있으면서 클릭했을때
             hiddenPictureFlag = false;
+            pictureFlag = false;
             flashLight.SetActive(true);
             flashLight.transform.SetParent(hiddenPicture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
