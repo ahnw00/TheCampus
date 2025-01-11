@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TearedPiece : MonoBehaviour
 {
+    [SerializeField] private TearedMap pieceQuest;
     [SerializeField] private GameObject targetPos;
     private GameObject detectedPos;
     [HideInInspector] public bool foundCorrectPos = false;
@@ -25,6 +26,7 @@ public class TearedPiece : MonoBehaviour
         {
             this.gameObject.transform.position = targetPos.transform.position;
             foundCorrectPos = true;
+            pieceQuest.Check();
         }
     }
 

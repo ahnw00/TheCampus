@@ -39,10 +39,11 @@ public class LockedMove : Clickable
         string temp;
         if (inven.GetSelectedItemName() == requiredItem)
         {
-            isOpened = true;
             connectedDoor.SetActive(true);
             PlayerPrefs.SetInt(this.name + "isOpened", 1);
+            OpenDoor();
             PlayerPrefs.SetInt(connectedDoor.name + "isOpened", 1);
+            connectedDoor.GetComponent<LockedMove>().OpenDoor();
             PlayerPrefs.Save();
             temp = "Door opened";
             TextManager.TextManager_Instance.PopUpText(temp);
@@ -82,5 +83,10 @@ public class LockedMove : Clickable
         mapManager.cur_node = targetNode;
         targetNode.gameObject.SetActive(true);
         mapManager.StartCoroutine(CameraMove());
+    }
+
+    public void OpenDoor()
+    {
+        isOpened = true;
     }
 }

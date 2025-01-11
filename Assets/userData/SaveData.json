@@ -1,14 +1,15 @@
 {
     "itemList": [
-        "HandyLadle",
-        "RustedSword",
-        "Flashlight",
-        "TearedLawBook",
-        "Nail"
+        "MarblePart",
+        "TearedPaperCup",
+        "2Vbattery",
+        "OldBook",
+        "MarblePart",
+        "RustedSword"
     ],
-    "isMapObtained": true,
+    "isMapObtained": false,
     "questList": [
-        "Completed",
+        "NotStarted",
         "Completed",
         "NotStarted",
         "NotStarted"

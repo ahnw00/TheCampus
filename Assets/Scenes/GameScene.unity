@@ -3480,6 +3480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceQuest: {fileID: 0}
   targetPos: {fileID: 30247697}
   foundCorrectPos: 0
 --- !u!61 &224043724
@@ -5431,6 +5432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceQuest: {fileID: 0}
   targetPos: {fileID: 1280422073}
   foundCorrectPos: 0
 --- !u!61 &485216082
@@ -7435,6 +7437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceQuest: {fileID: 0}
   targetPos: {fileID: 1137016231}
   foundCorrectPos: 0
 --- !u!61 &685717230
@@ -11813,6 +11816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceQuest: {fileID: 0}
   targetPos: {fileID: 695039210}
   foundCorrectPos: 0
 --- !u!61 &1177313691
@@ -12556,6 +12560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceQuest: {fileID: 0}
   targetPos: {fileID: 2042532955}
   foundCorrectPos: 0
 --- !u!61 &1209708413
@@ -17585,6 +17590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceQuest: {fileID: 0}
   targetPos: {fileID: 284253097}
   foundCorrectPos: 0
 --- !u!50 &1629079329

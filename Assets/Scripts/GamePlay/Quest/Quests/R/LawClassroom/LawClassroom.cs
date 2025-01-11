@@ -98,20 +98,19 @@ public class LawClassroom : Quest
 
         float time = 0;
         Quaternion origin = topScale.rotation;
-        //Debug.Log(origin.eulerAngles.z + " -> " + target);
+        Debug.Log(origin.z + " -> " + target);
+        float gap = Mathf.Abs(origin.z - target);
 
-        while (time < 1f)
+        while (time < gap / 4)
         {
-            if ((leftScale.sum - rightScale.sum) != 0)
-                time += Time.deltaTime / Mathf.Abs(leftScale.sum - rightScale.sum);
-            else time += Time.deltaTime;
+            time += Time.deltaTime;
 
-            topScale.rotation = Quaternion.Lerp(origin, Quaternion.Euler(0f, 0f, target), time);
+            topScale.rotation = Quaternion.Lerp(origin, Quaternion.Euler(0f, 0f, target), time / gap * 4);
             yield return null;
         }
 
         if (CheckCompletion()) OnQuestCompleted();
-        //Debug.Log("changed : " + topScale.rotation.eulerAngles.z);
+        Debug.Log("changed : " + topScale.rotation.eulerAngles.z);
     }
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.

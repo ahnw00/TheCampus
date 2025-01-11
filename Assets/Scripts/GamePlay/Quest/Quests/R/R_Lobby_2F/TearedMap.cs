@@ -10,26 +10,26 @@ public class TearedMap : Quest
 
     private void Awake()
     {
-        //if (!PlayerPrefs.HasKey("Piece1"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece1", 1);
-        //}
-        //if (!PlayerPrefs.HasKey("Piece2"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece2", 1);
-        //}
-        //if (!PlayerPrefs.HasKey("Piece3"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece3", 1);
-        //}
-        //if (!PlayerPrefs.HasKey("Piece4"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece4", 1);
-        //}
+        if (!PlayerPrefs.HasKey("Piece1"))
+        {
+            Debug.Log("5 obtained");
+            PlayerPrefs.SetInt("Piece1", 1);
+        }
+        if (!PlayerPrefs.HasKey("Piece2"))
+        {
+            Debug.Log("5 obtained");
+            PlayerPrefs.SetInt("Piece2", 1);
+        }
+        if (!PlayerPrefs.HasKey("Piece3"))
+        {
+            Debug.Log("5 obtained");
+            PlayerPrefs.SetInt("Piece3", 1);
+        }
+        if (!PlayerPrefs.HasKey("Piece4"))
+        {
+            Debug.Log("5 obtained");
+            PlayerPrefs.SetInt("Piece4", 1);
+        }
         if (!PlayerPrefs.HasKey("Piece5"))
         {
             Debug.Log("5 obtained");
@@ -103,6 +103,11 @@ public class TearedMap : Quest
             }
         }
         return false;
+    }
+
+    public bool Check()
+    {
+        return CheckCompletion();
     }
 
     protected override void OnQuestCompleted()
