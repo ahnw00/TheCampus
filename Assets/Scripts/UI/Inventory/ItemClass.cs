@@ -25,7 +25,9 @@ public class ItemClass : MonoBehaviour
 
     public void OnPointerUp() //포인터를 땠을 때
     {
-        if(detectedSlot) //감지된 슬롯이 있다면
+        //좀 아쉬운 부분...
+        LawClassroom lc = FindFirstObjectByType<LawClassroom>();
+        if(detectedSlot && !lc.isCoroutineRunning) //감지된 슬롯이 있다면
         {
             //감지된 슬롯 위에 아이템이 있고 그 아이템이 본인이 아니라면
             if (detectedSlot.curItem && detectedSlot.curItem != this && originSlot)

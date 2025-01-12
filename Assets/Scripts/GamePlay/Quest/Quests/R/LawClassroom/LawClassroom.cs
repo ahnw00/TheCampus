@@ -10,6 +10,7 @@ public class LawClassroom : Quest
     [SerializeField] private RectTransform topScale;
     private float leftAnchorY, rightAnchorY;
     private float target;
+    public bool isCoroutineRunning = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -98,19 +99,23 @@ public class LawClassroom : Quest
 
         float time = 0;
         Quaternion origin = topScale.rotation;
-        Debug.Log(origin.z + " -> " + target);
-        float gap = Mathf.Abs(origin.z - target);
+        float rotZ = origin.eulerAngles.z;
+        Debug.Log(rotZ);
+        if(rotZ > 90f) rotZ = rotZ - 360f;
+        float gap = Mathf.Abs(rotZ - target);
+        //Debug.Log(gap);
 
-        while (time < gap / 4)
+        isCoroutineRunning = true;
+        while (time < gap / angle)
         {
             time += Time.deltaTime;
 
-            topScale.rotation = Quaternion.Lerp(origin, Quaternion.Euler(0f, 0f, target), time / gap * 4);
+            topScale.rotation = Quaternion.Slerp(origin, Quaternion.Euler(0f, 0f, target), time / gap * angle);
             yield return null;
         }
+        isCoroutineRunning = false;
 
         if (CheckCompletion()) OnQuestCompleted();
-        Debug.Log("changed : " + topScale.rotation.eulerAngles.z);
     }
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.

@@ -5449,6 +5449,7 @@ MonoBehaviour:
   leftAnchor: {fileID: 1188648323}
   rightAnchor: {fileID: 305978295}
   topScale: {fileID: 1483403501}
+  isCoroutineRunning: 0
 --- !u!1 &412526880
 GameObject:
   m_ObjectHideFlags: 0

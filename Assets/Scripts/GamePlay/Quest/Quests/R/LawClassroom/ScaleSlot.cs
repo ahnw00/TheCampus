@@ -19,7 +19,7 @@ public class ScaleSlot : ItemSlot
 
     public void StartScaleCoroutine()
     {
-        parentScale.lawClassroom.StopAllCoroutines();
+        //parentScale.lawClassroom.coroutineFlag = false;
         StartCoroutine(parentScale.lawClassroom.ScaleCoroutine());
     }    
 }
