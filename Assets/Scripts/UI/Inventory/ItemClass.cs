@@ -27,7 +27,15 @@ public class ItemClass : MonoBehaviour
     {
         //좀 아쉬운 부분...
         LawClassroom lc = FindFirstObjectByType<LawClassroom>();
-        if(detectedSlot && !lc.isCoroutineRunning) //감지된 슬롯이 있다면
+        if((lc && lc.isCoroutineRunning) || !detectedSlot) //천칭이 켜져있거나 감지된 슬롯이 없다면
+        {
+            this.GetComponent<RectTransform>().anchoredPosition = originPos;
+            if (originSlot)
+            {
+                originSlot.curItem = this;
+            }
+        }
+        else if(detectedSlot) //&& !lc.isCoroutineRunning) //감지된 슬롯이 있다면
         {
             //감지된 슬롯 위에 아이템이 있고 그 아이템이 본인이 아니라면
             if (detectedSlot.curItem && detectedSlot.curItem != this && originSlot)
@@ -71,14 +79,14 @@ public class ItemClass : MonoBehaviour
 
             originSlot = detectedSlot;
         }
-        else //감지된 슬롯이 없다면
-        {
-            this.GetComponent<RectTransform>().anchoredPosition = originPos;
-            if (originSlot)
-            {
-                originSlot.curItem = this;
-            }
-        }
+        //else //감지된 슬롯이 없다면
+        //{
+        //    this.GetComponent<RectTransform>().anchoredPosition = originPos;
+        //    if (originSlot)
+        //    {
+        //        originSlot.curItem = this;
+        //    }
+        //}
     }
 
     public void OnPointerClick()
