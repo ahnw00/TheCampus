@@ -48,6 +48,7 @@ public class ExhibitionHall : Quest
         if(inventoryManager.GetSelectedItemName() == "Flashlight" && pictureFlag)
         {
             pictureFlag = false;
+            hiddenPictureFlag = false;
             flashLight.SetActive(true);
             flashLight.transform.SetParent(picture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
@@ -76,6 +77,7 @@ public class ExhibitionHall : Quest
     void TurnOffLight()
     {//±¤¿ø deactive
         flashLight.SetActive(false);
+        hiddenPictureFlag = true;
     }
 
     public void GetPiece4()

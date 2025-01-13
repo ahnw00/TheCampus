@@ -12,13 +12,8 @@ public class ObtainableItem : Clickable
     protected SaveDataClass data;
     protected InventoryManager inventoryManager;
     protected TextManager textManager;
-    private string itemKey;
-    //{item, 최대 소유 가능 개수}, 2개 이상인 것들만 이 리스트에 넣은거
-    //private Dictionary<string, int> multipleItems = new Dictionary<string, int>()
-    //{
-    //    {"2Vbattery", 2},
-    //    {"OldCan", 2}
-    //};
+    protected string itemKey;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected void Start()
@@ -31,18 +26,9 @@ public class ObtainableItem : Clickable
         itemKey = $"{this.gameObject.name}_{this.GetInstanceID()}"; //고유 ID생성
 
         if (PlayerPrefs.HasKey(itemKey))
-        {
+        {//고유 ID를 가진 아이템이 월드맵에서 이미 획득되었다면 비활성화
             this.gameObject.SetActive(false);
         }
-        //인벤토리의 itemList에 이 아이템이 있다면 월드맵 위에 있는건 setActive(false) 해줘.
-        //string itemName = this.name;
-        //if (multipleItems.ContainsKey(itemName))
-        //{
-        //    if (data.itemList.Where(item => item == itemName).Count() == multipleItems[itemName])
-        //        this.gameObject.SetActive(false);
-        //}
-        //if (data.itemList.Find(item => item == this.name) != null)
-        //    this.gameObject.SetActive(false);
     }
 
     public override void Clicked()
@@ -96,6 +82,7 @@ public class ObtainableItem : Clickable
                 this.gameObject.SetActive(false);
                 dataManager.Save();
                 _flag = true;
+                //고유 ID 아이템을 획득시 획득처리 저장
                 PlayerPrefs.SetInt(itemKey, 1); 
                 PlayerPrefs.Save();
                 break;
@@ -109,5 +96,10 @@ public class ObtainableItem : Clickable
         {
             inventoryManager.itemObtainPanel.SetActive(false);
         }
+    }
+
+    public string GetItemKey()
+    {
+        return itemKey;
     }
 }
