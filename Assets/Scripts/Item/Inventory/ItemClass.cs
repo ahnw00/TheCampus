@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 
 public class ItemClass : MonoBehaviour
 {
+    private GameManager gameManager;
+    private Camera cam;
     public ItemSlot detectedSlot; //감지된 슬롯(감지될 때마다 바뀜)
     public ItemSlot originSlot; //이동하기 전에 있었던 슬롯을 저장
     private Vector2 originPos = new Vector2(0, 0);
@@ -16,11 +18,17 @@ public class ItemClass : MonoBehaviour
     public void OnPointerDown()
     {
         originSlot = detectedSlot;
+        if(!gameManager)
+        {
+            gameManager = GameManager.GameManager_Instance;
+            cam = gameManager.cam;
+        }
     }
 
     public void OnDrag()
     {
-        this.gameObject.GetComponent<RectTransform>().position = Input.mousePosition;
+        Vector3 targetPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        this.gameObject.GetComponent<RectTransform>().position = new Vector3(targetPos.x, targetPos.y, 0f);
     }
 
     public void OnPointerUp() //포인터를 땠을 때

@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     private DataManager dataManager;
     private SaveDataClass saveData;
     private TextManager textManager;
+    private CabinetManager cabinetManager;
     private static InventoryManager instance = null;
     
     [SerializeField] private GameObject inventory;
@@ -136,12 +137,23 @@ public class InventoryManager : MonoBehaviour
         dataManager.Save();
         SetItemsOnInven();
 
+        CabinetManager cm = CabinetManager.CabinetManager_Instance;
+        if(cm != null )
+            cm.SaveItemsOnCabinet();
+
         if (!itemList.Contains(selectedItemName))
         {//inventory의 itemlist를 순환해 selectlastitem이 존재하지않는 경우
             LastClickedItemObj.GetComponent<Image>().sprite = null;
             selectedItemName = null;
         }
-        GameManager.GameManager_Instance.isUiOpened--;
+        GameManager.GameManager_Instance.TurnOffUI();
+        SetSlotPos();
+    }
+
+    private void SetSlotPos()
+    {
+        Vector3 originPos = new Vector3(370f, 120f, 0f);
+        inventory.GetComponent<RectTransform>().anchoredPosition = originPos;
     }
 
     public void SetLastClickedItem(ItemClass item)

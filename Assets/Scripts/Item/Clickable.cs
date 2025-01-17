@@ -13,7 +13,6 @@ public abstract class Clickable : MonoBehaviour
     private void Start()
     {
         gauge = GameManager.GameManager_Instance.gauge;
-        
     }
 
     public virtual void Clicked()
@@ -39,7 +38,11 @@ public abstract class Clickable : MonoBehaviour
         //한번도 클릭되지 않았을 때
         if(PlayerPrefs.GetInt(ObjectID) == 0)
         {
-            gauge.gameObject.GetComponent<RectTransform>().position = Input.mousePosition;
+            Vector3 inputPos = GameManager.GameManager_Instance.cam.ScreenToWorldPoint(Input.mousePosition);
+            float targetX = inputPos.x;
+            float targetY = inputPos.y;
+            Vector3 targetPos = new Vector3(targetX, targetY, 0);
+            gauge.gameObject.GetComponent<RectTransform>().position = targetPos;
             gauge.gameObject.SetActive(true);
             StartCoroutine(SearchingCoroutine());
         }
