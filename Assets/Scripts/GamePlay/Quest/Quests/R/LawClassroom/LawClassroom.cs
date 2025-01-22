@@ -10,6 +10,7 @@ public class LawClassroom : Quest
     [SerializeField] private RectTransform topScale;
     private float leftAnchorY, rightAnchorY;
     private float target;
+    private float startRot = 4f;
     public bool isCoroutineRunning = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,8 +21,7 @@ public class LawClassroom : Quest
         //inventoryManager.SetItemsOnInven(slotList);
 
         questName = "LawClassroom_SubQuest";
-        leftAnchorY = leftScale.GetComponent<RectTransform>().anchoredPosition.y;
-        rightAnchorY = rightScale.GetComponent<RectTransform>().anchoredPosition.y;
+        topScale.localRotation = Quaternion.Euler(0, 0, startRot);
     }
     void Update()
     {
@@ -29,26 +29,18 @@ public class LawClassroom : Quest
         leftScale.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
         rightScale.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
 
-        //fix left scales' pos x and relative pos y
-        Vector3 newPos = leftScale.GetComponent<RectTransform>().position;
-        newPos.x = leftAnchor.position.x;
-        newPos.y = leftAnchor.position.y + leftAnchorY;
-        leftScale.GetComponent<RectTransform>().position = newPos;
-
-        //fix left scales' pos x and relative pos y
-        newPos = rightScale.GetComponent<RectTransform>().position;
-        newPos.x = rightAnchor.position.x;
-        newPos.y = rightAnchor.position.y + rightAnchorY;
-        rightScale.GetComponent<RectTransform>().position = newPos;
+        float topZ = topScale.rotation.eulerAngles.z;
+        leftAnchor.localRotation = Quaternion.Euler(0, 0, -topZ);
+        rightAnchor.localRotation = Quaternion.Euler(0, 0, -topZ);
     }
     public override void StartQuest()
-    {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
+    {//Ã„Ã¹Â½ÂºÃ†Â®Â°Â¡ Â½ÃƒÃ€Ã›Ã‡Ã’Â¶Â§ Â½Ã‡Ã‡Ã 
         inventoryManager = InventoryManager.InvenManager_Instance;
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
             ifQuestBtnClicked();
-            Debug.Log(questName + " ½ÃÀÛ");
+            Debug.Log(questName + " Â½ÃƒÃ€Ã›");
         }
     }
 
@@ -93,6 +85,7 @@ public class LawClassroom : Quest
     public IEnumerator ScaleCoroutine()
     {
         float angle = 4;
+        float speed = 1.5f;
         target = 4 + (leftScale.sum - rightScale.sum) * angle;
         if (target < -16) target = -16;
         else if (target > 16) target = 16;
@@ -108,7 +101,7 @@ public class LawClassroom : Quest
         isCoroutineRunning = true;
         while (time < gap / angle)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * speed;
 
             topScale.rotation = Quaternion.Slerp(origin, Quaternion.Euler(0f, 0f, target), time / gap * angle);
             yield return null;
@@ -118,7 +111,7 @@ public class LawClassroom : Quest
         if (CheckCompletion()) OnQuestCompleted();
     }
     public override void ifQuestBtnClicked()
-    {//quest¹öÆ°ÀÌ ´­·ÈÀ» ¶§¸¶´Ù ½ÇÇàµÇ´Â ÇÔ¼ö. ¿©±â¼­´Â ÀÎº¥À» ºÒ·¯¿Â´Ù.
+    {//questÂ¹Ã¶Ã†Â°Ã€ÃŒ Â´Â­Â·ÃˆÃ€Â» Â¶Â§Â¸Â¶Â´Ã™ Â½Ã‡Ã‡Ã ÂµÃ‡Â´Ã‚ Ã‡Ã”Â¼Ã¶. Â¿Â©Â±Ã¢Â¼Â­Â´Ã‚ Ã€ÃŽÂºÂ¥Ã€Â» ÂºÃ’Â·Â¯Â¿Ã‚Â´Ã™.
         base.ifQuestBtnClicked();
     }
 }

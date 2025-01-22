@@ -11,7 +11,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private GameObject inventoryBtn;
     private DataManager dataManager;
     private SaveDataClass saveData;
-    void Start()
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -23,7 +24,10 @@ public class QuestManager : MonoBehaviour
             Debug.Log("QuestManager duplicate error, destroying duplicate instance.");
             Destroy(this.gameObject);
         }
+    }
 
+    void Start()
+    {
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
         InitializeQuestStatus();

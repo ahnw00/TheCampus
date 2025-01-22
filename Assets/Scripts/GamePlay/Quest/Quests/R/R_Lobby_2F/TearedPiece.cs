@@ -6,6 +6,7 @@ public class TearedPiece : MonoBehaviour
     [SerializeField] private GameObject targetPos;
     private GameObject detectedPos;
     [HideInInspector] public bool foundCorrectPos = false;
+    private Camera cam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,10 +15,12 @@ public class TearedPiece : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+        cam = GameManager.GameManager_Instance.cam;
     }
     public void OnDrag()
     {
-        this.transform.position = Input.mousePosition;
+        Vector3 dragPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        this.transform.position = new Vector3(dragPos.x, dragPos.y, 0f);
     }
 
     public void OnPointerUp()

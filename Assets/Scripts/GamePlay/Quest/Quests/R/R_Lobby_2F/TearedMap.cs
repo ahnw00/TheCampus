@@ -10,26 +10,6 @@ public class TearedMap : Quest
 
     private void Awake()
     {
-        //if (!PlayerPrefs.HasKey("Piece1"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece1", 1);
-        //}
-        //if (!PlayerPrefs.HasKey("Piece2"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece2", 1);
-        //}
-        //if (!PlayerPrefs.HasKey("Piece3"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece3", 1);
-        //}
-        //if (!PlayerPrefs.HasKey("Piece4"))
-        //{
-        //    Debug.Log("5 obtained");
-        //    PlayerPrefs.SetInt("Piece4", 1);
-        //}
         if (!PlayerPrefs.HasKey("Piece5"))
         {
             Debug.Log("5 obtained");
@@ -54,11 +34,11 @@ public class TearedMap : Quest
     }
 
     public override void StartQuest()
-    {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
+    {//Ã„Ã¹Â½ÂºÃ†Â®Â°Â¡ Â½ÃƒÃ€Ã›Ã‡Ã’Â¶Â§ Â½Ã‡Ã‡Ã 
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            Debug.Log(questName + " ½ÃÀÛ");
+            Debug.Log(questName + " Â½ÃƒÃ€Ã›");
         }
     }
 
@@ -93,7 +73,7 @@ public class TearedMap : Quest
             if (flag)
             {
                 questStatus = QuestStatus.Completed;
-                OnQuestCompleted(); //°³º° Äù½ºÆ® Å¬¸®¾î½Ã ½ÇÇà
+                OnQuestCompleted(); //Â°Â³ÂºÂ° Ã„Ã¹Â½ÂºÃ†Â® Ã…Â¬Â¸Â®Â¾Ã®Â½Ãƒ Â½Ã‡Ã‡Ã 
                 return true;
             }
             else
