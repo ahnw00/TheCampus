@@ -12,6 +12,10 @@ public class ExhibitionHall : Quest
     [SerializeField] GameObject hiddenPicture; // 숨겨진 그림
     [SerializeField] GameObject nail;
     [SerializeField] GameObject piece4;
+    [SerializeField] Sprite lightOffPicture;
+    [SerializeField] Sprite lightToPicture;
+    [SerializeField] Sprite lightToHiddenPicture;
+    [SerializeField] Sprite tearedHiddenPicture;
 
     //클릭을 판단하는 flag
     bool pictureFlag = true;
@@ -49,8 +53,9 @@ public class ExhibitionHall : Quest
         {
             pictureFlag = false;
             hiddenPictureFlag = false;
-            flashLight.SetActive(true);
-            flashLight.transform.SetParent(picture.transform, false);
+            this.GetComponent<Image>().sprite = lightToPicture;
+            //flashLight.SetActive(true);
+            //flashLight.transform.SetParent(picture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
             Invoke("TurnOffLight", 1f); //끄기
         }
@@ -61,14 +66,16 @@ public class ExhibitionHall : Quest
         {//손전등을 들고있으면서 클릭했을때
             hiddenPictureFlag = false;
             pictureFlag = false;
-            flashLight.SetActive(true);
-            flashLight.transform.SetParent(hiddenPicture.transform, false);
+            this.GetComponent<Image>().sprite = lightToHiddenPicture;
+            //flashLight.SetActive(true);
+            //flashLight.transform.SetParent(hiddenPicture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
         }
         else if(inventoryManager.GetSelectedItemName() == "RustedSword" && !hiddenPictureFlag && !isGetPicture)
         {//이미 손전등으로 밝힌 상태에서 선택된아이템이 rustedSword일때
             isGetPicture = true;
-            hiddenPicture.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/temp/tempPicture"); //이미지 바꾸기
+            this.GetComponent<Image>().sprite = tearedHiddenPicture;
+            //hiddenPicture.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/temp/tempPicture"); //이미지 바꾸기
             nail.SetActive(true);
             piece4.SetActive(true);
             OnQuestCompleted();
@@ -76,7 +83,8 @@ public class ExhibitionHall : Quest
     }
     void TurnOffLight()
     {//광원 deactive
-        flashLight.SetActive(false);
+        this.GetComponent<Image>().sprite = lightOffPicture;
+        //flashLight.SetActive(false);
         hiddenPictureFlag = true;
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,10 +7,15 @@ using UnityEngine.UI;
 public class CafeNamu : Quest
 {//퀘스트 예시
     [SerializeField] private GameObject water;
+    [SerializeField] private GameObject Piece3;
+    private const float delaySecond = 1.5f;
     private ItemClass item;
     private int waterClicked = 0;
     private QuestManager questManager;
     [SerializeField] FadeEffect fadeEffect;
+    [SerializeField] Sprite fill70;
+    [SerializeField] Sprite fill40;
+    [SerializeField] Sprite fill0;
 
     public override void Start()
     {
@@ -23,16 +29,15 @@ public class CafeNamu : Quest
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            Debug.Log(this.questName + " 시작");
+            Debug.Log(questName + " 시작");
         }
         inventoryManager.SetItemsOnInven(slotList);
     }
     protected override void OnQuestCompleted()
     {
-        Debug.Log(this.questName + " clear");
+        Debug.Log(questName + " clear");
         PlayerPrefs.SetInt("Piece3", 1);
         PlayerPrefs.Save();
-        Debug.Log($"item picture 3 get");
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();
     }
@@ -47,19 +52,42 @@ public class CafeNamu : Quest
         if (InventoryManager.InvenManager_Instance.GetSelectedItemName() == "HandyLadle")
         {
             //lastClickedItem이 HandyLadle일때만
-            if (waterClicked < 2)
+            switch (waterClicked)
             {
-                waterClicked++;
-                Debug.Log(waterClicked);
-                fadeEffect.FadeOutIn(1.5f, 1.5f);
-            }
-            else
-            {
-                Debug.Log("water deleted");
-                water.gameObject.SetActive(false);
-                OnQuestCompleted();
+                case 0:
+                    waterClicked++;
+                    StartCoroutine(ChangeImage(fill70));
+                    fadeEffect.FadeOutIn(delaySecond, delaySecond);
+                    break;
+                case 1:
+                    waterClicked++;
+                    StartCoroutine(ChangeImage(fill40));
+                    fadeEffect.FadeOutIn(delaySecond, delaySecond);
+                    break;
+                case 2:
+                    waterClicked++;
+                    StartCoroutine(ChangeImage(fill0));
+                    fadeEffect.FadeOutIn(delaySecond, delaySecond);
+                    water.SetActive(false);
+                    Invoke("Delay", delaySecond);
+                    break;
             }
         }
+    }
+    IEnumerator ChangeImage(Sprite sprite)
+    {
+        yield return new WaitForSeconds(delaySecond);
+        this.GetComponent<Image>().sprite = sprite;
+    }
+    void Delay()
+    {
+        Piece3.SetActive(true);
+    }
+
+    public void OnPieceClicked()
+    {
+        Piece3.SetActive(false);
+        OnQuestCompleted();
     }
     public override void ifQuestBtnClicked()
     {
