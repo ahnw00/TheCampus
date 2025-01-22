@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +16,7 @@ public class ObtainableItem : Clickable
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected void Start()
+    protected virtual void Start()
     {
         dataManager = DataManager.Instance;
         data = dataManager.saveData;

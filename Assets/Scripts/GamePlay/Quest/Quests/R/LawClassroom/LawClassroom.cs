@@ -12,6 +12,7 @@ public class LawClassroom : Quest
     private float target;
     private float startRot = 4f;
     public bool isCoroutineRunning = false;
+    [SerializeField] private GameObject rustedSword;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -63,7 +64,8 @@ public class LawClassroom : Quest
     protected override void OnQuestCompleted()
     {
         Debug.Log(questName + "clear");
-        inventoryManager.ObtainItem("RustedSword");
+        //inventoryManager.ObtainItem("RustedSword");
+        rustedSword.SetActive(true);
         questStatus = QuestStatus.Completed;
         questManager.SaveQuestStatus();
     }

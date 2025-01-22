@@ -4,6 +4,7 @@ public class OldMap : Clickable
 {
     DataManager dataManager;
     SaveDataClass data;
+    InventoryManager inventoryManager;
     [SerializeField] GameObject MiniMap;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -11,6 +12,7 @@ public class OldMap : Clickable
     {
         dataManager = DataManager.Instance;
         data = dataManager.saveData;
+        inventoryManager = InventoryManager.InvenManager_Instance;
         
         if(data.isMapObtained)
         {
@@ -33,7 +35,7 @@ public class OldMap : Clickable
     {
         if(flag == 1)
         {
-            MapClicked();
+            PopUpObtainPanel();
         }
     }
 
@@ -42,6 +44,18 @@ public class OldMap : Clickable
         MiniMap.SetActive(true);
         data.isMapObtained = true;
         dataManager.Save();
+        inventoryManager.itemObtainPanel.SetActive(false);
         this.gameObject.SetActive(false);
+    }
+
+    public virtual void PopUpObtainPanel()
+    {
+        inventoryManager.itemObtainPanel.SetActive(true);
+        GameManager.GameManager_Instance.TurnOnUI();
+        inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
+        inventoryManager.itemObtainBtn.onClick.AddListener(MapClicked);
+        //아이템 획득 패널에서의 아이템 이미지랑 텍스트 세팅해줘야해
+        //
+        //
     }
 }
