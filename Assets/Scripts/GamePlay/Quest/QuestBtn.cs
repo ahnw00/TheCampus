@@ -1,22 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestBtn : Clickable
 {
-    [SerializeField] private GameObject quest; // btnÀÌ °¡¸®Å°´Â quest
-    [SerializeField] private GameObject background;
-
+    [SerializeField] private GameObject quest; // btnì´ ê°€ë¦¬í‚¤ëŠ” quest
+    [SerializeField] private GameObject opacityBackground;
+    [SerializeField] private GameObject panelBackground;
+    [SerializeField] private GameObject mask;
     public override void Clicked()
-    {//Å¬¸¯µÇ¾úÀ»¶§
+    {//í´ë¦­ë˜ì—ˆì„ë•Œ
         base.Clicked();
         if(flag == 1)
-        {//Ã³À½ Å¬¸¯ÀÌ¶ó¸é
+        {//ì²˜ìŒ í´ë¦­ì´ë¼ë©´
             QuestBtnFunc();
         }
-        else Invoke("Delayed", searchingTime + 0.05f); //µô·¹ÀÌ ÇÔ¼ö
+        else Invoke("Delayed", searchingTime + 0.05f); //ë”œë ˆì´ í•¨ìˆ˜
     }
 
     void Delayed()
-    {// nÃÊ µô·¹ÀÌ
+    {// nì´ˆ ë”œë ˆì´
         if(flag == 1)
         {
             QuestBtnFunc();
@@ -24,10 +26,12 @@ public class QuestBtn : Clickable
     }
 
     void QuestBtnFunc()
-    {//Äù½ºÆ® ÆĞ³Î È°¼ºÈ­
+    {//í€˜ìŠ¤íŠ¸ íŒ¨ë„ í™œì„±í™”
         quest.SetActive(true);
-        background.SetActive(true);
-        //GameManager.GameManager_Instance.isUiOpened++; // quest ÆĞ³Î¸¸ Å¬¸¯µÇ±â À§ÇÔ
-        QuestManager.QuestManager_instance.OnQuestBtnClicked(quest); // Å¬¸¯¸¶´Ù ½ÇÇàÀ» À§ÇÔ
+        opacityBackground.SetActive(true);
+        mask.SetActive(true);
+        panelBackground.SetActive(true);
+        //GameManager.GameManager_Instance.isUiOpened++; // quest íŒ¨ë„ë§Œ í´ë¦­ë˜ê¸° ìœ„í•¨
+        QuestManager.QuestManager_instance.OnQuestBtnClicked(quest); // í´ë¦­ë§ˆë‹¤ ì‹¤í–‰ì„ ìœ„í•¨
     }
 }

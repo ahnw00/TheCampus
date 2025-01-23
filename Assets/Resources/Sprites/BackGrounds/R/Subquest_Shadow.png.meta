@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e6f2da6b8f20b62499fc559ccc171056
+guid: d25972aedfb40c7498078c96b4beedb1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7092820775736517455
-    second: Item_PaperCup_Tape_0
+      213: -896362273713536728
+    second: Subquest_Shadow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item_PaperCup_Tape_0
+      name: Subquest_Shadow_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 7
-        width: 101
-        height: 124
+        x: 0
+        y: 0
+        width: 1400
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4329498ae2ce6260800000000000000
-      internalID: 7092820775736517455
+      spriteID: 8214e3dd24b7f83f0800000000000000
+      internalID: -896362273713536728
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Item_PaperCup_Tape_0: 7092820775736517455
+      Subquest_Shadow_0: -896362273713536728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

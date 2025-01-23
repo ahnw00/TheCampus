@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: e6f2da6b8f20b62499fc559ccc171056
+guid: 898b2581553cb92499489b547f07600b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7092820775736517455
-    second: Item_PaperCup_Tape_0
+      213: -1771104551180388453
+    second: Broadcast_0
+  - first:
+      213: -4472302778337270841
+    second: Broadcast_1
+  - first:
+      213: -7969398787456768552
+    second: Broadcast_2
+  - first:
+      213: 5393740331765374993
+    second: Broadcast_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +118,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item_PaperCup_Tape_0
+      name: Broadcast_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 7
-        width: 101
-        height: 124
+        x: 0
+        y: 0
+        width: 182
+        height: 307
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4329498ae2ce6260800000000000000
-      internalID: 7092820775736517455
+      spriteID: b97b0de5bc5cb67e0800000000000000
+      internalID: -1771104551180388453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broadcast_1
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 222
+        width: 77
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3e63181503fe1c0800000000000000
+      internalID: -4472302778337270841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broadcast_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 113
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d5e538c602076190800000000000000
+      internalID: -7969398787456768552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broadcast_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 2
+        width: 100
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110a295214a6ada40800000000000000
+      internalID: 5393740331765374993
       vertices: []
       indices: 
       edges: []
@@ -161,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Item_PaperCup_Tape_0: 7092820775736517455
+      Broadcast_0: -1771104551180388453
+      Broadcast_1: -4472302778337270841
+      Broadcast_2: -7969398787456768552
+      Broadcast_3: 5393740331765374993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

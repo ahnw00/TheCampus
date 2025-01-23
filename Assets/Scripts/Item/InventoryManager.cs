@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
@@ -144,7 +144,15 @@ public class InventoryManager : MonoBehaviour
         if (!itemList.Contains(selectedItemName))
         {//inventory의 itemlist를 순환해 selectlastitem이 존재하지않는 경우
             LastClickedItemObj.GetComponent<Image>().sprite = null;
+            selectedItemHighlight.SetActive(false);
             selectedItemName = null;
+        }
+        else
+        {//존재하는경우
+            selectedItemHighlight.SetActive(true);
+            //하이라이트 슬롯 위치 조정
+            selectedItemHighlight.transform.SetParent(questInvenSlotImageList[itemList.IndexOf(selectedItemName)].transform, false);
+            selectedItemHighlight.transform.localPosition = Vector3.zero;
         }
         GameManager.GameManager_Instance.TurnOffUI();
         SetSlotPos();
@@ -161,12 +169,14 @@ public class InventoryManager : MonoBehaviour
         if (item == null) return; //클릭한 아이템이 없으면 return
 
         //클릭한 이미지와 아이템의 이름을 인벤토리 옆에 표시
+        LastClickedItemObj.GetComponent<Image>().enabled = true;
         LastClickedItemObj.GetComponent<Image>().sprite = item.gameObject.GetComponent<Image>().sprite;
         selectedItemName = item.name.Replace("(Clone)", "");
 
         //선택한 아이템의 슬롯 하이라이트 활성화
         if (selectedItemName == null)
         {//선택된 아이템이 없다면 하이라이트 비활성화
+            LastClickedItemObj.GetComponent<Image>().enabled = false;
             selectedItemHighlight.SetActive(false);
             return;
         }
@@ -175,7 +185,6 @@ public class InventoryManager : MonoBehaviour
         // 인벤토리에서 클릭했을때 하이라이트 || 퀘스트인벤에서 클릭했을 때 하이라이트
         for (int i = 0; i < slotList.Count; i++) 
         {
-
             if (slotList[i] == item.originSlot || questInvenSlotList[i] == item.originSlot)
             {
                 selectedItemHighlight.transform.SetParent(questInvenSlotImageList[i].transform, false);
@@ -183,19 +192,6 @@ public class InventoryManager : MonoBehaviour
                 break;
             }
         }
-
-        /*
-        int i = 0;
-        foreach (var slot in slotList)
-        {
-            if (slot == item.originSlot || )
-            {
-                
-            }
-            i++;
-        }
-        */
-        //Debug.Log($"last clicked item updated : {item.name}");
     }
 
     public static InventoryManager InvenManager_Instance
