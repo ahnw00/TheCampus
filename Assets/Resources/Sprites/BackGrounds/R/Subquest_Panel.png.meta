@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e6f2da6b8f20b62499fc559ccc171056
+guid: 857935cd1bd4bc04b9e3fed097dd8e81
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7092820775736517455
-    second: Item_PaperCup_Tape_0
+      213: 5903780475984812757
+    second: Subquest_Panel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 11, y: 19, z: 554, w: 239}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -109,40 +109,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item_PaperCup_Tape_0
+      name: Subquest_Panel_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 7
-        width: 101
-        height: 124
+        x: 0
+        y: 0
+        width: 1432
+        height: 832
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4329498ae2ce6260800000000000000
-      internalID: 7092820775736517455
+      spriteID: 5da16f630117ee150800000000000000
+      internalID: 5903780475984812757
       vertices: []
       indices: 
       edges: []
@@ -151,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Item_PaperCup_Tape_0: 7092820775736517455
+      Subquest_Panel_0: 5903780475984812757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
