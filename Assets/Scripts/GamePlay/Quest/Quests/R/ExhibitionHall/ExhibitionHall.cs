@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class ExhibitionHall : Quest
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] GameObject flashLight; //±¤¿ø
-    [SerializeField] GameObject picture; // ÀÏ¹İ±×¸²
-    [SerializeField] GameObject hiddenPicture; // ¼û°ÜÁø ±×¸²
+    [SerializeField] GameObject flashLight; //ê´‘ì›
+    [SerializeField] GameObject picture; // ì¼ë°˜ê·¸ë¦¼
+    [SerializeField] GameObject hiddenPicture; // ìˆ¨ê²¨ì§„ ê·¸ë¦¼
     [SerializeField] GameObject nail;
     [SerializeField] GameObject piece4;
     [SerializeField] Sprite lightOffPicture;
@@ -17,7 +17,7 @@ public class ExhibitionHall : Quest
     [SerializeField] Sprite lightToHiddenPicture;
     [SerializeField] Sprite tearedHiddenPicture;
 
-    //Å¬¸¯À» ÆÇ´ÜÇÏ´Â flag
+    //í´ë¦­ì„ íŒë‹¨í•˜ëŠ” flag
     bool pictureFlag = true;
     bool hiddenPictureFlag = true;
     bool isGetPicture = false;
@@ -27,18 +27,20 @@ public class ExhibitionHall : Quest
     }
 
     public override void StartQuest()
-    {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
+    {//í€˜ìŠ¤íŠ¸ê°€ ì‹œì‘í• ë•Œ ì‹¤í–‰
         questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
             inventoryManager = InventoryManager.InvenManager_Instance;
+            textManager = TextManager.TextManager_Instance;
+            dialogueManager = DialogueManager.DialoguManager_Instance;
         }
         inventoryManager.SetItemsOnInven(slotList);
     }
 
     public override void ifQuestBtnClicked()
-    {//quest¹öÆ°ÀÌ ´­·ÈÀ» ¶§¸¶´Ù ½ÇÇàµÇ´Â ÇÔ¼ö. ¿©±â¼­´Â ÀÎº¥À» ºÒ·¯¿Â´Ù.
+    {//questë²„íŠ¼ì´ ëˆŒë ¸ì„ ë•Œë§ˆë‹¤ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜. ì—¬ê¸°ì„œëŠ” ì¸ë²¤ì„ ë¶ˆëŸ¬ì˜¨ë‹¤.
         base.ifQuestBtnClicked();
     }
     protected override void OnQuestCompleted()
@@ -48,7 +50,7 @@ public class ExhibitionHall : Quest
     }
 
     public void OnPictureClicked()
-    {//ÀÏ¹İ±×¸² Å¬¸¯½Ã ºÒºû Àá±ñ³ª¿À°í »ç¶óÁö´Â ÇÔ¼ö
+    {//ì¼ë°˜ê·¸ë¦¼ í´ë¦­ì‹œ ë¶ˆë¹› ì ê¹ë‚˜ì˜¤ê³  ì‚¬ë¼ì§€ëŠ” í•¨ìˆ˜
         if(inventoryManager.GetSelectedItemName() == "Flashlight" && pictureFlag)
         {
             pictureFlag = false;
@@ -57,32 +59,35 @@ public class ExhibitionHall : Quest
             //flashLight.SetActive(true);
             //flashLight.transform.SetParent(picture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
-            Invoke("TurnOffLight", 1f); //²ô±â
+            PrintDialogue(35);
+            Invoke("TurnOffLight", 1f); //ë„ê¸°
         }
     }
     public void OnHiddenPictureClicked()
-    {//¼û°ÜÁø ±×¸² Å¬¸¯½Ã ½ÇÇàÇÔ¼ö
+    {//ìˆ¨ê²¨ì§„ ê·¸ë¦¼ í´ë¦­ì‹œ ì‹¤í–‰í•¨ìˆ˜
         if (inventoryManager.GetSelectedItemName() == "Flashlight" && hiddenPictureFlag)
-        {//¼ÕÀüµîÀ» µé°íÀÖÀ¸¸é¼­ Å¬¸¯ÇßÀ»¶§
+        {//ì†ì „ë“±ì„ ë“¤ê³ ìˆìœ¼ë©´ì„œ í´ë¦­í–ˆì„ë•Œ
             hiddenPictureFlag = false;
             pictureFlag = false;
             this.GetComponent<Image>().sprite = lightToHiddenPicture;
+            PrintDialogue(37);
             //flashLight.SetActive(true);
             //flashLight.transform.SetParent(hiddenPicture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
         }
         else if(inventoryManager.GetSelectedItemName() == "RustedSword" && !hiddenPictureFlag && !isGetPicture)
-        {//ÀÌ¹Ì ¼ÕÀüµîÀ¸·Î ¹àÈù »óÅÂ¿¡¼­ ¼±ÅÃµÈ¾ÆÀÌÅÛÀÌ rustedSwordÀÏ¶§
+        {//ì´ë¯¸ ì†ì „ë“±ìœ¼ë¡œ ë°íŒ ìƒíƒœì—ì„œ ì„ íƒëœì•„ì´í…œì´ rustedSwordì¼ë•Œ
+            PrintDialogue(38);
             isGetPicture = true;
             this.GetComponent<Image>().sprite = tearedHiddenPicture;
-            //hiddenPicture.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/temp/tempPicture"); //ÀÌ¹ÌÁö ¹Ù²Ù±â
+            //hiddenPicture.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/temp/tempPicture"); //ì´ë¯¸ì§€ ë°”ê¾¸ê¸°
             nail.SetActive(true);
             piece4.SetActive(true);
             OnQuestCompleted();
         }
     }
     void TurnOffLight()
-    {//±¤¿ø deactive
+    {//ê´‘ì› deactive
         this.GetComponent<Image>().sprite = lightOffPicture;
         //flashLight.SetActive(false);
         hiddenPictureFlag = true;

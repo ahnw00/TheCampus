@@ -8,6 +8,7 @@ public class TextManager : MonoBehaviour
 {
     private static TextManager instance = null;
     [SerializeField] private TextMeshProUGUI inputField;
+    [SerializeField] private GameObject textObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,19 +31,22 @@ public class TextManager : MonoBehaviour
 
     IEnumerator PopUpCoroutine()
     {
-        inputField.gameObject.SetActive(true);
+        textObject.SetActive(true);
 
         var alpha = inputField.color;
+        var backgroundAlpha = textObject.GetComponent<Image>().color;
         var t = 0f;
         while (t < 1f)
         {
             t += Time.deltaTime;
             alpha.a = Mathf.Lerp(1, 0, t);
+            backgroundAlpha.a = Mathf.Lerp(1, 0.1f, t);
             inputField.color = alpha;
+            textObject.GetComponent<Image>().color = backgroundAlpha;
             yield return null;
         }
 
-        inputField.gameObject.SetActive(false);
+        textObject.SetActive(false);
         EnterTexts("");
     }
 

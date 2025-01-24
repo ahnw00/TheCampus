@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CafeNamu : Quest
-{//Äù½ºÆ® ¿¹½Ã
+{//í€˜ìŠ¤íŠ¸ ì˜ˆì‹œ
     [SerializeField] private GameObject water;
     [SerializeField] private GameObject Piece3;
     private const float delaySecond = 1.5f;
@@ -16,20 +16,27 @@ public class CafeNamu : Quest
     [SerializeField] Sprite fill70;
     [SerializeField] Sprite fill40;
     [SerializeField] Sprite fill0;
+    private bool firstWaterTouchFlag = true;
+
+
 
     public override void Start()
     {
         questName = "CafeNamu_SubQuest";
     }
     public override void StartQuest()
-    {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
+    {//í€˜ìŠ¤íŠ¸ê°€ ì‹œì‘í• ë•Œ ì‹¤í–‰
         inventoryManager = InventoryManager.InvenManager_Instance;
         questManager = QuestManager.QuestManager_instance;
+        textManager = TextManager.TextManager_Instance;
+        dialogueManager = DialogueManager.DialoguManager_Instance;
+
         questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            Debug.Log(questName + " ½ÃÀÛ");
+            //ì‹œì‘ ëŒ€ì‚¬ ì¶œë ¥
+            PrintDialogue(18);
         }
         inventoryManager.SetItemsOnInven(slotList);
     }
@@ -48,10 +55,10 @@ public class CafeNamu : Quest
     //}
 
     public void OnWaterClicked()
-    {//¹°ÀÌ Å¬¸¯µÇ¾úÀ»¶§
+    {//ë¬¼ì´ í´ë¦­ë˜ì—ˆì„ë•Œ
         if (InventoryManager.InvenManager_Instance.GetSelectedItemName() == "HandyLadle")
         {
-            //lastClickedItemÀÌ HandyLadleÀÏ¶§¸¸
+            //lastClickedItemì´ HandyLadleì¼ë•Œë§Œ
             switch (waterClicked)
             {
                 case 0:
@@ -73,11 +80,22 @@ public class CafeNamu : Quest
                     break;
             }
         }
+        else if (firstWaterTouchFlag)
+        {
+            PrintDialogue(19);
+            firstWaterTouchFlag = false;
+            StartCoroutine(DelayDialouge(20));
+        }
     }
     IEnumerator ChangeImage(Sprite sprite)
     {
         yield return new WaitForSeconds(delaySecond);
         this.GetComponent<Image>().sprite = sprite;
+    }
+    IEnumerator DelayDialouge(int index)
+    {
+        yield return new WaitForSeconds(delaySecond);
+        PrintDialogue(index);
     }
     void Delay()
     {

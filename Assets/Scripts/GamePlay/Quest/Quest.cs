@@ -15,24 +15,27 @@ public enum QuestStatus
 
 public abstract class Quest : MonoBehaviour
 {
-    protected string questName; //Äù½ºÆ® ÀÌ¸§
-    public QuestStatus questStatus = QuestStatus.NotStarted; //¸ğµç Äù½ºÆ®´Â ½ÃÀÛ 
+    protected string questName; //í€˜ìŠ¤íŠ¸ ì´ë¦„
+    public QuestStatus questStatus = QuestStatus.NotStarted; //ëª¨ë“  í€˜ìŠ¤íŠ¸ëŠ” ì‹œì‘ 
     protected InventoryManager inventoryManager;
+    protected DialogueManager dialogueManager;
+    protected TextManager textManager;
     [SerializeField] protected List<ItemSlot> slotList;
     [SerializeField] public GameObject questInven;
+    protected string[] dialogue;
 
     /*
     public Quest(string questName, int questNumber, List<Item> requiredItems)
-    {//Äù½ºÆ® »ı¼ºÀÚ
+    {//í€˜ìŠ¤íŠ¸ ìƒì„±ì
         this.questName = questName;
         this.questNumber = questNumber;
         this.requiredItems = requiredItems;
         questStatus = QuestStatus.NotStarted;
-        InitializeQuest();//Äù½ºÆ® »ı¼º½Ã ÇÊ¿äÇÑ °Íµé ÃÊ±âÈ­
+        InitializeQuest();//í€˜ìŠ¤íŠ¸ ìƒì„±ì‹œ í•„ìš”í•œ ê²ƒë“¤ ì´ˆê¸°í™”
     }*/
     public abstract void Start();
     public virtual void StartQuest()
-    {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
+    {//í€˜ìŠ¤íŠ¸ê°€ ì‹œì‘í• ë•Œ ì‹¤í–‰
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
@@ -49,15 +52,15 @@ public abstract class Quest : MonoBehaviour
     }
 
     protected virtual bool CheckCompletion()
-    {//Äù½ºÆ® Å¬¸®¾î Á¶°Ç, ÇÊ¿ä½Ã overriding °¡´É
+    {//í€˜ìŠ¤íŠ¸ í´ë¦¬ì–´ ì¡°ê±´, í•„ìš”ì‹œ overriding ê°€ëŠ¥
         if (questStatus == QuestStatus.InProgress)
         {
-            // ÇÊ¿äÇÑ ¾ÆÀÌÅÛµéÀÌ ¸ğµÎ ÀÖ´ÂÁö È®ÀÎ
+            // í•„ìš”í•œ ì•„ì´í…œë“¤ì´ ëª¨ë‘ ìˆëŠ”ì§€ í™•ì¸
             //bool allItemsPresent = requiredItems.TrueForAll(item => playerItems.Contains(item));
             if (true)
             {
                 questStatus = QuestStatus.Completed;
-                OnQuestCompleted(); //°³º° Äù½ºÆ® Å¬¸®¾î½Ã ½ÇÇà
+                OnQuestCompleted(); //ê°œë³„ í€˜ìŠ¤íŠ¸ í´ë¦¬ì–´ì‹œ ì‹¤í–‰
                 return true;
             }
             else
@@ -70,7 +73,7 @@ public abstract class Quest : MonoBehaviour
     }
 
     public virtual void ifQuestBtnClicked()
-    {//quest¹öÆ°ÀÌ ´­·ÈÀ» ¶§¸¶´Ù ½ÇÇàµÇ´Â ÇÔ¼ö. ¿©±â¼­´Â ÀÎº¥À» ºÒ·¯¿Â´Ù.
+    {//questë²„íŠ¼ì´ ëˆŒë ¸ì„ ë•Œë§ˆë‹¤ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜. ì—¬ê¸°ì„œëŠ” ì¸ë²¤ì„ ë¶ˆëŸ¬ì˜¨ë‹¤.
         questInven.SetActive(true);
         foreach (var slot in slotList)
         {
@@ -85,6 +88,12 @@ public abstract class Quest : MonoBehaviour
     public virtual string QuestName()
     {
         return questName;
+    }
+
+    protected virtual void PrintDialogue(int index)
+    {
+        dialogue = dialogueManager.GetDialogue(index);
+        textManager.PopUpText(dialogue[5]);
     }
 }
 

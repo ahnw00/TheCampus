@@ -1,9 +1,7 @@
 {
-    "itemList": [
-        "FixedPaperCup"
-    ],
+    "itemList": [],
     "cabinetList": [],
-    "isMapObtained": true,
+    "isMapObtained": false,
     "questList": [
         "NotStarted",
         "NotStarted",
