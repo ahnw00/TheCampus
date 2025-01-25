@@ -13,8 +13,8 @@ public class OldMap : Clickable
         dataManager = DataManager.Instance;
         data = dataManager.saveData;
         inventoryManager = InventoryManager.InvenManager_Instance;
-        
-        if(data.isMapObtained)
+
+        if (data.isMapObtained)
         {
             MiniMap.SetActive(true);
             this.gameObject.SetActive(false);
@@ -45,6 +45,7 @@ public class OldMap : Clickable
         data.isMapObtained = true;
         dataManager.Save();
         inventoryManager.itemObtainPanel.SetActive(false);
+        LocationAndTodoList.LocationAndTodoList_Instance.SetLocation(MapManager.MapManager_Instance.cur_node.node_name);
         this.gameObject.SetActive(false);
     }
 

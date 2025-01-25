@@ -8,14 +8,12 @@ public class CafeNamu : Quest
 {//퀘스트 예시
     [SerializeField] private GameObject water;
     [SerializeField] private GameObject Piece3;
-    private const float delaySecond = 1.5f;
-    private ItemClass item;
+    private const float dialogueDelay = 1.5f;
     private int waterClicked = 0;
     private QuestManager questManager;
-    [SerializeField] FadeEffect fadeEffect;
-    [SerializeField] Sprite fill70;
-    [SerializeField] Sprite fill40;
-    [SerializeField] Sprite fill0;
+    [SerializeField] Sprite[] fill70;
+    [SerializeField] Sprite[] fill40;
+    [SerializeField] Sprite[] fill0;
     private bool firstWaterTouchFlag = true;
 
 
@@ -64,37 +62,42 @@ public class CafeNamu : Quest
                 case 0:
                     waterClicked++;
                     StartCoroutine(ChangeImage(fill70));
-                    fadeEffect.FadeOutIn(delaySecond, delaySecond);
+                    //fadeEffect.FadeOutIn(delaySecond, delaySecond);
                     break;
                 case 1:
                     waterClicked++;
                     StartCoroutine(ChangeImage(fill40));
-                    fadeEffect.FadeOutIn(delaySecond, delaySecond);
+                    //fadeEffect.FadeOutIn(delaySecond, delaySecond);
                     break;
                 case 2:
                     waterClicked++;
                     StartCoroutine(ChangeImage(fill0));
-                    fadeEffect.FadeOutIn(delaySecond, delaySecond);
+                    //fadeEffect.FadeOutIn(delaySecond, delaySecond);
                     water.SetActive(false);
-                    Invoke("Delay", delaySecond);
+                    Invoke("Delay", 3f);
                     break;
             }
         }
-        else if (firstWaterTouchFlag)
-        {
+        else if (firstWaterTouchFlag && waterClicked == 0)
+        {//맨처음 클릭
             PrintDialogue(19);
             firstWaterTouchFlag = false;
             StartCoroutine(DelayDialouge(20));
         }
     }
-    IEnumerator ChangeImage(Sprite sprite)
+    IEnumerator ChangeImage(Sprite[] sprite)
     {
-        yield return new WaitForSeconds(delaySecond);
-        this.GetComponent<Image>().sprite = sprite;
+        water.GetComponent<Image>().raycastTarget = false;
+        foreach (var frame in sprite)
+        {
+            yield return new WaitForSeconds(1f);
+            this.GetComponent<Image>().sprite = frame;
+        }
+        water.GetComponent<Image>().raycastTarget = true;
     }
     IEnumerator DelayDialouge(int index)
     {
-        yield return new WaitForSeconds(delaySecond);
+        yield return new WaitForSeconds(dialogueDelay);
         PrintDialogue(index);
     }
     void Delay()

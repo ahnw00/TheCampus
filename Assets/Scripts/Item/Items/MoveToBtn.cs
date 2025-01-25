@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ public class MoveToBtn : Clickable
     void Start()
     {
         mapManager = MapManager.MapManager_Instance;
-        if(this.name == "ToH_Lobby")
+        if (this.name == "ToH_Lobby")
         {
             if(!PlayerPrefs.HasKey(this.name))
                 this.gameObject.SetActive(false);
@@ -54,5 +54,6 @@ public class MoveToBtn : Clickable
         mapManager.cur_node = targetNode;
         targetNode.gameObject.SetActive(true);
         mapManager.StartCoroutine(CameraMove());
+        LocationAndTodoList.LocationAndTodoList_Instance.SetLocation(MapManager.MapManager_Instance.cur_node.node_name);
     }
 }
