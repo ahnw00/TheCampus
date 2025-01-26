@@ -1,7 +1,9 @@
 {
-    "itemList": [],
+    "itemList": [
+        "OldBook"
+    ],
     "cabinetList": [],
-    "isMapObtained": true,
+    "isMapObtained": false,
     "questList": [
         "NotStarted",
         "NotStarted",
