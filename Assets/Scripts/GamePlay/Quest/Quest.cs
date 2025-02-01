@@ -22,7 +22,7 @@ public abstract class Quest : MonoBehaviour
     protected TextManager textManager;
     [SerializeField] protected List<ItemSlot> slotList;
     [SerializeField] public GameObject questInven;
-    protected string[] dialogue;
+    protected List<string> dialogue = new List<string>();
 
     /*
     public Quest(string questName, int questNumber, List<Item> requiredItems)
@@ -90,10 +90,9 @@ public abstract class Quest : MonoBehaviour
         return questName;
     }
 
-    protected virtual void PrintDialogue(int index)
+    protected virtual void GetQuestDialogue(string type, string location, string quest)
     {
-        dialogue = dialogueManager.GetDialogue(index);
-        textManager.PopUpText(dialogue[5]);
+        dialogue = dialogueManager.GetDialogue(type, location, quest);
     }
 }
 

@@ -23,6 +23,7 @@ public class ObtainableItem : Clickable
         inventoryManager = InventoryManager.InvenManager_Instance;
         textManager = TextManager.TextManager_Instance;
 
+
         itemKey = $"{this.gameObject.name}_{this.GetInstanceID()}"; //고유 ID생성
 
         if (PlayerPrefs.HasKey(itemKey))
@@ -63,8 +64,15 @@ public class ObtainableItem : Clickable
         inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
         inventoryManager.itemObtainBtn.onClick.AddListener(ObtainItem);
         //아이템 획득 패널에서의 아이템 이미지랑 텍스트 세팅해줘야해
-        //
-        //
+        string path = "Prefabs/Item/" + this.name;
+        GameObject prefab = Resources.Load<GameObject>(path);
+        inventoryManager.itemObtainImage.sprite = prefab.GetComponent<Image>().sprite;
+
+        //텍스트
+        List<string> itemInformation = new List<string>();
+        itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name);
+        inventoryManager.itemObtainName.SetText(itemInformation[0]);
+        inventoryManager.itemObtainInputField.SetText(itemInformation[1]);
     }
 
     protected virtual void ObtainItem()

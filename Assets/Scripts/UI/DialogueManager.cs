@@ -8,7 +8,8 @@ public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager instance = null;
     [SerializeField] TextAsset csvFile; //Excel csv파일
-    private Dictionary<int, string[]> splitedExcel = new Dictionary<int, string[]>();
+    //private Dictionary<int, string[]> splitedExcel = new Dictionary<int, string[]>();
+    private List<string[]> splitedExcel = new List<string[]>();
     /*
      * excel을 csv로 변환하면 ,로 셀을 구분한다
         셀 하나에 여러줄이 있다면 "여러줄입니다","여러줄입니다"로 구분한다
@@ -44,7 +45,7 @@ public class DialogueManager : MonoBehaviour
              */
             string pattern = @",(?=(?:[^\""]*\""[^\""]*\"")*[^\""]*$)";
             string[] result = Regex.Split(textRows[i], pattern);
-            splitedExcel.Add(i - 2, result);
+            splitedExcel.Add(result);
             /*
              * Dic에 구분 / 위치 / 퀘스트 / 조건,아이템이름 / 내용 / 결과,아이템용도 순으로 
              * 행 마다 저장한다
@@ -71,8 +72,8 @@ public class DialogueManager : MonoBehaviour
             return instance;
         }
     }
-
-    public string[] GetDialogue(int index)
+    /*
+    public string[] GetIngameDialogue(int index)
     {
         if(!splitedExcel.ContainsKey(index - 3))
         {
@@ -80,5 +81,33 @@ public class DialogueManager : MonoBehaviour
             return null;
         }
         return splitedExcel[index - 3];
+    }*/
+
+    public List<string> GetDialogue(string type, string location, string quest)
+    {// 구분, 위치, 퀘스트, (아이템이름)을 입력하면 해당 행의 내용을 반환
+        List<string> result = new List<string>();
+        foreach (var row in splitedExcel)
+        {
+            if (row[1] == type && row[2] == location && row[3] == quest)
+            {
+                result.Add(row[5]);
+            }
+        }
+        return result;
+    }
+
+    public List<string> GetItemDiscription(string itemName)
+    {
+        List<string> result = new List<string>();
+        foreach (var row in splitedExcel)
+        {
+            if (row[7] == itemName)
+            {
+                result.Add(row[4]);//이름
+                result.Add(row[5]);//설명
+                return result;
+            }
+        }
+        return null;
     }
 }
