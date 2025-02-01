@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +8,19 @@ public class SFXSliderManager : MonoBehaviour
     void Awake()
     {
         sfxSlider = GetComponent<Slider>();
-        sfxSlider.onValueChanged.AddListener(OnSliderValueChanged);
-    }
 
-    private void OnSliderValueChanged(float value)
-    {
-        SoundManager.Instance.SetSFXValue(value);
+        if (SoundManager.Instance != null)
+        {
+            sfxSlider.value = SoundManager.Instance.SFXVolume;
+        }
+
+        sfxSlider.onValueChanged.AddListener(value =>
+        {
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.SFXVolume = value; 
+                SoundManager.Instance.SetSFXValue(value); 
+            }
+        });
     }
 }

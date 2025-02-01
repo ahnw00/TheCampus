@@ -18,8 +18,8 @@ public class BGMSliderManager : MonoBehaviour
         {
             if (SoundManager.Instance != null)
             {
-                SoundManager.Instance.BGMVolume = value; // SoundManager 변수 업데이트
-                SoundManager.Instance.SetBGMValue(value);  // 실제 적용
+                SoundManager.Instance.BGMVolume = value;
+                SoundManager.Instance.SetBGMValue(value);
             }
         });
     }
