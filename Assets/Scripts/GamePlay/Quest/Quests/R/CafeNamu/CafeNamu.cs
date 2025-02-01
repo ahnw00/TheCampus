@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class CafeNamu : Quest
 {//퀘스트 예시
@@ -28,21 +29,25 @@ public class CafeNamu : Quest
         questManager = QuestManager.QuestManager_instance;
         textManager = TextManager.TextManager_Instance;
         dialogueManager = DialogueManager.DialoguManager_Instance;
+        GetQuestDialogue("인게임 대사", "카페나무", "Rsub1");
 
         questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            //시작 대사 출력
-            PrintDialogue(18);
+            questManager.SaveQuestStatus();
+            textManager.PopUpText(dialogue[0]);//시작 대사
+        }
+        else if (questStatus == QuestStatus.Completed)
+        {
+            waterClicked = 3;
+            this.GetComponent<Image>().sprite = fill0[2];
         }
         inventoryManager.SetItemsOnInven(slotList);
     }
     protected override void OnQuestCompleted()
     {
         Debug.Log(questName + " clear");
-        PlayerPrefs.SetInt("Piece3", 1);
-        PlayerPrefs.Save();
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();
     }
@@ -76,13 +81,15 @@ public class CafeNamu : Quest
                     water.SetActive(false);
                     Invoke("Delay", 3f);
                     break;
+                default:
+                    break;
             }
         }
         else if (firstWaterTouchFlag && waterClicked == 0)
         {//맨처음 클릭
-            PrintDialogue(19);
+            textManager.PopUpText(dialogue[1]);
             firstWaterTouchFlag = false;
-            StartCoroutine(DelayDialouge(20));
+            StartCoroutine(DelayDialouge(dialogue[2]));
         }
     }
     IEnumerator ChangeImage(Sprite[] sprite)
@@ -95,10 +102,10 @@ public class CafeNamu : Quest
         }
         water.GetComponent<Image>().raycastTarget = true;
     }
-    IEnumerator DelayDialouge(int index)
+    IEnumerator DelayDialouge(string dialogue)
     {
         yield return new WaitForSeconds(dialogueDelay);
-        PrintDialogue(index);
+        textManager.PopUpText(dialogue);
     }
     void Delay()
     {

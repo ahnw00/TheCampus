@@ -34,6 +34,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject itemObtainPanel;
     public Image itemObtainImage;
     public TextMeshProUGUI itemObtainInputField;
+    public TextMeshProUGUI itemObtainName;
     public Button itemObtainBtn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

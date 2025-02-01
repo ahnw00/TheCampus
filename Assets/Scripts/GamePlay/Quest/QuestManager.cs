@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class QuestManager : MonoBehaviour
 {
     private static QuestManager instance = null;
-    [SerializeField] private List<GameObject> questPanels;
-    [SerializeField] private GameObject inventoryBtn;
+    [SerializeField] private List<GameObject> questPanels; //퀘스트화면
+    [SerializeField] private GameObject inventoryBtn; // 
+    [SerializeField] private GameObject toDoQuestPrefab; // 해야할 퀘스트 목록
     private DataManager dataManager;
     private SaveDataClass saveData;
 

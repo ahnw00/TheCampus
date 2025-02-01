@@ -16,10 +16,11 @@ public class ExhibitionHall : Quest
     [SerializeField] Sprite lightToPicture;
     [SerializeField] Sprite lightToHiddenPicture;
     [SerializeField] Sprite tearedHiddenPicture;
+    private QuestManager questManager;
 
     //클릭을 판단하는 flag
-    bool pictureFlag = true;
-    bool hiddenPictureFlag = true;
+    bool canPictureClick = true;
+    bool canHiddenPictureClick = true;
     bool isGetPicture = false;
     public override void Start()
     {
@@ -28,13 +29,24 @@ public class ExhibitionHall : Quest
 
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
+        questManager = QuestManager.QuestManager_instance;
+        inventoryManager = InventoryManager.InvenManager_Instance;
+        textManager = TextManager.TextManager_Instance;
+        dialogueManager = DialogueManager.DialoguManager_Instance;
+        GetQuestDialogue("인게임 대사", "전시관", "Rsub3");
+
         questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
-            inventoryManager = InventoryManager.InvenManager_Instance;
-            textManager = TextManager.TextManager_Instance;
-            dialogueManager = DialogueManager.DialoguManager_Instance;
+            questManager.SaveQuestStatus();
+        }
+        else if (questStatus == QuestStatus.Completed)
+        {
+            canPictureClick = false;
+            canHiddenPictureClick = false;
+            isGetPicture = true;
+            this.GetComponent<Image>().sprite = tearedHiddenPicture;
         }
         inventoryManager.SetItemsOnInven(slotList);
     }
@@ -46,38 +58,39 @@ public class ExhibitionHall : Quest
     protected override void OnQuestCompleted()
     {
         this.questStatus = QuestStatus.Completed;
+        questManager.SaveQuestStatus();
         Debug.Log(questName + "clear");
     }
 
     public void OnPictureClicked()
     {//일반그림 클릭시 불빛 잠깐나오고 사라지는 함수
-        if(inventoryManager.GetSelectedItemName() == "Flashlight" && pictureFlag)
+        if(inventoryManager.GetSelectedItemName() == "Flashlight" && canPictureClick)
         {
-            pictureFlag = false;
-            hiddenPictureFlag = false;
+            canPictureClick = false;
+            canHiddenPictureClick = false;
             this.GetComponent<Image>().sprite = lightToPicture;
             //flashLight.SetActive(true);
             //flashLight.transform.SetParent(picture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
-            PrintDialogue(35);
+            textManager.PopUpText(dialogue[0]);
             Invoke("TurnOffLight", 1f); //끄기
         }
     }
     public void OnHiddenPictureClicked()
     {//숨겨진 그림 클릭시 실행함수
-        if (inventoryManager.GetSelectedItemName() == "Flashlight" && hiddenPictureFlag)
+        if (inventoryManager.GetSelectedItemName() == "Flashlight" && canHiddenPictureClick)
         {//손전등을 들고있으면서 클릭했을때
-            hiddenPictureFlag = false;
-            pictureFlag = false;
+            canHiddenPictureClick = false;
+            canPictureClick = false;
             this.GetComponent<Image>().sprite = lightToHiddenPicture;
-            PrintDialogue(37);
+            textManager.PopUpText(dialogue[1]);
             //flashLight.SetActive(true);
             //flashLight.transform.SetParent(hiddenPicture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
         }
-        else if(inventoryManager.GetSelectedItemName() == "RustedSword" && !hiddenPictureFlag && !isGetPicture)
+        else if(inventoryManager.GetSelectedItemName() == "RustedSword" && !canHiddenPictureClick && !isGetPicture)
         {//이미 손전등으로 밝힌 상태에서 선택된아이템이 rustedSword일때
-            PrintDialogue(38);
+            textManager.PopUpText(dialogue[2]);
             isGetPicture = true;
             this.GetComponent<Image>().sprite = tearedHiddenPicture;
             //hiddenPicture.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/temp/tempPicture"); //이미지 바꾸기
@@ -90,7 +103,7 @@ public class ExhibitionHall : Quest
     {//광원 deactive
         this.GetComponent<Image>().sprite = lightOffPicture;
         //flashLight.SetActive(false);
-        hiddenPictureFlag = true;
+        canHiddenPictureClick = true;
     }
 
     public void GetPiece4()
