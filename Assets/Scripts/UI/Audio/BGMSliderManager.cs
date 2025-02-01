@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,14 +8,19 @@ public class BGMSliderManager : MonoBehaviour
     void Awake()
     {
         bgmSlider = GetComponent<Slider>();
-        bgmSlider.value = PlayerPrefs.GetFloat("BGM", 1f);
-        bgmSlider.onValueChanged.AddListener(OnSliderValueChanged);
-    }
 
+        if (SoundManager.Instance != null)
+        {
+            bgmSlider.value = SoundManager.Instance.BGMVolume;
+        }
 
-    private void OnSliderValueChanged(float value)
-    {
-        SoundManager.Instance.SetBGMValue(value);
-        PlayerPrefs.SetFloat("BGM", value);
+        bgmSlider.onValueChanged.AddListener(value =>
+        {
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.BGMVolume = value; // SoundManager 변수 업데이트
+                SoundManager.Instance.SetBGMValue(value);  // 실제 적용
+            }
+        });
     }
 }
