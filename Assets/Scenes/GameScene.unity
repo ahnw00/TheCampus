@@ -5292,11 +5292,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1129204616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 45, y: 40}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: -42.999996}
   m_SizeDelta: {x: 1298, y: 725}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258393884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9541,11 +9541,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1990764425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518862358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10920,7 +10920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &624292016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11031,11 +11031,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1129204616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 45, y: 40}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: -42.999996}
   m_SizeDelta: {x: 1298, y: 725}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626487116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12024,6 +12024,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1129204619}
+        m_TargetAssemblyTypeName: Memo, Assembly-CSharp
+        m_MethodName: ChangePage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1775916976}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1775916976}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -17080,13 +17092,15 @@ GameObject:
   - component: {fileID: 1129204616}
   - component: {fileID: 1129204618}
   - component: {fileID: 1129204617}
+  - component: {fileID: 1129204619}
+  - component: {fileID: 1129204620}
   m_Layer: 5
   m_Name: Memo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1129204616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17154,6 +17168,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129204615}
   m_CullTransparentMesh: 1
+--- !u!114 &1129204619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129204615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dab9c62aa99648a83019867b0410e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawLine: {fileID: 1129204620}
+--- !u!114 &1129204620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129204615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5eb4a2949e27a478e0c112694d86a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 5873153526230540477, guid: bdf4d1153786a5249bea63658c41a16d, type: 3}
+  curPage: {fileID: 1775916976}
 --- !u!1 &1137016231
 GameObject:
   m_ObjectHideFlags: 0
@@ -23318,6 +23359,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1129204619}
+        m_TargetAssemblyTypeName: Memo, Assembly-CSharp
+        m_MethodName: ChangePage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 626487114}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1775916976}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -26134,11 +26187,11 @@ RectTransform:
   - {fileID: 656610098}
   m_Father: {fileID: 1097546475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1690108588
 GameObject:
   m_ObjectHideFlags: 0
@@ -26837,6 +26890,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1129204619}
+        m_TargetAssemblyTypeName: Memo, Assembly-CSharp
+        m_MethodName: ChangePage
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 258393882}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1775916976}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -27292,11 +27357,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1129204616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 45, y: 40}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: -43}
   m_SizeDelta: {x: 1298, y: 725}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775916978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29032,7 +29097,6 @@ GameObject:
   - component: {fileID: 1923032287}
   - component: {fileID: 1923032290}
   - component: {fileID: 1923032291}
-  - component: {fileID: 1923032292}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -29171,20 +29235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 1097546474}
---- !u!114 &1923032292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923032286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5eb4a2949e27a478e0c112694d86a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linePrefab: {fileID: 5873153526230540477, guid: bdf4d1153786a5249bea63658c41a16d, type: 3}
-  curPage: {fileID: 1775916976}
 --- !u!1 &1933751069
 GameObject:
   m_ObjectHideFlags: 0
@@ -30196,7 +30246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1990764425
 RectTransform:
   m_ObjectHideFlags: 0
