@@ -17,11 +17,19 @@ public class Memo : MonoBehaviour
 
     public void SetDrawMode()
     {
-        drawLine.enabled = true;
+        drawLine.curMode = DrawLine.Mode.Draw;
     }
 
-    public void OffDrawMode()
+    public void SetEraseMode()
     {
-        drawLine.enabled = false;
+        drawLine.curMode = DrawLine.Mode.Erase;
+    }
+
+    public void DeleteAllLines()
+    {
+        foreach(Transform child in drawLine.curPage.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
