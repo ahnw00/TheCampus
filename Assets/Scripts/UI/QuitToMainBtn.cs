@@ -7,6 +7,7 @@ public class QuitToMainBtn : MonoBehaviour
 {
     public void ToStartScene()
     {
+        SoundManager.Instance.SaveVolume();
         SceneManager.LoadScene("StartScene");
     }
 }

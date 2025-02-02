@@ -8,11 +8,7 @@ public class BGMSliderManager : MonoBehaviour
     void Awake()
     {
         bgmSlider = GetComponent<Slider>();
-
-        if (SoundManager.Instance != null)
-        {
-            bgmSlider.value = SoundManager.Instance.BGMVolume;
-        }
+        bgmSlider.value = SoundManager.Instance.BGMVolume;
 
         bgmSlider.onValueChanged.AddListener(value =>
         {

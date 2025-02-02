@@ -8,11 +8,7 @@ public class SFXSliderManager : MonoBehaviour
     void Awake()
     {
         sfxSlider = GetComponent<Slider>();
-
-        if (SoundManager.Instance != null)
-        {
-            sfxSlider.value = SoundManager.Instance.SFXVolume;
-        }
+        sfxSlider.value = SoundManager.Instance.SFXVolume;
 
         sfxSlider.onValueChanged.AddListener(value =>
         {

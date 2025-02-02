@@ -2562,6 +2562,7 @@ MonoBehaviour:
   itemObtainPanel: {fileID: 67821642}
   itemObtainImage: {fileID: 1284943923}
   itemObtainInputField: {fileID: 1901768906}
+  itemObtainName: {fileID: 0}
   itemObtainBtn: {fileID: 965040331}
 --- !u!1 &118041627
 GameObject:
@@ -5616,6 +5617,7 @@ GameObject:
   - component: {fileID: 271672452}
   - component: {fileID: 271672451}
   - component: {fileID: 271672450}
+  - component: {fileID: 271672454}
   m_Layer: 5
   m_Name: BGMUnmuted
   m_TagString: Untagged
@@ -5691,10 +5693,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1033344224}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
+      - m_Target: {fileID: 271672454}
+        m_TargetAssemblyTypeName: BGMMuteManager, Assembly-CSharp
+        m_MethodName: MuteBGM
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5760,6 +5762,19 @@ RectTransform:
   m_AnchoredPosition: {x: -305, y: 32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &271672454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271672449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5245cd2cf01bc9649b8ba0bd026143a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1033344224}
 --- !u!1 &272285072
 GameObject:
   m_ObjectHideFlags: 0
@@ -8915,7 +8930,7 @@ GameObject:
   - component: {fileID: 493543777}
   - component: {fileID: 493543776}
   - component: {fileID: 493543775}
-  - component: {fileID: 493543774}
+  - component: {fileID: 493543778}
   m_Layer: 5
   m_Name: BGMMuted
   m_TagString: Untagged
@@ -8942,19 +8957,6 @@ RectTransform:
   m_AnchoredPosition: {x: -305, y: 32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &493543774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493543772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd32bfa71e646748b23c8694e3c8c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1033344224}
 --- !u!114 &493543775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9023,9 +9025,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 493543774}
-        m_TargetAssemblyTypeName: UnmuteManager, Assembly-CSharp
-        m_MethodName: UnmuteBGM
+      - m_Target: {fileID: 493543778}
+        m_TargetAssemblyTypeName: BGMMuteManager, Assembly-CSharp
+        m_MethodName: UnMuteBGM
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9073,6 +9075,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493543772}
   m_CullTransparentMesh: 1
+--- !u!114 &493543778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493543772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5245cd2cf01bc9649b8ba0bd026143a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1033344224}
 --- !u!1 &496630544
 GameObject:
   m_ObjectHideFlags: 0
@@ -9709,6 +9724,7 @@ MonoBehaviour:
   - {fileID: 849280976}
   - {fileID: 876491989}
   inventoryBtn: {fileID: 1197407080}
+  toDoQuestPrefab: {fileID: 0}
 --- !u!1 &552954020
 GameObject:
   m_ObjectHideFlags: 0
@@ -12589,8 +12605,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 722010584}
-        m_TargetAssemblyTypeName: UnmuteManager, Assembly-CSharp
-        m_MethodName: UnmuteSFX
+        m_TargetAssemblyTypeName: SFXMuteManager, Assembly-CSharp
+        m_MethodName: UnMuteSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15479,19 +15495,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: SetBGMValue
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &1033344225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23649,6 +23653,7 @@ GameObject:
   - component: {fileID: 1518636116}
   - component: {fileID: 1518636115}
   - component: {fileID: 1518636114}
+  - component: {fileID: 1518636118}
   m_Layer: 5
   m_Name: SFXUnmuted
   m_TagString: Untagged
@@ -23724,10 +23729,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1554178035}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
+      - m_Target: {fileID: 1518636118}
+        m_TargetAssemblyTypeName: SFXMuteManager, Assembly-CSharp
+        m_MethodName: MuteSFX
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23793,6 +23798,19 @@ RectTransform:
   m_AnchoredPosition: {x: -305, y: -92}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1518636118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518636113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd32bfa71e646748b23c8694e3c8c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1554178035}
 --- !u!1 &1531866772
 GameObject:
   m_ObjectHideFlags: 0
@@ -24041,19 +24059,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: SetSFXValue
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &1554178036
 RectTransform:
   m_ObjectHideFlags: 0
