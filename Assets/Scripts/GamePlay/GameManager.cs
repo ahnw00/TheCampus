@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            Debug.DrawRay(mousePos, rayDir * 10, Color.red, 0.5f);
+            //Debug.DrawRay(mousePos, rayDir * 10, Color.red, 0.5f);
             hit = Physics2D.Raycast(mousePos, rayDir, 10f);
             //Debug.Log(hit.collider.name);
             DetectedFunction();
