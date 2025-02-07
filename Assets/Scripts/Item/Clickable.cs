@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -7,12 +7,14 @@ public abstract class Clickable : MonoBehaviour
 {
     protected int flag = 0;
     protected float searchingTime = 1f; //게이지 차는데 걸리는 시간
+    private GameObject gaugeObj;
     private Image gauge;
     string ObjectID;
 
     private void Start()
     {
-        gauge = GameManager.GameManager_Instance.gauge;
+        gaugeObj = GameManager.GameManager_Instance.gaugeObject;
+        gauge = GameManager.GameManager_Instance.gaugeImage;
     }
 
     public virtual void Clicked()
@@ -25,7 +27,8 @@ public abstract class Clickable : MonoBehaviour
 
         if(gauge == null)
         {
-            gauge = GameManager.GameManager_Instance.gauge;
+            gaugeObj = GameManager.GameManager_Instance.gaugeObject;
+            gauge = GameManager.GameManager_Instance.gaugeImage;
         }
         //변수가 저장되어있지 않으면 저장해줘
         if(!PlayerPrefs.HasKey(ObjectID))
@@ -42,8 +45,8 @@ public abstract class Clickable : MonoBehaviour
             float targetX = inputPos.x;
             float targetY = inputPos.y;
             Vector3 targetPos = new Vector3(targetX, targetY, 0);
-            gauge.gameObject.GetComponent<RectTransform>().position = targetPos;
-            gauge.gameObject.SetActive(true);
+            gaugeObj.GetComponent<RectTransform>().position = targetPos;
+            gaugeObj.gameObject.SetActive(true);
             StartCoroutine(SearchingCoroutine());
         }
     }
@@ -65,7 +68,7 @@ public abstract class Clickable : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        gauge.gameObject.SetActive(false);
+        gaugeObj.gameObject.SetActive(false);
         gauge.fillAmount = 0f;
     }
 }

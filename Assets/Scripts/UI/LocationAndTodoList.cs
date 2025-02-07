@@ -7,7 +7,10 @@ public class LocationAndTodoList : MonoBehaviour
     private static LocationAndTodoList instance = null;
     [SerializeField] private TextMeshProUGUI currentLocation; //현재 위치 텍스트 오브젝트
     [SerializeField] private GameObject minimap;
+    [SerializeField] private GameObject toDoListPrefab; //할일 프리펩
+    [SerializeField] private Transform content; //todolist
     private Dictionary<string, string> translate = new Dictionary<string, string>(); //번역 사전
+    private Dictionary<string, GameObject> toDoList = new Dictionary<string, GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,7 +32,7 @@ public class LocationAndTodoList : MonoBehaviour
 
     public void SetLocation(string location)
     {//현재 위치를 갱신하는 함수
-        if(minimap.activeInHierarchy)
+        if (minimap.activeInHierarchy)
         {
             location = ConvertToKorean(location);
             currentLocation.SetText(location);
@@ -59,5 +62,20 @@ public class LocationAndTodoList : MonoBehaviour
             if (!instance) return null;
             return instance;
         }
+    }
+
+    public void SetTodo(string key, string description)
+    {
+        GameObject newTodo = Instantiate(toDoListPrefab, content);
+        TextMeshProUGUI todoText = newTodo.GetComponentInChildren<TextMeshProUGUI>();
+        todoText.SetText(description);
+        toDoList.Add(key, newTodo);
+    }
+
+    public void DeleteTodo(string key)
+    {
+        GameObject destoryTodo = toDoList[key];
+        toDoList.Remove(key);
+        Destroy(destoryTodo);
     }
 }

@@ -12,6 +12,7 @@ public class ObtainableItem : Clickable
     protected SaveDataClass data;
     protected InventoryManager inventoryManager;
     protected TextManager textManager;
+    protected GameManager gameManager;
     protected string itemKey;
 
 
@@ -22,6 +23,7 @@ public class ObtainableItem : Clickable
         data = dataManager.saveData;
         inventoryManager = InventoryManager.InvenManager_Instance;
         textManager = TextManager.TextManager_Instance;
+        gameManager = GameManager.GameManager_Instance;
 
 
         itemKey = $"{this.gameObject.name}_{this.GetInstanceID()}"; //고유 ID생성
@@ -78,6 +80,12 @@ public class ObtainableItem : Clickable
     protected virtual void ObtainItem()
     {
         bool _flag = false;
+        if(this.name == "Broadcast")
+        {
+            gameManager.TurnOnRadio();
+            inventoryManager.itemObtainPanel.SetActive(false);
+            return;
+        }
         foreach (var slot in inventoryManager.slotList)
         {
             if (slot.curItem == null)

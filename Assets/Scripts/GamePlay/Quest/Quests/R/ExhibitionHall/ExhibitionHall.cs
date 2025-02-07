@@ -17,6 +17,7 @@ public class ExhibitionHall : Quest
     [SerializeField] Sprite lightToHiddenPicture;
     [SerializeField] Sprite tearedHiddenPicture;
     private QuestManager questManager;
+    private string todoKey = "Rsub3";
 
     //클릭을 판단하는 flag
     bool canPictureClick = true;
@@ -33,6 +34,7 @@ public class ExhibitionHall : Quest
         inventoryManager = InventoryManager.InvenManager_Instance;
         textManager = TextManager.TextManager_Instance;
         dialogueManager = DialogueManager.DialoguManager_Instance;
+        locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
         GetQuestDialogue("인게임 대사", "전시관", "Rsub3");
 
         questInven.SetActive(true);
@@ -49,6 +51,9 @@ public class ExhibitionHall : Quest
             this.GetComponent<Image>().sprite = tearedHiddenPicture;
         }
         inventoryManager.SetItemsOnInven(slotList);
+
+        //todo생성
+        locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", "전시관", "Rsub3"));
     }
 
     public override void ifQuestBtnClicked()
@@ -60,6 +65,7 @@ public class ExhibitionHall : Quest
         this.questStatus = QuestStatus.Completed;
         questManager.SaveQuestStatus();
         Debug.Log(questName + "clear");
+        locationAndTodoList.DeleteTodo(todoKey);
     }
 
     public void OnPictureClicked()

@@ -13,6 +13,7 @@ public class LawClassroom : Quest
     private float startRot = 4f;
     public bool isCoroutineRunning = false;
     [SerializeField] private GameObject rustedSword;
+    private string todoKey = "Rsub2";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -37,12 +38,18 @@ public class LawClassroom : Quest
     public override void StartQuest()
     {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
         inventoryManager = InventoryManager.InvenManager_Instance;
+        dialogueManager = DialogueManager.DialoguManager_Instance;
+        locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
+
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
             ifQuestBtnClicked();
             Debug.Log(questName + " ½ÃÀÛ");
         }
+
+        //todo생성
+        locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", "법학강의실", "Rsub2"));
     }
 
     public override void QuitQuest()
@@ -68,6 +75,7 @@ public class LawClassroom : Quest
         rustedSword.SetActive(true);
         questStatus = QuestStatus.Completed;
         questManager.SaveQuestStatus();
+        locationAndTodoList.DeleteTodo(todoKey);
     }
 
     protected override bool CheckCompletion()

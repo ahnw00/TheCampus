@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         return splitedExcel[index - 3];
     }*/
 
-    public List<string> GetDialogue(string type, string location, string quest)
+    public List<string> GetIngameDialogue(string type, string location, string quest)
     {// 구분, 위치, 퀘스트, (아이템이름)을 입력하면 해당 행의 내용을 반환
         List<string> result = new List<string>();
         foreach (var row in splitedExcel)
@@ -91,6 +91,20 @@ public class DialogueManager : MonoBehaviour
             if (row[1] == type && row[2] == location && row[3] == quest)
             {
                 result.Add(row[5]);
+            }
+        }
+        return result;
+    }
+
+    public string GetQuestDialogue(string type, string location, string quest)
+    {
+        string result = "null";
+        foreach (var row in splitedExcel)
+        {
+            if (row[1] == type && row[2] == location && row[3] == quest)
+            {
+                result = row[5];
+                return result;
             }
         }
         return result;

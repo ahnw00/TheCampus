@@ -10,8 +10,8 @@ public enum TextType
 }
 public class Record : MonoBehaviour
 {
-    // ±âº» 2ÁÙ h : 135 , 3ÁÙ h : 161 (135 + 26), 4ÁÙ h : 204 (161 + 43) 5ÁÙ h : 248 (204 + 44) 
-    // ÇÑ±Û 36ÀÚ = 1ÁÙ
+    // ê¸°ë³¸ 2ì¤„ h : 135 , 3ì¤„ h : 161 (135 + 26), 4ì¤„ h : 204 (161 + 43) 5ì¤„ h : 248 (204 + 44) 
+    // í•œê¸€ 36ì = 1ì¤„
     // textFormat
     [SerializeField] GameObject subHeadPrefab;
     [SerializeField] GameObject radioPrefab;
@@ -23,13 +23,13 @@ public class Record : MonoBehaviour
     GameObject textObject = null; // actual text obj
     TextMeshProUGUI textComponent = null; // actual text
 
-    public RectTransform textPreset;  // Á¶ÀıÇÒ ¿ä¼Ò
-    public TextMeshProUGUI textElement;       // Content ¾ÈÀÇ Text
-    public int maxCharacters_30Size_InLine = 36; // ÃÖ´ë ¹®ÀÚ ¼ö
+    public RectTransform textPreset;  // ì¡°ì ˆí•  ìš”ì†Œ
+    public TextMeshProUGUI textElement;       // Content ì•ˆì˜ Text
+    public int maxCharacters_30Size_InLine = 36; // ìµœëŒ€ ë¬¸ì ìˆ˜
     /*
-     µî·ÏÇØµĞ prefabÇü½ÄµéÀ» ºÒ·¯¿Í¼­ 
-    Scroll ViewÀÇ ContentÀÇ ÀÚ½ÄÀ¸·Î »ı¼ºÇÏ¿©
-    json¿¡ ÀúÀåµÇ¾îÀÖ´Â ½ºÅ©¸³Æ® ´ë»çµéÀ» °¢ Å¸ÀÔ¿¡ ¸Â°Ô ÅØ½ºÆ®¸¦ »ğÀÔ
+     ë“±ë¡í•´ë‘” prefabí˜•ì‹ë“¤ì„ ë¶ˆëŸ¬ì™€ì„œ 
+    Scroll Viewì˜ Contentì˜ ìì‹ìœ¼ë¡œ ìƒì„±í•˜ì—¬
+    jsonì— ì €ì¥ë˜ì–´ìˆëŠ” ìŠ¤í¬ë¦½íŠ¸ ëŒ€ì‚¬ë“¤ì„ ê° íƒ€ì…ì— ë§ê²Œ í…ìŠ¤íŠ¸ë¥¼ ì‚½ì…
 
     prefab
     - subHeading
@@ -40,31 +40,31 @@ public class Record : MonoBehaviour
 
     private void Start()
     {
-        //Å×½ºÆ®¿ë
-        AddText(TextType.SubHeading, "¼ÒÁ¦¸ñ Å×½ºÆ®");
-        AddText(TextType.Radio, "¶óµğ¿À Å×½ºÆ®");
-        AddText(TextType.Speaker, "Å×½ºÆ®", "µ¶¹é");
-        AddText(TextType.SubHeading, "¼ÒÁ¦¸ñ Å×½ºÆ®");
-        AddText(TextType.Radio, "¶óµğ¿À Å×½ºÆ®");
-        AddText(TextType.Speaker, "Å×½ºÆ®", "µ¶¹é");
-        AddText(TextType.SubHeading, "¼ÒÁ¦¸ñ Å×½ºÆ®");
-        AddText(TextType.Radio, "¶óµğ¿À Å×½ºÆ®");
-        AddText(TextType.Speaker, "Å×½ºÆ®", "µ¶¹é");
+        //í…ŒìŠ¤íŠ¸ìš©
+        AddText(TextType.SubHeading, "ì†Œì œëª© í…ŒìŠ¤íŠ¸");
+        AddText(TextType.Radio, "ë¼ë””ì˜¤ í…ŒìŠ¤íŠ¸");
+        AddText(TextType.Speaker, "í…ŒìŠ¤íŠ¸", "ë…ë°±");
+        AddText(TextType.SubHeading, "ì†Œì œëª© í…ŒìŠ¤íŠ¸");
+        AddText(TextType.Radio, "ë¼ë””ì˜¤ í…ŒìŠ¤íŠ¸");
+        AddText(TextType.Speaker, "í…ŒìŠ¤íŠ¸", "ë…ë°±");
+        AddText(TextType.SubHeading, "ì†Œì œëª© í…ŒìŠ¤íŠ¸");
+        AddText(TextType.Radio, "ë¼ë””ì˜¤ í…ŒìŠ¤íŠ¸");
+        AddText(TextType.Speaker, "í…ŒìŠ¤íŠ¸", "ë…ë°±");
     }
 
     public void AddText(TextType type, string description, string speaker = null)
-    {// json¿¡´Â type/description/speaker·Î ÀúÀåµÇ¾îÀÖ´Ù. descriptionÀº body, speaker´Â Å¸ÀÔÀÌ speaker ÀÏ¶§¸¸ »ç¿ë
+    {// jsonì—ëŠ” type/description/speakerë¡œ ì €ì¥ë˜ì–´ìˆë‹¤. descriptionì€ body, speakerëŠ” íƒ€ì…ì´ speaker ì¼ë•Œë§Œ ì‚¬ìš©
         switch (type)
         {
             case TextType.SubHeading:
-                //±× ÀÚÃ¼·Î ÅØ½ºÆ® ¿ÀºêÁ§Æ®ÀÓ
+                //ê·¸ ìì²´ë¡œ í…ìŠ¤íŠ¸ ì˜¤ë¸Œì íŠ¸
                 newTextFormat = Instantiate(subHeadPrefab, content);
                 textObject = newTextFormat;
                 textComponent = textObject.GetComponent<TextMeshProUGUI>();
                 textComponent.text = description;
                 break;
             case TextType.Radio:
-                //ÀÌ¹ÌÁö´Â ÀÌ¹Ì ÀÖ´Ù. body¸¸ ÀÔ·Â
+                //ì´ë¯¸ì§€ëŠ” ì´ë¯¸ ìˆë‹¤. bodyë§Œ ì…ë ¥
                 newTextFormat = Instantiate(radioPrefab, content);
                 textObject = newTextFormat;
                 textObject = textObject.transform.GetChild(1).gameObject;
@@ -72,12 +72,12 @@ public class Record : MonoBehaviour
                 textComponent.text = description;
                 break;
             case TextType.Speaker:
-                //È­ÀÚ ÀÔ·Â
+                //í™”ì ì…ë ¥
                 newTextFormat = Instantiate(speakerPrefab, content);
                 textObject = newTextFormat.transform.GetChild(0).gameObject;
                 textComponent = textObject.GetComponent<TextMeshProUGUI>();
                 textComponent.text = speaker;
-                //body ÀÔ·Â
+                //body ì…ë ¥
                 textObject = newTextFormat.transform.GetChild(1).gameObject;
                 textComponent = textObject.GetComponent<TextMeshProUGUI>();
                 textComponent.text = description;
@@ -89,17 +89,17 @@ public class Record : MonoBehaviour
         scrollbar.value = 0f;
     }
     /*
-    ¸¸¾à ÅØ½ºÆ® ºĞ·®ÀÌ ¸¹¾Æ ±æÀÌ¸¦ ÃÊ°úÇÒ¶§ prefabÀ¸·Î ºÒ·¯¿Â textObjectÀÇ ±æÀÌ¸¦ Á¶ÀıÇØ ÀÚ¿¬½º·´°Ô ¸¸µå´Â ÇÔ¼ö 
+    ë§Œì•½ í…ìŠ¤íŠ¸ ë¶„ëŸ‰ì´ ë§ì•„ ê¸¸ì´ë¥¼ ì´ˆê³¼í• ë•Œ prefabìœ¼ë¡œ ë¶ˆëŸ¬ì˜¨ textObjectì˜ ê¸¸ì´ë¥¼ ì¡°ì ˆí•´ ìì—°ìŠ¤ëŸ½ê²Œ ë§Œë“œëŠ” í•¨ìˆ˜ 
     */
     void UpdateContentSize(TextType type, string txt)
     {
-        // ÅØ½ºÆ® ±æÀÌ°¡ Á¶°ÇÀ» ÃÊ°úÇß´ÂÁö È®ÀÎ
+        // í…ìŠ¤íŠ¸ ê¸¸ì´ê°€ ì¡°ê±´ì„ ì´ˆê³¼í–ˆëŠ”ì§€ í™•ì¸
         if (txt.Length > maxCharacters_30Size_InLine || txt.Contains("\n"))
         {
-            // TextÀÇ preferredHeight¿¡ µû¶ó Content Å©±â Á¶Á¤
+            // Textì˜ preferredHeightì— ë”°ë¼ Content í¬ê¸° ì¡°ì •
             float preferredHeight = textElement.preferredHeight;
             Vector2 newSize = textPreset.sizeDelta;
-            newSize.y = preferredHeight; // ContentÀÇ ³ôÀÌ¸¦ ÅØ½ºÆ® ³ôÀÌ¿¡ ¸Â°Ô ¼³Á¤
+            newSize.y = preferredHeight; // Contentì˜ ë†’ì´ë¥¼ í…ìŠ¤íŠ¸ ë†’ì´ì— ë§ê²Œ ì„¤ì •
             textPreset.sizeDelta = newSize;
         }
     }

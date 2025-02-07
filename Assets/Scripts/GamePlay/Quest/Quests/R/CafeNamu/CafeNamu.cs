@@ -16,8 +16,7 @@ public class CafeNamu : Quest
     [SerializeField] Sprite[] fill40;
     [SerializeField] Sprite[] fill0;
     private bool firstWaterTouchFlag = true;
-
-
+    private string todoKey = "Rsub1";
 
     public override void Start()
     {
@@ -29,6 +28,7 @@ public class CafeNamu : Quest
         questManager = QuestManager.QuestManager_instance;
         textManager = TextManager.TextManager_Instance;
         dialogueManager = DialogueManager.DialoguManager_Instance;
+        locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
         GetQuestDialogue("인게임 대사", "카페나무", "Rsub1");
 
         questInven.SetActive(true);
@@ -44,12 +44,16 @@ public class CafeNamu : Quest
             this.GetComponent<Image>().sprite = fill0[2];
         }
         inventoryManager.SetItemsOnInven(slotList);
+
+        //todo생성
+        locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", "카페나무", "Rsub1"));
     }
     protected override void OnQuestCompleted()
     {
         Debug.Log(questName + " clear");
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();
+        locationAndTodoList.DeleteTodo(todoKey);
     }
 
     //public override void Clicked()

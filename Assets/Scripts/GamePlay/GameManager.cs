@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     private Vector3 rayDir = Vector3.forward;
     private Vector3 mousePos;
     public int isUiOpened = 0; //***** ui껐다 킬때 바꿔주어야함
-    public Image gauge;
+    public GameObject gaugeObject;
+    public Image gaugeImage;
 
     [SerializeField] private GameObject map;
     [SerializeField] private GameObject miniMap;
+    [SerializeField] private GameObject radio;
 
     public bool Reset;
 
@@ -78,6 +80,11 @@ public class GameManager : MonoBehaviour
         miniMap.SetActive(true);
         cam.transform.position = new Vector3(0, 0, -10f);
         cam.orthographicSize = 5.4f;
+    }
+
+    public void TurnOnRadio()
+    {
+        radio.SetActive(true);
     }
 
     public static GameManager GameManager_Instance

@@ -20,8 +20,9 @@ public abstract class Quest : MonoBehaviour
     protected InventoryManager inventoryManager;
     protected DialogueManager dialogueManager;
     protected TextManager textManager;
-    [SerializeField] protected List<ItemSlot> slotList;
-    [SerializeField] public GameObject questInven;
+    protected LocationAndTodoList locationAndTodoList;
+    [SerializeField] protected List<ItemSlot> slotList; //하이라이트 표시용
+    [SerializeField] public GameObject questInven; //퀘스트 인벤토리
     protected List<string> dialogue = new List<string>();
 
     /*
@@ -92,7 +93,7 @@ public abstract class Quest : MonoBehaviour
 
     protected virtual void GetQuestDialogue(string type, string location, string quest)
     {
-        dialogue = dialogueManager.GetDialogue(type, location, quest);
+        dialogue = dialogueManager.GetIngameDialogue(type, location, quest);
     }
 }
 

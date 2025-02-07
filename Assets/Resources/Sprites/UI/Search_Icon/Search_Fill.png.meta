@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 898b2581553cb92499489b547f07600b
+guid: bfa1fd217e850504c8a6cb9a76393a01
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1771104551180388453
-    second: Broadcast_0
-  - first:
-      213: -4472302778337270841
-    second: Broadcast_1
-  - first:
-      213: -7969398787456768552
-    second: Broadcast_2
-  - first:
-      213: 5393740331765374993
-    second: Broadcast_3
+      213: 724121864475165645
+    second: Search_Fill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -122,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Broadcast_0
+      name: Search_Fill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 182
-        height: 307
+        width: 23
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b97b0de5bc5cb67e0800000000000000
-      internalID: -1771104551180388453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Broadcast_1
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 222
-        width: 77
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c3e63181503fe1c0800000000000000
-      internalID: -4472302778337270841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Broadcast_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 113
-        width: 107
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8d5e538c602076190800000000000000
-      internalID: -7969398787456768552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Broadcast_3
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 2
-        width: 100
-        height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 110a295214a6ada40800000000000000
-      internalID: 5393740331765374993
+      spriteID: dc3c22acff89c0a00800000000000000
+      internalID: 724121864475165645
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b7713ee3c94f14c4fa2e6ecdfc58ff8f
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Broadcast_0: -1771104551180388453
-      Broadcast_1: -4472302778337270841
-      Broadcast_2: -7969398787456768552
-      Broadcast_3: 5393740331765374993
+      Search_Fill_0: 724121864475165645
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
