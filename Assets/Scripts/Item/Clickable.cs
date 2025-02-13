@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -47,7 +49,12 @@ public abstract class Clickable : MonoBehaviour
             Vector3 targetPos = new Vector3(targetX, targetY, 0);
             gaugeObj.GetComponent<RectTransform>().position = targetPos;
             gaugeObj.gameObject.SetActive(true);
+            GameManager.GameManager_Instance.GetClickSFX(0).Play();
             StartCoroutine(SearchingCoroutine());
+        }
+        else
+        {
+            GameManager.GameManager_Instance.GetClickSFX(1).Play();
         }
     }
 
@@ -59,6 +66,11 @@ public abstract class Clickable : MonoBehaviour
             time += Time.deltaTime;
             gauge.fillAmount = time / searchingTime;
             yield return null;
+        }
+
+        if (Input.GetMouseButtonUp(0)) 
+        {
+            GameManager.GameManager_Instance.GetClickSFX(0).Stop();
         }
 
         if(time > searchingTime - 0.05f)
