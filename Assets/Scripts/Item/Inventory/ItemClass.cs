@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using System.IO;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ItemClass : MonoBehaviour
@@ -9,6 +10,11 @@ public class ItemClass : MonoBehaviour
     public ItemSlot originSlot; //이동하기 전에 있었던 슬롯을 저장
     private Vector2 originPos = new Vector2(0, 0);
     [SerializeField] private int weight;
+    private AudioSource itemSFX;
+    private void Start()
+    {
+        itemSFX = this.GetComponent<AudioSource>();
+    }
 
     public int ItemWeight()
     {
@@ -84,7 +90,7 @@ public class ItemClass : MonoBehaviour
             {//resultSlot -> inventorySlot
                 InventoryManager.InvenManager_Instance.DestoryIngredients();
             }
-
+            itemSFX.Play();
             originSlot = detectedSlot;
         }
         //else //감지된 슬롯이 없다면

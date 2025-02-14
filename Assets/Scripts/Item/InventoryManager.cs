@@ -38,6 +38,9 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI itemObtainName;
     public Button itemObtainBtn;
 
+    //사운드
+    private AudioSource craftSuccessSFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,6 +61,7 @@ public class InventoryManager : MonoBehaviour
         itemList = saveData.itemList;
         textManager = TextManager.TextManager_Instance;
         dialogueManager = DialogueManager.DialoguManager_Instance;
+        craftSuccessSFX = this.GetComponent<AudioSource>();
         CraftRecipeSet();//조합법등록
         SetItemsOnInven();
     }
@@ -226,6 +230,7 @@ public class InventoryManager : MonoBehaviour
                 path = "Prefabs/Item/" + combinedItem;
                 prefab = Resources.Load<GameObject>(path);
                 resultSlot.GetComponent<ResultSlot>().curItem = Instantiate(prefab, resultSlot.transform);
+                craftSuccessSFX.Play();
             }
             else if(combinedItem == null && resultSlot.GetComponent<ResultSlot>().curItem)
             {//craftSlot의 item이 없는 recipe로 교체 resultSlot에 있던 아이템 파괴

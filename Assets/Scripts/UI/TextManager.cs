@@ -9,6 +9,7 @@ public class TextManager : MonoBehaviour
     private static TextManager instance = null;
     [SerializeField] private TextMeshProUGUI inputField;
     [SerializeField] private GameObject textObject;
+    private AudioSource typingSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -22,6 +23,8 @@ public class TextManager : MonoBehaviour
         {
             //Destroy(this.gameObject);
         }
+
+        typingSFX = textObject.GetComponent<AudioSource>();
     }
 
     public void EnterTexts(string text)
@@ -54,6 +57,7 @@ public class TextManager : MonoBehaviour
     {
         EnterTexts(text);
         StartCoroutine(PopUpCoroutine());
+        typingSFX.Play();
     }
 
     public static TextManager TextManager_Instance
