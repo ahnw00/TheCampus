@@ -1,19 +1,32 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HiddenObtainableItem : ObtainableItem
 {
     [SerializeField] string requiredItem;
     public override void PopUpObtainPanel()
-    {// ¼±ÅÃµÈ ¾ÆÀÌÅÛÀÌ ÇÊ¿äÇÑ ¾ÆÀÌÅÛÀÏ ¶§¸¸ ¾òÀ» ¼ö ÀÖ´Ù.
+    {// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
         if (inventoryManager.GetSelectedItemName() == requiredItem)
         {
             inventoryManager.itemObtainPanel.SetActive(true);
             GameManager.GameManager_Instance.TurnOnUI();
             inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
             inventoryManager.itemObtainBtn.onClick.AddListener(ObtainItem);
-            //¾ÆÀÌÅÛ È¹µæ ÆĞ³Î¿¡¼­ÀÇ ¾ÆÀÌÅÛ ÀÌ¹ÌÁö¶û ÅØ½ºÆ® ¼¼ÆÃÇØÁà¾ßÇØ
-            //
-            //
+            //ì•„ì´í…œ íšë“ íŒ¨ë„ì—ì„œì˜ ì•„ì´í…œ ì´ë¯¸ì§€ë‘ í…ìŠ¤íŠ¸ ì„¸íŒ…í•´ì¤˜ì•¼í•´
+            string path = "Prefabs/Item/" + this.name;
+            GameObject prefab = Resources.Load<GameObject>(path);
+            inventoryManager.itemObtainImage.sprite = prefab.GetComponent<Image>().sprite;
+
+            //í…ìŠ¤íŠ¸
+            List<string> itemInformation = new List<string>();
+            itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name);
+            inventoryManager.itemObtainName.SetText(itemInformation[0]);
+            inventoryManager.itemObtainInputField.SetText(itemInformation[1]);
+        }
+        else
+        {
+            TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetSystemDialogue(3));
         }
     }
 
@@ -40,7 +53,7 @@ public class HiddenObtainableItem : ObtainableItem
         }
         if (!_flag)
         {
-            textManager.PopUpText("Inventory is full");
+            TextManager.TextManager_Instance.PopUpText("Inventory is full");
         }
         else
         {

@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     private DataManager dataManager;
     private SaveDataClass saveData;
     private TextManager textManager;
+    private DialogueManager dialogueManager;
     private CabinetManager cabinetManager;
     private static InventoryManager instance = null;
     
@@ -56,6 +57,7 @@ public class InventoryManager : MonoBehaviour
         saveData = dataManager.saveData;
         itemList = saveData.itemList;
         textManager = TextManager.TextManager_Instance;
+        dialogueManager = DialogueManager.DialoguManager_Instance;
         CraftRecipeSet();//조합법등록
         SetItemsOnInven();
     }
@@ -267,10 +269,16 @@ public class InventoryManager : MonoBehaviour
 
     public void DestoryIngredients()
     {//완성아이템을 inventorySlot으로 옮기는경우 조합아이템들 파괴
+        string[] items = new string[2];
+        int i = 0;
         foreach(var slot in craftSlotList)
         {
+            items[i] = slot.transform.GetChild(0).gameObject.name.Replace("(Clone)", "");
+            items[i] = dialogueManager.GetItemDiscription(items[i])[0];
             Destroy(slot.transform.GetChild(0).gameObject);
+            i++;
         }
+        textManager.PopUpText(items[0] + ", " + items[1] + dialogueManager.GetSystemDialogue(1));
     }
 
     public string GetSelectedItemName()

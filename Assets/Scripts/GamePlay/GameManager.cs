@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Vector3 mousePos;
     public int isUiOpened = 0; //***** ui껐다 킬때 바꿔주어야함
     public GameObject gaugeObject;
+    [SerializeField] GameObject gaugeSound;
     public Image gaugeImage;
 
     [SerializeField] private GameObject map;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject radio;
 
     public bool Reset;
+    private AudioSource[] ClickSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -33,6 +35,11 @@ public class GameManager : MonoBehaviour
             //Destroy(this.gameObject);
         }
         //cam = FindAnyObjectByType<Camera>();
+    }
+
+    private void Start()
+    {
+        ClickSFX = gaugeSound.GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -94,5 +101,10 @@ public class GameManager : MonoBehaviour
             if (!instance) return null;
             return instance;
         }
+    }
+
+    public AudioSource GetClickSFX(int index)
+    {
+        return ClickSFX[index];
     }
 }

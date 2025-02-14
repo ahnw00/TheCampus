@@ -11,7 +11,6 @@ public class ObtainableItem : Clickable
     protected DataManager dataManager;
     protected SaveDataClass data;
     protected InventoryManager inventoryManager;
-    protected TextManager textManager;
     protected GameManager gameManager;
     protected string itemKey;
 
@@ -22,9 +21,7 @@ public class ObtainableItem : Clickable
         dataManager = DataManager.Instance;
         data = dataManager.saveData;
         inventoryManager = InventoryManager.InvenManager_Instance;
-        textManager = TextManager.TextManager_Instance;
         gameManager = GameManager.GameManager_Instance;
-
 
         itemKey = $"{this.gameObject.name}_{this.GetInstanceID()}"; //고유 ID생성
 
@@ -101,12 +98,13 @@ public class ObtainableItem : Clickable
                 //고유 ID 아이템을 획득시 획득처리 저장
                 PlayerPrefs.SetInt(itemKey, 1); 
                 PlayerPrefs.Save();
+                TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name)[0] + DialogueManager.DialoguManager_Instance.GetSystemDialogue(0));
                 break;
             }
         }
         if (!_flag)
         {
-            textManager.PopUpText("Inventory is full");
+            TextManager.TextManager_Instance.PopUpText("Inventory is full");
         }
         else
         {

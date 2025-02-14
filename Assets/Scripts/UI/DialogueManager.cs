@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager instance = null;
     [SerializeField] TextAsset csvFile; //Excel csv파일
     //private Dictionary<int, string[]> splitedExcel = new Dictionary<int, string[]>();
+    private List<string> systemMessage = new List<string>();
     private List<string[]> splitedExcel = new List<string[]>();
     /*
      * excel을 csv로 변환하면 ,로 셀을 구분한다
@@ -18,7 +19,8 @@ public class DialogueManager : MonoBehaviour
         필요한건 구분, 위치, 퀘스트, 조건/아이템 이름, 내용, 결과/아이템 용도
         B, C, D, E, F, G 열 이 필요하다
     */
-    void Start()
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -29,7 +31,9 @@ public class DialogueManager : MonoBehaviour
         {
             //Destroy(this.gameObject);
         }
-
+    }
+    void Start()
+    {
         string[] textRows = Regex.Split(csvFile.text, @",\r\n"); //,\r\n을 기준으로 row 분할
         for (int i = 2; i < textRows.Length; i++)
         {
@@ -62,6 +66,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("");
         }
         */
+        systemMessage = GetIngameDialogue("시스템 대사", "시스템", "범용");
     }
 
     public static DialogueManager DialoguManager_Instance
@@ -83,8 +88,10 @@ public class DialogueManager : MonoBehaviour
         return splitedExcel[index - 3];
     }*/
 
+
+
     public List<string> GetIngameDialogue(string type, string location, string quest)
-    {// 구분, 위치, 퀘스트, (아이템이름)을 입력하면 해당 행의 내용을 반환
+    {// 구분, 위치, 퀘스트를 입력하면 해당 행의 내용을 반환
         List<string> result = new List<string>();
         foreach (var row in splitedExcel)
         {
@@ -97,7 +104,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public string GetQuestDialogue(string type, string location, string quest)
-    {
+    {//Todolist 작성을 위한 엑셀 불러오기
         string result = "null";
         foreach (var row in splitedExcel)
         {
@@ -123,5 +130,10 @@ public class DialogueManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public string GetSystemDialogue(int index)
+    {
+        return systemMessage[index];
     }
 }
