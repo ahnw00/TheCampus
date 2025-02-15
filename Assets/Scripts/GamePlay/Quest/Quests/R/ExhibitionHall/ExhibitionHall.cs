@@ -66,6 +66,7 @@ public class ExhibitionHall : Quest
         questManager.SaveQuestStatus();
         Debug.Log(questName + "clear");
         locationAndTodoList.DeleteTodo(todoKey);
+        printMainQuestDialogue();
     }
 
     public void OnPictureClicked()

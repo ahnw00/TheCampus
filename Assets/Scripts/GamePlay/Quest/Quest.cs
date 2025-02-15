@@ -95,5 +95,25 @@ public abstract class Quest : MonoBehaviour
     {
         dialogue = dialogueManager.GetIngameDialogue(type, location, quest);
     }
+
+    protected virtual void printMainQuestDialogue()
+    {
+        //대사 출력 및 todolist작성
+        if (PlayerPrefs.HasKey("pieceTrigger"))
+        {
+            List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
+            TextManager.TextManager_Instance.PopUpText(list[0]);
+            Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
+        }
+        else
+        {
+            List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
+            TextManager.TextManager_Instance.PopUpText(list[0]);
+            Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
+            LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", DialogueManager.DialoguManager_Instance.GetQuestDialogue("퀘스트 대사", "R동 전체", "Rmain"));
+            PlayerPrefs.SetInt("pieceTrigger", 1);
+            PlayerPrefs.Save();
+        }
+    }
 }
 

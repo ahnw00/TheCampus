@@ -129,12 +129,12 @@ TextureImporter:
       name: Item_MajorBook_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 135
-        height: 126
+        x: 0
+        y: 0
+        width: 140
+        height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 25d03d3d189607d4cbd318c3ba7d988e
     internalID: 0
     vertices: []
     indices: 

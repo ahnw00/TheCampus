@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class HiddenObtainableItem : ObtainableItem
 {
     [SerializeField] string requiredItem;
+    private bool hiddenFlag = true;
     public override void PopUpObtainPanel()
     {// ���õ� �������� �ʿ��� �������� ���� ���� �� �ִ�.
         if (inventoryManager.GetSelectedItemName() == requiredItem)
@@ -23,10 +24,18 @@ public class HiddenObtainableItem : ObtainableItem
             itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name);
             inventoryManager.itemObtainName.SetText(itemInformation[0]);
             inventoryManager.itemObtainInputField.SetText(itemInformation[1]);
+
+            if (hiddenFlag)
+            {
+                string flashlightDialogue = DialogueManager.DialoguManager_Instance.GetSystemDialogue("인게임 대사", 2);
+                TextManager.TextManager_Instance.PopUpText(flashlightDialogue);
+                Record.Record_Instance.AddText(TextType.Speaker, flashlightDialogue, "나");
+                hiddenFlag = false;
+            }
         }
         else
         {
-            TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetSystemDialogue(3));
+            TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetSystemDialogue("시스템 대사", 3));
         }
     }
 

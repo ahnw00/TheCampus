@@ -7,6 +7,7 @@ public class TearedMap : Quest
     private QuestManager questManager;
     [SerializeField] private List<TearedPiece> pieceList = new List<TearedPiece>();
     [SerializeField] private GameObject moveToH;
+    //private string todoKey = "Rmain";
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class TearedMap : Quest
         questManager = QuestManager.QuestManager_instance;
         inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
-
+        //GetQuestDialogue("인게임 대사", "R동 전체", "Rmain");
         questName = "TearedMap_MainQuest";
     }
 

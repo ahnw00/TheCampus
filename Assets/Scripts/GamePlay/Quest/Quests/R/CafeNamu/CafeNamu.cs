@@ -9,7 +9,7 @@ public class CafeNamu : Quest
 {//퀘스트 예시
     [SerializeField] private GameObject water;
     [SerializeField] private GameObject Piece3;
-    private const float dialogueDelay = 1.5f;
+    private const float dialogueDelay = 2f;
     private int waterClicked = 0;
     private QuestManager questManager;
     [SerializeField] Sprite[] fill70;
@@ -37,6 +37,7 @@ public class CafeNamu : Quest
             questStatus = QuestStatus.InProgress;
             questManager.SaveQuestStatus();
             textManager.PopUpText(dialogue[0]);//시작 대사
+            Record.Record_Instance.AddText(TextType.Speaker, dialogue[0], "나");
         }
         else if (questStatus == QuestStatus.Completed)
         {
@@ -54,6 +55,7 @@ public class CafeNamu : Quest
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();
         locationAndTodoList.DeleteTodo(todoKey);
+        printMainQuestDialogue();
     }
 
     //public override void Clicked()
@@ -91,9 +93,11 @@ public class CafeNamu : Quest
         }
         else if (firstWaterTouchFlag && waterClicked == 0)
         {//맨처음 클릭
+            Record.Record_Instance.AddText(TextType.Speaker, dialogue[1], "나");
             textManager.PopUpText(dialogue[1]);
             firstWaterTouchFlag = false;
             StartCoroutine(DelayDialouge(dialogue[2]));
+            Record.Record_Instance.AddText(TextType.Speaker, dialogue[2], "나");
         }
     }
     IEnumerator ChangeImage(Sprite[] sprite)
@@ -101,7 +105,7 @@ public class CafeNamu : Quest
         water.GetComponent<Image>().raycastTarget = false;
         foreach (var frame in sprite)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             this.GetComponent<Image>().sprite = frame;
         }
         water.GetComponent<Image>().raycastTarget = true;

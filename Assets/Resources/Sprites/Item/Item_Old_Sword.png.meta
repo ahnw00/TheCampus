@@ -129,12 +129,12 @@ TextureImporter:
       name: Item_Old_Sword_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 130
-        height: 132
+        width: 140
+        height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7b0b1c83bdc026c4caaece6eba6eef3a
     internalID: 0
     vertices: []
     indices: 

@@ -5,6 +5,7 @@ using UnityEngine;
 using static UnityEditor.Progress;
 using System.IO;
 using UnityEngine.UI;
+using static UnityEditor.FilePathAttribute;
 
 public class ObtainableItem : Clickable
 {
@@ -49,6 +50,7 @@ public class ObtainableItem : Clickable
             {
                 PlayerPrefs.SetInt(this.name, 1);
                 PlayerPrefs.Save();
+                printDialogue();
                 this.gameObject.SetActive(false);
             }
             else
@@ -98,7 +100,7 @@ public class ObtainableItem : Clickable
                 //고유 ID 아이템을 획득시 획득처리 저장
                 PlayerPrefs.SetInt(itemKey, 1); 
                 PlayerPrefs.Save();
-                TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name)[0] + DialogueManager.DialoguManager_Instance.GetSystemDialogue(0));
+                TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name)[0] + DialogueManager.DialoguManager_Instance.GetSystemDialogue("시스템 대사", 0));
                 break;
             }
         }
@@ -115,5 +117,23 @@ public class ObtainableItem : Clickable
     public string GetItemKey()
     {
         return itemKey;
+    }
+
+    void printDialogue()
+    {
+        //대사 출력 및 todolist작성
+        if (PlayerPrefs.HasKey("pieceTrigger"))
+        {
+            Debug.Log("already started");
+        }
+        else
+        {
+            List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
+            TextManager.TextManager_Instance.PopUpText(list[0]);
+            Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
+            LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", DialogueManager.DialoguManager_Instance.GetQuestDialogue("퀘스트 대사", "R동 전체", "Rmain"));
+            PlayerPrefs.SetInt("pieceTrigger", 1);
+            PlayerPrefs.Save();
+        }
     }
 }

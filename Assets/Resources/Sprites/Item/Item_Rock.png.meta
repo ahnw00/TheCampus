@@ -129,12 +129,12 @@ TextureImporter:
       name: Item_Rock_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 106
-        height: 103
+        x: 0
+        y: 0
+        width: 140
+        height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 84dd537cfe81ec64f82dae36977fe18e
     internalID: 0
     vertices: []
     indices: 

@@ -40,12 +40,14 @@ public class LawClassroom : Quest
         inventoryManager = InventoryManager.InvenManager_Instance;
         dialogueManager = DialogueManager.DialoguManager_Instance;
         locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
+        GetQuestDialogue("인게임 대사", "법학강의실", "Rsub2");
 
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
             ifQuestBtnClicked();
             Debug.Log(questName + " ½ÃÀÛ");
+            textManager.PopUpText(dialogue[0]);//시작 대사
         }
 
         //todo생성
@@ -76,6 +78,8 @@ public class LawClassroom : Quest
         questStatus = QuestStatus.Completed;
         questManager.SaveQuestStatus();
         locationAndTodoList.DeleteTodo(todoKey);
+        printMainQuestDialogue();
+        textManager.PopUpText(dialogue[1]);
     }
 
     protected override bool CheckCompletion()

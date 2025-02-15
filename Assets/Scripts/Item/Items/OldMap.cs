@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OldMap : Clickable
 {
@@ -56,7 +58,14 @@ public class OldMap : Clickable
         inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
         inventoryManager.itemObtainBtn.onClick.AddListener(MapClicked);
         //아이템 획득 패널에서의 아이템 이미지랑 텍스트 세팅해줘야해
-        //
-        //
+        string path = "Prefabs/Item/" + this.name;
+        GameObject prefab = Resources.Load<GameObject>(path);
+        inventoryManager.itemObtainImage.sprite = prefab.GetComponent<Image>().sprite;
+
+        //텍스트
+        List<string> itemInformation = new List<string>();
+        itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name);
+        inventoryManager.itemObtainName.SetText(itemInformation[0]);
+        inventoryManager.itemObtainInputField.SetText(itemInformation[1]);
     }
 }

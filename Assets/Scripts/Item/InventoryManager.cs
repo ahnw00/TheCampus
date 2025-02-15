@@ -283,7 +283,7 @@ public class InventoryManager : MonoBehaviour
             Destroy(slot.transform.GetChild(0).gameObject);
             i++;
         }
-        textManager.PopUpText(items[0] + ", " + items[1] + dialogueManager.GetSystemDialogue(1));
+        textManager.PopUpText(items[0] + ", " + items[1] + dialogueManager.GetSystemDialogue("시스템 대사",1));
     }
 
     public string GetSelectedItemName()

@@ -26,6 +26,8 @@ public class Record : MonoBehaviour
     public RectTransform textPreset;  // 조절할 요소
     public TextMeshProUGUI textElement;       // Content 안의 Text
     public int maxCharacters_30Size_InLine = 36; // 최대 문자 수
+
+    private static Record instance = null;
     /*
      등록해둔 prefab형식들을 불러와서 
     Scroll View의 Content의 자식으로 생성하여
@@ -38,9 +40,15 @@ public class Record : MonoBehaviour
     texst
      */
 
-    private void Start()
+    void Awake()
     {
-        //테스트용
+        if (instance == null)
+        {
+            instance = this;
+            //DontDestroyOnLoad(gameObject);
+        }
+
+        /*테스트용
         AddText(TextType.SubHeading, "소제목 테스트");
         AddText(TextType.Radio, "라디오 테스트");
         AddText(TextType.Speaker, "테스트", "독백");
@@ -49,7 +57,7 @@ public class Record : MonoBehaviour
         AddText(TextType.Speaker, "테스트", "독백");
         AddText(TextType.SubHeading, "소제목 테스트");
         AddText(TextType.Radio, "라디오 테스트");
-        AddText(TextType.Speaker, "테스트", "독백");
+        AddText(TextType.Speaker, "테스트", "독백");*/
     }
 
     public void AddText(TextType type, string description, string speaker = null)
@@ -101,6 +109,15 @@ public class Record : MonoBehaviour
             Vector2 newSize = textPreset.sizeDelta;
             newSize.y = preferredHeight; // Content의 높이를 텍스트 높이에 맞게 설정
             textPreset.sizeDelta = newSize;
+        }
+    }
+
+    public static Record Record_Instance
+    {
+        get
+        {
+            if (!instance) return null;
+            return instance;
         }
     }
 }

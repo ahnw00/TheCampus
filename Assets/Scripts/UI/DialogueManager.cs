@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextAsset csvFile; //Excel csv파일
     //private Dictionary<int, string[]> splitedExcel = new Dictionary<int, string[]>();
     private List<string> systemMessage = new List<string>();
+    private List<string> ingameMessage = new List<string>();
     private List<string[]> splitedExcel = new List<string[]>();
     /*
      * excel을 csv로 변환하면 ,로 셀을 구분한다
@@ -67,6 +68,7 @@ public class DialogueManager : MonoBehaviour
         }
         */
         systemMessage = GetIngameDialogue("시스템 대사", "시스템", "범용");
+        ingameMessage = GetIngameDialogue("인게임 대사", "시스템", "범용");
     }
 
     public static DialogueManager DialoguManager_Instance
@@ -132,8 +134,11 @@ public class DialogueManager : MonoBehaviour
         return null;
     }
 
-    public string GetSystemDialogue(int index)
+    public string GetSystemDialogue(string type, int index)
     {
-        return systemMessage[index];
+        if (type == "시스템 대사")
+            return systemMessage[index];
+        else
+            return ingameMessage[index];
     }
 }
