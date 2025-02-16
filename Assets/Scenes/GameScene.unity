@@ -18134,6 +18134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawLine: {fileID: 1129204620}
+  memoTabs:
+  - {fileID: 1775916977}
+  - {fileID: 258393883}
+  - {fileID: 626487115}
 --- !u!114 &1129204620
 MonoBehaviour:
   m_ObjectHideFlags: 0
