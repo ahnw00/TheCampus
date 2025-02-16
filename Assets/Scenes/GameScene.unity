@@ -5888,12 +5888,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveData:
-    itemList:
-    - Flashlight
-    - RustedSword
+    itemList: []
     cabinetList: []
     isMapObtained: 0
     questList: []
+    memoList:
+    - lines: []
+    - lines: []
+    - lines: []
   gameManager: {fileID: 1555031826}
 --- !u!4 &261595906
 Transform:
@@ -7526,6 +7528,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1129204619}
+        m_TargetAssemblyTypeName: Memo, Assembly-CSharp
+        m_MethodName: CloseMemo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1555031826}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: TurnOffUI
@@ -25489,7 +25503,7 @@ MonoBehaviour:
   map: {fileID: 1633943888}
   miniMap: {fileID: 195162792}
   radio: {fileID: 310277540}
-  Reset: 1
+  Reset: 0
 --- !u!1 &1560461726
 GameObject:
   m_ObjectHideFlags: 0

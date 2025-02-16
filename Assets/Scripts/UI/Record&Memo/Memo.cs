@@ -7,12 +7,6 @@ public class Memo : MonoBehaviour
     [SerializeField] private DrawLine drawLine;
     public List<Transform> memoTabs;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     public void ChangePage(GameObject go)
     {
         drawLine.curPage = go;
@@ -34,5 +28,10 @@ public class Memo : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void CloseMemo()
+    {
+        drawLine.UpdateMemoList();
     }
 }

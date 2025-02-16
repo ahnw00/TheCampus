@@ -44,41 +44,38 @@ public class DrawLine : MonoBehaviour
         midY += curPage.GetComponent<RectTransform>().anchoredPosition.y;
         leftX = midX - 649f; leftY = midY - 362f;
         rightX = midX + 581f; rightY = midY + 362f;
-
         curPageAnchoredPos = curPage.GetComponent<RectTransform>().anchoredPosition;
-        Debug.Log(saveData.memoList[0].Count);
-        //InstantiateLines();
+
+        InstantiateLines();
     }
 
-    //void InstantiateLines()
-    //{
-    //    List<List<List<Vector2>>> memos = saveData.memoList;
-    //    Debug.Log(memos[0].Count);
-    //    for (int i = 0; i < memos.Count; i++)
-    //    {
-    //        Transform curTab = memo.memoTabs[i];
-    //        for (int j = 0; j < memos[i].Count; i++)
-    //        {
-    //            GameObject obj = Instantiate(linePrefab, curTab);
-    //            lr = obj.GetComponent<LineRenderer>();
-    //            edgeCol = obj.GetComponent<EdgeCollider2D>();
-    //            for(int k = 0; k < memos[i][j].Count; k++)
-    //            {
-    //                points.Add(memos[i][j][k]);
-    //                lr.positionCount++;
-    //                lr.SetPosition(lr.positionCount - 1, memos[i][j][k]);
-    //                edgeCol.points = points.ToArray();
-    //            }
-    //            points.Clear();
-    //        }
-    //    }
-    //}
+    void InstantiateLines()
+    {
+        for (int i = 0; i < saveData.memoList.Count; i++)
+        {
+            Transform curTab = memo.memoTabs[i];
+            LineDataCollection ldc = saveData.memoList[i];
+            for (int j = 0; j < ldc.lines.Count; j++)
+            {
+                LineData ld = ldc.lines[j];
+                GameObject obj = Instantiate(linePrefab, curTab);
+                lr = obj.GetComponent<LineRenderer>();
+                edgeCol = obj.GetComponent<EdgeCollider2D>();
+                lr.positionCount = ld.positions.Count;
+                for (int k = 0; k < ld.positions.Count; k++)
+                {
+                    lr.SetPosition(k, ld.positions[k]);
+                }
+                edgeCol.points = ld.positions.ToArray();
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(curMode == Mode.Draw)
-        { 
+        {
             Vector2 pos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 tempPos = Input.mousePosition;
             tempPos = new Vector2(tempPos.x - curPageAnchoredPos.x, tempPos.y - curPageAnchoredPos.y);
@@ -104,17 +101,16 @@ public class DrawLine : MonoBehaviour
             }
             else if(Input.GetMouseButtonUp(0))
             {
-                //for(int i = 0; i < memo.memoTabs.Count; i++)
-                //{
-                //    if(memo.memoTabs[i].gameObject == curPage)
-                //    {
-                //        Debug.Log("Added");
-                //        saveData.memoList[i].Add(points);
-                //        dataManager.Save();
-                //        break;
-                //    }
-                //}
-                points.Clear();
+                for (int i = 0; i < memo.memoTabs.Count; i++)
+                {
+                    if (memo.memoTabs[i].gameObject == curPage)
+                    {
+                        saveData.memoList[i].lines.Add(new LineData(points));
+                        dataManager.Save();
+                        break;
+                    }
+                }
+                points = new List<Vector2>();
             }
         }
         else if(curMode == Mode.Erase)
@@ -139,5 +135,30 @@ public class DrawLine : MonoBehaviour
             mousePos.y >= leftY && mousePos.y <= rightY)
             return true;
         return false;
+    }
+
+    public void UpdateMemoList()
+    {
+        saveData.memoList = new List<LineDataCollection>();
+        for(int i = 0; i < 3;  i++)
+            saveData.memoList.Add(new LineDataCollection());
+        for(int i = 0; i < memo.memoTabs.Count; i++)
+        {
+            LineDataCollection ldc = new LineDataCollection();
+            Transform cur = memo.memoTabs[i];
+            for (int j = 0; j < cur.childCount; j++)
+            {
+                LineRenderer curLine = cur.GetChild(j).GetComponent<LineRenderer>();
+                Vector3[] temp = new Vector3[curLine.positionCount];
+                curLine.GetPositions(temp);
+                List<Vector2> positions = new List<Vector2>();
+                foreach (var pos in temp)
+                {
+                    positions.Add(new Vector2(pos.x, pos.y));
+                }
+                saveData.memoList[i].lines.Add(new LineData(positions));
+            }
+        }
+        dataManager.Save();
     }
 }
