@@ -1,7 +1,6 @@
 {
     "itemList": [
-        "MarblePart",
-        "TearedPaperCup"
+        "2Vbattery"
     ],
     "cabinetList": [],
     "isMapObtained": false,
@@ -13,7 +12,16 @@
     ],
     "memoList": [
         {
-            "lines": []
+            "lines": [
+                {
+                    "positions": [
+                        {
+                            "x": 670.81884765625,
+                            "y": 336.074462890625
+                        }
+                    ]
+                }
+            ]
         },
         {
             "lines": []
