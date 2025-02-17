@@ -139,26 +139,29 @@ public class DrawLine : MonoBehaviour
 
     public void UpdateMemoList()
     {
-        saveData.memoList = new List<LineDataCollection>();
-        for(int i = 0; i < 3;  i++)
-            saveData.memoList.Add(new LineDataCollection());
-        for(int i = 0; i < memo.memoTabs.Count; i++)
-        {
-            LineDataCollection ldc = new LineDataCollection();
-            Transform cur = memo.memoTabs[i];
-            for (int j = 0; j < cur.childCount; j++)
+        if (saveData != null)
+        { 
+            saveData.memoList = new List<LineDataCollection>();
+            for (int i = 0; i < 3; i++)
+                saveData.memoList.Add(new LineDataCollection());
+            for (int i = 0; i < memo.memoTabs.Count; i++)
             {
-                LineRenderer curLine = cur.GetChild(j).GetComponent<LineRenderer>();
-                Vector3[] temp = new Vector3[curLine.positionCount];
-                curLine.GetPositions(temp);
-                List<Vector2> positions = new List<Vector2>();
-                foreach (var pos in temp)
+                LineDataCollection ldc = new LineDataCollection();
+                Transform cur = memo.memoTabs[i];
+                for (int j = 0; j < cur.childCount; j++)
                 {
-                    positions.Add(new Vector2(pos.x, pos.y));
+                    LineRenderer curLine = cur.GetChild(j).GetComponent<LineRenderer>();
+                    Vector3[] temp = new Vector3[curLine.positionCount];
+                    curLine.GetPositions(temp);
+                    List<Vector2> positions = new List<Vector2>();
+                    foreach (var pos in temp)
+                    {
+                        positions.Add(new Vector2(pos.x, pos.y));
+                    }
+                    saveData.memoList[i].lines.Add(new LineData(positions));
                 }
-                saveData.memoList[i].lines.Add(new LineData(positions));
             }
+            dataManager.Save();
         }
-        dataManager.Save();
     }
 }

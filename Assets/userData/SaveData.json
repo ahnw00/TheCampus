@@ -1,7 +1,5 @@
 {
-    "itemList": [
-        "2Vbattery"
-    ],
+    "itemList": [],
     "cabinetList": [],
     "isMapObtained": false,
     "questList": [
@@ -12,16 +10,7 @@
     ],
     "memoList": [
         {
-            "lines": [
-                {
-                    "positions": [
-                        {
-                            "x": 670.81884765625,
-                            "y": 336.074462890625
-                        }
-                    ]
-                }
-            ]
+            "lines": []
         },
         {
             "lines": []
