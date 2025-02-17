@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public class LockedMove : Clickable
 
     [SerializeField] private GameObject connectedDoor;
     [SerializeField] private string requiredItem;
+    [SerializeField] private GameObject vine;
     private bool isOpened = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,13 +45,14 @@ public class LockedMove : Clickable
             OpenDoor();
             PlayerPrefs.SetInt(connectedDoor.name + "isOpened", 1);
             connectedDoor.GetComponent<LockedMove>().OpenDoor();
+            PlayerPrefs.SetInt("Vine", 1);
             PlayerPrefs.Save();
-            temp = "Door opened";
+            temp = "녹슨 검으로 덩굴을 베어내니 통로가 드러났다.";
             TextManager.TextManager_Instance.PopUpText(temp);
         }
         else
         {
-            temp = "Cannot go";
+            temp = "나무 덩굴에 막혀 이동할 수 없다.";
             TextManager.TextManager_Instance.PopUpText(temp);
         }
     }

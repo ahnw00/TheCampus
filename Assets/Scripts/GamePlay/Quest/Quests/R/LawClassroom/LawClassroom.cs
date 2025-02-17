@@ -15,6 +15,9 @@ public class LawClassroom : Quest
     [SerializeField] private GameObject rustedSword;
     private string todoKey = "Rsub2";
 
+    [SerializeField] private SpriteRenderer lawClassroomSR;
+    [SerializeField] private Sprite completedSprite;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
@@ -77,9 +80,12 @@ public class LawClassroom : Quest
         rustedSword.SetActive(true);
         questStatus = QuestStatus.Completed;
         questManager.SaveQuestStatus();
-        locationAndTodoList.DeleteTodo(todoKey);
+        PlayerPrefs.SetInt("LawClassroom", 1);
+        PlayerPrefs.Save();
+        lawClassroomSR.sprite = completedSprite;
         printMainQuestDialogue();
         textManager.PopUpText(dialogue[1]);
+        locationAndTodoList.DeleteTodo(todoKey);
     }
 
     protected override bool CheckCompletion()

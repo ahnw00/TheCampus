@@ -15,7 +15,16 @@ public class MoveToBtn : Clickable
             if(!PlayerPrefs.HasKey(this.name))
                 this.gameObject.SetActive(false);
         }
+        if (PlayerPrefs.HasKey(this.name))
+            this.GetComponent<SpriteRenderer>().enabled = true;
     }
+
+    private void OnEnable()
+    {
+        if (PlayerPrefs.HasKey(this.name))
+            this.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
     public override void Clicked()
     {
         base.Clicked();

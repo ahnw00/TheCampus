@@ -18,13 +18,13 @@ public class QuestManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
-        else
-        {
-            Debug.Log("QuestManager duplicate error, destroying duplicate instance.");
-            Destroy(this.gameObject);
-        }
+        //else
+        //{
+        //    Debug.Log("QuestManager duplicate error, destroying duplicate instance.");
+        //    Destroy(this.gameObject);
+        //}
     }
 
     void Start()
