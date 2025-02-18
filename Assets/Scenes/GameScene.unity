@@ -32815,6 +32815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1301310016}
   textObject: {fileID: 1977431493}
+  textAnimator: {fileID: 1977431498}
 --- !u!1 &2022852356
 GameObject:
   m_ObjectHideFlags: 0

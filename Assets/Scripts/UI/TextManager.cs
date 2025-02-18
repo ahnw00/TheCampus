@@ -11,6 +11,7 @@ public class TextManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI inputField;
     [SerializeField] private GameObject textObject;
     private AudioSource typingSFX;
+    [SerializeField] private Animator textAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -35,7 +36,8 @@ public class TextManager : MonoBehaviour
         var alpha = inputField.color;
         var backgroundAlpha = textObject.GetComponent<Image>().color;
         var t = 0f;
-        while (t < 3.5f)
+        float length = textAnimator.runtimeAnimatorController.animationClips[0].length;
+        while (t < length)
         {
             t += Time.deltaTime;
             //alpha.a = Mathf.Lerp(1, 0, t);
