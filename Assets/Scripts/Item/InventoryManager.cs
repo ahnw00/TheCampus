@@ -299,4 +299,28 @@ public class InventoryManager : MonoBehaviour
     {
         GameManager.GameManager_Instance.TurnOnUI();
     }
+
+    public void ChangeHandyLadle()
+    {
+        string name = "HandyLadle";
+        foreach (var slot in questInvenSlotList)
+        {
+            if (slot.transform.childCount > 0) 
+            {
+                if (slot.transform.GetChild(0).name.Replace("(Clone)", "") == name)
+                {
+                    Destroy(slot.transform.GetChild(0).gameObject);
+                    string path = "Prefabs/Item/StickyHandyLadle";
+                    GameObject prefab = Resources.Load<GameObject>(path);
+                    prefab = Instantiate(prefab, slot.transform);
+                    slot.curItem = prefab.GetComponent<ItemClass>();
+                    SetLastClickedItem(prefab.GetComponent<ItemClass>());
+                    break;
+                }
+            }
+        }
+        saveData.itemList.Add("StickyHandyLadle");
+        saveData.itemList.Remove("HandyLadle");
+        dataManager.Save();
+    }
 }

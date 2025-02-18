@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3599509114772082258}
   - component: {fileID: 2432900085006020779}
   - component: {fileID: 3286262735834270387}
-  - component: {fileID: -5668489607158198559}
+  - component: {fileID: 6254112012198676586}
   m_Layer: 6
-  m_Name: TearedLawBook
+  m_Name: StickyHandyLadle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 139, y: 137}
+  m_SizeDelta: {x: 136, y: 137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9041256522182871079
 CanvasRenderer:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3753081323703395790, guid: 5b7b5a65363f4e14ebc1eff44dfd9f2e, type: 3}
+  m_Sprite: {fileID: 925343429203877711, guid: 144933cddbf2f7640b8632e6c3a36f85, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectedSlot: {fileID: 0}
   originSlot: {fileID: 0}
-  weight: 10
+  weight: 3
 --- !u!61 &3599509114772082258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!82 &-5668489607158198559
+--- !u!82 &6254112012198676586
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

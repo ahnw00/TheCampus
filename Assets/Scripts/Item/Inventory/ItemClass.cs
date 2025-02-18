@@ -101,6 +101,7 @@ public class ItemClass : MonoBehaviour
         //        originSlot.curItem = this;
         //    }
         //}
+        InventoryManager.InvenManager_Instance.SetLastClickedItem(this);
     }
 
     public void OnPointerClick()
