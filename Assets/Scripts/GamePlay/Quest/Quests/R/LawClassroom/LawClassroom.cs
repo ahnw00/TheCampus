@@ -5,6 +5,7 @@ using UnityEngine;
 public class LawClassroom : Quest
 {
     private QuestManager questManager;
+    private TextManager textManager;
     [SerializeField] public Scale leftScale, rightScale;
     [SerializeField] private RectTransform leftAnchor, rightAnchor;
     [SerializeField] private RectTransform topScale;
@@ -19,9 +20,14 @@ public class LawClassroom : Quest
     [SerializeField] private Sprite completedSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override void Start()
+    private void Awake()
     {
         questManager = QuestManager.QuestManager_instance;
+        textManager = TextManager.TextManager_Instance;
+    }
+    public override void Start()
+    {
+
         //inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
 

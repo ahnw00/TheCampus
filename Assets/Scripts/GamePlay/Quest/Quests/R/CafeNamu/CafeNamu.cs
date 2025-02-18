@@ -65,7 +65,7 @@ public class CafeNamu : Quest
 
     public void OnWaterClicked()
     {//물이 클릭되었을때
-        if (InventoryManager.InvenManager_Instance.GetSelectedItemName() == "HandyLadle")
+        if (inventoryManager.GetSelectedItemName() == "HandyLadle" || inventoryManager.GetSelectedItemName() == "StickyHandyLadle")
         {
             //lastClickedItem이 HandyLadle일때만
             switch (waterClicked)
@@ -85,7 +85,8 @@ public class CafeNamu : Quest
                     StartCoroutine(ChangeImage(fill0));
                     //fadeEffect.FadeOutIn(delaySecond, delaySecond);
                     water.SetActive(false);
-                    Invoke("Delay", 3f);
+                    Invoke("Delay", 1.5f);
+                    inventoryManager.ChangeHandyLadle();
                     break;
                 default:
                     break;
