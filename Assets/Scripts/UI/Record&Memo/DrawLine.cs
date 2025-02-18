@@ -79,7 +79,7 @@ public class DrawLine : MonoBehaviour
             Vector2 pos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 tempPos = Input.mousePosition;
             tempPos = new Vector2(tempPos.x - curPageAnchoredPos.x, tempPos.y - curPageAnchoredPos.y);
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && CheckMousePos(Input.mousePosition))
             {
                 GameObject obj = Instantiate(linePrefab, curPage.transform);
                 lr = obj.GetComponent<LineRenderer>();
