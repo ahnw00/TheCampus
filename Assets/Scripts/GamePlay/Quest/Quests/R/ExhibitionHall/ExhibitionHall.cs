@@ -82,6 +82,10 @@ public class ExhibitionHall : Quest
             textManager.PopUpText(dialogue[0]);
             Invoke("TurnOffLight", 1f); //끄기
         }
+        else if(inventoryManager.GetSelectedItemName() != "Flashlight" && canPictureClick)
+        {
+            textManager.PopUpText(dialogueManager.GetSystemDialogue("시스템 대사", 3));
+        }
     }
     public void OnHiddenPictureClicked()
     {//숨겨진 그림 클릭시 실행함수
@@ -104,6 +108,10 @@ public class ExhibitionHall : Quest
             nail.SetActive(true);
             piece4.SetActive(true);
             OnQuestCompleted();
+        }
+        else if(inventoryManager.GetSelectedItemName() != "Flashlight" && canHiddenPictureClick)
+        {
+            textManager.PopUpText(dialogueManager.GetSystemDialogue("시스템 대사", 3));
         }
     }
     void TurnOffLight()

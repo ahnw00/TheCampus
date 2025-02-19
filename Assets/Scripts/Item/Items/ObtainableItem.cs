@@ -6,6 +6,7 @@ using static UnityEditor.Progress;
 using System.IO;
 using UnityEngine.UI;
 using static UnityEditor.FilePathAttribute;
+using System;
 
 public class ObtainableItem : Clickable
 {
@@ -24,7 +25,7 @@ public class ObtainableItem : Clickable
         inventoryManager = InventoryManager.InvenManager_Instance;
         gameManager = GameManager.GameManager_Instance;
 
-        itemKey = $"{this.gameObject.name}_{this.GetInstanceID()}"; //고유 ID생성
+        itemKey = $"{this.gameObject.name}_{Guid.NewGuid().ToString()}"; //고유 ID생성
 
         if (PlayerPrefs.HasKey(itemKey))
         {//고유 ID를 가진 아이템이 월드맵에서 이미 획득되었다면 비활성화

@@ -1,11 +1,11 @@
 {
     "itemList": [
-        "StickyHandyLadle"
+        "TearedPaperCup"
     ],
     "cabinetList": [],
     "isMapObtained": false,
     "questList": [
-        "InProgress",
+        "NotStarted",
         "NotStarted",
         "NotStarted",
         "NotStarted"

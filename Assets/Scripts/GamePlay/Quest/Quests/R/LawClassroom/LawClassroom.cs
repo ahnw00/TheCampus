@@ -15,6 +15,7 @@ public class LawClassroom : Quest
     public bool isCoroutineRunning = false;
     [SerializeField] private GameObject rustedSword;
     private string todoKey = "Rsub2";
+    [SerializeField] private GameObject highlight;
 
     [SerializeField] private SpriteRenderer lawClassroomSR;
     [SerializeField] private Sprite completedSprite;
@@ -139,5 +140,6 @@ public class LawClassroom : Quest
     public override void ifQuestBtnClicked()
     {//quest¹öÆ°ÀÌ ´­·ÈÀ» ¶§¸¶´Ù ½ÇÇàµÇ´Â ÇÔ¼ö. ¿©±â¼­´Â ÀÎº¥À» ºÒ·¯¿Â´Ù.
         base.ifQuestBtnClicked();
+        highlight.SetActive(false);
     }
 }

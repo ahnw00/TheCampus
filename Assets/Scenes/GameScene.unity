@@ -2593,6 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 1447613366}
+  LawClassroom_Panel: {fileID: 400781046}
   LastClickedItemObj: {fileID: 2095817949}
   selectedItemHighlight: {fileID: 1691654070}
   questInvenSlotImageList:
@@ -8395,6 +8396,7 @@ MonoBehaviour:
   topScale: {fileID: 1483403501}
   isCoroutineRunning: 0
   rustedSword: {fileID: 393205262}
+  highlight: {fileID: 1691654070}
   lawClassroomSR: {fileID: 1910609214}
   completedSprite: {fileID: -1760523270523680805, guid: 34f64bf28d3f9954b9a3ccba165a8e00, type: 3}
 --- !u!1 &404987227

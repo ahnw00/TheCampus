@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
     
     [SerializeField] private GameObject inventory;
 
+    [SerializeField] GameObject LawClassroom_Panel;
     [SerializeField] GameObject LastClickedItemObj; //인벤토리 버튼 옆 이미지 오브젝트
     [SerializeField] GameObject selectedItemHighlight; // 실제로 클릭된 아이템 오브젝트 하이라이트
     [SerializeField] List<GameObject> questInvenSlotImageList; // quest에서 사용하는 인벤토리의 슬롯 이미지 리스트, 하이라이트 표시용
@@ -181,7 +182,7 @@ public class InventoryManager : MonoBehaviour
         selectedItemName = item.name.Replace("(Clone)", "");
 
         //선택한 아이템의 슬롯 하이라이트 활성화
-        if (selectedItemName == null)
+        if (selectedItemName == null || LawClassroom_Panel.activeSelf)
         {//선택된 아이템이 없다면 하이라이트 비활성화
             LastClickedItemObj.GetComponent<Image>().enabled = false;
             selectedItemHighlight.SetActive(false);
@@ -301,7 +302,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void ChangeHandyLadle()
-    {
+    {//카페나무 퀘스트에서 국자 아이템 바꾸기
         string name = "HandyLadle";
         foreach (var slot in questInvenSlotList)
         {
