@@ -12,7 +12,6 @@ public class JsonManager
         SaveJson(data);
     }
 
-
     public void SaveJson(SaveDataClass saveData)
     {
         string jsonText;
