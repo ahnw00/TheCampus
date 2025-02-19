@@ -27,7 +27,7 @@ public class ObtainableItem : Clickable
 
         itemKey = $"{this.gameObject.name}_{this.transform.position.ToString()}"; //고유 ID생성
 
-        if (PlayerPrefs.HasKey(itemKey))
+        if (PlayerPrefs.GetInt(itemKey) == 2)
         {//고유 ID를 가진 아이템이 월드맵에서 이미 획득되었다면 비활성화
             this.gameObject.SetActive(false);
         }
@@ -99,7 +99,7 @@ public class ObtainableItem : Clickable
                 dataManager.Save();
                 _flag = true;
                 //고유 ID 아이템을 획득시 획득처리 저장
-                PlayerPrefs.SetInt(itemKey, 1); 
+                PlayerPrefs.SetInt(itemKey, 2); 
                 PlayerPrefs.Save();
                 TextManager.TextManager_Instance.PopUpText(DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name)[0] + DialogueManager.DialoguManager_Instance.GetSystemDialogue("시스템 대사", 0));
                 break;

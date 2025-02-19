@@ -18,7 +18,6 @@ public abstract class Clickable : MonoBehaviour
         ObjectID = this.gameObject.name;
         gaugeObj = GameManager.GameManager_Instance.gaugeObject;
         gauge = GameManager.GameManager_Instance.gaugeImage;
-        //if(PlayerPrefs.HasKey(this.gameObject.name))
     }
 
     public virtual void Clicked()
@@ -39,8 +38,8 @@ public abstract class Clickable : MonoBehaviour
             PlayerPrefs.SetInt(ObjectID, 0);
             PlayerPrefs.Save();
         }
+        //0이면 처음 클릭했을때, 1이면 클릭후 탐색 완료했을때, 2면 탐색완료 후 주웠을때
         flag = PlayerPrefs.GetInt(ObjectID);
-        Debug.Log(ObjectID + " -> " + flag);
         
         //한번도 클릭되지 않았을 때
         if(PlayerPrefs.GetInt(ObjectID) == 0)
