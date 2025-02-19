@@ -49,9 +49,9 @@ public class MoveToBtn : Clickable
 
     void Delayed()
     {
-        if(flag == 1)
+        if (flag == 1)
         {
-            MoveFunc();
+            this.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 

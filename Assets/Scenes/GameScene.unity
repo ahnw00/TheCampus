@@ -26523,7 +26523,7 @@ MonoBehaviour:
   map: {fileID: 1633943888}
   miniMap: {fileID: 195162792}
   radio: {fileID: 310277540}
-  Reset: 0
+  Reset: 1
 --- !u!1 &1560461726
 GameObject:
   m_ObjectHideFlags: 0
