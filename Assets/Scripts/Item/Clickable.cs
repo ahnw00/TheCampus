@@ -15,13 +15,14 @@ public abstract class Clickable : MonoBehaviour
 
     private void Start()
     {
+        ObjectID = this.gameObject.name;
         gaugeObj = GameManager.GameManager_Instance.gaugeObject;
         gauge = GameManager.GameManager_Instance.gaugeImage;
+        //if(PlayerPrefs.HasKey(this.gameObject.name))
     }
 
     public virtual void Clicked()
     {
-        ObjectID = this.gameObject.name;
         if (this.gameObject.GetComponent<ObtainableItem>())
         {//아이템인경우
             ObjectID = this.gameObject.GetComponent<ObtainableItem>().GetItemKey();
@@ -39,6 +40,7 @@ public abstract class Clickable : MonoBehaviour
             PlayerPrefs.Save();
         }
         flag = PlayerPrefs.GetInt(ObjectID);
+        Debug.Log(ObjectID + " -> " + flag);
         
         //한번도 클릭되지 않았을 때
         if(PlayerPrefs.GetInt(ObjectID) == 0)

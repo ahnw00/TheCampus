@@ -40,8 +40,8 @@ public class DataManager : MonoBehaviour
         //load는 세이브데이터 로드다.
         saveData = new SaveDataClass();
     
-        if(gameManager.Reset) DataInitialize();
-        else Load();
+        //if(gameManager.Reset) DataInitialize();
+        Load();
     }
 
     //세이브데이터 세이브
