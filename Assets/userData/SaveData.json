@@ -1,7 +1,9 @@
 {
     "itemList": [
         "TearedPaperCup",
-        "MarblePart"
+        "MarblePart",
+        "MarblePart",
+        "WoodStick"
     ],
     "cabinetList": [],
     "isMapObtained": false,
