@@ -19,6 +19,7 @@ public class LockedMove : Clickable
         if (PlayerPrefs.HasKey(this.name + "isOpened"))
         {
             isOpened = Convert.ToBoolean(PlayerPrefs.GetInt(this.name + "isOpened"));
+            this.GetComponent<SpriteRenderer>().enabled = isOpened;
             PlayerPrefs.SetInt(this.name, 1);
             flag = 1;
         }
