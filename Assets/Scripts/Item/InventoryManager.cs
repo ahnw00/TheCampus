@@ -39,6 +39,10 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI itemObtainName;
     public Button itemObtainBtn;
 
+    [SerializeField] private TextMeshProUGUI selectedItemText;
+    [SerializeField] private TextMeshProUGUI selectedItemDiscription;
+    [SerializeField] private Image selectedItemImage;
+
     //사운드
     private AudioSource craftSuccessSFX;
 
@@ -87,7 +91,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (!_flag)
         {
-            textManager.PopUpText("Inventory is full");
+            textManager.PopUpText("인벤토리가 가득 찼다.");
         }
         else
         {
@@ -180,6 +184,13 @@ public class InventoryManager : MonoBehaviour
         LastClickedItemObj.GetComponent<Image>().enabled = true;
         LastClickedItemObj.GetComponent<Image>().sprite = item.gameObject.GetComponent<Image>().sprite;
         selectedItemName = item.name.Replace("(Clone)", "");
+        
+        List<string> itemInformation = new List<string>();
+        itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(selectedItemName);
+        selectedItemText.SetText(itemInformation[0]);
+        selectedItemDiscription.SetText(itemInformation[1]);
+        selectedItemImage.sprite = item.gameObject.GetComponent<Image>().sprite;
+        selectedItemImage.SetNativeSize();
 
         //선택한 아이템의 슬롯 하이라이트 활성화
         if (selectedItemName == null || LawClassroom_Panel.activeSelf)
