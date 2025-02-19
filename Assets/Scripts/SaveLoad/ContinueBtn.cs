@@ -1,23 +1,37 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.IO;
 
 public class ContinueBtn : MonoBehaviour
 {
-    public void OnContinueClicked()
-    {
-        // 만약 StartScene에서 DataManager가 없을 경우를 대비
-        if(DataManager.Instance == null)
-        {
-            Debug.LogWarning("DataManager.Instance is null. Initializing new DataManager.");
-            GameObject dataManagerObject = new GameObject("DataManager");
-            DataManager dataManager = dataManagerObject.AddComponent<DataManager>();
-        }
+    private Button continueBtn;
 
+    void Awake()
+    {
+        continueBtn = GetComponent<Button>();
+    }
+
+    void OnEnable()
+    {
+        if (SaveFileExists())
+        {
+            continueBtn.interactable = true;
+        }
         else
         {
-            Debug.Log("Data successfully loaded.");
+            continueBtn.interactable = false;
         }
+    }
 
+    private bool SaveFileExists()
+    {
+        string savePath = Application.dataPath + "/userData/SaveData.json";
+        return File.Exists(savePath);
+    }
+
+    public void OnContinueClicked()
+    {
         SceneManager.LoadScene("GameScene");
     }
 }

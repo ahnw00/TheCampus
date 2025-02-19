@@ -7104,7 +7104,6 @@ GameObject:
   - component: {fileID: 320775891}
   - component: {fileID: 320775890}
   - component: {fileID: 320775889}
-  - component: {fileID: 320775888}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -7131,18 +7130,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: -348}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &320775888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320775886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25235ab8bbfb8845aeef186711098db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &320775889
 MonoBehaviour:
   m_ObjectHideFlags: 0
