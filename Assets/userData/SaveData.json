@@ -1,5 +1,8 @@
 {
-    "itemList": [],
+    "itemList": [
+        "TearedPaperCup",
+        "MarblePart"
+    ],
     "cabinetList": [],
     "isMapObtained": false,
     "questList": [
