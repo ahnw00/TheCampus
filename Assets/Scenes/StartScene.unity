@@ -755,41 +755,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 197200514}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 735740700}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 197200519}
-        m_TargetAssemblyTypeName: SFXMuteManager, Assembly-CSharp
-        m_MethodName: MuteSFX
-        m_Mode: 1
+      - m_Target: {fileID: 744064400}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.0001
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &197200516
 MonoBehaviour:
@@ -860,7 +836,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd32bfa71e646748b23c8694e3c8c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 744064400}
+  sfxSlider: {fileID: 744064400}
+  sfxMuted: {fileID: 735740700}
+  sfxUnmuted: {fileID: 197200514}
 --- !u!1 &223209452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,41 +1819,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 735740700}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 744064400}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 197200514}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 735740705}
-        m_TargetAssemblyTypeName: SFXMuteManager, Assembly-CSharp
-        m_MethodName: UnMuteSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &735740703
 MonoBehaviour:
@@ -1927,7 +1881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd32bfa71e646748b23c8694e3c8c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 744064400}
+  sfxSlider: {fileID: 744064400}
+  sfxMuted: {fileID: 735740700}
+  sfxUnmuted: {fileID: 197200514}
 --- !u!1 &744064398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,19 +1974,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 744064398}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &744064401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,6 +1987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10feb5ede64b0e41ad94f06eef62306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxSlider: {fileID: 744064400}
 --- !u!1 &763475778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,8 +3800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 11f198f8c97c7f44fb153d13146b6348, type: 2}
-  LastBGMVolume: 0
-  LastSFXVolume: 0
 --- !u!1 &1788882555
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,20 +3,29 @@ using UnityEngine.UI;
 
 public class SFXSliderManager : MonoBehaviour
 {
-    private Slider sfxSlider;
+    [SerializeField] private Slider sfxSlider;
 
-    void Awake()
+    private void Awake()
     {
-        sfxSlider = GetComponent<Slider>();
-        sfxSlider.value = SoundManager.Instance.SFXVolume;
-
-        sfxSlider.onValueChanged.AddListener(value =>
+        if (sfxSlider != null)
         {
-            if (SoundManager.Instance != null)
-            {
-                SoundManager.Instance.SFXVolume = value; 
-                SoundManager.Instance.SetSFXValue(value); 
-            }
-        });
+            sfxSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (sfxSlider != null && SoundManager.Instance != null)
+        {
+            sfxSlider.value = SoundManager.Instance.SFXVolume;
+        }
+    }
+
+    private void OnSliderValueChanged(float value)
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.SetSFXValue(value);
+        }
     }
 }
