@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TearedMap : Quest
 {
-    private QuestManager questManager;
+    //private QuestManager questManager;
     [SerializeField] private List<TearedPiece> pieceList = new List<TearedPiece>();
     [SerializeField] private GameObject moveToH;
     //private string todoKey = "Rmain";
@@ -27,7 +27,7 @@ public class TearedMap : Quest
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
-        questManager = QuestManager.QuestManager_instance;
+        //questManager = QuestManager.QuestManager_instance;
         inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
         //GetQuestDialogue("인게임 대사", "R동 전체", "Rmain");
@@ -56,7 +56,7 @@ public class TearedMap : Quest
                 piece.gameObject.SetActive(true);
         }
     }
-
+    
     protected override bool CheckCompletion()
     {
         if (questStatus == QuestStatus.InProgress)
