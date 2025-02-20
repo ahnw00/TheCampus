@@ -16,21 +16,21 @@ public class LockedMove : Clickable
     void Start()
     {
         mapManager = MapManager.MapManager_Instance;
-        if (PlayerPrefs.HasKey(this.name + "isOpened"))
-        {
-            isOpened = Convert.ToBoolean(PlayerPrefs.GetInt(this.name + "isOpened"));
-            this.GetComponent<SpriteRenderer>().enabled = isOpened;
-            PlayerPrefs.SetInt(this.name, 1);
-            flag = 1;
-        }
+        CheckUnlock();
     }
 
     private void OnEnable()
+    {
+        CheckUnlock();
+    }
+
+    private void CheckUnlock()
     {
         if (PlayerPrefs.HasKey(this.name + "isOpened"))
         {
             isOpened = Convert.ToBoolean(PlayerPrefs.GetInt(this.name + "isOpened"));
             this.GetComponent<SpriteRenderer>().enabled = isOpened;
+            vine.SetActive(!isOpened);
             PlayerPrefs.SetInt(this.name, 1);
             flag = 1;
         }
@@ -58,6 +58,7 @@ public class LockedMove : Clickable
             PlayerPrefs.SetInt(connectedDoor.name + "isOpened", 1);
             connectedDoor.GetComponent<LockedMove>().OpenDoor();
             this.GetComponent<SpriteRenderer>().enabled = isOpened;
+            vine.SetActive(!isOpened);
             PlayerPrefs.SetInt("Vine", 1);
             PlayerPrefs.Save();
             temp = "녹슨 검으로 덩굴을 베어내니 통로가 드러났다.";

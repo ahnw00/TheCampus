@@ -15,13 +15,13 @@ public class MoveToBtn : Clickable
             if(!PlayerPrefs.HasKey(this.name))
                 this.gameObject.SetActive(false);
         }
-        if (PlayerPrefs.HasKey(this.name))
+        if (PlayerPrefs.HasKey(this.name) && PlayerPrefs.GetInt(this.name) == 1)
             this.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     private void OnEnable()
     {
-        if (PlayerPrefs.HasKey(this.name))
+        if (PlayerPrefs.HasKey(this.name) && PlayerPrefs.GetInt(this.name) == 1)
             this.GetComponent<SpriteRenderer>().enabled = true;
     }
 

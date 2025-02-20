@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private GameObject miniMap;
     [SerializeField] private GameObject miniMapMask;
+    [SerializeField] private GameObject miniMapOutline;
     [SerializeField] private GameObject radio;
 
     public bool Reset;
@@ -80,12 +81,14 @@ public class GameManager : MonoBehaviour
     {
         miniMap.SetActive(false);
         miniMapMask.SetActive(false);
+        miniMapOutline.SetActive(false);
         Vector3 temp = map.transform.position;
         cam.transform.position = new Vector3(temp.x, temp.y, -10f);
         cam.orthographicSize = 42f;
     }
     public void PopOutMiniMap()
     {
+        miniMapOutline.SetActive(true);
         miniMapMask.SetActive(true);
         miniMap.SetActive(true);
         cam.transform.position = new Vector3(0, 0, -10f);
