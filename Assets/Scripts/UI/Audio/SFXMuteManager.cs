@@ -3,16 +3,23 @@ using UnityEngine.UI;
 
 public class SFXMuteManager : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private GameObject sfxMuted;
+    [SerializeField] private GameObject sfxUnmuted;
 
-    public void MuteSFX()
+    private void Awake()
     {
-        SoundManager.Instance.LastSFXVolume = slider.value;
-        slider.value = 0.0001f;
+        if (sfxSlider != null)
+        {
+            UpdateMuteIcons(sfxSlider.value);
+            sfxSlider.onValueChanged.AddListener(UpdateMuteIcons);
+        }
     }
 
-    public void UnMuteSFX()
+    private void UpdateMuteIcons(float value)
     {
-        slider.value = SoundManager.Instance.LastSFXVolume;
+        bool isMuted = value <= 0.0001;
+        if (sfxMuted != null) sfxMuted.SetActive(isMuted);
+        if (sfxUnmuted != null) sfxUnmuted.SetActive(!isMuted);
     }
 }

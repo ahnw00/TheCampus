@@ -8,8 +8,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     public float BGMVolume { get; set; }
     public float SFXVolume { get; set; }
-    public float LastBGMVolume;
-    public float LastSFXVolume;
 
     private void Awake()
     {
