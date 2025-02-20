@@ -16,7 +16,6 @@ public class ExhibitionHall : Quest
     [SerializeField] Sprite lightToPicture;
     [SerializeField] Sprite lightToHiddenPicture;
     [SerializeField] Sprite tearedHiddenPicture;
-    private QuestManager questManager;
     private string todoKey = "Rsub3";
 
     //클릭을 판단하는 flag
@@ -30,13 +29,7 @@ public class ExhibitionHall : Quest
 
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
-        questManager = QuestManager.QuestManager_instance;
-        inventoryManager = InventoryManager.InvenManager_Instance;
-        textManager = TextManager.TextManager_Instance;
-        dialogueManager = DialogueManager.DialoguManager_Instance;
-        locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
-        GetQuestDialogue("인게임 대사", "전시관", "Rsub3");
-
+        InitializeQuest();
         questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
@@ -58,6 +51,7 @@ public class ExhibitionHall : Quest
 
     public override void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
+        InitializeQuest();
         base.ifQuestBtnClicked();
     }
     protected override void OnQuestCompleted()
@@ -126,5 +120,11 @@ public class ExhibitionHall : Quest
         PlayerPrefs.SetInt("Piece4", 1);
         PlayerPrefs.Save();
         piece4.SetActive(false);
+    }
+
+    protected override void InitializeQuest()
+    {
+        base.InitializeQuest();
+        GetQuestDialogue("인게임 대사", "전시관", "Rsub3");
     }
 }

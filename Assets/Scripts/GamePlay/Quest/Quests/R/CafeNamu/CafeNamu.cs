@@ -11,7 +11,6 @@ public class CafeNamu : Quest
     [SerializeField] private GameObject Piece3;
     private const float dialogueDelay = 2f;
     private int waterClicked = 0;
-    private QuestManager questManager;
     [SerializeField] Sprite[] fill70;
     [SerializeField] Sprite[] fill40;
     [SerializeField] Sprite[] fill0;
@@ -24,13 +23,7 @@ public class CafeNamu : Quest
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
-        inventoryManager = InventoryManager.InvenManager_Instance;
-        questManager = QuestManager.QuestManager_instance;
-        textManager = TextManager.TextManager_Instance;
-        dialogueManager = DialogueManager.DialoguManager_Instance;
-        locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
-        GetQuestDialogue("인게임 대사", "카페나무", "Rsub1");
-
+        InitializeQuest();
         questInven.SetActive(true);
         if (questStatus == QuestStatus.NotStarted)
         {
@@ -128,6 +121,13 @@ public class CafeNamu : Quest
     }
     public override void ifQuestBtnClicked()
     {
+        InitializeQuest();
         base.ifQuestBtnClicked();
+    }
+
+    protected override void InitializeQuest()
+    {
+        base.InitializeQuest();
+        GetQuestDialogue("인게임 대사", "카페나무", "Rsub1");
     }
 }

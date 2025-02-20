@@ -21,6 +21,7 @@ public abstract class Quest : MonoBehaviour
     protected DialogueManager dialogueManager;
     protected TextManager textManager;
     protected LocationAndTodoList locationAndTodoList;
+    protected QuestManager questManager;
     [SerializeField] protected List<ItemSlot> slotList; //하이라이트 표시용
     [SerializeField] public GameObject questInven; //퀘스트 인벤토리
     protected List<string> dialogue = new List<string>();
@@ -34,6 +35,7 @@ public abstract class Quest : MonoBehaviour
         questStatus = QuestStatus.NotStarted;
         InitializeQuest();//퀘스트 생성시 필요한 것들 초기화
     }*/
+
     public abstract void Start();
     public virtual void StartQuest()
     {//퀘스트가 시작할때 실행
@@ -113,6 +115,30 @@ public abstract class Quest : MonoBehaviour
             LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", DialogueManager.DialoguManager_Instance.GetQuestDialogue("퀘스트 대사", "R동 전체", "Rmain"));
             PlayerPrefs.SetInt("pieceTrigger", 1);
             PlayerPrefs.Save();
+        }
+    }
+
+    protected virtual void InitializeQuest()
+    {
+        if (!inventoryManager)
+        {
+            inventoryManager = InventoryManager.InvenManager_Instance;
+        }
+        if (!questManager)
+        {
+            questManager = QuestManager.QuestManager_instance;
+        }
+        if (!textManager)
+        {
+            textManager = TextManager.TextManager_Instance;
+        }
+        if (!dialogueManager)
+        {
+            dialogueManager = DialogueManager.DialoguManager_Instance;
+        }
+        if (!locationAndTodoList)
+        {
+            locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
         }
     }
 }

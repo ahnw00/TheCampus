@@ -46,8 +46,8 @@ public class InventoryManager : MonoBehaviour
     //사운드
     private AudioSource craftSuccessSFX;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -60,7 +60,10 @@ public class InventoryManager : MonoBehaviour
             //Destroy(this.gameObject);
         }
         //isInvenOpened = inventory.activeSelf;
-
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
         itemList = saveData.itemList;
@@ -155,9 +158,8 @@ public class InventoryManager : MonoBehaviour
 
         if (!itemList.Contains(selectedItemName))
         {//inventory의 itemlist를 순환해 selectlastitem이 존재하지않는 경우
-            LastClickedItemObj.GetComponent<Image>().sprite = null;
             selectedItemHighlight.SetActive(false);
-            selectedItemName = null;
+            SetLastClickedItem(null);
         }
         else
         {//존재하는경우
@@ -178,7 +180,17 @@ public class InventoryManager : MonoBehaviour
 
     public void SetLastClickedItem(ItemClass item)
     {
-        if (item == null) return; //클릭한 아이템이 없으면 return
+        if (item == null)
+        {
+            LastClickedItemObj.GetComponent<Image>().enabled = false;
+            LastClickedItemObj.GetComponent<Image>().sprite = null;
+            selectedItemName = null;
+            selectedItemText.SetText("");
+            selectedItemDiscription.SetText("");
+            selectedItemImage.sprite = null;
+            selectedItemImage.GetComponent<Image>().enabled = false;
+            return;
+        } //클릭한 아이템이 없으면 return
 
         //클릭한 이미지와 아이템의 이름을 인벤토리 옆에 표시
         LastClickedItemObj.GetComponent<Image>().enabled = true;
@@ -189,6 +201,7 @@ public class InventoryManager : MonoBehaviour
         itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(selectedItemName);
         selectedItemText.SetText(itemInformation[0]);
         selectedItemDiscription.SetText(itemInformation[1]);
+        selectedItemImage.GetComponent<Image>().enabled = true;
         selectedItemImage.sprite = item.gameObject.GetComponent<Image>().sprite;
         selectedItemImage.SetNativeSize();
 
@@ -318,6 +331,22 @@ public class InventoryManager : MonoBehaviour
         foreach (var slot in questInvenSlotList)
         {
             if (slot.transform.childCount > 0) 
+            {
+                if (slot.transform.GetChild(0).name.Replace("(Clone)", "") == name)
+                {
+                    Destroy(slot.transform.GetChild(0).gameObject);
+                    string path = "Prefabs/Item/StickyHandyLadle";
+                    GameObject prefab = Resources.Load<GameObject>(path);
+                    prefab = Instantiate(prefab, slot.transform);
+                    slot.curItem = prefab.GetComponent<ItemClass>();
+                    SetLastClickedItem(prefab.GetComponent<ItemClass>());
+                    break;
+                }
+            }
+        }
+        foreach (var slot in slotList)
+        {
+            if (slot.transform.childCount > 0)
             {
                 if (slot.transform.GetChild(0).name.Replace("(Clone)", "") == name)
                 {

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LawClassroom : Quest
 {
-    private QuestManager questManager;
-    private TextManager textManager;
     [SerializeField] public Scale leftScale, rightScale;
     [SerializeField] private RectTransform leftAnchor, rightAnchor;
     [SerializeField] private RectTransform topScale;
@@ -21,11 +19,6 @@ public class LawClassroom : Quest
     [SerializeField] private Sprite completedSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
-    {
-        questManager = QuestManager.QuestManager_instance;
-        textManager = TextManager.TextManager_Instance;
-    }
     public override void Start()
     {
 
@@ -47,11 +40,7 @@ public class LawClassroom : Quest
     }
     public override void StartQuest()
     {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
-        inventoryManager = InventoryManager.InvenManager_Instance;
-        dialogueManager = DialogueManager.DialoguManager_Instance;
-        locationAndTodoList = LocationAndTodoList.LocationAndTodoList_Instance;
-        GetQuestDialogue("인게임 대사", "법학강의실", "Rsub2");
-
+        InitializeQuest();
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
@@ -139,7 +128,14 @@ public class LawClassroom : Quest
     }
     public override void ifQuestBtnClicked()
     {//quest¹öÆ°ÀÌ ´­·ÈÀ» ¶§¸¶´Ù ½ÇÇàµÇ´Â ÇÔ¼ö. ¿©±â¼­´Â ÀÎº¥À» ºÒ·¯¿Â´Ù.
+        InitializeQuest();
         base.ifQuestBtnClicked();
         highlight.SetActive(false);
+    }
+
+    protected override void InitializeQuest()
+    {
+        base.InitializeQuest();
+        GetQuestDialogue("인게임 대사", "법학강의실", "Rsub2");
     }
 }
