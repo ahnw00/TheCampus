@@ -1,5 +1,14 @@
 {
-    "itemList": [],
+    "itemList": [
+        "TearedPaperCup",
+        "MarblePart",
+        "WoodStick",
+        "OldCan",
+        "OldCan",
+        "Rock",
+        "Tape",
+        "OldFlashlight"
+    ],
     "cabinetList": [],
     "isMapObtained": false,
     "questList": [

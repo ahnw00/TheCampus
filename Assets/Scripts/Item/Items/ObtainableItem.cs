@@ -107,6 +107,7 @@ public class ObtainableItem : Clickable
         }
         if (!_flag)
         {
+            inventoryManager.itemObtainPanel.SetActive(false);
             TextManager.TextManager_Instance.PopUpText("인벤토리가 가득 찼다.");
         }
         else
