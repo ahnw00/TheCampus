@@ -3,9 +3,9 @@
         "TearedPaperCup"
     ],
     "cabinetList": [],
-    "isMapObtained": false,
+    "isMapObtained": true,
     "questList": [
-        "NotStarted",
+        "InProgress",
         "NotStarted",
         "NotStarted",
         "NotStarted"

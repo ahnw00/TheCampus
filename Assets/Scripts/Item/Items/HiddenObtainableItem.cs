@@ -62,7 +62,7 @@ public class HiddenObtainableItem : ObtainableItem
         }
         if (!_flag)
         {
-            TextManager.TextManager_Instance.PopUpText("Inventory is full");
+            TextManager.TextManager_Instance.PopUpText("인벤토리가 가득 찼다.");
         }
         else
         {
