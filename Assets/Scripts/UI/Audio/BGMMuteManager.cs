@@ -3,16 +3,23 @@ using UnityEngine.UI;
 
 public class BGMMuteManager : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private GameObject bgmMuted;
+    [SerializeField] private GameObject bgmUnmuted;
 
-    public void MuteBGM()
+    private void Awake()
     {
-        SoundManager.Instance.LastBGMVolume = slider.value;
-        slider.value = 0.0001f;
+        if (bgmSlider != null) 
+        { 
+            UpdateMuteIcons(bgmSlider.value);
+            bgmSlider.onValueChanged.AddListener(UpdateMuteIcons);
+        }
     }
 
-    public void UnMuteBGM()
+    private void UpdateMuteIcons(float value)
     {
-        slider.value = SoundManager.Instance.LastBGMVolume;
+        bool isMuted = value <= 0.0001;
+        if (bgmMuted != null) bgmMuted.SetActive(isMuted);
+        if (bgmUnmuted != null) bgmUnmuted.SetActive(!isMuted);
     }
 }

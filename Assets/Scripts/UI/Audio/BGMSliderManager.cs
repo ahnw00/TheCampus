@@ -3,20 +3,29 @@ using UnityEngine.UI;
 
 public class BGMSliderManager : MonoBehaviour
 {
-    private Slider bgmSlider;
+    [SerializeField] private Slider bgmSlider;
 
-    void Awake()
+    private void Awake()
     {
-        bgmSlider = GetComponent<Slider>();
-        bgmSlider.value = SoundManager.Instance.BGMVolume;
-
-        bgmSlider.onValueChanged.AddListener(value =>
+        if (bgmSlider != null)
         {
-            if (SoundManager.Instance != null)
-            {
-                SoundManager.Instance.BGMVolume = value;
-                SoundManager.Instance.SetBGMValue(value);
-            }
-        });
+            bgmSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (bgmSlider != null && SoundManager.Instance != null)
+        {
+            bgmSlider.value = SoundManager.Instance.BGMVolume;
+        }
+    }
+
+    private void OnSliderValueChanged(float value)
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.SetBGMValue(value);
+        }
     }
 }

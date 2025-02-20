@@ -6281,41 +6281,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 271672449}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 493543772}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 271672454}
-        m_TargetAssemblyTypeName: BGMMuteManager, Assembly-CSharp
-        m_MethodName: MuteBGM
-        m_Mode: 1
+      - m_Target: {fileID: 1033344224}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.0001
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &271672451
 MonoBehaviour:
@@ -6386,7 +6362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5245cd2cf01bc9649b8ba0bd026143a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1033344224}
+  bgmSlider: {fileID: 1033344224}
+  bgmMuted: {fileID: 493543772}
+  bgmUnmuted: {fileID: 271672449}
 --- !u!1 &272285072
 GameObject:
   m_ObjectHideFlags: 0
@@ -10193,41 +10171,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 493543772}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1033344224}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+        m_MethodName: set_value
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 271672449}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 493543778}
-        m_TargetAssemblyTypeName: BGMMuteManager, Assembly-CSharp
-        m_MethodName: UnMuteBGM
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &493543776
 MonoBehaviour:
@@ -10279,7 +10233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5245cd2cf01bc9649b8ba0bd026143a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1033344224}
+  bgmSlider: {fileID: 1033344224}
+  bgmMuted: {fileID: 493543772}
+  bgmUnmuted: {fileID: 271672449}
 --- !u!1 &496630544
 GameObject:
   m_ObjectHideFlags: 0
@@ -17695,6 +17651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e67516a9feccb45a95389e7da4ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmSlider: {fileID: 1033344224}
 --- !u!1 &1046511888
 GameObject:
   m_ObjectHideFlags: 0
