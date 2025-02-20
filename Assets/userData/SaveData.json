@@ -1,19 +1,21 @@
 {
     "itemList": [
-        "TearedPaperCup",
         "MarblePart",
-        "WoodStick",
+        "StickyHandyLadle",
+        "Flashlight",
         "OldCan",
         "OldCan",
-        "Rock",
-        "Tape",
-        "OldFlashlight"
+        "OldBook",
+        "TearedLawBook",
+        "RustedSword"
     ],
-    "cabinetList": [],
-    "isMapObtained": false,
+    "cabinetList": [
+        "Rock"
+    ],
+    "isMapObtained": true,
     "questList": [
-        "NotStarted",
-        "NotStarted",
+        "Completed",
+        "Completed",
         "NotStarted",
         "NotStarted"
     ],
