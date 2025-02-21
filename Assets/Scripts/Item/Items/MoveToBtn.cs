@@ -5,10 +5,14 @@ using UnityEngine;
 public class MoveToBtn : Clickable
 {
     private MapManager mapManager;
+    private DataManager dataManager;
+    private SaveDataClass saveData;
     [SerializeField] private string targetPlace;
     
     void Start()
     {
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
         mapManager = MapManager.MapManager_Instance;
         if (this.name == "ToH_Lobby")
         {
@@ -59,6 +63,8 @@ public class MoveToBtn : Clickable
     {
         NodeClass targetNode = mapManager.nodeMap[targetPlace];
         //Debug.Log(targetNode.node_name);
+        saveData.cur_position = targetPlace;
+        dataManager.Save();
         mapManager.cur_node.gameObject.SetActive(false);
         mapManager.cur_node = targetNode;
         targetNode.gameObject.SetActive(true);

@@ -7,6 +7,8 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     private static MapManager instance = null;
+    private DataManager dataManager;
+    private SaveDataClass saveData;
 
     [SerializeField] private List<NodeClass> nodes;
     public Dictionary<string, NodeClass> nodeMap = new Dictionary<string, NodeClass>();
@@ -83,15 +85,12 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
-        cur_node = nodeMap["R_Lobby_1F"];
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
+        cur_node = nodeMap[saveData.cur_position];
+        cur_node.gameObject.SetActive(true);
         playerOnMinimap.transform.position = cur_node.posOnMap.position;
     }
-
-    // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
 
     public static MapManager MapManager_Instance
     {

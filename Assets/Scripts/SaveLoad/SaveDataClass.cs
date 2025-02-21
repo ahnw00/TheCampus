@@ -7,7 +7,7 @@ using System;
 public class SaveDataClass
 {
     //이 클래스에다가 정보들을 저장할거임.
-    //string cur_position;
+    public string cur_position;
     public List<string> itemList;
     public List<string> cabinetList;
     public bool isMapObtained;
@@ -16,7 +16,7 @@ public class SaveDataClass
 
     public SaveDataClass()
     {
-        //cur_position = "T_Lobby";
+        cur_position = "R_Lobby_1F";
         isMapObtained = false;
         itemList = new List<string>();
         cabinetList = new List<string>();

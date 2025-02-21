@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+
     public Camera cam;
     private RaycastHit2D hit;
     private Vector3 rayDir = Vector3.forward;

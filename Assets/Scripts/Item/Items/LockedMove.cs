@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class LockedMove : Clickable
 {
+    private DataManager dataManager;
+    private SaveDataClass saveData;
     private MapManager mapManager;
     [SerializeField] private string targetPlace;
 
@@ -15,6 +18,8 @@ public class LockedMove : Clickable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
         mapManager = MapManager.MapManager_Instance;
         CheckUnlock();
     }
@@ -95,6 +100,8 @@ public class LockedMove : Clickable
     {
         NodeClass targetNode = mapManager.nodeMap[targetPlace];
         //Debug.Log(targetNode.node_name);
+        saveData.cur_position = targetPlace;
+        dataManager.Save();
         mapManager.cur_node.gameObject.SetActive(false);
         mapManager.cur_node = targetNode;
         targetNode.gameObject.SetActive(true);
