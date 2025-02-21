@@ -98,22 +98,21 @@ public abstract class Quest : MonoBehaviour
         dialogue = dialogueManager.GetIngameDialogue(type, location, quest);
     }
 
-    protected virtual void printMainQuestDialogue()
+    protected virtual void PrintMainQuestDialogue()
     {
+        List<string> list = dialogueManager.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
+        TextManager.TextManager_Instance.PopUpText(list[0]);
+        Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
         //대사 출력 및 todolist작성
         if (PlayerPrefs.HasKey("pieceTrigger"))
         {
-            List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
-            TextManager.TextManager_Instance.PopUpText(list[0]);
-            Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
+            Debug.Log("already started");
         }
         else
         {
-            List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
-            TextManager.TextManager_Instance.PopUpText(list[0]);
-            Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
-            LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", DialogueManager.DialoguManager_Instance.GetQuestDialogue("퀘스트 대사", "R동 전체", "Rmain"));
+            LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", dialogueManager.GetQuestDialogue("퀘스트 대사", "Rmain"));
             PlayerPrefs.SetInt("pieceTrigger", 1);
+            QuestManager.QuestManager_instance.TearedMapInProgress();
             PlayerPrefs.Save();
         }
     }

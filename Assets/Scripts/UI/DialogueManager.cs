@@ -32,9 +32,7 @@ public class DialogueManager : MonoBehaviour
         {
             //Destroy(this.gameObject);
         }
-    }
-    void Start()
-    {
+
         string[] textRows = Regex.Split(csvFile.text, @",\r\n"); //,\r\n을 기준으로 row 분할
         for (int i = 2; i < textRows.Length; i++)
         {
@@ -67,6 +65,9 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("");
         }
         */
+    }
+    void Start()
+    {
         systemMessage = GetIngameDialogue("시스템 대사", "시스템", "범용");
         ingameMessage = GetIngameDialogue("인게임 대사", "시스템", "범용");
     }
@@ -105,12 +106,12 @@ public class DialogueManager : MonoBehaviour
         return result;
     }
 
-    public string GetQuestDialogue(string type, string location, string quest)
+    public string GetQuestDialogue(string type, string quest)
     {//Todolist 작성을 위한 엑셀 불러오기
         string result = "null";
         foreach (var row in splitedExcel)
         {
-            if (row[1] == type && row[2] == location && row[3] == quest)
+            if (row[1] == type && row[3] == quest)
             {
                 result = row[5];
                 return result;

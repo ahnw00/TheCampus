@@ -25,6 +25,7 @@ public class ExhibitionHall : Quest
     public override void Start()
     {
         questName = "ExhibitionHall_SubQuest";
+        InitializeQuest();
     }
 
     public override void StartQuest()
@@ -35,6 +36,8 @@ public class ExhibitionHall : Quest
         {
             questStatus = QuestStatus.InProgress;
             questManager.SaveQuestStatus();
+            //todo생성
+            locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", todoKey));
         }
         else if (questStatus == QuestStatus.Completed)
         {
@@ -44,9 +47,6 @@ public class ExhibitionHall : Quest
             this.GetComponent<Image>().sprite = tearedHiddenPicture;
         }
         inventoryManager.SetItemsOnInven(slotList);
-
-        //todo생성
-        locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", "전시관", "Rsub3"));
     }
 
     public override void ifQuestBtnClicked()
@@ -60,7 +60,6 @@ public class ExhibitionHall : Quest
         questManager.SaveQuestStatus();
         Debug.Log(questName + "clear");
         locationAndTodoList.DeleteTodo(todoKey);
-        printMainQuestDialogue();
     }
 
     public void OnPictureClicked()
@@ -120,6 +119,7 @@ public class ExhibitionHall : Quest
         PlayerPrefs.SetInt("Piece4", 1);
         PlayerPrefs.Save();
         piece4.SetActive(false);
+        PrintMainQuestDialogue();
     }
 
     protected override void InitializeQuest()

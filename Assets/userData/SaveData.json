@@ -1,24 +1,12 @@
 {
-    "itemList": [
-        "Flashlight",
-        "RustedSword"
-    ],
-    "cabinetList": [
-        "OldCan",
-        "Rock",
-        "OldCan",
-        "MarblePart",
-        "OldBook",
-        "StickyHandyLadle",
-        "TearedLawBook",
-        "Nail"
-    ],
+    "itemList": [],
+    "cabinetList": [],
     "isMapObtained": false,
     "questList": [
-        "Completed",
-        "Completed",
-        "Completed",
-        "NotStarted"
+        "NotStarted",
+        "NotStarted",
+        "NotStarted",
+        "InProgress"
     ],
     "memoList": [
         {

@@ -50,8 +50,9 @@ public class ObtainableItem : Clickable
             if (this.name.Length == 6 && this.name.Substring(0, 5) == "Piece")
             {
                 PlayerPrefs.SetInt(this.name, 1);
+                PlayerPrefs.SetInt(itemKey, 2);
                 PlayerPrefs.Save();
-                printDialogue();
+                PrintGetPieceDialogue();
                 this.gameObject.SetActive(false);
             }
             else
@@ -121,8 +122,11 @@ public class ObtainableItem : Clickable
         return itemKey;
     }
 
-    void printDialogue()
+    protected void PrintGetPieceDialogue()
     {
+        List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
+        TextManager.TextManager_Instance.PopUpText(list[0]);
+        Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
         //대사 출력 및 todolist작성
         if (PlayerPrefs.HasKey("pieceTrigger"))
         {
@@ -130,10 +134,8 @@ public class ObtainableItem : Clickable
         }
         else
         {
-            List<string> list = DialogueManager.DialoguManager_Instance.GetIngameDialogue("인게임 대사", "R동 전체", "Rmain");
-            TextManager.TextManager_Instance.PopUpText(list[0]);
-            Record.Record_Instance.AddText(TextType.Speaker, list[0], "나");
-            LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", DialogueManager.DialoguManager_Instance.GetQuestDialogue("퀘스트 대사", "R동 전체", "Rmain"));
+            LocationAndTodoList.LocationAndTodoList_Instance.SetTodo("Rmain", DialogueManager.DialoguManager_Instance.GetQuestDialogue("퀘스트 대사", "Rmain"));
+            QuestManager.QuestManager_instance.TearedMapInProgress();
             PlayerPrefs.SetInt("pieceTrigger", 1);
             PlayerPrefs.Save();
         }

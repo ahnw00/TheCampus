@@ -44,13 +44,13 @@ public class LawClassroom : Quest
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
+            questManager.SaveQuestStatus();
             ifQuestBtnClicked();
             Debug.Log(questName + " ½ÃÀÛ");
             textManager.PopUpText(dialogue[0]);//시작 대사
+                                               //todo생성
+            locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", todoKey));
         }
-
-        //todo생성
-        locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", "법학강의실", "Rsub2"));
     }
 
     public override void QuitQuest()
@@ -79,7 +79,7 @@ public class LawClassroom : Quest
         PlayerPrefs.SetInt("LawClassroom", 1);
         PlayerPrefs.Save();
         lawClassroomSR.sprite = completedSprite;
-        printMainQuestDialogue();
+        PrintMainQuestDialogue();
         textManager.PopUpText(dialogue[1]);
         locationAndTodoList.DeleteTodo(todoKey);
     }

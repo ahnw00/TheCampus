@@ -32,13 +32,16 @@ public class TearedMap : Quest
         //inventoryManager.SetItemsOnInven(slotList);
         //GetQuestDialogue("인게임 대사", "R동 전체", "Rmain");
         questName = "TearedMap_MainQuest";
+        InitializeQuest();
     }
 
     public override void StartQuest()
     {//Äù½ºÆ®°¡ ½ÃÀÛÇÒ¶§ ½ÇÇà
+        InitializeQuest();
         if (questStatus == QuestStatus.NotStarted)
         {
             questStatus = QuestStatus.InProgress;
+            questManager.SaveQuestStatus();
             Debug.Log(questName + " ½ÃÀÛ");
         }
     }
@@ -50,6 +53,7 @@ public class TearedMap : Quest
 
     public override void ifQuestBtnClicked()
     {
+        InitializeQuest();
         foreach (var piece in pieceList)
         {
             if(PlayerPrefs.HasKey(piece.gameObject.name))

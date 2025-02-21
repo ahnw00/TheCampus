@@ -31,6 +31,9 @@ public class CafeNamu : Quest
             questManager.SaveQuestStatus();
             textManager.PopUpText(dialogue[0]);//시작 대사
             Record.Record_Instance.AddText(TextType.Speaker, dialogue[0], "나");
+
+            //todo생성
+            locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", todoKey));
         }
         else if (questStatus == QuestStatus.Completed)
         {
@@ -38,9 +41,6 @@ public class CafeNamu : Quest
             this.GetComponent<Image>().sprite = fill0[2];
         }
         inventoryManager.SetItemsOnInven(slotList);
-
-        //todo생성
-        locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", "카페나무", "Rsub1"));
     }
     protected override void OnQuestCompleted()
     {
@@ -48,7 +48,7 @@ public class CafeNamu : Quest
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();
         locationAndTodoList.DeleteTodo(todoKey);
-        printMainQuestDialogue();
+        PrintMainQuestDialogue();
     }
 
     //public override void Clicked()
@@ -117,6 +117,8 @@ public class CafeNamu : Quest
     public void OnPieceClicked()
     {
         Piece3.SetActive(false);
+        PlayerPrefs.SetInt("Piece3", 1);
+        PlayerPrefs.Save();
         OnQuestCompleted();
     }
     public override void ifQuestBtnClicked()

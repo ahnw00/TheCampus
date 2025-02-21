@@ -82,9 +82,8 @@ public class QuestManager : MonoBehaviour
     public void OnQuestBtnClicked(GameObject questObject)
     {
         Quest quest = questObject.GetComponent<Quest>();
-        if (quest != null && quest.questStatus == QuestStatus.NotStarted)
+        if (quest != null && (quest.questStatus == QuestStatus.NotStarted || quest.questStatus == QuestStatus.Completed))
         {//퀘스트 처음 시작시 실행
-            Debug.Log(quest.QuestName() + " Start");
             GameManager.GameManager_Instance.TurnOnUI();
             quest.StartQuest();
         }
@@ -103,5 +102,10 @@ public class QuestManager : MonoBehaviour
             saveData.questList.Add(quest.GetComponent<Quest>().questStatus.ToString());
         }
         dataManager.Save();
+    }
+    public void TearedMapInProgress()
+    {
+        questPanels[3].GetComponent<Quest>().questStatus = QuestStatus.InProgress;
+        SaveQuestStatus();
     }
 }
