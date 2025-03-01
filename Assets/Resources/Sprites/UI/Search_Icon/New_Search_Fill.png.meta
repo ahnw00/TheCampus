@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 82d69d25e422a2f43adac369fc14eda9
+guid: fbf50d2eee4886c4a95f12d7344e680a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4664898694189848149
-    second: New_Search_0
+      213: -7263043052345371530
+    second: New_Search_Fill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,43 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New_Search_0
+      name: New_Search_Fill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 91
-        height: 92
+        width: 22
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5569e5c85ac0db040800000000000000
-      internalID: 4664898694189848149
+      spriteID: 674d59c33dc743b90800000000000000
+      internalID: -7263043052345371530
       vertices: []
       indices: 
       edges: []
@@ -173,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      New_Search_0: 4664898694189848149
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

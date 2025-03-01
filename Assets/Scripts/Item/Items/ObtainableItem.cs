@@ -55,6 +55,13 @@ public class ObtainableItem : Clickable
                 PrintGetPieceDialogue();
                 this.gameObject.SetActive(false);
             }
+            else if (this.name == "Broadcast") 
+            {
+                List<string> itemInformation = new List<string>();
+                itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name);
+                TextManager.TextManager_Instance.PopUpText(itemInformation[1]);
+                this.gameObject.SetActive(false);
+            }
             else
                 PopUpObtainPanel();
         }
@@ -81,12 +88,6 @@ public class ObtainableItem : Clickable
     protected virtual void ObtainItem()
     {
         bool _flag = false;
-        if(this.name == "Broadcast")
-        {
-            gameManager.TurnOnRadio();
-            inventoryManager.itemObtainPanel.SetActive(false);
-            return;
-        }
         foreach (var slot in inventoryManager.slotList)
         {
             if (slot.curItem == null)

@@ -25,7 +25,6 @@ public class ExhibitionHall : Quest
     public override void Start()
     {
         questName = "ExhibitionHall_SubQuest";
-        InitializeQuest();
     }
 
     public override void StartQuest()
@@ -46,7 +45,7 @@ public class ExhibitionHall : Quest
             isGetPicture = true;
             this.GetComponent<Image>().sprite = tearedHiddenPicture;
         }
-        inventoryManager.SetItemsOnInven(slotList);
+        base.ifQuestBtnClicked();
     }
 
     public override void ifQuestBtnClicked()

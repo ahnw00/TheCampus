@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -77,12 +78,16 @@ public abstract class Quest : MonoBehaviour
 
     public virtual void ifQuestBtnClicked()
     {//quest버튼이 눌렸을 때마다 실행되는 함수. 여기서는 인벤을 불러온다.
-        questInven.SetActive(true);
+    questInven.SetActive(true);
         foreach (var slot in slotList)
         {
-            if (slot.transform.childCount > 0)
+            int count = slot.transform.childCount;
+            if (count > 0)
             {
-                Destroy(slot.transform.GetChild(0).gameObject);
+                for(int i = count - 1; i >= 0; i--)
+                {
+                    Destroy(slot.transform.GetChild(i).gameObject);
+                }
             }
         }
         inventoryManager.SetItemsOnInven(slotList);

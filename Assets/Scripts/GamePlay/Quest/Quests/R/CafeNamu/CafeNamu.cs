@@ -40,7 +40,7 @@ public class CafeNamu : Quest
             waterClicked = 3;
             this.GetComponent<Image>().sprite = fill0[2];
         }
-        inventoryManager.SetItemsOnInven(slotList);
+        base.ifQuestBtnClicked();
     }
     protected override void OnQuestCompleted()
     {
@@ -92,6 +92,17 @@ public class CafeNamu : Quest
             firstWaterTouchFlag = false;
             StartCoroutine(DelayDialouge(dialogue[2]));
             Record.Record_Instance.AddText(TextType.Speaker, dialogue[2], "나");
+        }
+        else if (inventoryManager.GetSelectedItemName() == "TearedPaperCup" && waterClicked < 3)
+        {
+            textManager.PopUpText("찢어져 있어 물을 퍼낼 수 없을 것 같다");
+        }
+        else
+        {
+            if (inventoryManager.GetSelectedItemName() != "null" && waterClicked < 3)
+            {
+                textManager.PopUpText("이 물건은 관련있지 않은 것 같다");
+            }
         }
     }
     IEnumerator ChangeImage(Sprite[] sprite)
