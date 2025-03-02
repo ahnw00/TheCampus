@@ -25,12 +25,13 @@ public class TearedPiece : MonoBehaviour
 
     public void OnPointerUp()
     {
-        if(targetPos == detectedPos)
+        if (targetPos == detectedPos)
         {
             this.gameObject.transform.position = targetPos.transform.position;
             foundCorrectPos = true;
             pieceQuest.Check();
         }
+        else foundCorrectPos = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

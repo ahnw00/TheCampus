@@ -7,7 +7,8 @@ public class OldMap : Clickable
     DataManager dataManager;
     SaveDataClass data;
     InventoryManager inventoryManager;
-    [SerializeField] GameObject MiniMap;
+    [SerializeField] GameObject miniMap;
+    [SerializeField] GameObject minimapText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +19,8 @@ public class OldMap : Clickable
 
         if (data.isMapObtained)
         {
-            MiniMap.SetActive(true);
+            miniMap.SetActive(true);
+            minimapText.SetActive(false);
             this.gameObject.SetActive(false);
         }
     }
@@ -43,7 +45,8 @@ public class OldMap : Clickable
 
     void MapClicked()
     {
-        MiniMap.SetActive(true);
+        miniMap.SetActive(true);
+        minimapText.SetActive(false);
         data.isMapObtained = true;
         dataManager.Save();
         inventoryManager.itemObtainPanel.SetActive(false);
@@ -51,7 +54,7 @@ public class OldMap : Clickable
         this.gameObject.SetActive(false);
     }
 
-    public virtual void PopUpObtainPanel()
+    public void PopUpObtainPanel()
     {
         inventoryManager.itemObtainPanel.SetActive(true);
         GameManager.GameManager_Instance.TurnOnUI();

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d25972aedfb40c7498078c96b4beedb1
+guid: dc727c156b4ca7947ab2ff95f3652adb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -896362273713536728
-    second: Subquest_Shadow_0
+      213: 8131105600333565148
+    second: Pieceback (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Subquest_Shadow_0
+      name: Pieceback (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1400
-        height: 800
+        width: 787
+        height: 768
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8214e3dd24b7f83f0800000000000000
-      internalID: -896362273713536728
+      spriteID: cdc421b867d77d070800000000000000
+      internalID: 8131105600333565148
       vertices: []
       indices: 
       edges: []
@@ -147,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Subquest_Shadow_0: -896362273713536728
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,16 +1,24 @@
 {
-    "cur_position": "CafeNamu",
+    "cur_position": "R_Lobby_2F",
     "itemList": [
-        "TearedPaperCup",
+        "StickyHandyLadle",
+        "Rock",
+        "OldCan",
+        "OldBook",
+        "Flashlight",
+        "TearedLawBook",
+        "RustedSword",
+        "Nail"
+    ],
+    "cabinetList": [
         "MarblePart"
     ],
-    "cabinetList": [],
-    "isMapObtained": false,
+    "isMapObtained": true,
     "questList": [
-        "InProgress",
-        "NotStarted",
-        "NotStarted",
-        "NotStarted"
+        "Completed",
+        "Completed",
+        "Completed",
+        "Completed"
     ],
     "memoList": [
         {

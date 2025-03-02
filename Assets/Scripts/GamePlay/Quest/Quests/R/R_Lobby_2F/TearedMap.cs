@@ -7,6 +7,7 @@ public class TearedMap : Quest
     //private QuestManager questManager;
     [SerializeField] private List<TearedPiece> pieceList = new List<TearedPiece>();
     [SerializeField] private GameObject moveToH;
+    [SerializeField] private GameObject completeAnim;
     //private string todoKey = "Rmain";
 
     private void Awake()
@@ -99,6 +100,7 @@ public class TearedMap : Quest
     {
         Debug.Log(questName + "clear");
         moveToH.SetActive(true);
+        completeAnim.SetActive(true);
         questManager.SaveQuestStatus();
     }
 }
