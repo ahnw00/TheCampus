@@ -1,16 +1,18 @@
 {
+    "gameCompleted": true,
     "cur_position": "R_Lobby_2F",
     "itemList": [
         "StickyHandyLadle",
         "Rock",
-        "OldCan",
-        "OldBook",
         "Flashlight",
         "TearedLawBook",
+        "OldBook",
         "RustedSword",
         "Nail"
     ],
     "cabinetList": [
+        "OldCan",
+        "OldCan",
         "MarblePart"
     ],
     "isMapObtained": true,

@@ -14,11 +14,7 @@ public class MoveToBtn : Clickable
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
         mapManager = MapManager.MapManager_Instance;
-        if (this.name == "ToH_Lobby")
-        {
-            if(!PlayerPrefs.HasKey(this.name))
-                this.gameObject.SetActive(false);
-        }
+
         if (PlayerPrefs.HasKey(this.name) && PlayerPrefs.GetInt(this.name) == 1)
             this.GetComponent<SpriteRenderer>().enabled = true;
     }

@@ -5,7 +5,7 @@ public class QuestBtn : Clickable
 {
     [SerializeField] private GameObject quest; // btn이 가리키는 quest
     [SerializeField] private GameObject opacityBackground;
-    [SerializeField] private GameObject panelBackground;
+    //[SerializeField] private GameObject panelBackground;
     [SerializeField] private GameObject mask;
     public override void Clicked()
     {//클릭되었을때
@@ -30,7 +30,7 @@ public class QuestBtn : Clickable
         quest.SetActive(true);
         opacityBackground.SetActive(true);
         mask.SetActive(true);
-        panelBackground.SetActive(true);
+        //panelBackground.SetActive(true);
         //GameManager.GameManager_Instance.isUiOpened++; // quest 패널만 클릭되기 위함
         QuestManager.QuestManager_instance.OnQuestBtnClicked(quest); // 클릭마다 실행을 위함
     }

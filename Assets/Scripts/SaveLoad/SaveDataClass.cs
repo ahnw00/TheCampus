@@ -7,6 +7,7 @@ using System;
 public class SaveDataClass
 {
     //이 클래스에다가 정보들을 저장할거임.
+    public bool gameCompleted;
     public string cur_position;
     public List<string> itemList;
     public List<string> cabinetList;
@@ -16,6 +17,7 @@ public class SaveDataClass
 
     public SaveDataClass()
     {
+        gameCompleted = false;
         cur_position = "R_Lobby_1F";
         isMapObtained = false;
         itemList = new List<string>();

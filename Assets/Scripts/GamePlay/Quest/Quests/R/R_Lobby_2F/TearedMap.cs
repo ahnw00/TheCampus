@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TearedMap : Quest
 {
+    DataManager dataManager;
+    SaveDataClass saveData;
     //private QuestManager questManager;
     [SerializeField] private List<TearedPiece> pieceList = new List<TearedPiece>();
     [SerializeField] private GameObject moveToH;
@@ -28,6 +30,8 @@ public class TearedMap : Quest
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
         //questManager = QuestManager.QuestManager_instance;
         inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
@@ -100,7 +104,11 @@ public class TearedMap : Quest
     {
         Debug.Log(questName + "clear");
         moveToH.SetActive(true);
+        saveData.gameCompleted = true;
+        dataManager.Save();
         completeAnim.SetActive(true);
         questManager.SaveQuestStatus();
+        textManager.PopUpText("(설마... 사라진 사람들이 모두 여기서...)");
+        this.gameObject.SetActive(false);
     }
 }
