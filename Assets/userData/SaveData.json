@@ -1,26 +1,14 @@
 {
-    "gameCompleted": true,
-    "cur_position": "R_Lobby_2F",
-    "itemList": [
-        "StickyHandyLadle",
-        "Rock",
-        "Flashlight",
-        "TearedLawBook",
-        "OldBook",
-        "RustedSword",
-        "Nail"
-    ],
-    "cabinetList": [
-        "OldCan",
-        "OldCan",
-        "MarblePart"
-    ],
-    "isMapObtained": true,
+    "gameCompleted": false,
+    "cur_position": "R_Lobby_1F",
+    "itemList": [],
+    "cabinetList": [],
+    "isMapObtained": false,
     "questList": [
-        "Completed",
-        "Completed",
-        "Completed",
-        "Completed"
+        "NotStarted",
+        "NotStarted",
+        "NotStarted",
+        "NotStarted"
     ],
     "memoList": [
         {

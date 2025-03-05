@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class NewGameBtn : MonoBehaviour
 {
+    [SerializeField] GameObject mainScene;
+    [SerializeField] Animator mainStory;
     public void OnNewGameClicked()
     {
-        // ¸¸¾à StartScene¿¡¼­ DataManager°¡ ¾øÀ» °æ¿ì¸¦ ´ëºñ
+        // ï¿½ï¿½ï¿½ï¿½ StartSceneï¿½ï¿½ï¿½ï¿½ DataManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¦ ï¿½ï¿½ï¿½
         if (DataManager.Instance == null)
         {
             Debug.LogWarning("DataManager.Instance is null. Initializing new DataManager.");
@@ -19,6 +21,7 @@ public class NewGameBtn : MonoBehaviour
             Debug.Log("Data successfully initialized");
         }
 
-        SceneManager.LoadScene("GameScene");
+        mainScene.SetActive(true);
+        mainStory.Play("MainScene");
     }
 }
