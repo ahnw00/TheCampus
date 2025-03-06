@@ -1924,7 +1924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeImage: {fileID: 1423124040}
-  textMesh: {fileID: 0}
+  underText: {fileID: 186343755}
+  centerText: {fileID: 372018602}
   newsText:
   - "\uD64D\uC775\uB300\uD559\uAD50\uC5D0 \uB2E4\uB2C8\uB358 24\uC138 \uAE40 \uBAA8
     \uC528\uAC00 \uB9C8\uC9C0\uB9C9\uC73C\uB85C \uBAA9\uACA9\uB41C \uAC74 \uAE08\uC77C

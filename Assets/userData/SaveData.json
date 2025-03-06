@@ -4,7 +4,12 @@
     "itemList": [],
     "cabinetList": [],
     "isMapObtained": false,
-    "questList": [],
+    "questList": [
+        "NotStarted",
+        "NotStarted",
+        "NotStarted",
+        "NotStarted"
+    ],
     "memoList": [
         {
             "lines": []
