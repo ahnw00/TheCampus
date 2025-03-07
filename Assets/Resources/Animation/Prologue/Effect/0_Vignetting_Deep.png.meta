@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      0_Vignetting_Deep_0: -8495216963733627843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
