@@ -5,9 +5,19 @@ using UnityEngine.UI;
 
 public class Fixed : MonoBehaviour
 {
+    private static Fixed instance;
     [SerializeField] private Canvas myCanvas;
     private void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         SetResolution(); // 초기에 게임 해상도 고정
     }
 
@@ -34,5 +44,10 @@ public class Fixed : MonoBehaviour
             Camera.main.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight); // 새로운 Rect 적용
             myCanvas.GetComponent<CanvasScaler>().matchWidthOrHeight = 0;
         }
+    }
+
+    void OnSceneLoaded()
+    {
+        myCanvas = FindAnyObjectByType<Canvas>();
     }
 }
