@@ -49,6 +49,18 @@ public class TearedMap : Quest
             questManager.SaveQuestStatus();
             Debug.Log(questName + " ½ÃÀÛ");
         }
+
+        bool flag = true;
+        foreach (var piece in pieceList)
+        {
+            if (!PlayerPrefs.HasKey(piece.gameObject.name))
+            {
+                flag = false;
+                break;
+            }
+        }
+        if (flag)
+            textManager.PopUpText("사진 조각을 모두 모았다. 틀에 맞춰 보자.");
     }
 
     public override void QuitQuest()

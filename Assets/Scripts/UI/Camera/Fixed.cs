@@ -1,23 +1,30 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Fixed : MonoBehaviour
 {
-    private static Fixed instance;
+    //private static Fixed instance;
     [SerializeField] private Canvas myCanvas;
-    private void Awake()
+
+    //private void Awake()
+    //{
+    //    if(instance == null)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
+
+    private void Start()
     {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
         SetResolution(); // 초기에 게임 해상도 고정
     }
 
@@ -46,8 +53,12 @@ public class Fixed : MonoBehaviour
         }
     }
 
-    void OnSceneLoaded()
-    {
-        myCanvas = FindAnyObjectByType<Canvas>();
-    }
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    myCanvas = FindAnyObjectByType<Canvas>();
+    //    if(FindAnyObjectByType<GameManager>())
+    //    {
+    //        GameManager.GameManager_Instance.cam = this.GetComponent<Camera>();
+    //    }
+    //}
 }
