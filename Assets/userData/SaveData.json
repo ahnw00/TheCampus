@@ -1,6 +1,6 @@
 {
     "gameCompleted": false,
-    "cur_position": "R_Lobby_2F",
+    "cur_position": "R_Lobby_1F",
     "itemList": [],
     "cabinetList": [],
     "isMapObtained": false,
@@ -8,7 +8,7 @@
         "NotStarted",
         "NotStarted",
         "NotStarted",
-        "InProgress"
+        "NotStarted"
     ],
     "memoList": [
         {

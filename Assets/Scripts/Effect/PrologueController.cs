@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ public class PrologueController : MonoBehaviour
     [SerializeField] TextMeshProUGUI centerText;
     [SerializeField] List<string> newsText = new List<string>();
     [SerializeField] List<string> speechText = new List<string>();
+    [SerializeField] AudioSource prologueBGM;
+    [SerializeField] AudioSource prologueSFX;
     private float typingSpeed = 0.05f;
     private int index = 0;
     private int newsIndex = 0;
@@ -24,10 +27,6 @@ public class PrologueController : MonoBehaviour
         newsIndex = 0;
         centerText.text = "";
         underText.text = "";
-    }
-    void Expansion()
-    {
-
     }
 
     void LoadGameScene()
@@ -75,5 +74,17 @@ public class PrologueController : MonoBehaviour
     void SetSpeechText()
     {
         centerText.text = speechText[index++];
+    }
+
+    void SetSFX(AudioResource sfx)
+    {
+        prologueSFX.resource = sfx;
+        prologueSFX.Play();
+    }
+
+    void SetBGM(AudioResource sfx)
+    {
+        prologueBGM.resource = sfx;
+        prologueBGM.Play();
     }
 }
