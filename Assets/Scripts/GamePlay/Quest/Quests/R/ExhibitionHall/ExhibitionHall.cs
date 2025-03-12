@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ExhibitionHall : Quest
 {
@@ -16,6 +17,8 @@ public class ExhibitionHall : Quest
     [SerializeField] Sprite lightToPicture;
     [SerializeField] Sprite lightToHiddenPicture;
     [SerializeField] Sprite tearedHiddenPicture;
+    [SerializeField] AudioSource exhibitionHallSFX;
+    [SerializeField] AudioResource canvasRip;
     private string todoKey = "Rsub3";
 
     //클릭을 판단하는 flag
@@ -59,12 +62,15 @@ public class ExhibitionHall : Quest
         questManager.SaveQuestStatus();
         Debug.Log(questName + "clear");
         locationAndTodoList.DeleteTodo(todoKey);
+        exhibitionHallSFX.resource = canvasRip;
+        exhibitionHallSFX.Play();
     }
 
     public void OnPictureClicked()
     {//일반그림 클릭시 불빛 잠깐나오고 사라지는 함수
         if(inventoryManager.GetSelectedItemName() == "Flashlight" && canPictureClick)
         {
+            exhibitionHallSFX.Play();
             canPictureClick = false;
             canHiddenPictureClick = false;
             this.GetComponent<Image>().sprite = lightToPicture;
@@ -90,6 +96,7 @@ public class ExhibitionHall : Quest
             //flashLight.SetActive(true);
             //flashLight.transform.SetParent(hiddenPicture.transform, false);
             //flashLight.transform.localPosition = Vector3.zero;
+            exhibitionHallSFX.Play();
         }
         else if(inventoryManager.GetSelectedItemName() == "RustedSword" && !canHiddenPictureClick && !isGetPicture)
         {//이미 손전등으로 밝힌 상태에서 선택된아이템이 rustedSword일때
@@ -111,6 +118,7 @@ public class ExhibitionHall : Quest
         this.GetComponent<Image>().sprite = lightOffPicture;
         //flashLight.SetActive(false);
         canHiddenPictureClick = true;
+        exhibitionHallSFX.Play();
     }
 
     public void GetPiece4()

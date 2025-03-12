@@ -57,10 +57,14 @@ public class ObtainableItem : Clickable
             }
             else if (this.name == "Broadcast") 
             {
+                PlayerPrefs.SetInt(itemKey, 2);
+                PlayerPrefs.Save();
+                this.GetComponent<AudioSource>().Play();
                 List<string> itemInformation = new List<string>();
                 itemInformation = DialogueManager.DialoguManager_Instance.GetItemDiscription(this.name);
                 TextManager.TextManager_Instance.PopUpText(itemInformation[1]);
-                this.gameObject.SetActive(false);
+                this.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0);
+                Invoke("Delay", 4f);
             }
             else
                 PopUpObtainPanel();
@@ -140,5 +144,10 @@ public class ObtainableItem : Clickable
             PlayerPrefs.SetInt("pieceTrigger", 1);
             PlayerPrefs.Save();
         }
+    }
+
+    void Delay()
+    {
+        this.gameObject.SetActive(false);
     }
 }
