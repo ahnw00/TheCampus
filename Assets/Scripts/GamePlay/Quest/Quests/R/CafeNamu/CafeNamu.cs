@@ -9,7 +9,6 @@ public class CafeNamu : Quest
 {//퀘스트 예시
     [SerializeField] private GameObject water;
     [SerializeField] private GameObject Piece3;
-    [SerializeField] AudioSource waterSFX;
     private const float dialogueDelay = 2f;
     private int waterClicked = 0;
     [SerializeField] Sprite[] fill70;

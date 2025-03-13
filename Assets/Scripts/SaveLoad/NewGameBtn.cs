@@ -8,6 +8,7 @@ public class NewGameBtn : MonoBehaviour
     //[SerializeField] AudioSource lobbyBGM;
     public void OnNewGameClicked()
     {
+        SoundManager.Instance.ChangeBgmClip(null);
         // ���� StartScene���� DataManager�� ���� ��츦 ���
         if (DataManager.Instance == null)
         {

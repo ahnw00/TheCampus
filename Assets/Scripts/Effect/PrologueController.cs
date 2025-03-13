@@ -16,6 +16,7 @@ public class PrologueController : MonoBehaviour
     [SerializeField] List<string> speechText = new List<string>();
     [SerializeField] AudioSource prologueBGM;
     [SerializeField] AudioSource prologueSFX;
+    [SerializeField] AudioClip ingameBGM;
     private float typingSpeed = 0.05f;
     private int index = 0;
     private int newsIndex = 0;
@@ -31,6 +32,7 @@ public class PrologueController : MonoBehaviour
 
     void LoadGameScene()
     {
+        SoundManager.Instance.ChangeBgmClip(ingameBGM);
         SceneManager.LoadScene("GameScene");
     }
 

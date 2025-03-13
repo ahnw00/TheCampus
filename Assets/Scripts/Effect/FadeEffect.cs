@@ -5,7 +5,7 @@ using UnityEditor.ShaderGraph.Internal;
 
 public class FadeEffect : MonoBehaviour
 {
-    public Image fadeImage; // ÆäÀÌµå È¿°ú¿¡ »ç¿ëÇÒ ÀÌ¹ÌÁö
+    public Image fadeImage; // ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
 
     public void FadeOutIn(float d1, float d2)
     {
@@ -25,41 +25,41 @@ public class FadeEffect : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // ÆäÀÌµåÀÎ, durationÃÊ µ¿¾È ÀÛµ¿
+    // ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½, durationï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½
     public IEnumerator FadeIn(float duration)
     {
         Color color = fadeImage.color;
-        float startAlpha = 1; // ÃÊ±â ¾ËÆÄ°ª
+        float startAlpha = 1; // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½
         float time = 0;
 
         while (time < duration)
         {
             time += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, 0, time / duration); // ¾ËÆÄ°ªÀ» 0À¸·Î ÁÙÀÓ
+            color.a = Mathf.Lerp(startAlpha, 0, time / duration); // ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             fadeImage.color = color;
             yield return null;
         }
 
-        color.a = 0; // ÃÖÁ¾ ¾ËÆÄ°ª ¼³Á¤
+        color.a = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½ï¿½ï¿½ï¿½
         fadeImage.color = color;
     }
 
-    // ÆäÀÌµå¾Æ¿ô
+    // ï¿½ï¿½ï¿½Ìµï¿½Æ¿ï¿½
     public IEnumerator FadeOut(float duration)
     {
         Color color = fadeImage.color;
-        float startAlpha = 0; // ÃÊ±â ¾ËÆÄ°ª
+        float startAlpha = 0; // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½
         float time = 0;
 
         while (time < duration)
         {
             time += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, 1, time / duration); // ¾ËÆÄ°ªÀ» 1·Î ´Ã¸²
+            color.a = Mathf.Lerp(startAlpha, 1, time / duration); // ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Ã¸ï¿½
             fadeImage.color = color;
             yield return null;
         }
 
-        color.a = 1; // ÃÖÁ¾ ¾ËÆÄ°ª ¼³Á¤
+        color.a = 1; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½ï¿½ï¿½ï¿½
         fadeImage.color = color;
     }
 }

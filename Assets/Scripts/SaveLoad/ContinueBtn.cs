@@ -5,6 +5,7 @@ using System.IO;
 
 public class ContinueBtn : MonoBehaviour
 {
+    [SerializeField] AudioClip ingameBGM;
     private Button continueBtn;
 
     void Awake()
@@ -32,6 +33,7 @@ public class ContinueBtn : MonoBehaviour
 
     public void OnContinueClicked()
     {
+        SoundManager.Instance.ChangeBgmClip(ingameBGM);
         SceneManager.LoadScene("GameScene");
     }
 }
