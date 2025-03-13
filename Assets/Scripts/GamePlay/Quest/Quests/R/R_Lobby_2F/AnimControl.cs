@@ -6,6 +6,7 @@ public class AnimControl : MonoBehaviour
 {
     [SerializeField] private GameObject btn;
     [SerializeField] private TextMeshProUGUI animText;
+    [SerializeField] private GameObject endingCredit;
     private SoundManager soundManager;
 
     private void Start()
@@ -36,5 +37,10 @@ public class AnimControl : MonoBehaviour
     public void StopBGM()
     {
         soundManager.StopBGM();
+    }
+
+    public void PopUpCredit()
+    {
+        endingCredit.SetActive(true);
     }
 }
