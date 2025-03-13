@@ -26,6 +26,7 @@ public abstract class Quest : MonoBehaviour
     [SerializeField] protected List<ItemSlot> slotList; //하이라이트 표시용
     [SerializeField] public GameObject questInven; //퀘스트 인벤토리
     protected List<string> dialogue = new List<string>();
+    protected SoundManager soundManager;
 
     /*
     public Quest(string questName, int questNumber, List<Item> requiredItems)

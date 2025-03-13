@@ -3109,6 +3109,7 @@ MonoBehaviour:
   connectedDoor: {fileID: 1829986458}
   requiredItem: RustedSword
   vine: {fileID: 570605843}
+  vineClip: {fileID: 8300000, guid: f9be88b28826b854a9b62e0ab7fdda60, type: 3}
 --- !u!1 &128906283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,7 +3986,7 @@ GameObject:
   - component: {fileID: 179471279}
   - component: {fileID: 179471278}
   m_Layer: 0
-  m_Name: GeneralAudio
+  m_Name: SFXAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4096,12 +4097,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179471277}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 714582474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180557915
 GameObject:
@@ -4116,7 +4117,6 @@ GameObject:
   - component: {fileID: 180557917}
   - component: {fileID: 180557919}
   - component: {fileID: 180557920}
-  - component: {fileID: 180557921}
   m_Layer: 5
   m_Name: CafeNamu_Panel
   m_TagString: Untagged
@@ -4211,7 +4211,7 @@ MonoBehaviour:
   questInven: {fileID: 2066440078}
   water: {fileID: 1966784239}
   Piece3: {fileID: 1536312535}
-  waterSFX: {fileID: 180557921}
+  waterSFX: {fileID: 0}
   fill70:
   - {fileID: 6937817954938267909, guid: 0eedf16dcc82a1d4d8e1262df7fe8bb0, type: 3}
   - {fileID: 8369064981215427504, guid: 6db76d97dd7b0ed4c8026fc493c8c2cd, type: 3}
@@ -4222,6 +4222,7 @@ MonoBehaviour:
   - {fileID: 3465286685962602723, guid: cf634b351d6b58a4ab9420a8dcdcc0a7, type: 3}
   - {fileID: 7028616704906629411, guid: e938d058ba3a58540b76e40300ded502, type: 3}
   - {fileID: -8074269188098167848, guid: 3d2abde0cc6b8084aa6e1625253de8f4, type: 3}
+  completeClip: {fileID: 8300000, guid: 2f6e5e9f36f206b469488ea6e1ad0be6, type: 3}
 --- !u!82 &180557920
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4238,103 +4239,6 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &180557921
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180557915}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1038473089584828618, guid: 11f198f8c97c7f44fb153d13146b6348, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2f6e5e9f36f206b469488ea6e1ad0be6, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2f6e5e9f36f206b469488ea6e1ad0be6, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9055,6 +8959,8 @@ MonoBehaviour:
   highlight: {fileID: 1691654070}
   lawClassroomSR: {fileID: 1910609214}
   completedSprite: {fileID: -1760523270523680805, guid: 34f64bf28d3f9954b9a3ccba165a8e00, type: 3}
+  completeClip: {fileID: 8300000, guid: 05f35b5c3bdb84a4eaad6f59fc7d4d4b, type: 3}
+  scaleClip: {fileID: 8300000, guid: b176bbb213c8a9c4faabaadb47939275, type: 3}
 --- !u!1 &404987227
 GameObject:
   m_ObjectHideFlags: 0
@@ -14819,6 +14725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 11f198f8c97c7f44fb153d13146b6348, type: 2}
+  BGMsource: {fileID: 1087669946}
+  SFXsource: {fileID: 179471278}
 --- !u!4 &714582474
 Transform:
   m_ObjectHideFlags: 0
@@ -14831,7 +14739,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1087669947}
+  - {fileID: 179471279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722010582
@@ -17119,6 +17029,8 @@ MonoBehaviour:
   - {fileID: 1177313690}
   moveToH: {fileID: 1126377081}
   completeAnim: {fileID: 787463169}
+  completeClip: {fileID: 8300000, guid: 779d23c247ef2304791c1a4f9c33f708, type: 3}
+  pieceClip: {fileID: 8300000, guid: 693198a7e3e544b409af55112c104e47, type: 3}
 --- !u!1 &878165622
 GameObject:
   m_ObjectHideFlags: 0
@@ -19580,7 +19492,7 @@ GameObject:
   - component: {fileID: 1087669947}
   - component: {fileID: 1087669946}
   m_Layer: 0
-  m_Name: TestAudioSource
+  m_Name: BGMAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19691,12 +19603,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087669945}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 714582474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1090625056
 GameObject:
@@ -33175,6 +33087,7 @@ MonoBehaviour:
   connectedDoor: {fileID: 123088913}
   requiredItem: RustedSword
   vine: {fileID: 303009682}
+  vineClip: {fileID: 8300000, guid: f9be88b28826b854a9b62e0ab7fdda60, type: 3}
 --- !u!1 &1834311570
 GameObject:
   m_ObjectHideFlags: 0
@@ -37517,6 +37430,4 @@ SceneRoots:
   - {fileID: 700864772}
   - {fileID: 2123691582}
   - {fileID: 1097546475}
-  - {fileID: 1087669947}
-  - {fileID: 179471279}
   - {fileID: 140741462}

@@ -17,10 +17,12 @@ public class CafeNamu : Quest
     [SerializeField] Sprite[] fill0;
     private bool firstWaterTouchFlag = true;
     private string todoKey = "Rsub1";
+    [SerializeField] private AudioClip completeClip;
 
     public override void Start()
     {
         questName = "CafeNamu_SubQuest";
+        soundManager = SoundManager.Instance;
     }
     public override void StartQuest()
     {//퀘스트가 시작할때 실행
@@ -45,6 +47,7 @@ public class CafeNamu : Quest
     }
     protected override void OnQuestCompleted()
     {
+        soundManager.ChangeSfxClip(completeClip);
         Debug.Log(questName + " clear");
         questStatus= QuestStatus.Completed;
         questManager.SaveQuestStatus();

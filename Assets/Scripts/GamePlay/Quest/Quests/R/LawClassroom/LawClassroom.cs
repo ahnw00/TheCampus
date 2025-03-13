@@ -18,6 +18,9 @@ public class LawClassroom : Quest
     [SerializeField] private SpriteRenderer lawClassroomSR;
     [SerializeField] private Sprite completedSprite;
 
+    [SerializeField] private AudioClip completeClip;
+    [SerializeField] private AudioClip scaleClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
@@ -27,6 +30,7 @@ public class LawClassroom : Quest
 
         questName = "LawClassroom_SubQuest";
         topScale.localRotation = Quaternion.Euler(0, 0, startRot);
+        soundManager = SoundManager.Instance;
     }
     void Update()
     {
@@ -71,6 +75,7 @@ public class LawClassroom : Quest
 
     protected override void OnQuestCompleted()
     {
+        soundManager.ChangeSfxClip(completeClip);
         Debug.Log(questName + "clear");
         //inventoryManager.ObtainItem("RustedSword");
         rustedSword.SetActive(true);
@@ -100,6 +105,7 @@ public class LawClassroom : Quest
 
     public IEnumerator ScaleCoroutine()
     {
+        soundManager.ChangeSfxClip(scaleClip);
         float angle = 4;
         float speed = 1.5f;
         target = 4 + (leftScale.sum - rightScale.sum) * angle;

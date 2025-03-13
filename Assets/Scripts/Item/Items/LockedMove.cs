@@ -8,6 +8,7 @@ public class LockedMove : Clickable
     private DataManager dataManager;
     private SaveDataClass saveData;
     private MapManager mapManager;
+    private SoundManager soundManager;
     [SerializeField] private string targetPlace;
 
     [SerializeField] private GameObject connectedDoor;
@@ -15,12 +16,15 @@ public class LockedMove : Clickable
     [SerializeField] private GameObject vine;
     private bool isOpened = false;
 
+    [SerializeField] private AudioClip vineClip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
         mapManager = MapManager.MapManager_Instance;
+        soundManager = SoundManager.Instance;
         CheckUnlock();
     }
 
@@ -57,6 +61,7 @@ public class LockedMove : Clickable
         string temp;
         if (inven.GetSelectedItemName() == requiredItem)
         {
+            soundManager.ChangeSfxClip(vineClip);
             connectedDoor.SetActive(true);
             PlayerPrefs.SetInt(this.name + "isOpened", 1);
             OpenDoor();

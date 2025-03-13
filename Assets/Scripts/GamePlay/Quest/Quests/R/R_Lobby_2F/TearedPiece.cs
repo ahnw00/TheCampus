@@ -27,6 +27,7 @@ public class TearedPiece : MonoBehaviour
     {
         if (targetPos == detectedPos)
         {
+            SoundManager.Instance.ChangeSfxClip(pieceQuest.pieceClip);
             this.gameObject.transform.position = targetPos.transform.position;
             foundCorrectPos = true;
             pieceQuest.Check();

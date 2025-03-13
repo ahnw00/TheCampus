@@ -10,6 +10,8 @@ public class TearedMap : Quest
     [SerializeField] private List<TearedPiece> pieceList = new List<TearedPiece>();
     [SerializeField] private GameObject moveToH;
     [SerializeField] private GameObject completeAnim;
+    [SerializeField] private AudioClip completeClip;
+    public AudioClip pieceClip;
     //private string todoKey = "Rmain";
 
     private void Awake()
@@ -32,6 +34,7 @@ public class TearedMap : Quest
     {
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
+        soundManager = SoundManager.Instance;
         //questManager = QuestManager.QuestManager_instance;
         inventoryManager = InventoryManager.InvenManager_Instance;
         //inventoryManager.SetItemsOnInven(slotList);
@@ -114,6 +117,7 @@ public class TearedMap : Quest
 
     protected override void OnQuestCompleted()
     {
+        soundManager.ChangeSfxClip(completeClip);
         Debug.Log(questName + "clear");
         moveToH.SetActive(true);
         saveData.gameCompleted = true;

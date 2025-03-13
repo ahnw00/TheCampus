@@ -73,6 +73,8 @@ public class ObtainableItem : Clickable
 
     public virtual void PopUpObtainPanel()
     {
+        if (this.GetComponent<AudioSource>())
+            this.GetComponent<AudioSource>().Play();
         inventoryManager.itemObtainPanel.SetActive(true);
         GameManager.GameManager_Instance.TurnOnUI();
         inventoryManager.itemObtainBtn.onClick.RemoveAllListeners();
