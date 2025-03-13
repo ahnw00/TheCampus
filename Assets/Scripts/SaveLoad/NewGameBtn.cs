@@ -5,7 +5,7 @@ public class NewGameBtn : MonoBehaviour
 {
     [SerializeField] GameObject mainScene;
     [SerializeField] Animator mainStory;
-    [SerializeField] AudioSource lobbyBGM;
+    //[SerializeField] AudioSource lobbyBGM;
     public void OnNewGameClicked()
     {
         // ���� StartScene���� DataManager�� ���� ��츦 ���
@@ -21,7 +21,7 @@ public class NewGameBtn : MonoBehaviour
             DataManager.Instance.DataInitialize();
             Debug.Log("Data successfully initialized");
         }
-        lobbyBGM.enabled = false;
+        //lobbyBGM.enabled = false;
         mainScene.SetActive(true);
         mainStory.Play("MainScene");
     }

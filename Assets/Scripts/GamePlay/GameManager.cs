@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject radio;
 
     public bool Reset;
+    SoundManager soundManager;
+    [SerializeField] private AudioClip mapClip;
+    [SerializeField] private AudioClip btnClip;
     private AudioSource[] ClickSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ClickSFX = gaugeSound.GetComponents<AudioSource>();
+        soundManager = SoundManager.Instance;
     }
 
     // Update is called once per frame
@@ -60,11 +64,13 @@ public class GameManager : MonoBehaviour
     public void TurnOnUI()
     {
         isUiOpened++;
+        soundManager.ChangeSfxClip(btnClip);
     }
 
     public void TurnOffUI()
     {
-        if(isUiOpened > 0)
+        soundManager.ChangeSfxClip(btnClip);
+        if (isUiOpened > 0)
             isUiOpened--;
     }
 
@@ -79,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void PopUpMiniMap()
     {
+        soundManager.ChangeSfxClip(mapClip);
         miniMapMask.SetActive(false);
         miniMapOutline.SetActive(false);
         Vector3 temp = map.transform.position;
@@ -87,6 +94,7 @@ public class GameManager : MonoBehaviour
     }
     public void PopOutMiniMap()
     {
+        soundManager.ChangeSfxClip(mapClip);
         miniMapOutline.SetActive(true);
         miniMapMask.SetActive(true);
         cam.transform.position = new Vector3(0, 0, -10f);

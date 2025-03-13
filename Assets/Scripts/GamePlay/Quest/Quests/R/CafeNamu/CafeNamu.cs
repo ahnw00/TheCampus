@@ -82,7 +82,7 @@ public class CafeNamu : Quest
                     StartCoroutine(ChangeImage(fill0));
                     //fadeEffect.FadeOutIn(delaySecond, delaySecond);
                     water.SetActive(false);
-                    waterSFX.Play();
+                    //waterSFX.Play();
                     Invoke("Delay", 1.5f);
                     inventoryManager.ChangeHandyLadle();
                     break;

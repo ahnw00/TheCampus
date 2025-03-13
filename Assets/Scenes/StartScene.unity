@@ -2695,7 +2695,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainScene: {fileID: 702241529}
   mainStory: {fileID: 702241536}
-  lobbyBGM: {fileID: 962317820}
 --- !u!82 &713135621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3229,10 +3228,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 251618594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -565.81, y: -207}
-  m_SizeDelta: {x: -1610.38, y: -1013}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -583, y: -205}
+  m_SizeDelta: {x: 273, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930789206
 MonoBehaviour:
