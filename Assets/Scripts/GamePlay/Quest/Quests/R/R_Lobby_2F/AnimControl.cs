@@ -32,4 +32,9 @@ public class AnimControl : MonoBehaviour
     {
         soundManager.ChangeSfxClip(clip);
     }
+
+    public void StopBGM()
+    {
+        soundManager.StopBGM();
+    }
 }

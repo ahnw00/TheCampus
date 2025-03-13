@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
     [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private AudioSource BGMsource;
+    public AudioSource BGMsource;
     [SerializeField] private AudioSource SFXsource;
     public float BGMVolume { get; set; }
     public float SFXVolume { get; set; }
@@ -57,6 +57,11 @@ public class SoundManager : MonoBehaviour
     {
         SFXsource.clip = clip;
         SFXsource.Play();
+    }
+
+    public void StopBGM()
+    {
+        BGMsource.Stop();
     }
 
     public void LoadVolume()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EndingBtn : MonoBehaviour
+public class EndingBtn : Clickable
 {
     private DataManager dataManager;
     private SaveDataClass saveData;
@@ -10,6 +10,7 @@ public class EndingBtn : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        flag = 1;
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
 
@@ -17,8 +18,10 @@ public class EndingBtn : MonoBehaviour
             this.gameObject.SetActive(false);
     }
 
-    public void TurnOnEndingAnim()
+    public override void Clicked()
     {
+        base.Clicked();
         EndingAnim.SetActive(true);
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
