@@ -1,17 +1,11 @@
-using JetBrains.Annotations;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
     private static NodeClass current_monster_node;
     private static NodeClass current_player_node;
-    private static bool isAcitive = true;
+    private static bool isActive = true;
     private static int INF = int.MaxValue;
     private static List<NodeClass> nodes;
     private static Dictionary<(NodeClass, NodeClass), int> from_to_distances;
@@ -32,7 +26,7 @@ public class Monster : MonoBehaviour
     }
     public void MonsterActive()
     {
-        isAcitive = true;
+        isActive = true;
         //Debug.Log("monster active");
         
 
@@ -53,7 +47,7 @@ public class Monster : MonoBehaviour
 
     public void MonsterDeactive()
     {
-        isAcitive = false;
+        isActive = false;
         //Debug.Log("MonsterDeactive");
     }
     

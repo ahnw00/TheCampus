@@ -1,11 +1,5 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Overlays;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public enum QuestStatus
 {
@@ -62,17 +56,9 @@ public abstract class Quest : MonoBehaviour
         {
             // 필요한 아이템들이 모두 있는지 확인
             //bool allItemsPresent = requiredItems.TrueForAll(item => playerItems.Contains(item));
-            if (true)
-            {
-                questStatus = QuestStatus.Completed;
-                OnQuestCompleted(); //개별 퀘스트 클리어시 실행
-                return true;
-            }
-            else
-            {
-                Debug.Log($"{questName} not clear");
-                return false;
-            }
+            questStatus = QuestStatus.Completed;
+            OnQuestCompleted(); //개별 퀘스트 클리어시 실행
+            return true;
         }
         return false;
     }

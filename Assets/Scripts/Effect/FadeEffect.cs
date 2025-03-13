@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 
 public class FadeEffect : MonoBehaviour
 {

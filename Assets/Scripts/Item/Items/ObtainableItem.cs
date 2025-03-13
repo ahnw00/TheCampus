@@ -1,12 +1,6 @@
-using NUnit.Framework;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
-using System.IO;
 using UnityEngine.UI;
-using static UnityEditor.FilePathAttribute;
-using System;
 
 public class ObtainableItem : Clickable
 {
