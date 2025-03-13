@@ -2602,7 +2602,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 105.083336
-    functionName: 
+    functionName: PopUpCredit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
