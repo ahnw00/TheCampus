@@ -8006,6 +8006,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 105.25
+    functionName: SetSFX
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 3900996e1b40c534d89a55ded28f4359, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 108.26667
     functionName: SetBGM
     data: 
