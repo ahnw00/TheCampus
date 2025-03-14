@@ -15,17 +15,17 @@ public class SFXSliderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (sfxSlider != null && SoundManager.Instance != null)
+        if (sfxSlider != null && FindAnyObjectByType<SoundManager>() != null)
         {
-            sfxSlider.value = SoundManager.Instance.SFXVolume;
+            sfxSlider.value = FindAnyObjectByType<SoundManager>().SFXVolume;
         }
     }
 
     private void OnSliderValueChanged(float value)
     {
-        if (SoundManager.Instance != null)
+        if (FindAnyObjectByType<SoundManager>() != null)
         {
-            SoundManager.Instance.SetSFXValue(value);
+            FindAnyObjectByType<SoundManager>().SetSFXValue(value);
         }
     }
 }

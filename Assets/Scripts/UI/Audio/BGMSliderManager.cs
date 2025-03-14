@@ -15,17 +15,17 @@ public class BGMSliderManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (bgmSlider != null && SoundManager.Instance != null)
+        if (bgmSlider != null && FindAnyObjectByType<SoundManager>() != null)
         {
-            bgmSlider.value = SoundManager.Instance.BGMVolume;
+            bgmSlider.value = FindAnyObjectByType<SoundManager>().BGMVolume;
         }
     }
 
     private void OnSliderValueChanged(float value)
     {
-        if (SoundManager.Instance != null)
+        if (FindAnyObjectByType<SoundManager>() != null)
         {
-            SoundManager.Instance.SetBGMValue(value);
+            FindAnyObjectByType<SoundManager>().SetBGMValue(value);
         }
     }
 }

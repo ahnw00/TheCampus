@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class NewGameBtn : MonoBehaviour
 {
-    DataManager dataManager;
+    [SerializeField] DataManager dataManager;
+    [SerializeField] SaveDataClass saveData;
     [SerializeField] GameObject loadingImage;
 
     [SerializeField] GameObject mainScene;
@@ -13,12 +14,14 @@ public class NewGameBtn : MonoBehaviour
     private void Start()
     {
         dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
     }
 
     public void OnNewGameClicked()
     {
-        SoundManager.Instance.ChangeBgmClip(null);
+        FindAnyObjectByType<SoundManager>().ChangeBgmClip(null);
         dataManager.DataInitialize();
+        Debug.Log(saveData.isNew);
         mainScene.SetActive(true);
         mainStory.Play("MainScene");
     }

@@ -20,28 +20,27 @@ public class ContinueBtn : MonoBehaviour
     {
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
-    }
 
-    void OnEnable()
-    {
-        //if (SaveFileExists())
-        //{
-        //    continueBtn.interactable = true;
-        //}
-        //else
-        //{
-        //    continueBtn.interactable = false;
-        //}
+        if (SaveFileExists())
+        {
+            continueBtn.interactable = true;
+        }
+        else
+        {
+            continueBtn.interactable = false;
+        }
     }
 
     private bool SaveFileExists()
     {
+        Debug.Log(saveData.isNew);
         return !saveData.isNew;
     }
 
     public void OnContinueClicked()
     {
         loadingImage.SetActive(true);
-        SoundManager.Instance.ChangeBgmClip(null);
+        Debug.Log("asdf");
+        FindAnyObjectByType<SoundManager>().ChangeBgmClip(null);
     }
 }
