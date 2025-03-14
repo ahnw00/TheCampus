@@ -1,11 +1,8 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PrologueController : MonoBehaviour
 {
@@ -22,6 +19,8 @@ public class PrologueController : MonoBehaviour
     private int newsIndex = 0;
     private bool isTyping = false; // 타이핑 중인지 체크
 
+    [SerializeField] GameObject loadingImage;
+
     void Start()
     {
         index = 0;
@@ -33,7 +32,7 @@ public class PrologueController : MonoBehaviour
     void LoadGameScene()
     {
         SoundManager.Instance.ChangeBgmClip(ingameBGM);
-        SceneManager.LoadScene("GameScene");
+        loadingImage.SetActive(true);
     }
 
 

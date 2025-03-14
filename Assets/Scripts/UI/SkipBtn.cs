@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SkipBtn : MonoBehaviour
 {
+    [SerializeField] GameObject LoadingImage;
+
     public void Skip()
     {
-        SceneManager.LoadScene("GameScene");
+        LoadingImage.SetActive(true);
     }
 }

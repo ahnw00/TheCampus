@@ -5,9 +5,10 @@ using System.IO;
 
 public class ContinueBtn : MonoBehaviour
 {
-    DataManager dataManager;
-    [SerializeField] SaveDataClass saveData;
+    [SerializeField] DataManager dataManager;
+    SaveDataClass saveData;
     [SerializeField] AudioClip ingameBGM;
+    [SerializeField] GameObject loadingImage;
     private Button continueBtn;
 
     void Awake()
@@ -40,7 +41,7 @@ public class ContinueBtn : MonoBehaviour
 
     public void OnContinueClicked()
     {
-        SoundManager.Instance.ChangeBgmClip(ingameBGM);
-        SceneManager.LoadScene("GameScene");
+        loadingImage.SetActive(true);
+        SoundManager.Instance.ChangeBgmClip(null);
     }
 }
