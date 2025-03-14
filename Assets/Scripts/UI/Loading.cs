@@ -1,9 +1,7 @@
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class Loading : MonoBehaviour
 {
