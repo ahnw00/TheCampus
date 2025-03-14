@@ -24,14 +24,14 @@ public class ContinueBtn : MonoBehaviour
 
     void OnEnable()
     {
-        if (SaveFileExists())
-        {
-            continueBtn.interactable = true;
-        }
-        else
-        {
-            continueBtn.interactable = false;
-        }
+        //if (SaveFileExists())
+        //{
+        //    continueBtn.interactable = true;
+        //}
+        //else
+        //{
+        //    continueBtn.interactable = false;
+        //}
     }
 
     private bool SaveFileExists()
