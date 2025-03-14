@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         miniMapMask.SetActive(false);
         miniMapOutline.SetActive(false);
         Vector3 temp = map.transform.position;
-        cam.transform.position = new Vector3(temp.x, temp.y, -10f);
+        cam.transform.position = new Vector3(temp.x, temp.y + 3f, -10f);
         cam.orthographicSize = 42f;
     }
     public void PopOutMiniMap()
