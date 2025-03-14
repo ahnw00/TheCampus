@@ -5,12 +5,20 @@ using System.IO;
 
 public class ContinueBtn : MonoBehaviour
 {
+    DataManager dataManager;
+    [SerializeField] SaveDataClass saveData;
     [SerializeField] AudioClip ingameBGM;
     private Button continueBtn;
 
     void Awake()
     {
         continueBtn = GetComponent<Button>();
+    }
+
+    private void Start()
+    {
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
     }
 
     void OnEnable()
@@ -27,8 +35,7 @@ public class ContinueBtn : MonoBehaviour
 
     private bool SaveFileExists()
     {
-        string savePath = Application.dataPath + "/userData/SaveData.json";
-        return File.Exists(savePath);
+        return !saveData.isNew;
     }
 
     public void OnContinueClicked()

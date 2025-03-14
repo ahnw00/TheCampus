@@ -3,26 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class NewGameBtn : MonoBehaviour
 {
+    DataManager dataManager;
+    SaveDataClass saveData;
+
     [SerializeField] GameObject mainScene;
     [SerializeField] Animator mainStory;
     //[SerializeField] AudioSource lobbyBGM;
+
+    private void Start()
+    {
+        dataManager = DataManager.Instance;
+        saveData = dataManager.saveData;
+    }
+
     public void OnNewGameClicked()
     {
         SoundManager.Instance.ChangeBgmClip(null);
-        // ���� StartScene���� DataManager�� ���� ��츦 ���
-        if (DataManager.Instance == null)
-        {
-            Debug.LogWarning("DataManager.Instance is null. Initializing new DataManager.");
-            GameObject dataManagerObject = new GameObject("DataManager");
-            DataManager dataManager = dataManagerObject.AddComponent<DataManager>();
-        }
-
-        else
-        {
-            DataManager.Instance.DataInitialize();
-            Debug.Log("Data successfully initialized");
-        }
-        //lobbyBGM.enabled = false;
+        dataManager.DataInitialize();
+        saveData.isNew = false;
+        dataManager.Save();
         mainScene.SetActive(true);
         mainStory.Play("MainScene");
     }

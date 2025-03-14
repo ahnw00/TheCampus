@@ -19,7 +19,6 @@ public class DataManager : MonoBehaviour
     JsonManager jsonManager;
     public SaveDataClass saveData;
     public static DataManager Instance;
-    [SerializeField] GameManager gameManager;
 
 //nalsdkfjasd
     void Awake()
