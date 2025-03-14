@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveToBtn : Clickable
@@ -57,6 +56,7 @@ public class MoveToBtn : Clickable
 
     void MoveFunc()
     {
+        mapManager.PlayMoveAudio();
         NodeClass targetNode = mapManager.nodeMap[targetPlace];
         //Debug.Log(targetNode.node_name);
         saveData.cur_position = targetPlace;

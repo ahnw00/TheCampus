@@ -6,6 +6,7 @@ public class MapManager : MonoBehaviour
     private static MapManager instance = null;
     private DataManager dataManager;
     private SaveDataClass saveData;
+    [SerializeField] AudioClip moveClip;
 
     [SerializeField] private List<NodeClass> nodes;
     public Dictionary<string, NodeClass> nodeMap = new Dictionary<string, NodeClass>();
@@ -100,6 +101,11 @@ public class MapManager : MonoBehaviour
             }
             return instance;
         }
+    }
+
+    public void PlayMoveAudio()
+    {
+        SoundManager.Instance.ChangeSfxClip(moveClip);
     }
 
     public List<NodeClass> returnNodes()

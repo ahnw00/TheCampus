@@ -2701,6 +2701,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f65ad8f0cb337499c2f9165b2a2629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 0}
+  saveData:
+    isNew: 1
+    gameCompleted: 0
+    cur_position: R_Lobby_1F
+    itemList: []
+    cabinetList: []
+    isMapObtained: 0
+    questList: []
+    memoList:
+    - lines: []
+    - lines: []
+    - lines: []
   loadingImage: {fileID: 2041339720}
   mainScene: {fileID: 702241529}
   mainStory: {fileID: 702241536}
@@ -4761,15 +4774,15 @@ RectTransform:
   m_GameObject: {fileID: 1310674089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 17, y: 5.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1041738335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -138, y: -129}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -138, y: -189}
+  m_SizeDelta: {x: 1401, y: 539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310674091
 MonoBehaviour:
@@ -4791,7 +4804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3beef5e803cc02248a29e24d0a1695d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cde99583b1c8b7a4b84539005cf3528c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -15222,6 +15222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8988a37769dc84c9d73a9db330df18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveClip: {fileID: 8300000, guid: ded1befb9c04ebc4285d4aa433d72ed0, type: 3}
   nodes:
   - {fileID: 2142247423}
   - {fileID: 102373851}
@@ -28281,8 +28282,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1038473089584828618, guid: 11f198f8c97c7f44fb153d13146b6348, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2aa32a5bb255c404ea240f8beab4f508, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2aa32a5bb255c404ea240f8beab4f508, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3630187fbef8c9e448f7ef6e53c038c4, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3630187fbef8c9e448f7ef6e53c038c4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -28378,8 +28379,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1038473089584828618, guid: 11f198f8c97c7f44fb153d13146b6348, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ad71a7380c38e2242bc5a4194c546a36, type: 3}
-  m_Resource: {fileID: 8300000, guid: ad71a7380c38e2242bc5a4194c546a36, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2ef9890eaca29d349ac9d26209cdb9a3, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2ef9890eaca29d349ac9d26209cdb9a3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
