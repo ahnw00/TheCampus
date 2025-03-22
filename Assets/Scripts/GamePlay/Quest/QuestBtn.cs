@@ -7,6 +7,14 @@ public class QuestBtn : Clickable
     [SerializeField] private GameObject opacityBackground;
     //[SerializeField] private GameObject panelBackground;
     [SerializeField] private GameObject mask;
+
+    private void Start()
+    {
+        if (this.name == "Law_QuestBtn" && 
+            quest.GetComponent<Quest>().questStatus == QuestStatus.Completed)
+            this.gameObject.SetActive(false);
+    }
+
     public override void Clicked()
     {//클릭되었을때
         base.Clicked();
