@@ -46,8 +46,6 @@ public class GameManager : MonoBehaviour
     {
         ClickSFX = gaugeSound.GetComponents<AudioSource>();
         soundManager = SoundManager.Instance;
-        DataManager.Instance.saveData.isNew = false;
-        DataManager.Instance.Save();
     }
 
     // Update is called once per frame
