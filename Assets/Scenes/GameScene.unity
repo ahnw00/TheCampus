@@ -2656,6 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLocation: {fileID: 700606197}
   minimap: {fileID: 195162792}
+  minimapText: {fileID: 1135501941}
   toDoListPrefab: {fileID: 6387883112164173726, guid: 5e84794bc7a0fd74c9035cd45320008f, type: 3}
   content: {fileID: 1620739432}
 --- !u!1 &107843901
@@ -38450,7 +38451,7 @@ GameObject:
   - component: {fileID: 1995756263}
   - component: {fileID: 1995756265}
   m_Layer: 5
-  m_Name: Piece4
+  m_Name: Piece2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38532,7 +38533,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 849280980}
           m_TargetAssemblyTypeName: ExhibitionHall, Assembly-CSharp
-          m_MethodName: GetPiece4
+          m_MethodName: GetPiece2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

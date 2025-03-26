@@ -121,9 +121,9 @@ public class ExhibitionHall : Quest
         exhibitionHallSFX.Play();
     }
 
-    public void GetPiece4()
+    public void GetPiece2()
     {
-        PlayerPrefs.SetInt("Piece4", 1);
+        PlayerPrefs.SetInt("Piece2", 1);
         PlayerPrefs.Save();
         piece4.SetActive(false);
         PrintMainQuestDialogue();

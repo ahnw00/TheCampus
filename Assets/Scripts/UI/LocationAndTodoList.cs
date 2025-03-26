@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LocationAndTodoList : MonoBehaviour
@@ -8,6 +9,7 @@ public class LocationAndTodoList : MonoBehaviour
     private static LocationAndTodoList instance = null;
     [SerializeField] private TextMeshProUGUI currentLocation; //현재 위치 텍스트 오브젝트
     [SerializeField] private GameObject minimap;
+    [SerializeField] private GameObject minimapText;
     [SerializeField] private GameObject toDoListPrefab; //할일 프리펩
     [SerializeField] private Transform content; //todolist
     private Dictionary<string, string> translate = new Dictionary<string, string>(); //번역 사전
@@ -71,6 +73,18 @@ public class LocationAndTodoList : MonoBehaviour
                 }
             }
         }
+
+        Invoke("AfterStart", 0.1f);
+    }
+
+    void AfterStart()
+    {
+        if (saveData.isMapObtained)
+        {
+            minimap.SetActive(true);
+            minimapText.SetActive(false);
+        }
+        SetLocation(MapManager.MapManager_Instance.cur_node.node_name);
     }
 
     public void SetLocation(string location)
