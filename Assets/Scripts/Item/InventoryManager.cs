@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -304,6 +305,12 @@ public class InventoryManager : MonoBehaviour
             i++;
         }
         textManager.PopUpText(items[0] + ", " + items[1] + dialogueManager.GetSystemDialogue("시스템 대사",1));
+    }
+
+    IEnumerator DelayText(string item, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textManager.PopUpText(item + dialogueManager.GetSystemDialogue("시스템 대사", 0));
     }
 
     public string GetSelectedItemName()
