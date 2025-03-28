@@ -186,7 +186,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ExhibitionHall_Flashlight_New_0: -3330118392631076774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
