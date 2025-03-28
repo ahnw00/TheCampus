@@ -223,8 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7ef23ea2e3904bb48331b3b7624b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curItem: {fileID: 0}
-  parentScale: {fileID: 168757340}
 --- !u!1 &5624155
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,8 +4123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9c73875c7323c48a35787c63154909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lawClassroom: {fileID: 400781051}
-  sum: 0
 --- !u!1 &177797315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,30 +4420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790c4893aae2a514c97b314a538e4031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questStatus: 0
-  slotList:
-  - {fileID: 1262171773}
-  - {fileID: 1337947998}
-  - {fileID: 1976943878}
-  - {fileID: 817442056}
-  - {fileID: 566540449}
-  - {fileID: 515148961}
-  - {fileID: 2048387017}
-  - {fileID: 629579089}
-  questInven: {fileID: 2066440078}
-  water: {fileID: 1966784239}
-  Piece3: {fileID: 1536312535}
-  fill70:
-  - {fileID: 6937817954938267909, guid: 0eedf16dcc82a1d4d8e1262df7fe8bb0, type: 3}
-  - {fileID: 8369064981215427504, guid: 6db76d97dd7b0ed4c8026fc493c8c2cd, type: 3}
-  fill40:
-  - {fileID: -4178046375966092550, guid: 468bc031be015fa41a8e78af40fdd042, type: 3}
-  - {fileID: 258082699909149740, guid: c072a7afda2f2fb40a21b1e909693f54, type: 3}
-  fill0:
-  - {fileID: 3465286685962602723, guid: cf634b351d6b58a4ab9420a8dcdcc0a7, type: 3}
-  - {fileID: 7028616704906629411, guid: e938d058ba3a58540b76e40300ded502, type: 3}
-  - {fileID: -8074269188098167848, guid: 3d2abde0cc6b8084aa6e1625253de8f4, type: 3}
-  completeClip: {fileID: 8300000, guid: 2f6e5e9f36f206b469488ea6e1ad0be6, type: 3}
 --- !u!1 &181820403
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,8 +5362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7ef23ea2e3904bb48331b3b7624b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curItem: {fileID: 0}
-  parentScale: {fileID: 1642030697}
 --- !u!1 &211010768
 GameObject:
   m_ObjectHideFlags: 0
@@ -5774,9 +5744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceQuest: {fileID: 876491994}
-  targetPos: {fileID: 30247697}
-  foundCorrectPos: 0
 --- !u!61 &224043724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9371,30 +9338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64e22d97734cc04d83ac0c1aeab5fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questStatus: 0
-  slotList:
-  - {fileID: 1262171773}
-  - {fileID: 1337947998}
-  - {fileID: 1976943878}
-  - {fileID: 817442056}
-  - {fileID: 566540449}
-  - {fileID: 515148961}
-  - {fileID: 2048387017}
-  - {fileID: 629579089}
-  questInven: {fileID: 2066440078}
-  leftScale: {fileID: 168757340}
-  rightScale: {fileID: 1642030697}
-  leftAnchor: {fileID: 1188648323}
-  rightAnchor: {fileID: 305978295}
-  topScale: {fileID: 1483403501}
-  isCoroutineRunning: 0
-  rustedSword: {fileID: 393205262}
-  highlight: {fileID: 1691654070}
-  questBtn: {fileID: 298876148}
-  lawClassroomSR: {fileID: 1910609214}
-  completedSprite: {fileID: -1760523270523680805, guid: 34f64bf28d3f9954b9a3ccba165a8e00, type: 3}
-  completeClip: {fileID: 8300000, guid: 05f35b5c3bdb84a4eaad6f59fc7d4d4b, type: 3}
-  scaleClip: {fileID: 8300000, guid: b176bbb213c8a9c4faabaadb47939275, type: 3}
 --- !u!1 &404987227
 GameObject:
   m_ObjectHideFlags: 0
@@ -10610,9 +10553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceQuest: {fileID: 876491994}
-  targetPos: {fileID: 1280422073}
-  foundCorrectPos: 0
 --- !u!61 &485216082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12475,8 +12415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7ef23ea2e3904bb48331b3b7624b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curItem: {fileID: 0}
-  parentScale: {fileID: 168757340}
 --- !u!1 &566540446
 GameObject:
   m_ObjectHideFlags: 0
@@ -12934,8 +12872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7ef23ea2e3904bb48331b3b7624b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curItem: {fileID: 0}
-  parentScale: {fileID: 1642030697}
 --- !u!1 &581386838
 GameObject:
   m_ObjectHideFlags: 0
@@ -14556,9 +14492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceQuest: {fileID: 876491994}
-  targetPos: {fileID: 1137016231}
-  foundCorrectPos: 0
 --- !u!61 &685717230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16384,9 +16317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6158f9270c60b594288455bc349c3965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 1799293389}
-  animText: {fileID: 230099527}
-  endingCredit: {fileID: 0}
 --- !u!1 &790393414
 GameObject:
   m_ObjectHideFlags: 0
@@ -17200,8 +17130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7ef23ea2e3904bb48331b3b7624b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curItem: {fileID: 0}
-  parentScale: {fileID: 1642030697}
 --- !u!1 &848558877
 GameObject:
   m_ObjectHideFlags: 0
@@ -17341,28 +17269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41057ee69ee731f45bfebce59532d838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questStatus: 0
-  slotList:
-  - {fileID: 1262171773}
-  - {fileID: 1337947998}
-  - {fileID: 1976943878}
-  - {fileID: 817442056}
-  - {fileID: 566540449}
-  - {fileID: 515148961}
-  - {fileID: 2048387017}
-  - {fileID: 629579089}
-  questInven: {fileID: 2066440078}
-  flashLight: {fileID: 853810516}
-  picture: {fileID: 339183283}
-  hiddenPicture: {fileID: 1359119627}
-  nail: {fileID: 960520105}
-  piece4: {fileID: 1995756259}
-  lightOffPicture: {fileID: -5660191146669724741, guid: a4204b3dc01834e4d80702427aaabf69, type: 3}
-  lightToPicture: {fileID: -3635955026275940405, guid: cf3bed6d3f9dff34eafa10c9d53d1ab7, type: 3}
-  lightToHiddenPicture: {fileID: 827569398872581526, guid: 342e6ce1a2145be43a1fe2b949db28ed, type: 3}
-  tearedHiddenPicture: {fileID: -2659387736528905542, guid: e86cedbb77a1fbb418391cc76341b53a, type: 3}
-  exhibitionHallSFX: {fileID: 849280981}
-  canvasRip: {fileID: 8300000, guid: 784a4050e2a7cfd49bc4f0d8e2a0c1fb, type: 3}
 --- !u!82 &849280981
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17830,20 +17736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d02df341fcc5b48b69f9a4f15bbf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questStatus: 0
-  slotList: []
-  questInven: {fileID: 0}
-  pieceList:
-  - {fileID: 1629079328}
-  - {fileID: 224043723}
-  - {fileID: 685717229}
-  - {fileID: 1209708412}
-  - {fileID: 485216081}
-  - {fileID: 1177313690}
-  moveToH: {fileID: 1126377081}
-  completeAnim: {fileID: 787463169}
-  completeClip: {fileID: 8300000, guid: 779d23c247ef2304791c1a4f9c33f708, type: 3}
-  pieceClip: {fileID: 8300000, guid: 693198a7e3e544b409af55112c104e47, type: 3}
 --- !u!1 &878165622
 GameObject:
   m_ObjectHideFlags: 0
@@ -20881,8 +20773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab7ef23ea2e3904bb48331b3b7624b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curItem: {fileID: 0}
-  parentScale: {fileID: 168757340}
 --- !u!1 &1097546471
 GameObject:
   m_ObjectHideFlags: 0
@@ -21681,7 +21571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bbf6c9391104f468bcc06bc6829795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndingAnim: {fileID: 1180736408}
 --- !u!61 &1126377088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22555,9 +22444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceQuest: {fileID: 876491994}
-  targetPos: {fileID: 695039210}
-  foundCorrectPos: 0
 --- !u!61 &1177313691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22790,9 +22676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6158f9270c60b594288455bc349c3965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 0}
-  animText: {fileID: 1641011025}
-  endingCredit: {fileID: 1853900529}
 --- !u!1 &1184127922
 GameObject:
   m_ObjectHideFlags: 0
@@ -23864,9 +23747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceQuest: {fileID: 876491994}
-  targetPos: {fileID: 2042532955}
-  foundCorrectPos: 0
 --- !u!61 &1209708413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30863,6 +30743,7 @@ GameObject:
   - component: {fileID: 1595204814}
   - component: {fileID: 1595204813}
   - component: {fileID: 1595204812}
+  - component: {fileID: 1595204815}
   m_Layer: 5
   m_Name: Note
   m_TagString: Untagged
@@ -30883,14 +30764,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6776121414099480629, guid: 62ae870ae11eec540b4508fc502828cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36c9d863aee6bfe498f8eb9cc149155f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30927,6 +30808,19 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 651, y: 954}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1595204815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595204811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3c67f030df0e149befc388f3a9482e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteImage: {fileID: 0}
 --- !u!1 &1596843532
 GameObject:
   m_ObjectHideFlags: 0
@@ -31584,7 +31478,7 @@ MonoBehaviour:
   backgroundObj: {fileID: 926451885}
   noteObj: {fileID: 1595204812}
   backgroundImage: {fileID: 5449331938298102698, guid: dd564f6feff55b84ab94dc8f17eb09c6, type: 3}
-  noteImage: {fileID: 8862615938700788212, guid: 09e9bcfa0fc32904aa6c5ee426413a30, type: 3}
+  noteImage: {fileID: 4927203339526883085, guid: f66c878f9a2b08c4c852bdbc8574b359, type: 3}
   fadeInDuration: 0.5
 --- !u!1 &1629079322
 GameObject:
@@ -31768,9 +31662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0211f09fa4ae8408e83212d1cf7676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceQuest: {fileID: 876491994}
-  targetPos: {fileID: 284253097}
-  foundCorrectPos: 0
 --- !u!50 &1629079329
 Rigidbody2D:
   serializedVersion: 5
@@ -32487,8 +32378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9c73875c7323c48a35787c63154909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lawClassroom: {fileID: 400781051}
-  sum: 0
 --- !u!1 &1648027934
 GameObject:
   m_ObjectHideFlags: 0
@@ -36719,7 +36608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3470fd2b86dfb8a41b3b6ce9bd8d4b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completedImage: {fileID: -1760523270523680805, guid: 34f64bf28d3f9954b9a3ccba165a8e00, type: 3}
 --- !u!1 &1914762970
 GameObject:
   m_ObjectHideFlags: 0
