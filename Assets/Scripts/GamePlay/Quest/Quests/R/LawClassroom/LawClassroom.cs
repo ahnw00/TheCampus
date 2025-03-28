@@ -22,6 +22,8 @@ public class LawClassroom : Quest
     [SerializeField] private AudioClip completeClip;
     [SerializeField] private AudioClip scaleClip;
 
+    private float dialogueDelay = 2f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
@@ -52,7 +54,8 @@ public class LawClassroom : Quest
             ifQuestBtnClicked();
             Debug.Log(questName + " ½ÃÀÛ");
             textManager.PopUpText(dialogue[0]);//시작 대사
-                                               //todo생성
+            StartCoroutine(DelayDialouge(dialogue[1]));
+            //todo생성
             locationAndTodoList.SetTodo(todoKey, dialogueManager.GetQuestDialogue("퀘스트 대사", todoKey));
         }
     }
@@ -85,7 +88,7 @@ public class LawClassroom : Quest
         PlayerPrefs.Save();
         lawClassroomSR.sprite = completedSprite;
         PrintMainQuestDialogue();
-        textManager.PopUpText(dialogue[1]);
+        textManager.PopUpText(dialogue[2]);
         locationAndTodoList.DeleteTodo(todoKey);
         questBtn.SetActive(false);
     }
@@ -144,5 +147,11 @@ public class LawClassroom : Quest
     {
         base.InitializeQuest();
         GetQuestDialogue("인게임 대사", "법학강의실", "Rsub2");
+    }
+
+    IEnumerator DelayDialouge(string dialogue)
+    {
+        yield return new WaitForSeconds(dialogueDelay);
+        textManager.PopUpText(dialogue);
     }
 }
