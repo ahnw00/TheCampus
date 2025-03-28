@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0d1a454c99db2504ca004f2b771d7b43
+guid: 40d459991e0530f40b11814763673eb4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -580866074179540990
-    second: "\uC804\uC2DC\uAD00 \uC190\uC804\uB4F1_0"
+      213: -3330118392631076774
+    second: ExhibitionHall_Flashlight_New_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,6 +84,32 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC804\uC2DC\uAD00 \uC190\uC804\uB4F1_0"
+      name: ExhibitionHall_Flashlight_New_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 82
-        height: 65
+        width: 31
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +167,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 208e372126950f7f0800000000000000
-      internalID: -580866074179540990
+      spriteID: a58da3337fa09c1d0800000000000000
+      internalID: -3330118392631076774
       vertices: []
       indices: 
       edges: []
@@ -160,8 +186,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      "\uC804\uC2DC\uAD00 \uC190\uC804\uB4F1_0": -580866074179540990
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
