@@ -18329,7 +18329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7199192861639624376, guid: badb503d6cc85b146b7f2b7429e0c75f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30979,6 +30979,7 @@ GameObject:
   - component: {fileID: 1595204814}
   - component: {fileID: 1595204813}
   - component: {fileID: 1595204812}
+  - component: {fileID: 1595204815}
   m_Layer: 5
   m_Name: Note
   m_TagString: Untagged
@@ -31006,7 +31007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6776121414099480629, guid: 62ae870ae11eec540b4508fc502828cd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31043,6 +31044,19 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 651, y: 954}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1595204815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595204811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2159d0fe9207f34d80ea09b3ed73b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteImage: {fileID: 0}
 --- !u!1 &1596843532
 GameObject:
   m_ObjectHideFlags: 0
@@ -31700,7 +31714,7 @@ MonoBehaviour:
   backgroundObj: {fileID: 926451885}
   noteObj: {fileID: 1595204812}
   backgroundImage: {fileID: 5449331938298102698, guid: dd564f6feff55b84ab94dc8f17eb09c6, type: 3}
-  noteImage: {fileID: 8862615938700788212, guid: 09e9bcfa0fc32904aa6c5ee426413a30, type: 3}
+  noteImage: {fileID: -7636942039655906867, guid: e4ae5c90dc3e8134490a0b04e2bd1135, type: 3}
   fadeInDuration: 0.5
 --- !u!1 &1629079322
 GameObject:
