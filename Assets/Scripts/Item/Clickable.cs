@@ -46,10 +46,6 @@ public abstract class Clickable : MonoBehaviour
             float targetY = inputPos.y;
             Vector3 targetPos = new Vector3(targetX, targetY, 0);
             gaugeObj.GetComponent<RectTransform>().position = targetPos;
-            if (targetX < 0)
-                gaugeObj.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
-            else
-                gaugeObj.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             gaugeObj.gameObject.SetActive(true);
             GameManager.GameManager_Instance.GetClickSFX(0).Play();
             StartCoroutine(SearchingCoroutine());

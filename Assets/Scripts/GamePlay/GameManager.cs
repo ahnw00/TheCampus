@@ -34,15 +34,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             //DontDestroyOnLoad(gameObject);
-
-            if(!PlayerPrefs.HasKey("ToR_Lobby_1F"))
-            {
-                PlayerPrefs.SetInt("ToR_Lobby_1F", 1);
-                PlayerPrefs.SetInt("ToR_Lobby_1F(1)", 1);
-                PlayerPrefs.SetInt("ToR_Lobby_1F(2)", 1);
-                PlayerPrefs.SetInt("ToR_Lobby_2F(2)", 1);
-                PlayerPrefs.Save();
-            }
         }
         else
         {
