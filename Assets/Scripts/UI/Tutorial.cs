@@ -6,12 +6,14 @@ public class Tutorial : MonoBehaviour
 {
     DataManager dataManager;
     SaveDataClass saveData;
+    GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         dataManager = DataManager.Instance;
         saveData = dataManager.saveData;
+        gameManager = GameManager.GameManager_Instance;
 
         if(!saveData.isNew)
             this.gameObject.SetActive(false);
@@ -19,6 +21,7 @@ public class Tutorial : MonoBehaviour
         {
             saveData.isNew = false;
             dataManager.Save();
+            gameManager.TurnOnUI();
         }
     }
 
@@ -42,5 +45,6 @@ public class Tutorial : MonoBehaviour
         }
 
         this.gameObject.SetActive(false);
+        gameManager.TurnOffUI();
     }
 }
