@@ -123,7 +123,7 @@ public class ExhibitionHall : Quest
 
     public void GetPiece2()
     {
-        PlayerPrefs.SetInt("Piece2", 1);
+        PlayerPrefs.SetInt("Piece4", 1);
         PlayerPrefs.Save();
         piece4.SetActive(false);
         PrintMainQuestDialogue();

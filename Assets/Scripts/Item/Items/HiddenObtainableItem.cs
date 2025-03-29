@@ -28,7 +28,7 @@ public class HiddenObtainableItem : ObtainableItem
     }
     protected void GetPiece()
     {
-        PlayerPrefs.SetInt("Piece4", 1);
+        PlayerPrefs.SetInt("Piece2", 1);
         PlayerPrefs.Save();
         PrintGetPieceDialogue();
     }
