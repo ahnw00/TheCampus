@@ -22,7 +22,7 @@ public class NewGameBtn : MonoBehaviour
 
     public void OnNewGameClicked()
     {
-        if (continuebtn.interactable)
+        if (!continuebtn.interactable)
         {
             FindAnyObjectByType<SoundManager>().ChangeBgmClip(null);
             dataManager.DataInitialize();
