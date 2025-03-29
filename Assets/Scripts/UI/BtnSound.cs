@@ -19,6 +19,7 @@ public class BtnSound : MonoBehaviour
 
     void PlayBtnSound()
     {
-        soundManager.ChangeSfxClip(btnClip);
+        if(soundManager)
+            soundManager.ChangeSfxClip(btnClip);
     }
 }
