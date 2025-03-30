@@ -88,6 +88,12 @@ public class MapManager : MonoBehaviour
         cur_node = nodeMap[saveData.cur_position];
         cur_node.gameObject.SetActive(true);
         playerOnMinimap.transform.position = cur_node.posOnMap.position;
+
+        if (saveData.isNew)
+        {
+            saveData.isNew = false;
+            dataManager.Save();
+        }
     }
 
     public static MapManager MapManager_Instance

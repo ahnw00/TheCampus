@@ -72,12 +72,14 @@ public class GameManager : MonoBehaviour
 
     public void TurnOnUI()
     {
+        if (!soundManager) soundManager = SoundManager.Instance;
         isUiOpened++;
         soundManager.ChangeSfxClip(btnClip);
     }
 
     public void TurnOffUI()
     {
+        if (!soundManager) soundManager = SoundManager.Instance;
         soundManager.ChangeSfxClip(btnClip);
         if (isUiOpened > 0)
             isUiOpened--;

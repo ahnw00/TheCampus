@@ -4,24 +4,20 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    DataManager dataManager;
-    SaveDataClass saveData;
     GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        dataManager = DataManager.Instance;
-        saveData = dataManager.saveData;
         gameManager = GameManager.GameManager_Instance;
 
-        if(!saveData.isNew)
+        if(PlayerPrefs.HasKey(this.gameObject.name))
             this.gameObject.SetActive(false);
         else
         {
-            saveData.isNew = false;
-            dataManager.Save();
-            gameManager.TurnOnUI();
+            PlayerPrefs.SetInt(this.gameObject.name, 1);
+            PlayerPrefs.Save();
+            gameManager.isUiOpened++;
         }
     }
 
@@ -45,6 +41,6 @@ public class Tutorial : MonoBehaviour
         }
 
         this.gameObject.SetActive(false);
-        gameManager.TurnOffUI();
+        gameManager.isUiOpened--;
     }
 }
