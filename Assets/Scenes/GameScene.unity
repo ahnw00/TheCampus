@@ -23849,6 +23849,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1555031826}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: InventoryTutorialCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1197407083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26004,6 +26016,7 @@ MonoBehaviour:
   invenBackground: {fileID: 824198074}
   invenSlots: {fileID: 1447613366}
   cabinet: {fileID: 422964862}
+  inven_tutorial: {fileID: 1649997961}
 --- !u!1 &1299532595
 GameObject:
   m_ObjectHideFlags: 0
@@ -30707,6 +30720,7 @@ MonoBehaviour:
   Reset: 1
   mapClip: {fileID: 8300000, guid: 296dac231d7524840981c3370731920c, type: 3}
   btnClip: {fileID: 8300000, guid: ca64612e7d55986499a8558793fd8399, type: 3}
+  inven_turotial: {fileID: 1649997961}
 --- !u!1 &1560461726
 GameObject:
   m_ObjectHideFlags: 0
@@ -33307,7 +33321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1649997962
 RectTransform:
   m_ObjectHideFlags: 0

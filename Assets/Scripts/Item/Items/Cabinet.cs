@@ -7,6 +7,7 @@ public class Cabinet : Clickable
     [SerializeField] private GameObject invenBackground;
     [SerializeField] private GameObject invenSlots;
     [SerializeField] private GameObject cabinet;
+    [SerializeField] private GameObject inven_tutorial;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,8 @@ public class Cabinet : Clickable
 
     void OpenCabinet()
     {
+        if (!PlayerPrefs.HasKey("Tutorial_Cabinet"))
+            inven_tutorial.SetActive(false);
         gameManager.TurnOnUI();
         invenBackground.SetActive(true);
         invenSlots.SetActive(true);

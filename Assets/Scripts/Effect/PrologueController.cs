@@ -31,7 +31,7 @@ public class PrologueController : MonoBehaviour
 
     void LoadGameScene()
     {
-        FindAnyObjectByType<SoundManager>().ChangeBgmClip(ingameBGM);
+        //FindAnyObjectByType<SoundManager>().ChangeBgmClip(ingameBGM);
         loadingImage.SetActive(true);
     }
 

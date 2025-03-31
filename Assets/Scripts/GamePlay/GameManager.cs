@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip mapClip;
     [SerializeField] private AudioClip btnClip;
     private AudioSource[] ClickSFX;
+    [SerializeField] private GameObject inven_turotial;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -124,6 +125,12 @@ public class GameManager : MonoBehaviour
             if (!instance) return null;
             return instance;
         }
+    }
+
+    public void InventoryTutorialCheck()
+    {
+        if(!PlayerPrefs.HasKey("Tutorial_Inven") && !inven_turotial.activeSelf)
+            inven_turotial.SetActive(true);
     }
 
     public AudioSource GetClickSFX(int index)
