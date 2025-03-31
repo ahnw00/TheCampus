@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4739c744a67159241ba6963fa5728a36
+guid: 9139db31d8ff7964fabf8761ef100945
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7238217665338625788
-    second: Tutorial_Panel_0
+      213: -4886861885686852044
+    second: Tutorial_Storage_Box_New_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tutorial_Panel_0
+      name: Tutorial_Storage_Box_New_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfe477ded90537460800000000000000
-      internalID: 7238217665338625788
+      spriteID: 4365d35b1016e2cb0800000000000000
+      internalID: -4886861885686852044
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tutorial_Panel_0: 7238217665338625788
+      Tutorial_Storage_Box_New_0: -4886861885686852044
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
