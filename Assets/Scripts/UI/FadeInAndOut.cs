@@ -67,6 +67,7 @@ public class FadeInAndOut : MonoBehaviour
     public void SetOffObj()
     {
         ResetImageList();
+        GameManager.GameManager_Instance.TurnOffUI();
         if(this.enabled)
             StartCoroutine(FadeOut());
     }
