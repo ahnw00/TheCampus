@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void PopUpMiniMap()
     {
+        StartCoroutine(map.GetComponent<MiniMap>().FadeIn());
         soundManager.ChangeSfxClip(mapClip);
         miniMapMask.SetActive(false);
         miniMapOutline.SetActive(false);
@@ -118,6 +119,13 @@ public class GameManager : MonoBehaviour
     public void PopOutMiniMap()
     {
         soundManager.ChangeSfxClip(mapClip);
+        StartCoroutine(map.GetComponent<MiniMap>().FadeOut());
+        Invoke("ReturnCam", 0.6f);
+    }
+
+    void ReturnCam()
+    {
+        map.transform.localScale = new Vector3(9f, 9f, 1f);
         miniMapOutline.SetActive(true);
         miniMapMask.SetActive(true);
         cam.transform.position = new Vector3(0, 0, -10f);
