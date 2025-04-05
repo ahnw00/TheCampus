@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] List<GameObject> questInvenSlotImageList; // quest에서 사용하는 인벤토리의 슬롯 이미지 리스트, 하이라이트 표시용
     [SerializeField] List<ItemSlot> questInvenSlotList; // 퀘스트창의 인벤토리
     private string selectedItemName; // 선택된 아이템의 이름을 저장
+    [SerializeField] FadeInAndOut cabinet;
 
     public List<ItemSlot> slotList = new List<ItemSlot>(); // 인벤토리 버튼을 눌렀을 때 나오는 인벤토리 슬롯들
     public List<string> itemList; // savedata에 저장되어있는 아이템 리스트들
@@ -164,14 +165,25 @@ public class InventoryManager : MonoBehaviour
             selectedItemHighlight.transform.SetParent(questInvenSlotImageList[itemList.IndexOf(selectedItemName)].transform, false);
             selectedItemHighlight.transform.localPosition = Vector3.zero;
         }
-        GameManager.GameManager_Instance.TurnOffUIafterSeconds();
-        Invoke("SetSlotPos", 1f);
+        GameManager.GameManager_Instance.TurnOffUI();
+        SetSlotPos();
     }
 
     private void SetSlotPos()
     {
         Vector3 originPos = new Vector3(370f, 120f, 0f);
         inventory.GetComponent<RectTransform>().anchoredPosition = originPos;
+    }
+
+    IEnumerator OneSecCoroutine()
+    {
+        float time = 0f;
+        while (time < 1)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        SetSlotPos();
     }
 
     public void SetLastClickedItem(ItemClass item)
@@ -365,5 +377,11 @@ public class InventoryManager : MonoBehaviour
         saveData.itemList.Add("StickyHandyLadle");
         saveData.itemList.Remove("HandyLadle");
         dataManager.Save();
+    }
+
+    public void SetOffCabinet()
+    {
+        if (cabinet.gameObject.activeSelf == true)
+            cabinet.SetOffObj();
     }
 }

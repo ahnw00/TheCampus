@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -82,19 +83,6 @@ public class GameManager : MonoBehaviour
         soundManager.ChangeSfxClip(btnClip);
         if (isUiOpened > 0)
             isUiOpened--;
-    }
-
-    void OnlyTurnOff()
-    {
-        if (isUiOpened > 0)
-            isUiOpened--;
-    }
-
-    public void TurnOffUIafterSeconds(float time = 1f)
-    {
-        if (!soundManager) soundManager = SoundManager.Instance;
-        soundManager.ChangeSfxClip(btnClip);
-        Invoke("OnlyTurnOff", time);
     }
 
     void DetectedFunction()

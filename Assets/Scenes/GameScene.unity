@@ -2780,6 +2780,7 @@ MonoBehaviour:
   - {fileID: 515148961}
   - {fileID: 2048387017}
   - {fileID: 629579089}
+  cabinet: {fileID: 422964865}
   slotList:
   - {fileID: 8380794506321558788}
   - {fileID: 23508802}
@@ -17211,10 +17212,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1447613370}
-          m_TargetAssemblyTypeName: FadeInAndOut, Assembly-CSharp
-          m_MethodName: SetOffObj
-          m_Mode: 1
+        - m_Target: {fileID: 1447613366}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17223,10 +17224,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 824198080}
-          m_TargetAssemblyTypeName: FadeInAndOut, Assembly-CSharp
-          m_MethodName: SetOffObj
-          m_Mode: 1
+        - m_Target: {fileID: 824198074}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17235,10 +17236,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 422964865}
-          m_TargetAssemblyTypeName: FadeInAndOut, Assembly-CSharp
-          m_MethodName: SetOffObj
-          m_Mode: 1
+        - m_Target: {fileID: 422964862}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
