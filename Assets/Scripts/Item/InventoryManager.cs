@@ -164,8 +164,8 @@ public class InventoryManager : MonoBehaviour
             selectedItemHighlight.transform.SetParent(questInvenSlotImageList[itemList.IndexOf(selectedItemName)].transform, false);
             selectedItemHighlight.transform.localPosition = Vector3.zero;
         }
-        GameManager.GameManager_Instance.TurnOffUI();
-        SetSlotPos();
+        GameManager.GameManager_Instance.TurnOffUIafterSeconds();
+        Invoke("SetSlotPos", 1f);
     }
 
     private void SetSlotPos()

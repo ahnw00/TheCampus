@@ -31,7 +31,7 @@ public class ContinueBtn : MonoBehaviour
 
     private bool SaveFileExists()
     {
-        Debug.Log(saveData.isNew);
+        //Debug.Log(saveData.isNew);
         return !saveData.isNew;
     }
 

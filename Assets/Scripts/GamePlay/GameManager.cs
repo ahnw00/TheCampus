@@ -84,6 +84,19 @@ public class GameManager : MonoBehaviour
             isUiOpened--;
     }
 
+    void OnlyTurnOff()
+    {
+        if (isUiOpened > 0)
+            isUiOpened--;
+    }
+
+    public void TurnOffUIafterSeconds(float time = 1f)
+    {
+        if (!soundManager) soundManager = SoundManager.Instance;
+        soundManager.ChangeSfxClip(btnClip);
+        Invoke("OnlyTurnOff", time);
+    }
+
     void DetectedFunction()
     {
         if(hit && hit.collider.GetComponent<Clickable>() && isUiOpened == 0)
