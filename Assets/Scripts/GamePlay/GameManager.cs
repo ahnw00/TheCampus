@@ -107,8 +107,9 @@ public class GameManager : MonoBehaviour
     public void PopOutMiniMap()
     {
         soundManager.ChangeSfxClip(mapClip);
-        StartCoroutine(map.GetComponent<MiniMap>().FadeOut());
-        Invoke("ReturnCam", 0.6f);
+        //StartCoroutine(map.GetComponent<MiniMap>().FadeOut());
+        //Invoke("ReturnCam", 0.6f);
+        ReturnCam();
     }
 
     void ReturnCam()

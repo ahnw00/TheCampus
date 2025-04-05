@@ -4,7 +4,7 @@ using UnityEngine;
 public class MiniMap : Clickable
 {
     float timeToMove = 0.5f;
-    Vector3 smallScale = new Vector3(3f, 3f, 1f);
+    Vector3 smallScale = new Vector3(8.5f, 8.5f, 1f);
     Vector3 largeScale = new Vector3(9f, 9f, 1f);
 
     public override void Clicked()
